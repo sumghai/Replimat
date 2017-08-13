@@ -5,4 +5,5 @@
 	<author>sumghai</author>
 	<url></url>
 	<targetVersion>0.17.1543</targetVersion>
+	<description>Distributed food replicator system for RimWorld.</description>
 </ModMetaData>
