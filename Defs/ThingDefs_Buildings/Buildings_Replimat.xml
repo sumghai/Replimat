@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Buildings>
+
+<!--====================== Replimat Terminal ======================--> 
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ReplimatTerminal</defName>
+    <label>Replimat Terminal</label>
+    <description>Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Conduit network.</description>
+    <graphicData>
+      <texPath>Things/Building/replimatTerminal</texPath>
+	  <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+	<uiIconPath>UI/replimatTerminal</uiIconPath>
+	<constructEffect>ConstructMetal</constructEffect>
+	<costList>
+      <Steel>50</Steel>
+	  <Component>20</Component>
+	  <Plasteel>20</Plasteel>
+    </costList>
+	<AltitudeLayer>Building</AltitudeLayer>
+    <fillPercent>1</fillPercent>
+    <useHitPoints>True</useHitPoints>
+	<statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <Beauty>5</Beauty>
+      <Mass>400</Mass>
+    </statBases>
+	<size>(1,1)</size>
+	<minifiedDef>MinifiedFurniture</minifiedDef>
+	<DesignationCategory>Replimat_Replimat</DesignationCategory>
+	<Passability>Impassable</Passability>
+	<castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+	<hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+	<building>
+    <isMealSource>true</isMealSource>
+      <nutritionCostPerDispense>0.0</nutritionCostPerDispense>
+      <soundDispense>DispensePaste</soundDispense>
+    </building>
+	<comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+		<startElectricalFires>true</startElectricalFires>
+        <basePowerConsumption>500</basePowerConsumption>
+      </li>
+	  <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <researchPrerequisites>
+      <li>MolecularNutrientResequencing</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+  <!--====================== Replimat Feedstock Tank ======================-->
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>ReplimatFeedTank</defName>
+    <label>Replimat Feedstock Tank</label>
+    <description>Stores an organic particulate suspension for use by Replimat Terminals in a Replimat network. Requires a hopper for raw food feedstock.</description>
+    <graphicData>
+      <texPath>Things/Building/replimatFeedTank</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(4,4)</drawSize>
+    </graphicData>
+	<uiIconPath>UI/replimatFeedTank</uiIconPath>
+	<constructEffect>ConstructMetal</constructEffect>
+	<costList>
+      <Steel>50</Steel>
+	  <Component>10</Component>
+	  <Plasteel>80</Plasteel>
+    </costList>
+	<AltitudeLayer>Building</AltitudeLayer>
+    <fillPercent>1</fillPercent>
+    <useHitPoints>True</useHitPoints>
+	<statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <Mass>1000</Mass>
+    </statBases>
+	<size>(2,2)</size>
+	<rotatable>false</rotatable>
+	<DesignationCategory>Replimat_Replimat</DesignationCategory>
+	<Passability>Impassable</Passability>
+	<castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+	<building>
+      <wantsHopperAdjacent>true</wantsHopperAdjacent>
+    </building>
+	<comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+		<startElectricalFires>true</startElectricalFires>
+        <basePowerConsumption>250</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <researchPrerequisites>
+      <li>MolecularNutrientResequencing</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+  <!--====================== Replimat Computer ======================-->
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>ReplimatComputer</defName>
+    <label>Replimat Computer</label>
+    <description>Provides a wide range of meal and beverage recipes to all Replimat Terminals connected on the same network.</description>
+    <graphicData>
+      <texPath>Things/Building/replimatComputer</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(4,4)</drawSize>
+    </graphicData>
+	<uiIconPath>UI/replimatComputer</uiIconPath>
+	<constructEffect>ConstructMetal</constructEffect>
+	<costList>
+      <Steel>50</Steel>
+	  <Component>50</Component>
+	  <Plasteel>20</Plasteel>
+	  <IsolinearModule>1</IsolinearModule>
+    </costList>
+	<AltitudeLayer>Building</AltitudeLayer>
+    <fillPercent>1</fillPercent>
+    <useHitPoints>True</useHitPoints>
+	<statBases>
+      <MaxHitPoints>400</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <Mass>750</Mass>
+    </statBases>
+	<size>(2,2)</size>
+	<rotatable>false</rotatable>
+	<DesignationCategory>Replimat_Replimat</DesignationCategory>
+	<Passability>Impassable</Passability>
+	<castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+	<building>
+      <wantsHopperAdjacent>true</wantsHopperAdjacent>
+    </building>
+	<comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+		<startElectricalFires>true</startElectricalFires>
+        <basePowerConsumption>250</basePowerConsumption>
+      </li>
+	  <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <researchPrerequisites>
+      <li>AdvMolecularNutrientResequencing</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+  <!--====================== Replimat Conduit ======================-->
+  
+  <ThingDef ParentName="BuildingBase">
+		<defName>ReplimatConduit</defName>
+		<label>Replimat Conduit</label>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Things/Building/replimatConduit_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>Transmitter</linkType>
+			<linkFlags>
+				<li>Custom5</li>
+			</linkFlags>
+			<damageData>
+				<rect>(0,0.35,1,0.3)</rect>
+			</damageData>
+		</graphicData>
+		<blueprintGraphicData>
+			<texPath>Things/Building/replimatConduitOverlay_Atlas</texPath>
+		</blueprintGraphicData>
+		<uiIconPath>UI/replimatConduit</uiIconPath>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<isInert>true</isInert>
+			<ignoreNeedsPower>true</ignoreNeedsPower>
+			<isEdifice>false</isEdifice>
+		</building>		
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<passability>Standable</passability>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<statBases>
+			<MaxHitPoints>80</MaxHitPoints>
+			<WorkToBuild>35</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>-2</Beauty>
+		</statBases>
+		<description>A set of sterilized piping and integrated optical fibre data net for conveying organic particulate suspension throughout a Replimat network. Can be placed under walls and other buildings.</description>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<costList>
+			<Plasteel>1</Plasteel>
+		</costList>
+		<comps>	
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTransmitter</compClass>
+			<transmitsPower>false</transmitsPower>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_Conduit</li>
+		</placeWorkers>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<designationCategory>Replimat_Replimat</designationCategory>
+		<constructEffect>ConstructMetal</constructEffect>
+		<researchPrerequisites>
+			<li>MolecularNutrientResequencing</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+</Buildings>
