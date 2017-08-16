@@ -161,12 +161,14 @@
   <ThingDef ParentName="BuildingBase">
 		<defName>ReplimatConduit</defName>
 		<label>Replimat Conduit</label>
+		<description>A set of sterilized piping and integrated optical fibre data net for conveying organic particulate suspension throughout a Replimat network. Can be placed under walls and other buildings.</description>
 		<thingClass>Building</thingClass>
+		<!--<thingClass>Replimat.Building_ReplimatConduit</thingClass>-->
 		<category>Building</category>
 		<graphicData>
 			<texPath>Things/Building/replimatConduit_Atlas</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<linkType>Transmitter</linkType>
+			<linkType>Basic</linkType>
 			<linkFlags>
 				<li>Custom5</li>
 			</linkFlags>
@@ -178,12 +180,22 @@
 			<texPath>Things/Building/replimatConduitOverlay_Atlas</texPath>
 		</blueprintGraphicData>
 		<uiIconPath>UI/replimatConduit</uiIconPath>
+		<comps>	
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTransmitter</compClass>
+			<transmitsPower>false</transmitsPower>
+			</li>
+			<!--
+			<li Class="Replimat.CompProperties_ReplimatConduit">
+				<mode>ReplimatFeedstock</mode>
+			</li>
+			-->
+		</comps>
 		<building>
-			<ai_chillDestination>false</ai_chillDestination>
 			<isInert>true</isInert>
 			<ignoreNeedsPower>true</ignoreNeedsPower>
 			<isEdifice>false</isEdifice>
-		</building>		
+		</building>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<passability>Standable</passability>
 		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
@@ -193,27 +205,21 @@
 			<Flammability>1.0</Flammability>
 			<Beauty>-2</Beauty>
 		</statBases>
-		<description>A set of sterilized piping and integrated optical fibre data net for conveying organic particulate suspension throughout a Replimat network. Can be placed under walls and other buildings.</description>
 		<placingDraggableDimensions>1</placingDraggableDimensions>
 		<costList>
 			<Plasteel>1</Plasteel>
 		</costList>
-		<comps>	
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerTransmitter</compClass>
-			<transmitsPower>false</transmitsPower>
-			</li>
-		</comps>
-		<placeWorkers>
-			<li>PlaceWorker_Conduit</li>
-		</placeWorkers>
 		<rotatable>false</rotatable>
 		<selectable>true</selectable>
 		<neverMultiSelect>true</neverMultiSelect>
 		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
 		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<designationCategory>Replimat_Replimat</designationCategory>
 		<constructEffect>ConstructMetal</constructEffect>
+		<designationCategory>Replimat_Replimat</designationCategory>
+		<placeWorkers>
+			<li>PlaceWorker_Conduit</li>
+			<!--<li>PlaceWorker_ReplimatConduit</li>-->
+		</placeWorkers>
 		<researchPrerequisites>
 			<li>MolecularNutrientResequencing</li>
 		</researchPrerequisites>
