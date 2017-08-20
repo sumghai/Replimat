@@ -24,19 +24,5 @@
 		<researchViewX>0</researchViewX>
 		<researchViewY>0</researchViewY>
 	</ResearchProjectDef>
-	
-	<ResearchProjectDef ParentName="ReplimatResearchProjectBase">
-		<defName>AdvMolecularNutrientResequencing</defName>
-		<label>Advanced Molecular Nutrient Resequencing</label>
-		<description>todo</description>
-		<tab>Replimat</tab>
-		<baseCost>3000</baseCost>
-		<techLevel>Spacer</techLevel>
-		<prerequisites>
-			<li>MolecularNutrientResequencing</li>
-		</prerequisites>
-		<researchViewX>1</researchViewX>
-		<researchViewY>0</researchViewY>
-	</ResearchProjectDef>
 
 </ResearchProjectDefs>

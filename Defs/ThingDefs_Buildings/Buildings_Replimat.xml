@@ -6,7 +6,8 @@
   <ThingDef ParentName="BuildingBase">
     <defName>ReplimatTerminal</defName>
     <label>Replimat Terminal</label>
-    <description>Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Conduit network.</description>
+    <description>Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank via conduits.</description>
+	<thingClass>Replimat.Building_ReplimatTerminal</thingClass>
     <graphicData>
       <texPath>Things/Building/replimatTerminal</texPath>
 	  <graphicClass>Graphic_Multi</graphicClass>
@@ -38,8 +39,7 @@
 	<hasInteractionCell>True</hasInteractionCell>
     <interactionCellOffset>(0,0,-1)</interactionCellOffset>
 	<building>
-    <isMealSource>true</isMealSource>
-      <nutritionCostPerDispense>0.0</nutritionCostPerDispense>
+      <isMealSource>true</isMealSource>
       <soundDispense>DispensePaste</soundDispense>
     </building>
 	<comps>
@@ -61,7 +61,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>ReplimatFeedTank</defName>
     <label>Replimat Feedstock Tank</label>
-    <description>Stores an organic particulate suspension for use by Replimat Terminals in a Replimat network. Requires a hopper for raw food feedstock.</description>
+    <description>Stores an organic particulate suspension for use by Replimat Terminals. Requires a hopper for raw food feedstock.</description>
     <graphicData>
       <texPath>Things/Building/replimatFeedTank</texPath>
 	  <graphicClass>Graphic_Single</graphicClass>
@@ -110,7 +110,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>ReplimatComputer</defName>
     <label>Replimat Computer</label>
-    <description>Provides a wide range of meal and beverage recipes to all Replimat Terminals connected on the same network.</description>
+    <description>Provides a wide range of meal and beverage recipes to all Replimat Terminals.</description>
     <graphicData>
       <texPath>Things/Building/replimatComputer</texPath>
 	  <graphicClass>Graphic_Single</graphicClass>
@@ -152,77 +152,8 @@
       <li Class="CompProperties_Breakdownable"/>
     </comps>
     <researchPrerequisites>
-      <li>AdvMolecularNutrientResequencing</li>
+      <li>MolecularNutrientResequencing</li>
     </researchPrerequisites>
   </ThingDef>
-  
-  <!--====================== Replimat Conduit ======================-->
-  
-  <ThingDef ParentName="BuildingBase">
-		<defName>ReplimatConduit</defName>
-		<label>Replimat Conduit</label>
-		<description>A set of sterilized piping and integrated optical fibre data net for conveying organic particulate suspension throughout a Replimat network. Can be placed under walls and other buildings.</description>
-		<thingClass>Building</thingClass>
-		<!--<thingClass>Replimat.Building_ReplimatConduit</thingClass>-->
-		<category>Building</category>
-		<graphicData>
-			<texPath>Things/Building/replimatConduit_Atlas</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<linkType>Basic</linkType>
-			<linkFlags>
-				<li>Custom5</li>
-			</linkFlags>
-			<damageData>
-				<rect>(0,0.35,1,0.3)</rect>
-			</damageData>
-		</graphicData>
-		<blueprintGraphicData>
-			<texPath>Things/Building/replimatConduitOverlay_Atlas</texPath>
-		</blueprintGraphicData>
-		<uiIconPath>UI/replimatConduit</uiIconPath>
-		<comps>	
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerTransmitter</compClass>
-			<transmitsPower>false</transmitsPower>
-			</li>
-			<!--
-			<li Class="Replimat.CompProperties_ReplimatConduit">
-				<mode>ReplimatFeedstock</mode>
-			</li>
-			-->
-		</comps>
-		<building>
-			<isInert>true</isInert>
-			<ignoreNeedsPower>true</ignoreNeedsPower>
-			<isEdifice>false</isEdifice>
-		</building>
-		<altitudeLayer>FloorEmplacement</altitudeLayer>
-		<passability>Standable</passability>
-		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-		<statBases>
-			<MaxHitPoints>80</MaxHitPoints>
-			<WorkToBuild>35</WorkToBuild>
-			<Flammability>1.0</Flammability>
-			<Beauty>-2</Beauty>
-		</statBases>
-		<placingDraggableDimensions>1</placingDraggableDimensions>
-		<costList>
-			<Plasteel>1</Plasteel>
-		</costList>
-		<rotatable>false</rotatable>
-		<selectable>true</selectable>
-		<neverMultiSelect>true</neverMultiSelect>
-		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
-		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<constructEffect>ConstructMetal</constructEffect>
-		<designationCategory>Replimat_Replimat</designationCategory>
-		<placeWorkers>
-			<li>PlaceWorker_Conduit</li>
-			<!--<li>PlaceWorker_ReplimatConduit</li>-->
-		</placeWorkers>
-		<researchPrerequisites>
-			<li>MolecularNutrientResequencing</li>
-		</researchPrerequisites>
-	</ThingDef>
 
 </Buildings>
