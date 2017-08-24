@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using Verse;
 using Verse.AI;
 
 namespace Replimat
 {
-    public class Replimat_Main
+    public class Toils_IngestReplimat
     {
-
-        // Patch into Rimworld.Toils_Ingest
         public static Toil TakeMealFromReplimatTerminal(TargetIndex ind, Pawn eater)
         {
             Toil toil = new Toil();
@@ -33,8 +32,5 @@ namespace Replimat
             toil.defaultDuration = Building_ReplimatTerminal.CollectDuration;
             return toil;
         }
-
-
-
     }
 }
