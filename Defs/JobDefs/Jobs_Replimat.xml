@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<JobDefs>
+
+  <!--============ Need satisfaction ============-->
+
+  <JobDef>
+		<defName>IngestReplimat</defName>
+		<driverClass>Replimat.JobDriver_IngestReplimat</driverClass>
+		<reportString>consuming TargetA.</reportString>
+  </JobDef>
+  
+  <!--============= Medical ===============-->
+
+  <JobDef>
+    <defName>FeedPatientReplimat</defName>
+    <driverClass>Replimat.JobDriver_FoodFeedPatientReplimat</driverClass>
+    <reportString>feeding TargetA to TargetB.</reportString>
+  </JobDef>
+  
+  <!--============= Misc ===============-->
+
+  <JobDef>
+    <defName>DeliverFoodReplimat</defName>
+    <driverClass>Replimat.JobDriver_FoodDeliverReplimat</driverClass>
+    <reportString>feeding TargetA to TargetB.</reportString>
+  </JobDef>
+  
+</JobDefs>

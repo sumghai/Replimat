@@ -74,12 +74,18 @@ namespace Replimat
         [DebuggerHidden]
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            JobDriver_Ingest.< MakeNewToils > c__Iterator4D < MakeNewToils > c__Iterator4D = new JobDriver_Ingest.< MakeNewToils > c__Iterator4D();
-
-            < MakeNewToils > c__Iterator4D.<> f__this = this;
-            JobDriver_Ingest.< MakeNewToils > c__Iterator4D expr_0E = < MakeNewToils > c__Iterator4D;
-            expr_0E.$PC = -2;
-            return expr_0E;
+            if (!this.usingReplimatTerminal)
+            {
+                this.FailOn(() => !this.IngestibleSource.Destroyed && !this.IngestibleSource.IngestibleNow);
+            }
+            Toil chew = Toils_Ingest.ChewIngestible(this.pawn, this.ChewDurationMultiplier, TargetIndex.A, TargetIndex.B).FailOn((Toil x) => !this.IngestibleSource.Spawned && (this.pawn.carryTracker == null || this.pawn.carryTracker.CarriedThing != this.IngestibleSource)).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
+            foreach (Toil toil in this.PrepareToIngestToils(chew))
+            {
+                yield return toil;
+            }
+            yield return chew;
+            yield return Toils_Ingest.FinalizeIngest(this.pawn, TargetIndex.A);
+            yield return Toils_Jump.JumpIf(chew, () => this.CurJob.GetTarget(TargetIndex.A).Thing is Corpse && this.pawn.needs.food.CurLevelPercentage < 0.9f);
         }
 
         private IEnumerable<Toil> PrepareToIngestToils(Toil chewToil)
@@ -98,38 +104,59 @@ namespace Replimat
         [DebuggerHidden]
         private IEnumerable<Toil> PrepareToIngestToils_Dispenser()
         {
-            JobDriver_Ingest.< PrepareToIngestToils_Dispenser > c__Iterator4E < PrepareToIngestToils_Dispenser > c__Iterator4E = new JobDriver_Ingest.< PrepareToIngestToils_Dispenser > c__Iterator4E();
-
-            < PrepareToIngestToils_Dispenser > c__Iterator4E.<> f__this = this;
-            JobDriver_Ingest.< PrepareToIngestToils_Dispenser > c__Iterator4E expr_0E = < PrepareToIngestToils_Dispenser > c__Iterator4E;
-            expr_0E.$PC = -2;
-            return expr_0E;
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell).FailOnDespawnedNullOrForbidden(TargetIndex.A);
+            yield return Toils_Ingest.TakeMealFromDispenser(TargetIndex.A, this.pawn);
+            yield return Toils_Ingest.CarryIngestibleToChewSpot(this.pawn, TargetIndex.A).FailOnDestroyedNullOrForbidden(TargetIndex.A);
+            yield return Toils_Ingest.FindAdjacentEatSurface(TargetIndex.B, TargetIndex.A);
         }
 
         [DebuggerHidden]
         private IEnumerable<Toil> PrepareToIngestToils_ToolUser(Toil chewToil)
         {
-            JobDriver_Ingest.< PrepareToIngestToils_ToolUser > c__Iterator4F < PrepareToIngestToils_ToolUser > c__Iterator4F = new JobDriver_Ingest.< PrepareToIngestToils_ToolUser > c__Iterator4F();
-
-            < PrepareToIngestToils_ToolUser > c__Iterator4F.chewToil = chewToil;
-
-            < PrepareToIngestToils_ToolUser > c__Iterator4F.<$> chewToil = chewToil;
-
-            < PrepareToIngestToils_ToolUser > c__Iterator4F.<> f__this = this;
-            JobDriver_Ingest.< PrepareToIngestToils_ToolUser > c__Iterator4F expr_1C = < PrepareToIngestToils_ToolUser > c__Iterator4F;
-            expr_1C.$PC = -2;
-            return expr_1C;
+            if (this.eatingFromInventory)
+            {
+                yield return Toils_Misc.TakeItemFromInventoryToCarrier(this.pawn, TargetIndex.A);
+            }
+            else
+            {
+                yield return this.ReserveFoodIfWillIngestWholeStack();
+                Toil gotoToPickup = Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.A);
+                yield return Toils_Jump.JumpIf(gotoToPickup, () => this.pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation));
+                yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch).FailOnDespawnedNullOrForbidden(TargetIndex.A);
+                yield return Toils_Jump.Jump(chewToil);
+                yield return gotoToPickup;
+                yield return Toils_Ingest.PickupIngestible(TargetIndex.A, this.pawn);
+                Toil reserveExtraFoodToCollect = Toils_Reserve.Reserve(TargetIndex.C, 1, -1, null);
+                Toil findExtraFoodToCollect = new Toil();
+                findExtraFoodToCollect.initAction = delegate
+                {
+                    if (this.pawn.inventory.innerContainer.TotalStackCountOfDef(this.IngestibleSource.def) < this.CurJob.takeExtraIngestibles)
+                    {
+                        Predicate<Thing> validator = (Thing x) => this.pawn.CanReserve(x, 1, -1, null, false) && !x.IsForbidden(this.pawn) && x.IsSociallyProper(this.pawn);
+                        Thing thing = GenClosest.ClosestThingReachable(this.pawn.Position, this.pawn.Map, ThingRequest.ForDef(this.IngestibleSource.def), PathEndMode.Touch, TraverseParms.For(this.pawn, Danger.Deadly, TraverseMode.ByPawn, false), 12f, validator, null, 0, -1, false, RegionType.Set_Passable, false);
+                        if (thing != null)
+                        {
+                            this.pawn.CurJob.SetTarget(TargetIndex.C, thing);
+                            this.JumpToToil(reserveExtraFoodToCollect);
+                        }
+                    }
+                };
+                findExtraFoodToCollect.defaultCompleteMode = ToilCompleteMode.Instant;
+                yield return Toils_Jump.Jump(findExtraFoodToCollect);
+                yield return reserveExtraFoodToCollect;
+                yield return Toils_Goto.GotoThing(TargetIndex.C, PathEndMode.Touch);
+                yield return Toils_Haul.TakeToInventory(TargetIndex.C, () => this.CurJob.takeExtraIngestibles - this.pawn.inventory.innerContainer.TotalStackCountOfDef(this.IngestibleSource.def));
+                yield return findExtraFoodToCollect;
+            }
+            yield return Toils_Ingest.CarryIngestibleToChewSpot(this.pawn, TargetIndex.A).FailOnDestroyedOrNull(TargetIndex.A);
+            yield return Toils_Ingest.FindAdjacentEatSurface(TargetIndex.B, TargetIndex.A);
         }
 
         [DebuggerHidden]
         private IEnumerable<Toil> PrepareToIngestToils_NonToolUser()
         {
-            JobDriver_Ingest.< PrepareToIngestToils_NonToolUser > c__Iterator50 < PrepareToIngestToils_NonToolUser > c__Iterator = new JobDriver_Ingest.< PrepareToIngestToils_NonToolUser > c__Iterator50();
-
-            < PrepareToIngestToils_NonToolUser > c__Iterator.<> f__this = this;
-            JobDriver_Ingest.< PrepareToIngestToils_NonToolUser > c__Iterator50 expr_0E = < PrepareToIngestToils_NonToolUser > c__Iterator;
-            expr_0E.$PC = -2;
-            return expr_0E;
+            yield return this.ReserveFoodIfWillIngestWholeStack();
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
         }
 
         private Toil ReserveFoodIfWillIngestWholeStack()

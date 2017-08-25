@@ -34,7 +34,7 @@ namespace Replimat
 
         public override string GetReport()
         {
-            if (base.CurJob.GetTarget(TargetIndex.A).Thing is Replimat.Building_ReplimatTerminal)
+            if (base.CurJob.GetTarget(TargetIndex.A).Thing is Building_ReplimatTerminal)
             {
                 return base.CurJob.def.reportString.Replace("TargetA", ThingDefOf.MealFine.label).Replace("TargetB", ((Pawn)((Thing)base.CurJob.targetB)).LabelShort);
             }
@@ -51,12 +51,46 @@ namespace Replimat
         [DebuggerHidden]
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            JobDriver_FoodDeliverReplimat.< MakeNewToils > c__Iterator4B < MakeNewToils > c__Iterator4B = new JobDriver_FoodDeliver.< MakeNewToils > c__Iterator4B();
-
-            < MakeNewToils > c__Iterator4B.<> f__this = this;
-            JobDriver_FoodDeliverReplimat.< MakeNewToils > c__Iterator4B expr_0E = < MakeNewToils > c__Iterator4B;
-            expr_0E.$PC = -2;
-            return expr_0E;
+            yield return Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
+            if (this.eatingFromInventory)
+            {
+                yield return Toils_Misc.TakeItemFromInventoryToCarrier(this.pawn, TargetIndex.A);
+            }
+            else if (this.usingReplimatTerminal)
+            {
+                yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell).FailOnForbidden(TargetIndex.A);
+                yield return Toils_Ingest.TakeMealFromDispenser(TargetIndex.A, this.pawn);
+            }
+            else
+            {
+                yield return Toils_Reserve.Reserve(TargetIndex.A, 1, -1, null);
+                yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnForbidden(TargetIndex.A);
+                yield return Toils_Ingest.PickupIngestible(TargetIndex.A, this.Deliveree);
+            }
+            Toil toil = new Toil();
+            toil.initAction = delegate
+            {
+                Pawn actor = this.pawn;
+                Job curJob = actor.jobs.curJob;
+                actor.pather.StartPath(curJob.targetC, PathEndMode.OnCell);
+            };
+            toil.defaultCompleteMode = ToilCompleteMode.PatherArrival;
+            toil.FailOnDestroyedNullOrForbidden(TargetIndex.B);
+            toil.AddFailCondition(delegate
+            {
+                Pawn pawn = (Pawn)this.pawn.jobs.curJob.targetB.Thing;
+                return !pawn.IsPrisonerOfColony || !pawn.guest.CanBeBroughtFood;
+            });
+            yield return toil;
+            yield return new Toil
+            {
+                initAction = delegate
+                {
+                    Thing thing;
+                    this.pawn.carryTracker.TryDropCarriedThing(this.pawn.jobs.curJob.targetC.Cell, ThingPlaceMode.Direct, out thing, null);
+                },
+                defaultCompleteMode = ToilCompleteMode.Instant
+            };
         }
     }
 }

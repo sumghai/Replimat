@@ -1,2 +1,3 @@
 D:\Games\RimWorld.Alpha.17.v0.17.1557.rev1150\Mods\Assemblies\Replimat.dll
-D:\Games\RimWorld.Alpha.17.v0.17.1557.rev1150\Mods\Replimat\Source\obj\Debug\Replimat.csprojResolveAssemblyReference.cache
+D:\Games\RimWorld.Alpha.17.v0.17.1557.rev1150\Mods\Replimat\Assemblies\Replimat.dll
+D:\Games\RimWorld.Alpha.17.v0.17.1557.rev1150\Mods\Replimat\Source\obj\Debug\Replimat.dll
