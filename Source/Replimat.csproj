@@ -54,6 +54,7 @@
     <Compile Include="JobDriver_IngestReplimat.cs" />
     <Compile Include="JobGiver_GetFoodReplimat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReplimatDef.cs" />
     <Compile Include="Toils_IngestReplimat.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />

@@ -63,14 +63,6 @@ namespace Replimat
             {
                 return null;
             }
-            Pawn pawn2 = thing as Pawn;
-            if (pawn2 != null)
-            {
-                return new Job(JobDefOf.PredatorHunt, pawn2)
-                {
-                    killIncappedTarget = true
-                };
-            }
             Building_ReplimatTerminal building_ReplimatTerminal = thing as Building_ReplimatTerminal;
             if (building_ReplimatTerminal != null)
             {
@@ -82,7 +74,7 @@ namespace Replimat
                 }
                 def = thing.def;
             }
-            return new Job(JobDefOf.Ingest, thing)
+            return new Job(ReplimatDef.ingestReplimatDef, thing)
             {
                 count = FoodUtility.WillIngestStackCountOf(pawn, def)
             };
