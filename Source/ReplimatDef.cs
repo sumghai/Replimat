@@ -11,5 +11,7 @@ namespace Replimat
         public static JobDef feedPatientReplimatDef = DefDatabase<JobDef>.GetNamed("FeedPatientReplimat", true);
 
         public static JobDef deliverFoodReplimatDef = DefDatabase<JobDef>.GetNamed("DeliverFoodReplimat", true);
+
+        public static ThingDef ReplimatTerminal = ThingDef.Named("ReplimatTerminal");
     }
 }

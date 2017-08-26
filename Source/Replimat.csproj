@@ -18,7 +18,7 @@
     <OutputPath>..\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>1</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -48,6 +48,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Building_ReplimatStorage.cs" />
     <Compile Include="Building_ReplimatTerminal.cs" />
     <Compile Include="ReplimatUtility.cs" />
     <Compile Include="JobDriver_FoodDeliverReplimat.cs" />
@@ -56,7 +57,6 @@
     <Compile Include="JobGiver_GetFoodReplimat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReplimatDef.cs" />
-    <Compile Include="Toils_IngestReplimat.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

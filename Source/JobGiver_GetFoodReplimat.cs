@@ -23,7 +23,7 @@ namespace Replimat
             {
                 return 0f;
             }
-            if (pawn.needs.food.CurCategory < HungerCategory.Starving && ReplimatUtility.ShouldBeFedBySomeone(pawn))
+            if (pawn.needs.food.CurCategory < HungerCategory.Starving && FoodUtility.ShouldBeFedBySomeone(pawn))
             {
                 return 0f;
             }
@@ -59,6 +59,7 @@ namespace Replimat
             bool allowCorpse = flag;
             Thing thing;
             ThingDef def;
+
             if (!ReplimatUtility.TryFindBestFoodSourceFor(pawn, pawn, desperate, out thing, out def, true, true, false, allowCorpse, false))
             {
                 return null;
@@ -66,15 +67,12 @@ namespace Replimat
 
             if (thing is Building_ReplimatTerminal rep)
             {
-                Log.Warning("should return");
-
                 return new Job(ReplimatDef.ingestReplimatDef, thing)
                 {
-                    count = ReplimatUtility.WillIngestStackCountOf(pawn, def)
+                    count = FoodUtility.WillIngestStackCountOf(pawn, def)
                 };
             }
 
-            Log.Warning("no rep");
             return null;
         }
     }

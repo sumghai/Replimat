@@ -4,15 +4,17 @@ using RimWorld;
 
 namespace Replimat
 {
-    public class Building_ReplimatTerminal : Building_NutrientPasteDispenser
+    public class Building_ReplimatTerminal : Building
     {
         public CompPowerTrader powerComp;
 
-        public ThingDef SelectedMeal = ThingDefOf.MealFine;
+        public ThingDef SelectedMeal = ThingDefOf.MealSimple;
 
-        public static int CollectDuration = 50;
+        public static int CollectDuration = GenTicks.SecondsToTicks(2f);
 
-        public new bool CanDispenseNow
+        public int ReplicatingTicks = 0;
+
+        public bool CanDispenseNow
         {
             get
             {
@@ -20,11 +22,24 @@ namespace Replimat
             }
         }
 
-        public override ThingDef DispensableDef
+        public ThingDef DispensableDef
         {
             get
             {
                 return SelectedMeal;
+            }
+        }
+
+        public override void Tick()
+        {
+            base.Tick();
+
+            powerComp.PowerOutput = -125f;
+
+            if (ReplicatingTicks > 0)
+            {
+                ReplicatingTicks--;
+                powerComp.PowerOutput = -1500f;
             }
         }
 
@@ -34,22 +49,28 @@ namespace Replimat
             this.powerComp = base.GetComp<CompPowerTrader>();
         }
 
-        public override Thing TryDispenseFood()
+        public void Replicate()
+        {
+            if (!this.CanDispenseNow)
+            {
+                return;
+            }
+
+            ReplicatingTicks = GenTicks.SecondsToTicks(2f);
+            this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
+        }
+
+        public Thing TryDispenseFood()
         {
             if (!this.CanDispenseNow)
             {
                 return null;
             }
 
-            this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
             Thing thing2 = ThingMaker.MakeThing(DispensableDef, null);
             return thing2;
         }
 
-        public override bool HasEnoughFeedstockInHoppers()
-        {
-            return true;
-        }
     }
 }
 

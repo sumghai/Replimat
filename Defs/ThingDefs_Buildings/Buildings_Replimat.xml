@@ -31,27 +31,24 @@
       <Mass>400</Mass>
     </statBases>
 	<size>(1,1)</size>
+	 <tickerType>Normal</tickerType>
 	<minifiedDef>MinifiedFurniture</minifiedDef>
 	<DesignationCategory>Replimat_Replimat</DesignationCategory>
-	<Passability>Impassable</Passability>
+	<Passability>PassThroughOnly</Passability>
+	<pathCost>200</pathCost>
 	<castEdgeShadows>true</castEdgeShadows>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
 	<hasInteractionCell>True</hasInteractionCell>
     <interactionCellOffset>(0,0,-1)</interactionCellOffset>
 	<building>
       <isMealSource>true</isMealSource>
-	  <wantsHopperAdjacent>false</wantsHopperAdjacent>
-      <soundDispense>ReplimatMaterialize</soundDispense>
+      <soundDispense>Replicate</soundDispense>
     </building>
-	<ingestible>
-	<foodType>Meal</foodType>
-	<nutrition>0.1</nutrition>
-	</ingestible>
 	<comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
 		<startElectricalFires>true</startElectricalFires>
-        <basePowerConsumption>500</basePowerConsumption>
+        <basePowerConsumption>125</basePowerConsumption>
       </li>
 	  <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>

@@ -9,6 +9,7 @@ namespace Replimat
 {
     public static class ReplimatUtility
     {
+
         private static HashSet<Thing> filtered = new HashSet<Thing>();
 
         private static readonly SimpleCurve FoodOptimalityEffectFromMoodCurve = new SimpleCurve
@@ -83,16 +84,7 @@ namespace Replimat
                         return true;
                     }
                 }
-                if (thing2 == null && getter == eater && getter.RaceProps.predator)
-                {
-                    Pawn pawn = BestPawnToHuntForPredator(getter);
-                    if (pawn != null)
-                    {
-                        foodSource = pawn;
-                        foodDef = GetFinalIngestibleDef(foodSource);
-                        return true;
-                    }
-                }
+
                 foodSource = null;
                 foodDef = null;
                 return false;
@@ -206,9 +198,7 @@ namespace Replimat
 
                 if (t is Building_ReplimatTerminal replimat)
                 {
-                    Log.Warning("FOUND REP");
-                    /// SOMETHING THAT MAKES SENSE
-                    if (!allowDispenserFull || replimat.DispensableDef.ingestible.preferability < minPref || replimat.DispensableDef.ingestible.preferability > maxPref || !getterCanManipulate || (t.Faction != getter.Faction && t.Faction != getter.HostFaction) || (!replimat.powerComp.PowerOn || (!allowDispenserEmpty && !replimat.CanDispenseNow)) || !IsFoodSourceOnMapSociallyProper(t, getter, eater, allowSociallyImproper) || !t.InteractionCell.Standable(t.Map) || !getter.Map.reachability.CanReachNonLocal(getter.Position, new TargetInfo(t.InteractionCell, t.Map, false), PathEndMode.OnCell, TraverseParms.For(getter, Danger.Some, TraverseMode.ByPawn, false)))
+                    if (!replimat.CanDispenseNow || replimat.DispensableDef.ingestible.preferability < minPref || replimat.DispensableDef.ingestible.preferability > maxPref || !getterCanManipulate || (t.Faction != getter.Faction && t.Faction != getter.HostFaction) || !IsFoodSourceOnMapSociallyProper(t, getter, eater, allowSociallyImproper) || !t.InteractionCell.Standable(t.Map) || !getter.Map.reachability.CanReachNonLocal(getter.Position, new TargetInfo(t.InteractionCell, t.Map, false), PathEndMode.OnCell, TraverseParms.For(getter, Danger.Some, TraverseMode.ByPawn, false)))
                     {
                         return false;
                     }
@@ -235,6 +225,7 @@ namespace Replimat
                         return false;
                     }
                 }
+              
                 return true;
             };
             ThingRequest thingRequest;
@@ -246,11 +237,15 @@ namespace Replimat
             {
                 thingRequest = ThingRequest.ForGroup(ThingRequestGroup.FoodSourceNotPlantOrTree);
             }
-            Thing thing;
+            Thing thing=null;
             if (getter.RaceProps.Humanlike)
             {
                 Predicate<Thing> validator = foodValidator;
-                thing = SpawnedFoodSearchInnerScan(eater, getter.Position, getter.Map.listerThings.ThingsMatching(thingRequest), PathEndMode.ClosestTouch, TraverseParms.For(getter, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator);
+
+                List<Thing> searchset = getter.Map.listerThings.ThingsMatching(ThingRequest.ForDef(ReplimatDef.ReplimatTerminal));
+                searchset.AddRange(getter.Map.listerThings.ThingsMatching(thingRequest));
+
+                thing = SpawnedFoodSearchInnerScan(eater, getter.Position, searchset, PathEndMode.ClosestTouch, TraverseParms.For(getter, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator);
             }
             else
             {
@@ -379,186 +374,8 @@ namespace Replimat
                     }
                 }
             }
+
             return result;
-        }
-
-        public static void DebugFoodSearchFromMouse_Update()
-        {
-            IntVec3 root = UI.MouseCell();
-            Pawn pawn = Find.Selector.SingleSelectedThing as Pawn;
-            if (pawn == null)
-            {
-                return;
-            }
-            if (pawn.Map != Find.VisibleMap)
-            {
-                return;
-            }
-            Thing thing = SpawnedFoodSearchInnerScan(pawn, root, Find.VisibleMap.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree), PathEndMode.ClosestTouch, TraverseParms.For(TraverseMode.PassDoors, Danger.Deadly, false), 9999f, null);
-            if (thing != null)
-            {
-                GenDraw.DrawLineBetween(root.ToVector3Shifted(), thing.Position.ToVector3Shifted());
-            }
-        }
-
-        public static void DebugFoodSearchFromMouse_OnGUI()
-        {
-            IntVec3 a = UI.MouseCell();
-            Pawn pawn = Find.Selector.SingleSelectedThing as Pawn;
-            if (pawn == null)
-            {
-                return;
-            }
-            if (pawn.Map != Find.VisibleMap)
-            {
-                return;
-            }
-            Text.Anchor = TextAnchor.MiddleCenter;
-            Text.Font = GameFont.Tiny;
-            foreach (Thing current in Find.VisibleMap.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree))
-            {
-                float num = FoodSourceOptimality(pawn, current, (a - current.Position).LengthHorizontal, false);
-                Vector2 vector = current.DrawPos.MapToUIPosition();
-                Rect rect = new Rect(vector.x - 100f, vector.y - 100f, 200f, 200f);
-                string text = num.ToString("F0");
-                List<ThoughtDef> list = ThoughtsFromIngesting(pawn, current);
-                for (int i = 0; i < list.Count; i++)
-                {
-                    string text2 = text;
-                    text = string.Concat(new string[]
-                    {
-                        text2,
-                        "\n",
-                        list[i].defName,
-                        "(",
-                        FoodOptimalityEffectFromMoodCurve.Evaluate(list[i].stages[0].baseMoodEffect).ToString("F0"),
-                        ")"
-                    });
-                }
-                Widgets.Label(rect, text);
-            }
-            Text.Anchor = TextAnchor.UpperLeft;
-        }
-
-        private static Pawn BestPawnToHuntForPredator(Pawn predator)
-        {
-            if (predator.meleeVerbs.TryGetMeleeVerb() == null)
-            {
-                return null;
-            }
-            bool flag = false;
-            float summaryHealthPercent = predator.health.summaryHealth.SummaryHealthPercent;
-            if (summaryHealthPercent < 0.25f)
-            {
-                flag = true;
-            }
-            List<Pawn> allPawnsSpawned = predator.Map.mapPawns.AllPawnsSpawned;
-            Pawn pawn = null;
-            float num = 0f;
-            bool tutorialMode = TutorSystem.TutorialMode;
-            for (int i = 0; i < allPawnsSpawned.Count; i++)
-            {
-                Pawn pawn2 = allPawnsSpawned[i];
-                if (predator.GetRoom(RegionType.Set_Passable) == pawn2.GetRoom(RegionType.Set_Passable))
-                {
-                    if (predator != pawn2)
-                    {
-                        if (!flag || pawn2.Downed)
-                        {
-                            if (IsAcceptablePreyFor(predator, pawn2))
-                            {
-                                if (predator.CanReach(pawn2, PathEndMode.ClosestTouch, Danger.Deadly, false, TraverseMode.ByPawn))
-                                {
-                                    if (!pawn2.IsForbidden(predator))
-                                    {
-                                        if (!tutorialMode || pawn2.Faction != Faction.OfPlayer)
-                                        {
-                                            float preyScoreFor = GetPreyScoreFor(predator, pawn2);
-                                            if (preyScoreFor > num || pawn == null)
-                                            {
-                                                num = preyScoreFor;
-                                                pawn = pawn2;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return pawn;
-        }
-
-        public static bool IsAcceptablePreyFor(Pawn predator, Pawn prey)
-        {
-            if (!prey.RaceProps.canBePredatorPrey)
-            {
-                return false;
-            }
-            if (!prey.RaceProps.IsFlesh)
-            {
-                return false;
-            }
-            if (prey.BodySize > predator.RaceProps.maxPreyBodySize)
-            {
-                return false;
-            }
-            if (!prey.Downed)
-            {
-                if (prey.kindDef.combatPower > 2f * predator.kindDef.combatPower)
-                {
-                    return false;
-                }
-                float num = prey.kindDef.combatPower * prey.health.summaryHealth.SummaryHealthPercent * prey.ageTracker.CurLifeStage.bodySizeFactor;
-                float num2 = predator.kindDef.combatPower * predator.health.summaryHealth.SummaryHealthPercent * predator.ageTracker.CurLifeStage.bodySizeFactor;
-                if (num > 0.85f * num2)
-                {
-                    return false;
-                }
-            }
-            return (predator.Faction == null || prey.Faction == null || predator.HostileTo(prey)) && (predator.Faction != Faction.OfPlayer || prey.Faction != Faction.OfPlayer) && (!predator.RaceProps.herdAnimal || predator.def != prey.def);
-        }
-
-        public static float GetPreyScoreFor(Pawn predator, Pawn prey)
-        {
-            float num = prey.kindDef.combatPower / predator.kindDef.combatPower;
-            float num2 = prey.health.summaryHealth.SummaryHealthPercent;
-            float bodySizeFactor = prey.ageTracker.CurLifeStage.bodySizeFactor;
-            float lengthHorizontal = (predator.Position - prey.Position).LengthHorizontal;
-            if (prey.Downed)
-            {
-                num2 = Mathf.Min(num2, 0.2f);
-            }
-            float num3 = -lengthHorizontal - 56f * num2 * num2 * num * bodySizeFactor;
-            if (prey.RaceProps.Humanlike)
-            {
-                num3 -= 35f;
-            }
-            return num3;
-        }
-
-        public static void DebugDrawPredatorFoodSource()
-        {
-            Pawn pawn = Find.Selector.SingleSelectedThing as Pawn;
-            if (pawn == null)
-            {
-                return;
-            }
-            Thing thing;
-            ThingDef thingDef;
-            if (TryFindBestFoodSourceFor(pawn, pawn, true, out thing, out thingDef, false, false, false, true, false))
-            {
-                GenDraw.DrawLineBetween(pawn.Position.ToVector3Shifted(), thing.Position.ToVector3Shifted());
-                if (!(thing is Pawn))
-                {
-                    Pawn pawn2 = BestPawnToHuntForPredator(pawn);
-                    if (pawn2 != null)
-                    {
-                        GenDraw.DrawLineBetween(pawn.Position.ToVector3Shifted(), pawn2.Position.ToVector3Shifted());
-                    }
-                }
-            }
         }
 
         public static List<ThoughtDef> ThoughtsFromIngesting(Pawn ingester, Thing t)
@@ -573,12 +390,16 @@ namespace Replimat
             {
                 thingDef = ThingDefOf.MealNutrientPaste;
             }
+            if (t is Building_ReplimatTerminal rep)
+            {
+                thingDef = rep.DispensableDef;
+            }
             if (!ingester.story.traits.HasTrait(TraitDefOf.Ascetic) && thingDef.ingestible.tasteThought != null)
             {
                 ingestThoughts.Add(thingDef.ingestible.tasteThought);
             }
             CompIngredients compIngredients = t.TryGetComp<CompIngredients>();
-            if (IsHumanlikeMeat(thingDef) && ingester.RaceProps.Humanlike)
+            if (FoodUtility.IsHumanlikeMeat(thingDef) && ingester.RaceProps.Humanlike)
             {
                 ingestThoughts.Add((!ingester.story.traits.HasTrait(TraitDefOf.Cannibal)) ? ThoughtDefOf.AteHumanlikeMeatDirect : ThoughtDefOf.AteHumanlikeMeatDirectCannibal);
             }
@@ -589,7 +410,7 @@ namespace Replimat
                     ThingDef thingDef2 = compIngredients.ingredients[i];
                     if (thingDef2.ingestible != null)
                     {
-                        if (ingester.RaceProps.Humanlike && IsHumanlikeMeat(thingDef2))
+                        if (ingester.RaceProps.Humanlike && FoodUtility.IsHumanlikeMeat(thingDef2))
                         {
                             ingestThoughts.Add((!ingester.story.traits.HasTrait(TraitDefOf.Cannibal)) ? ThoughtDefOf.AteHumanlikeMeatAsIngredient : ThoughtDefOf.AteHumanlikeMeatAsIngredientCannibal);
                         }
@@ -609,67 +430,6 @@ namespace Replimat
                 ingestThoughts.Add(ThoughtDefOf.AteRottenFood);
             }
             return ingestThoughts;
-        }
-
-        public static bool IsHumanlikeMeat(ThingDef def)
-        {
-            return def.ingestible.sourceDef != null && def.ingestible.sourceDef.race != null && def.ingestible.sourceDef.race.Humanlike;
-        }
-
-        public static bool IsHumanlikeMeatOrHumanlikeCorpse(Thing thing)
-        {
-            if (IsHumanlikeMeat(thing.def))
-            {
-                return true;
-            }
-            Corpse corpse = thing as Corpse;
-            return corpse != null && corpse.InnerPawn.RaceProps.Humanlike;
-        }
-
-        public static int WillIngestStackCountOf(Pawn ingester, ThingDef def)
-        {
-            int num = Mathf.Min(def.ingestible.maxNumToIngestAtOnce, StackCountForNutrition(def, ingester.needs.food.NutritionWanted));
-            if (num < 1)
-            {
-                num = 1;
-            }
-            return num;
-        }
-
-        public static float GetBodyPartNutrition(Pawn pawn, BodyPartRecord part)
-        {
-            if (!pawn.RaceProps.IsFlesh)
-            {
-                return 0f;
-            }
-            return 5.2f * pawn.BodySize * pawn.health.hediffSet.GetCoverageOfNotMissingNaturalParts(part);
-        }
-
-        public static int StackCountForNutrition(ThingDef def, float nutrition)
-        {
-            if (nutrition <= 0.0001f)
-            {
-                return 0;
-            }
-            return Mathf.Max(Mathf.RoundToInt(nutrition / def.ingestible.nutrition), 1);
-        }
-
-        public static bool ShouldBeFedBySomeone(Pawn pawn)
-        {
-            return FeedPatientUtility.ShouldBeFed(pawn) || WardenFeedUtility.ShouldBeFed(pawn);
-        }
-
-        public static void AddFoodPoisoningHediff(Pawn pawn, Thing ingestible)
-        {
-            pawn.health.AddHediff(HediffMaker.MakeHediff(HediffDefOf.FoodPoisoning, pawn, null), null, null);
-            if (PawnUtility.ShouldSendNotificationAbout(pawn))
-            {
-                Messages.Message("MessageFoodPoisoning".Translate(new object[]
-                {
-                    pawn.LabelShort,
-                    ingestible.LabelCapNoCount
-                }).CapitalizeFirst(), pawn, MessageSound.Negative);
-            }
         }
     }
 }
