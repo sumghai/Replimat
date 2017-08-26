@@ -41,7 +41,7 @@
 	<building>
       <isMealSource>true</isMealSource>
 	  <wantsHopperAdjacent>false</wantsHopperAdjacent>
-      <soundDispense>DispensePaste</soundDispense>
+      <soundDispense>ReplimatMaterialize</soundDispense>
     </building>
 	<ingestible>
 	<foodType>Meal</foodType>
