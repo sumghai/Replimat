@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Building_ReplimatTerminal.cs" />
+    <Compile Include="ReplimatUtility.cs" />
     <Compile Include="JobDriver_FoodDeliverReplimat.cs" />
     <Compile Include="JobDriver_FoodFeedPatientReplimat.cs" />
     <Compile Include="JobDriver_IngestReplimat.cs" />

@@ -1,3 +1,6 @@
 D:\Games\RimWorld.Alpha.17.v0.17.1557.rev1150\Mods\Assemblies\Replimat.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Replimat-master\Assemblies\Replimat.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Replimat-master\Source\obj\Debug\Replimat.dll
 D:\Games\RimWorld.Alpha.17.v0.17.1557.rev1150\Mods\Replimat\Assemblies\Replimat.dll
+D:\Games\RimWorld.Alpha.17.v0.17.1557.rev1150\Mods\Replimat\Source\obj\Debug\Replimat.csproj.CoreCompileInputs.cache
 D:\Games\RimWorld.Alpha.17.v0.17.1557.rev1150\Mods\Replimat\Source\obj\Debug\Replimat.dll

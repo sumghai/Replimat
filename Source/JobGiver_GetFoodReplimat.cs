@@ -23,7 +23,7 @@ namespace Replimat
             {
                 return 0f;
             }
-            if (pawn.needs.food.CurCategory < HungerCategory.Starving && FoodUtility.ShouldBeFedBySomeone(pawn))
+            if (pawn.needs.food.CurCategory < HungerCategory.Starving && ReplimatUtility.ShouldBeFedBySomeone(pawn))
             {
                 return 0f;
             }
@@ -59,25 +59,23 @@ namespace Replimat
             bool allowCorpse = flag;
             Thing thing;
             ThingDef def;
-            if (!FoodUtility.TryFindBestFoodSourceFor(pawn, pawn, desperate, out thing, out def, true, true, false, allowCorpse, false))
+            if (!ReplimatUtility.TryFindBestFoodSourceFor(pawn, pawn, desperate, out thing, out def, true, true, false, allowCorpse, false))
             {
                 return null;
             }
-            Building_ReplimatTerminal building_ReplimatTerminal = thing as Building_ReplimatTerminal;
-            if (building_ReplimatTerminal != null)
+
+            if (thing is Building_ReplimatTerminal rep)
             {
-                Building building = building_ReplimatTerminal;
-                thing = FoodUtility.BestFoodSourceOnMap(pawn, pawn, desperate, FoodPreferability.MealLavish, false, !pawn.IsTeetotaler(), false, false, false, false, false);
-                if (thing == null)
+                Log.Warning("should return");
+
+                return new Job(ReplimatDef.ingestReplimatDef, thing)
                 {
-                    return null;
-                }
-                def = thing.def;
+                    count = ReplimatUtility.WillIngestStackCountOf(pawn, def)
+                };
             }
-            return new Job(ReplimatDef.ingestReplimatDef, thing)
-            {
-                count = FoodUtility.WillIngestStackCountOf(pawn, def)
-            };
+
+            Log.Warning("no rep");
+            return null;
         }
     }
 }

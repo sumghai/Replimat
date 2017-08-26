@@ -40,8 +40,13 @@
     <interactionCellOffset>(0,0,-1)</interactionCellOffset>
 	<building>
       <isMealSource>true</isMealSource>
+	  <wantsHopperAdjacent>false</wantsHopperAdjacent>
       <soundDispense>DispensePaste</soundDispense>
     </building>
+	<ingestible>
+	<foodType>Meal</foodType>
+	<nutrition>0.1</nutrition>
+	</ingestible>
 	<comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>

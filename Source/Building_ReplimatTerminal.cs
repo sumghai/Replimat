@@ -4,13 +4,15 @@ using RimWorld;
 
 namespace Replimat
 {
-    public class Building_ReplimatTerminal : Building
+    public class Building_ReplimatTerminal : Building_NutrientPasteDispenser
     {
         public CompPowerTrader powerComp;
 
+        public ThingDef SelectedMeal = ThingDefOf.MealFine;
+
         public static int CollectDuration = 50;
 
-        public bool CanDispenseNow
+        public new bool CanDispenseNow
         {
             get
             {
@@ -18,11 +20,11 @@ namespace Replimat
             }
         }
 
-        public virtual ThingDef DispensableDef
+        public override ThingDef DispensableDef
         {
             get
             {
-                return ThingDefOf.MealFine;
+                return SelectedMeal;
             }
         }
 
@@ -32,16 +34,21 @@ namespace Replimat
             this.powerComp = base.GetComp<CompPowerTrader>();
         }
 
-        public virtual Thing TryDispenseFood()
+        public override Thing TryDispenseFood()
         {
             if (!this.CanDispenseNow)
             {
                 return null;
             }
-            
+
             this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
-            Thing thing2 = ThingMaker.MakeThing(ThingDefOf.MealFine, null);
+            Thing thing2 = ThingMaker.MakeThing(DispensableDef, null);
             return thing2;
+        }
+
+        public override bool HasEnoughFeedstockInHoppers()
+        {
+            return true;
         }
     }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+
+<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <Operations>
+            <li Class="PatchOperationAdd">
+                <xpath>*/ThinkTreeDef/TraderKindDef[defName = "MainColonistBehaviorCore"]/thinkRoot/subNodes/li/subNodes/li[0]</xpath>
+                <value>
+                        <li Class="Replimat.JobGiver_GetFoodReplimat"/>
+                </value>
+            </li>
+        </Operations>
+    </Operation>
+	
+</Patch>

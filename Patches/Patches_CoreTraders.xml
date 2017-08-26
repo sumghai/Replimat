@@ -5,7 +5,7 @@
 		<success>Always</success>
 		<Operations>
 			<li Class="PatchOperationAdd">
-				<xpath>/DefPackage-TraderKindDef/TraderKindDef[defName = "Orbital_Exotic"]/stockGenerators</xpath>
+				<xpath>*/DefPackage-TraderKindDef/TraderKindDef[defName = "Orbital_Exotic"]/stockGenerators</xpath>
 				<value>
 					<li Class="StockGenerator_SingleDef">
 						<thingDef>IsolinearModule</thingDef>
