@@ -13,5 +13,9 @@ namespace Replimat
         public static JobDef deliverFoodReplimatDef = DefDatabase<JobDef>.GetNamed("DeliverFoodReplimat", true);
 
         public static ThingDef ReplimatTerminal = ThingDef.Named("ReplimatTerminal");
+
+        public static TraitDef SensitiveTaster = TraitDef.Named("SensitiveTaster");
+
+        public static ThoughtDef AteReplicatedFood = ThoughtDef.Named("AteReplicatedFood");
     }
 }

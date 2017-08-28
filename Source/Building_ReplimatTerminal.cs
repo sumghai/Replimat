@@ -8,7 +8,7 @@ namespace Replimat
     {
         public CompPowerTrader powerComp;
 
-        public ThingDef SelectedMeal = ThingDefOf.MealSimple;
+        public ThingDef SelectedMeal = ThingDefOf.MealFine;
 
         public static int CollectDuration = GenTicks.SecondsToTicks(2f);
 

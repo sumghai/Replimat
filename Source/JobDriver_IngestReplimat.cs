@@ -20,7 +20,8 @@ namespace Replimat
                 Building_ReplimatTerminal rep = curJob.GetTarget(ind).Thing as Building_ReplimatTerminal;
                 rep.Replicate();
             };
-            toil.AddFinishAction(delegate {
+            toil.AddFinishAction(delegate
+            {
                 Pawn actor = toil.actor;
                 Job curJob = actor.jobs.curJob;
                 Building_ReplimatTerminal rep = curJob.GetTarget(ind).Thing as Building_ReplimatTerminal;
@@ -88,6 +89,16 @@ namespace Replimat
             yield return Toils_Ingest.FindAdjacentEatSurface(TargetIndex.B, TargetIndex.A);
 
             yield return chew;
+            yield return new Toil
+            {
+                initAction = delegate
+                    {
+                        if (pawn.story.traits.HasTrait(ReplimatDef.SensitiveTaster))
+                        {
+                            pawn.needs.mood.thoughts.memories.TryGainMemory(ReplimatDef.AteReplicatedFood, null);
+                        }
+                    }
+            };
             yield return Toils_Ingest.FinalizeIngest(this.pawn, TargetIndex.A);
             yield return Toils_Jump.JumpIf(chew, () => CurJob.GetTarget(TargetIndex.A).Thing is Corpse && pawn.needs.food.CurLevelPercentage < 0.9f);
         }
@@ -96,36 +107,6 @@ namespace Replimat
         {
             IntVec3 cell = base.CurJob.GetTarget(TargetIndex.B).Cell;
             return JobDriver_Ingest.ModifyCarriedThingDrawPosWorker(ref drawPos, ref behind, ref flip, cell, this.pawn);
-        }
-
-        public static bool ModifyCarriedThingDrawPosWorker(ref Vector3 drawPos, ref bool behind, ref bool flip, IntVec3 placeCell, Pawn pawn)
-        {
-            if (pawn.pather.Moving)
-            {
-                return false;
-            }
-            Thing carriedThing = pawn.carryTracker.CarriedThing;
-            if (carriedThing == null || !carriedThing.IngestibleNow)
-            {
-                return false;
-            }
-            if (placeCell.IsValid && placeCell.AdjacentToCardinal(pawn.Position) && placeCell.HasEatSurface(pawn.Map) && carriedThing.def.ingestible.ingestHoldUsesTable)
-            {
-                drawPos = new Vector3((float)placeCell.x + 0.5f, drawPos.y, (float)placeCell.z + 0.5f);
-                return true;
-            }
-            if (carriedThing.def.ingestible.ingestHoldOffsetStanding != null)
-            {
-                HoldOffset holdOffset = carriedThing.def.ingestible.ingestHoldOffsetStanding.Pick(pawn.Rotation);
-                if (holdOffset != null)
-                {
-                    drawPos += holdOffset.offset;
-                    behind = holdOffset.behind;
-                    flip = holdOffset.flip;
-                    return true;
-                }
-            }
-            return false;
         }
     }
 }
