@@ -40,6 +40,9 @@
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
 	<hasInteractionCell>True</hasInteractionCell>
     <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+	<inspectorTabs>
+		<li>Replimat.ITab_Replimat</li>
+    </inspectorTabs>
 	<building>
       <isMealSource>true</isMealSource>
       <soundDispense>Replicate</soundDispense>

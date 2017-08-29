@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Building_ReplimatStorage.cs" />
     <Compile Include="Building_ReplimatTerminal.cs" />
+    <Compile Include="ITab_Replimat.cs" />
     <Compile Include="ReplimatUtility.cs" />
     <Compile Include="JobDriver_FoodDeliverReplimat.cs" />
     <Compile Include="JobDriver_FoodFeedPatientReplimat.cs" />
