@@ -1,6 +1,9 @@
 ﻿using Verse;
 using Verse.Sound;
 using RimWorld;
+using System.Collections.Generic;
+using System.Linq;
+using System;
 
 namespace Replimat
 {
@@ -8,11 +11,15 @@ namespace Replimat
     {
         public CompPowerTrader powerComp;
 
-        public ThingDef SelectedMeal = ThingDefOf.MealFine;
+        //public ThingDef SelectedMeal = ThingDefOf.MealFine;
+
+        public static List<ThingDef> allMeals = ThingCategoryDefOf.FoodMeals.DescendantThingDefs.ToList();
 
         public static int CollectDuration = GenTicks.SecondsToTicks(2f);
 
         public int ReplicatingTicks = 0;
+
+        static Random rnd = new Random();
 
         public bool CanDispenseNow
         {
@@ -26,7 +33,8 @@ namespace Replimat
         {
             get
             {
-                return SelectedMeal;
+                int r = rnd.Next(allMeals.Count);
+                return ThingDef.Named(allMeals[r].defName);
             }
         }
 
