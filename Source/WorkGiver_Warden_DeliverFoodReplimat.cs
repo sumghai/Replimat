@@ -52,42 +52,71 @@ namespace Replimat
             };
         }
 
-        private static bool FoodAvailableInRoomTo(Pawn prisoner)
+        public static bool FoodAvailableInRoomTo(Pawn prisoner)
         {
             if (prisoner.carryTracker.CarriedThing != null && WorkGiver_Warden_DeliverFoodReplimat.NutritionAvailableForFrom(prisoner, prisoner.carryTracker.CarriedThing) > 0f)
             {
                 return true;
             }
-            float num = 0f;
-            float num2 = 0f;
-            Room room = prisoner.GetRoom(RegionType.Set_Passable);
+            var neededNutrition = 0.0f;
+            var foodNutrition = 0.0f;
+            var room = prisoner.GetRoom(RegionType.Set_Passable);
             if (room == null)
-            {
+            {   // This should never actually happen...
+                //Log.Message( "Prisoner is not in a room!" );
                 return false;
             }
-            for (int i = 0; i < room.RegionCount; i++)
+            for (int regionIndex = 0; regionIndex < room.RegionCount; ++regionIndex)
             {
-                Region region = room.Regions[i];
-                List<Thing> list = region.ListerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree);
-                for (int j = 0; j < list.Count; j++)
-                {
-                    Thing thing = list[j];
-                    if (!thing.def.IsIngestible || thing.def.ingestible.preferability > FoodPreferability.DesperateOnly)
+                var region = room.Regions[regionIndex];
+
+                var foodSources = region.ListerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree);
+                if (
+                    (prisoner.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation)) &&
+                    (foodSources.Any((source) =>
                     {
-                        num2 += WorkGiver_Warden_DeliverFoodReplimat.NutritionAvailableForFrom(prisoner, thing);
+                        
+                            if (
+                                (source is Building_NutrientPasteDispenser) &&
+                                (((Building_NutrientPasteDispenser)source).CanDispenseNow)
+                            )
+                            {
+                                return true;
+                            }
+                            if (
+                                (source is Building_ReplimatTerminal) &&
+                                (((Building_ReplimatTerminal)source).CanDispenseNow)
+                            )
+                            {
+                                return true;
+                            }
+                        
+                        return false;
+                    }))
+                )
+                {
+                    Log.Message( "Prisoner has access to a stocked food machine" );
+                    return true;
+                }
+                for (int foodIndex = 0; foodIndex < foodSources.Count; ++foodIndex)
+                {
+                    var foodSource = foodSources[foodIndex];
+                    if (!foodSource.def.IsIngestible || foodSource.def.ingestible.preferability > FoodPreferability.DesperateOnly)
+                    {
+                        foodNutrition += NutritionAvailableForFrom(prisoner, foodSource);
                     }
                 }
-                List<Thing> list2 = region.ListerThings.ThingsInGroup(ThingRequestGroup.Pawn);
-                for (int k = 0; k < list2.Count; k++)
+                var pawns = region.ListerThings.ThingsInGroup(ThingRequestGroup.Pawn);
+                for (int pawnIndex = 0; pawnIndex < pawns.Count; ++pawnIndex)
                 {
-                    Pawn pawn = list2[k] as Pawn;
+                    var pawn = pawns[pawnIndex] as Pawn;
                     if (pawn.IsPrisonerOfColony && pawn.needs.food.CurLevelPercentage < pawn.needs.food.PercentageThreshHungry + 0.02f && (pawn.carryTracker.CarriedThing == null || !pawn.RaceProps.WillAutomaticallyEat(pawn.carryTracker.CarriedThing)))
                     {
-                        num += pawn.needs.food.NutritionWanted;
+                        neededNutrition += pawn.needs.food.NutritionWanted;
                     }
                 }
             }
-            return num2 + 0.5f >= num;
+            return foodNutrition + 0.5f >= neededNutrition;
         }
 
         private static float NutritionAvailableForFrom(Pawn p, Thing foodSource)
@@ -100,6 +129,12 @@ namespace Replimat
             {
                 Building_ReplimatTerminal building_ReplimatTerminal = foodSource as Building_ReplimatTerminal;
                 if (building_ReplimatTerminal != null && building_ReplimatTerminal.CanDispenseNow)
+                {
+                    return 99999f;
+                }
+
+                Building_NutrientPasteDispenser building_NutrientPasteDispenser = foodSource as Building_NutrientPasteDispenser;
+                if (building_NutrientPasteDispenser != null && building_NutrientPasteDispenser.CanDispenseNow)
                 {
                     return 99999f;
                 }
