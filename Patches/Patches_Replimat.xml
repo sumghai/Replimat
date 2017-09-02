@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<Operations>
+			<li Class="PatchOperationAdd">
+				<xpath>*/DefPackage-TraderKindDef/TraderKindDef[defName = "Orbital_Exotic"]/stockGenerators</xpath>
+				<value>
+					<li Class="StockGenerator_SingleDef">
+						<thingDef>IsolinearModule</thingDef>
+						<countRange>
+							<min>1</min>
+							<max>4</max>
+						</countRange>
+					</li>
+				</value>
+			</li>
+		</Operations>
+	</Operation>
+	
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThinkTreeDef[defName="MainColonistBehaviorCore"]/thinkRoot[@Class="ThinkNode_Tagger"]/subNodes/li[@Class="ThinkNode_PrioritySorter"]/subNodes</xpath>
+		<value>
+			<li Class="Replimat.JobGiver_GetFoodReplimat"></li>
+		</value>
+	</Operation>
+  
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThinkTreeDef[defName="Humanlike"]/thinkRoot[@Class="ThinkNode_Priority"]/subNodes/li[@Class="ThinkNode_ConditionalPrisoner"]/subNodes/li[@Class="ThinkNode_Tagger"][tagToGive="SatisfyingNeeds"]/subNodes/li[@Class="ThinkNode_PrioritySorter"]/subNodes</xpath>
+		<value>
+			<li Class="Replimat.JobGiver_GetFoodReplimat"></li>
+		</value>
+	</Operation>
+ 
+
+</Patch>
