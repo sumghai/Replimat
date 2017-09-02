@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WorkGivers>
+  
+  <!-- ============= Replimat-specific feeding WorkGivers ============= -->
+  
+  <WorkGiverDef>
+    <defName>DoctorFeedHumanlikesReplimat</defName>
+    <label>feed patients</label>
+    <giverClass>Replimat.WorkGiver_FeedPatientReplimat</giverClass>
+    <workType>Doctor</workType>
+    <verb>feed</verb>
+    <gerund>feeding</gerund>
+    <priorityInType>61</priorityInType> 
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+    <feedHumanlikesOnly>true</feedHumanlikesOnly>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>FeedPrisoner</defName>
+    <label>feed prisoners</label>
+    <giverClass>WorkGiver_Warden_Feed</giverClass>
+    <workType>Warden</workType>
+    <verb>feed</verb>
+    <gerund>feeding</gerund>
+    <priorityInType>80</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>DeliverFoodToPrisoner</defName>
+    <label>deliver food to prisoners</label>
+    <giverClass>WorkGiver_Warden_DeliverFood</giverClass>
+    <workType>Warden</workType>
+    <verb>deliver food for</verb>
+    <gerund>delivering food for</gerund>
+    <priorityInType>70</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+</WorkGivers>

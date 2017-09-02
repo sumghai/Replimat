@@ -431,5 +431,15 @@ namespace Replimat
             }
             return ingestThoughts;
         }
+
+        public static int WillIngestStackCountOf(Pawn ingester, ThingDef def)
+        {
+            int num = Mathf.Min(def.ingestible.maxNumToIngestAtOnce, FoodUtility.StackCountForNutrition(def, ingester.needs.food.NutritionWanted));
+            if (num < 1)
+            {
+                num = 1;
+            }
+            return num;
+        }
     }
 }

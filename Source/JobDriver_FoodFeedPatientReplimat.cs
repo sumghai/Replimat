@@ -9,7 +9,7 @@ namespace Replimat
 {
     public class JobDriver_FoodFeedPatientReplimat : JobDriver
     {
-        private const TargetIndex FoodSourceInd = TargetIndex.A;
+        public const TargetIndex IngestibleSourceInd = TargetIndex.A;
 
         private const TargetIndex DelivereeInd = TargetIndex.B;
 
@@ -19,7 +19,7 @@ namespace Replimat
         {
             get
             {
-                return base.CurJob.targetA.Thing;
+                return base.CurJob.GetTarget(TargetIndex.A).Thing;
             }
         }
 
@@ -33,9 +33,9 @@ namespace Replimat
 
         public override string GetReport()
         {
-            if (base.CurJob.GetTarget(TargetIndex.A).Thing is Building_ReplimatTerminal)
+            if (base.CurJob.GetTarget(TargetIndex.A).Thing is Building_ReplimatTerminal Replimat)
             {
-                return base.CurJob.def.reportString.Replace("TargetA", ThingDefOf.MealFine.label).Replace("TargetB", ((Pawn)((Thing)base.CurJob.targetB)).LabelShort);
+                return base.CurJob.def.reportString.Replace("TargetA", Replimat.DispensableDef.label).Replace("TargetB", ((Pawn)((Thing)base.CurJob.targetB)).LabelShort);
             }
             return base.GetReport();
         }
@@ -46,21 +46,13 @@ namespace Replimat
             this.FailOnDespawnedNullOrForbidden(TargetIndex.B);
             this.FailOn(() => !FoodUtility.ShouldBeFedBySomeone(this.Deliveree));
             yield return Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
-            if (this.pawn.inventory != null && this.pawn.inventory.Contains(base.TargetThingA))
-            {
-                yield return Toils_Misc.TakeItemFromInventoryToCarrier(this.pawn, TargetIndex.A);
-            }
-            else if (base.TargetThingA is Building_ReplimatTerminal)
+
+            if (base.TargetThingA is Building_ReplimatTerminal)
             {
                 yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell).FailOnForbidden(TargetIndex.A);
-                yield return Toils_Ingest.TakeMealFromDispenser(TargetIndex.A, this.pawn);
+                yield return JobDriver_IngestReplimat.TakeMealFromReplimat(TargetIndex.A, this.pawn);
             }
-            else
-            {
-                yield return Toils_Reserve.Reserve(TargetIndex.A, 1, -1, null);
-                yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnForbidden(TargetIndex.A);
-                yield return Toils_Ingest.PickupIngestible(TargetIndex.A, this.Deliveree);
-            }
+
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.Touch);
             yield return Toils_Ingest.ChewIngestible(this.Deliveree, 1.5f, TargetIndex.A, TargetIndex.None).FailOnCannotTouch(TargetIndex.B, PathEndMode.Touch);
             yield return Toils_Ingest.FinalizeIngest(this.Deliveree, TargetIndex.A);
