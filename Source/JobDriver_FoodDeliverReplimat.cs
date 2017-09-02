@@ -9,7 +9,7 @@ namespace Replimat
 {
     public class JobDriver_FoodDeliverReplimat : JobDriver
     {
-        private const TargetIndex FoodSourceInd = TargetIndex.A;
+        public const TargetIndex IngestibleSourceInd = TargetIndex.A;
 
         private const TargetIndex DelivereeInd = TargetIndex.B;
 
@@ -34,9 +34,9 @@ namespace Replimat
 
         public override string GetReport()
         {
-            if (base.CurJob.GetTarget(TargetIndex.A).Thing is Building_ReplimatTerminal)
+            if (base.CurJob.GetTarget(TargetIndex.A).Thing is Building_ReplimatTerminal Replimat)
             {
-                return base.CurJob.def.reportString.Replace("TargetA", ThingDefOf.MealFine.label).Replace("TargetB", ((Pawn)((Thing)base.CurJob.targetB)).LabelShort);
+                return base.CurJob.def.reportString.Replace("TargetA", Replimat.DispensableDef.label).Replace("TargetB", ((Pawn)((Thing)base.CurJob.targetB)).LabelShort);
             }
             return base.GetReport();
         }
@@ -52,20 +52,10 @@ namespace Replimat
         protected override IEnumerable<Toil> MakeNewToils()
         {
             yield return Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
-            if (this.eatingFromInventory)
-            {
-                yield return Toils_Misc.TakeItemFromInventoryToCarrier(this.pawn, TargetIndex.A);
-            }
-            else if (this.usingReplimatTerminal)
+            if (this.usingReplimatTerminal)
             {
                 yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell).FailOnForbidden(TargetIndex.A);
-                yield return Toils_Ingest.TakeMealFromDispenser(TargetIndex.A, this.pawn);
-            }
-            else
-            {
-                yield return Toils_Reserve.Reserve(TargetIndex.A, 1, -1, null);
-                yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnForbidden(TargetIndex.A);
-                yield return Toils_Ingest.PickupIngestible(TargetIndex.A, this.Deliveree);
+                yield return JobDriver_IngestReplimat.TakeMealFromReplimat(TargetIndex.A, this.pawn);
             }
             Toil toil = new Toil();
             toil.initAction = delegate

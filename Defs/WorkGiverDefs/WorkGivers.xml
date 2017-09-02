@@ -19,26 +19,26 @@
   </WorkGiverDef>
 
   <WorkGiverDef>
-    <defName>FeedPrisoner</defName>
+    <defName>FeedPrisonerReplimat</defName>
     <label>feed prisoners</label>
-    <giverClass>WorkGiver_Warden_Feed</giverClass>
+    <giverClass>Replimat.WorkGiver_Warden_FeedReplimat</giverClass>
     <workType>Warden</workType>
     <verb>feed</verb>
     <gerund>feeding</gerund>
-    <priorityInType>80</priorityInType>
+    <priorityInType>81</priorityInType>
     <requiredCapacities>
       <li>Manipulation</li>
     </requiredCapacities>
   </WorkGiverDef>
 
   <WorkGiverDef>
-    <defName>DeliverFoodToPrisoner</defName>
+    <defName>DeliverFoodToPrisonerReplimat</defName>
     <label>deliver food to prisoners</label>
-    <giverClass>WorkGiver_Warden_DeliverFood</giverClass>
+    <giverClass>Replimat.WorkGiver_Warden_DeliverFoodReplimat</giverClass>
     <workType>Warden</workType>
     <verb>deliver food for</verb>
     <gerund>delivering food for</gerund>
-    <priorityInType>70</priorityInType>
+    <priorityInType>71</priorityInType>
     <requiredCapacities>
       <li>Manipulation</li>
     </requiredCapacities>
