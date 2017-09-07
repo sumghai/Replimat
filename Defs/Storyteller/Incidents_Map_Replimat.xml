@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<IncidentDef>
+		<defName>ReplimatSpill</defName>
+		<label>Replimat Spill</label>
+		<category>Misc</category>
+		<targetType>MapPlayerHome</targetType>
+		<workerClass>Replimat.IncidentWorker_ReplimatSpill</workerClass>
+		<baseChance>5</baseChance>
+		<letterLabel>Replimat Spill</letterLabel>
+		<letterText>A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere.</letterText>
+		<letterDef>BadNonUrgent</letterDef>
+	</IncidentDef>
+	
+	<IncidentDef>
+		<defName>ReplimatMalfunctionKibble</defName>
+		<label>Replimat Malfunction</label>
+		<category>Misc</category>
+		<targetType>MapPlayerHome</targetType>
+		<workerClass>Replimat.IncidentWorker_ReplimatMalfunctionKibble</workerClass>
+		<baseChance>5</baseChance>
+		<letterLabel>Replimat Malfunction</letterLabel>
+		<letterText>A Replimat Terminal has malfunctioned, producing large quantities of animal feed.</letterText>
+		<letterDef>BadNonUrgent</letterDef>
+	</IncidentDef>
+	
+	<IncidentDef>
+		<defName>ReplimatFoodPoisoning</defName>
+		<label>Replimat Food Poisoning</label>
+		<category>Misc</category>
+		<targetType>MapPlayerHome</targetType>
+		<workerClass>IncidentWorker_PsychicDrone</workerClass>
+		<baseChance>0</baseChance>
+		<letterLabel>Replimat Food Poisoning</letterLabel>
+		<letterText>A Replimat Terminal has malfunctioned, and [[PawnName]] has contracted food poisoning from an improperly replicated meal.</letterText>
+		<letterDef>BadNonUrgent</letterDef>
+	</IncidentDef>
+
+</Defs>
