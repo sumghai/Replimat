@@ -11,8 +11,6 @@ namespace Replimat
     {
         public CompPowerTrader powerComp;
 
-        //public ThingDef SelectedMeal = ThingDefOf.MealFine;
-
         public static List<ThingDef> allMeals = ThingCategoryDefOf.FoodMeals.DescendantThingDefs.ToList();
 
         public static int CollectDuration = GenTicks.SecondsToTicks(2f);
@@ -75,8 +73,9 @@ namespace Replimat
                 return null;
             }
 
-            Thing thing2 = ThingMaker.MakeThing(DispensableDef, null);
-            return thing2;
+            Thing dispensedMeal = ThingMaker.MakeThing(DispensableDef, null);
+
+            return dispensedMeal;
         }
 
     }
