@@ -24,17 +24,5 @@
 		<letterText>A Replimat Terminal has malfunctioned, producing large quantities of animal feed.</letterText>
 		<letterDef>BadNonUrgent</letterDef>
 	</IncidentDef>
-	
-	<IncidentDef>
-		<defName>ReplimatFoodPoisoning</defName>
-		<label>Replimat Food Poisoning</label>
-		<category>Misc</category>
-		<targetType>MapPlayerHome</targetType>
-		<workerClass>IncidentWorker_PsychicDrone</workerClass>
-		<baseChance>0</baseChance>
-		<letterLabel>Replimat Food Poisoning</letterLabel>
-		<letterText>A Replimat Terminal has malfunctioned, and [[PawnName]] has contracted food poisoning from an improperly replicated meal.</letterText>
-		<letterDef>BadNonUrgent</letterDef>
-	</IncidentDef>
 
 </Defs>
