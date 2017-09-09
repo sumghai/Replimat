@@ -4,6 +4,7 @@ using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using UnityEngine;
 
 namespace Replimat
 {
@@ -17,7 +18,7 @@ namespace Replimat
 
         public int ReplicatingTicks = 0;
 
-        static Random rnd = new Random();
+        static System.Random rnd = new System.Random();
 
         public bool CanDispenseNow
         {
@@ -46,6 +47,7 @@ namespace Replimat
             {
                 ReplicatingTicks--;
                 powerComp.PowerOutput = -1500f;
+                Graphics.DrawMesh(GraphicsLoader.replimatTerminalGlow.MeshAt(base.Rotation), this.DrawPos + Altitudes.AltIncVect, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatTerminalGlow.MatAt(base.Rotation, null), 1), 0);
             }
         }
 
