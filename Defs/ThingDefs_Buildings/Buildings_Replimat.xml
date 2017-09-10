@@ -67,6 +67,7 @@
     <defName>ReplimatFeedTank</defName>
     <label>Replimat Feedstock Tank</label>
     <description>Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers.</description>
+	<thingClass>Replimat.Building_ReplimatFeedTank</thingClass>
     <graphicData>
       <texPath>Things/Building/replimatFeedTank</texPath>
 	  <graphicClass>Graphic_Single</graphicClass>
@@ -99,6 +100,10 @@
         <compClass>CompPowerTrader</compClass>
 		<startElectricalFires>true</startElectricalFires>
         <basePowerConsumption>250</basePowerConsumption>
+      </li>
+	  <li Class="Replimat.CompProperties_FeedstockTank">
+        <compClass>Replimat.CompFeedstockTank</compClass>
+        <storedFeedstockMax>8000</storedFeedstockMax>
       </li>
       <li Class="CompProperties_Breakdownable"/>
     </comps>
