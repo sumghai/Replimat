@@ -66,7 +66,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>ReplimatFeedTank</defName>
     <label>Replimat Feedstock Tank</label>
-    <description>Stores an organic particulate suspension for use by Replimat Terminals. Requires a hopper for raw food feedstock.</description>
+    <description>Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers.</description>
     <graphicData>
       <texPath>Things/Building/replimatFeedTank</texPath>
 	  <graphicClass>Graphic_Single</graphicClass>
@@ -94,14 +94,88 @@
 	<Passability>Impassable</Passability>
 	<castEdgeShadows>true</castEdgeShadows>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
-	<building>
-      <wantsHopperAdjacent>true</wantsHopperAdjacent>
-    </building>
 	<comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
 		<startElectricalFires>true</startElectricalFires>
         <basePowerConsumption>250</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <researchPrerequisites>
+      <li>MolecularNutrientResequencing</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+  <!--====================== Replimat Hopper ======================-->
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>ReplimatHopper</defName>
+    <label>Replimat Hopper</label>
+	<thingClass>Building_Storage</thingClass>
+    <description>Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems.</description>
+    <graphicData>
+      <texPath>Things/Building/replimatHopper</texPath>
+	  <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+	<uiIconPath>UI/replimatHopper</uiIconPath>
+	<constructEffect>ConstructMetal</constructEffect>
+	<costList>
+      <Steel>10</Steel>
+	  <Component>10</Component>
+	  <Plasteel>5</Plasteel>
+    </costList>
+	<AltitudeLayer>Building</AltitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    <useHitPoints>True</useHitPoints>
+	<statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>450</WorkToBuild>
+      <Flammability>1.0</Flammability>
+    </statBases>
+	<size>(1,1)</size>
+	<DesignationCategory>Replimat_Replimat</DesignationCategory>
+	<Passability>Impassable</Passability>
+	<castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+	<building>
+      <fixedStorageSettings>
+        <priority>Important</priority>
+        <filter>
+          <categories>
+            <li>FoodRaw</li>
+          </categories>
+          <disallowedSpecialFilters>
+            <li>AllowPlantFood</li>
+          </disallowedSpecialFilters>
+        </filter>
+      </fixedStorageSettings>
+      <defaultStorageSettings>
+        <priority>Important</priority>
+        <filter>
+          <categories>
+            <li>FoodRaw</li>
+          </categories>
+          <exceptedThingDefs>
+            <li>Human_Meat</li>
+            <li>Megaspider_Meat</li>
+          </exceptedThingDefs>
+        </filter>
+      </defaultStorageSettings>
+    </building>
+    <inspectorTabs>
+      <li>ITab_Storage</li>
+    </inspectorTabs>
+	<tickerType>Never</tickerType>
+    <rotatable>true</rotatable>
+    <neverMultiSelect>true</neverMultiSelect>
+	<surfaceType>Item</surfaceType>
+	<comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+		<startElectricalFires>true</startElectricalFires>
+        <basePowerConsumption>100</basePowerConsumption>
       </li>
       <li Class="CompProperties_Breakdownable"/>
     </comps>
@@ -144,9 +218,6 @@
 	<Passability>Impassable</Passability>
 	<castEdgeShadows>true</castEdgeShadows>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
-	<building>
-      <wantsHopperAdjacent>true</wantsHopperAdjacent>
-    </building>
 	<comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
