@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using UnityEngine;
+using System.Text;
 
 namespace Replimat
 {
@@ -22,16 +23,49 @@ namespace Replimat
 
         public bool hasReplimatTanks;
 
-        public bool ConsumeFeedstock(float feedstockNeeded, bool consumeForReal)
+        public bool hasEnoughFeedstock;
+
+        public void CheckFeedstockAvailability(float feedstockNeeded, out bool hasReplimatTanks, out bool hasEnoughFeedstock)
         {
-            List<Building_ReplimatFeedTank> feedstockTanks = powerComp.PowerNet.powerComps.Where(x => x.parent is Building_ReplimatFeedTank).Select(x => x.parent as Building_ReplimatFeedTank).ToList();
+            List<Building_ReplimatFeedTank> feedstockTanks = Map.listerThings.ThingsOfDef(ThingDef.Named("ReplimatFeedTank")).OfType<Building_ReplimatFeedTank>().Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet).ToList();
 
             float totalAvailableFeedstock = 0f;
 
             if (feedstockTanks.Count() > 0)
             {
                 hasReplimatTanks = true;
-                
+
+                foreach (var currentTank in feedstockTanks)
+                {
+                    totalAvailableFeedstock += currentTank.GetComp<CompFeedstockTank>().StoredFeedstock;
+                }
+
+                Log.Message("Replimat: " + totalAvailableFeedstock.ToString() + " feedstock available across " + feedstockTanks.Count().ToString() + " tanks");
+
+                if (totalAvailableFeedstock >= feedstockNeeded)
+                {
+                    hasEnoughFeedstock = true;
+                }
+                else {
+                    hasEnoughFeedstock = false;
+                }
+            }
+            else
+            {
+                hasReplimatTanks = false;
+                hasEnoughFeedstock = false;
+                Log.Message("Replimat: No feedstock tanks found!");
+            }
+        }
+
+        public void ConsumeFeedstock(float feedstockNeeded)
+        {
+            List<Building_ReplimatFeedTank> feedstockTanks = Map.listerThings.ThingsOfDef(ThingDef.Named("ReplimatFeedTank")).OfType<Building_ReplimatFeedTank>().Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet).ToList();
+
+            float totalAvailableFeedstock = 0f;
+
+            if (feedstockTanks.Count() > 0)
+            {
                 feedstockTanks.Shuffle();
 
                 foreach (var currentTank in feedstockTanks)
@@ -39,43 +73,38 @@ namespace Replimat
                     totalAvailableFeedstock += currentTank.GetComp<CompFeedstockTank>().StoredFeedstock;
                 }
 
-                Log.Message("Replimat - " + totalAvailableFeedstock.ToString() + " feedstock available across " + feedstockTanks.Count().ToString() + " tanks");
-
                 if (totalAvailableFeedstock >= feedstockNeeded)
                 {
                     float feedstockLeftToConsume = feedstockNeeded;
 
                     foreach (var currentTank in feedstockTanks)
                     {
-                        float num = Math.Min(feedstockLeftToConsume, currentTank.GetComp<CompFeedstockTank>().StoredFeedstock);
-
-                        if (consumeForReal == true)
+                        if (feedstockLeftToConsume <= 0f)
                         {
+                            break;
+                        } else {
+                            float num = Math.Min(feedstockLeftToConsume, currentTank.GetComp<CompFeedstockTank>().StoredFeedstock);
+
                             currentTank.GetComp<CompFeedstockTank>().DrawFeedstock(num);
+
+                            feedstockLeftToConsume -= num;
                         }
-
-                        feedstockLeftToConsume -= num;
-                    }
-
-                    if (feedstockLeftToConsume <= 0f)
-                    {
-                        return true;
                     }
                 }
+
             }
             else
             {
-                hasReplimatTanks = false;
+                Log.Error("Replimat: Tried to draw feedstock from non-existent tanks!");
             }
-
-            return false;
         }
 
         public bool CanDispenseNow
         {
             get
             {
-                return this.powerComp.PowerOn && ConsumeFeedstock(1,false);
+                CheckFeedstockAvailability(1f, out hasReplimatTanks, out hasEnoughFeedstock);
+                return this.powerComp.PowerOn && hasReplimatTanks && hasEnoughFeedstock;
             }
         }
 
@@ -106,6 +135,25 @@ namespace Replimat
         {
             base.SpawnSetup(map, respawningAfterLoad);
             this.powerComp = base.GetComp<CompPowerTrader>();
+            CheckFeedstockAvailability(1f, out hasReplimatTanks, out hasEnoughFeedstock);
+        }
+
+        public override string GetInspectString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(base.GetInspectString());
+            if (!this.hasReplimatTanks)
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.Append("Requires connection to Replimat Feedstock Tank");
+            }
+
+            if (this.hasReplimatTanks && !this.hasEnoughFeedstock)
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.Append("Insufficient Feedstock");
+            }
+            return stringBuilder.ToString();
         }
 
         public void Replicate()
@@ -116,7 +164,7 @@ namespace Replimat
             }
 
             ReplicatingTicks = GenTicks.SecondsToTicks(2f);
-            ConsumeFeedstock(1, true);
+            CheckFeedstockAvailability(1f, out hasReplimatTanks, out hasEnoughFeedstock);
             this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
         }
 
@@ -128,7 +176,9 @@ namespace Replimat
             }
 
             Thing dispensedMeal = ThingMaker.MakeThing(DispensableDef, null);
-
+            float dispensedMealMass = dispensedMeal.def.BaseMass;
+            Log.Message("Replimat: " + dispensedMeal.ToString() + " has mass of " + dispensedMealMass.ToString() + "kg (" + ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass) + "L feedstock required)");
+            ConsumeFeedstock(ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass));
             return dispensedMeal;
         }
 
