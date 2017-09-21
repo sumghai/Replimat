@@ -2,4 +2,5 @@
 <LanguageData>
 	<!-- ITab_Replimat !-->
 	<TabReplimat>Replimat</TabReplimat>
+	<FeedstockStored>Feedstock stored {0} / {1} L</FeedstockStored>
 </LanguageData>

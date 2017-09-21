@@ -32,6 +32,10 @@
     <RootNamespace>Replimat</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony, Version=1.0.9.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Rimatomics - DEV\Assemblies\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\RimWorldWin_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -50,23 +54,13 @@
   <ItemGroup>
     <Compile Include="Building_ReplimatFeedTank.cs" />
     <Compile Include="Building_ReplimatTerminal.cs" />
-    <Compile Include="CompFeedstockTank.cs" />
-    <Compile Include="CompFeedstockTrader.cs" />
-    <Compile Include="CompProperties_FeedstockTank.cs" />
     <Compile Include="GraphicsLoader.cs" />
-    <Compile Include="IncidentWorker_ReplimatMalfunctionKibble.cs" />
-    <Compile Include="IncidentWorker_ReplimatSpill.cs" />
-    <Compile Include="WorkGiver_Warden_DeliverFoodReplimat.cs" />
-    <Compile Include="WorkGiver_Warden_FeedReplimat.cs" />
+    <Compile Include="HarmonyPatches.cs" />
     <Compile Include="ITab_Replimat.cs" />
-    <Compile Include="ReplimatUtility.cs" />
-    <Compile Include="JobDriver_FoodDeliverReplimat.cs" />
-    <Compile Include="JobDriver_FoodFeedPatientReplimat.cs" />
     <Compile Include="JobDriver_IngestReplimat.cs" />
-    <Compile Include="JobGiver_GetFoodReplimat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReplimatDef.cs" />
-    <Compile Include="WorkGiver_FeedPatientReplimat.cs" />
+    <Compile Include="ReplimatUtility.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

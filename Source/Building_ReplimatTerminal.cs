@@ -13,65 +13,85 @@ namespace Replimat
     {
         public CompPowerTrader powerComp;
 
-        public static List<ThingDef> allMeals = ThingCategoryDefOf.FoodMeals.DescendantThingDefs.ToList();
-
         public static int CollectDuration = GenTicks.SecondsToTicks(2f);
 
-        public int ReplicatingTicks = 0;
+        public StorageSettings MealFilter;
 
-        static System.Random rnd = new System.Random();
+        public FoodPreferability MaxPreferability = FoodPreferability.MealLavish;
+
+        public ThingDef SelectedFood = ThingDefOf.MealNutrientPaste;
+
+        public int ReplicatingTicks = 0;
 
         public bool hasReplimatTanks;
 
         public bool hasEnoughFeedstock;
 
-        public void CheckFeedstockAvailability(float feedstockNeeded, out bool hasReplimatTanks, out bool hasEnoughFeedstock)
+        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet).ToList();
+
+        public bool CanDispenseNow
         {
-            List<Building_ReplimatFeedTank> feedstockTanks = Map.listerThings.ThingsOfDef(ThingDef.Named("ReplimatFeedTank")).OfType<Building_ReplimatFeedTank>().Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet).ToList();
-
-            float totalAvailableFeedstock = 0f;
-
-            if (feedstockTanks.Count() > 0)
+            get
             {
-                hasReplimatTanks = true;
+                CheckFeedstockAvailability(1f);
+                return this.powerComp.PowerOn && hasReplimatTanks && hasEnoughFeedstock;
+            }
+        }
 
-                foreach (var currentTank in feedstockTanks)
-                {
-                    totalAvailableFeedstock += currentTank.GetComp<CompFeedstockTank>().StoredFeedstock;
-                }
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+            this.powerComp = base.GetComp<CompPowerTrader>();
+            this.MealFilter = new StorageSettings();
+            if (this.def.building.defaultStorageSettings != null)
+            {
+                this.MealFilter.CopyFrom(this.def.building.defaultStorageSettings);
+            }
+            CheckFeedstockAvailability(1f);
+            ChooseMeal();
+        }
 
-                Log.Message("Replimat: " + totalAvailableFeedstock.ToString() + " feedstock available across " + feedstockTanks.Count().ToString() + " tanks");
+        public override void ExposeData()
+        {
+            base.ExposeData();
 
-                if (totalAvailableFeedstock >= feedstockNeeded)
-                {
-                    hasEnoughFeedstock = true;
-                }
-                else {
-                    hasEnoughFeedstock = false;
-                }
+            Scribe_Deep.Look<StorageSettings>(ref MealFilter, "MealFilter", this);
+        }
+
+        public void ChooseMeal()
+        {
+            SelectedFood = def.building.fixedStorageSettings.filter.AllowedThingDefs.Where(x => x.ingestible.preferability == MaxPreferability).RandomElement();
+        }
+
+        public void CheckFeedstockAvailability(float feedstockNeeded)
+        {
+            List<Building_ReplimatFeedTank> feedstockTanks = GetTanks;
+
+            float totalAvailableFeedstock = feedstockTanks.Sum(x => x.storedFeedstock);
+
+            hasReplimatTanks = feedstockTanks.Count() > 0;
+
+            Log.Message("Replimat: " + totalAvailableFeedstock.ToString() + " feedstock available across " + feedstockTanks.Count().ToString() + " tanks");
+
+            if (totalAvailableFeedstock >= feedstockNeeded)
+            {
+                hasEnoughFeedstock = true;
             }
             else
             {
-                hasReplimatTanks = false;
                 hasEnoughFeedstock = false;
-                Log.Message("Replimat: No feedstock tanks found!");
             }
         }
 
         public void ConsumeFeedstock(float feedstockNeeded)
         {
-            List<Building_ReplimatFeedTank> feedstockTanks = Map.listerThings.ThingsOfDef(ThingDef.Named("ReplimatFeedTank")).OfType<Building_ReplimatFeedTank>().Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet).ToList();
+            List<Building_ReplimatFeedTank> feedstockTanks = GetTanks;
 
-            float totalAvailableFeedstock = 0f;
+            float totalAvailableFeedstock = feedstockTanks.Sum(x => x.storedFeedstock);
 
             if (feedstockTanks.Count() > 0)
             {
                 feedstockTanks.Shuffle();
-
-                foreach (var currentTank in feedstockTanks)
-                {
-                    totalAvailableFeedstock += currentTank.GetComp<CompFeedstockTank>().StoredFeedstock;
-                }
 
                 if (totalAvailableFeedstock >= feedstockNeeded)
                 {
@@ -82,10 +102,12 @@ namespace Replimat
                         if (feedstockLeftToConsume <= 0f)
                         {
                             break;
-                        } else {
-                            float num = Math.Min(feedstockLeftToConsume, currentTank.GetComp<CompFeedstockTank>().StoredFeedstock);
+                        }
+                        else
+                        {
+                            float num = Math.Min(feedstockLeftToConsume, currentTank.StoredFeedstock);
 
-                            currentTank.GetComp<CompFeedstockTank>().DrawFeedstock(num);
+                            currentTank.DrawFeedstock(num);
 
                             feedstockLeftToConsume -= num;
                         }
@@ -99,21 +121,58 @@ namespace Replimat
             }
         }
 
-        public bool CanDispenseNow
+
+
+
+        public void Replicate()
         {
-            get
+            if (!this.CanDispenseNow)
             {
-                CheckFeedstockAvailability(1f, out hasReplimatTanks, out hasEnoughFeedstock);
-                return this.powerComp.PowerOn && hasReplimatTanks && hasEnoughFeedstock;
+                return;
             }
+
+            ReplicatingTicks = GenTicks.SecondsToTicks(2f);
+            CheckFeedstockAvailability(1f);
+            this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
         }
 
-        public ThingDef DispensableDef
+        public Thing TryDispenseFood()
         {
-            get
+            if (!this.CanDispenseNow)
             {
-                int r = rnd.Next(allMeals.Count);
-                return ThingDef.Named(allMeals[r].defName);
+                return null;
+            }
+            ChooseMeal();
+            Thing dispensedMeal = ThingMaker.MakeThing(SelectedFood, null);
+            float dispensedMealMass = dispensedMeal.def.BaseMass;
+            Log.Message("Replimat: " + dispensedMeal.ToString() + " has mass of " + dispensedMealMass.ToString() + "kg (" + ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass) + "L feedstock required)");
+            ConsumeFeedstock(ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass));
+            return dispensedMeal;
+        }
+
+        public override void Draw()
+        {
+            base.Draw();
+
+            if (ReplicatingTicks > 0)
+            {
+                float alpha;
+                float quart = CollectDuration * 0.25f;
+                if (ReplicatingTicks < quart)
+                {
+                    alpha = Mathf.InverseLerp(0, quart, ReplicatingTicks);
+                }
+                else if (ReplicatingTicks > quart * 3f)
+                {
+                    alpha = Mathf.InverseLerp(CollectDuration, quart * 3f, ReplicatingTicks);
+                }
+                else
+                {
+                    alpha = 1f;
+                }
+
+                Graphics.DrawMesh(GraphicsLoader.replimatTerminalGlow.MeshAt(base.Rotation), this.DrawPos + Altitudes.AltIncVect, Quaternion.identity,
+                    FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatTerminalGlow.MatAt(base.Rotation, null), alpha), 0);
             }
         }
 
@@ -127,15 +186,8 @@ namespace Replimat
             {
                 ReplicatingTicks--;
                 powerComp.PowerOutput = -1500f;
-                Graphics.DrawMesh(GraphicsLoader.replimatTerminalGlow.MeshAt(base.Rotation), this.DrawPos + Altitudes.AltIncVect, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatTerminalGlow.MatAt(base.Rotation, null), 1), 0);
             }
-        }
 
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
-        {
-            base.SpawnSetup(map, respawningAfterLoad);
-            this.powerComp = base.GetComp<CompPowerTrader>();
-            CheckFeedstockAvailability(1f, out hasReplimatTanks, out hasEnoughFeedstock);
         }
 
         public override string GetInspectString()
@@ -156,32 +208,6 @@ namespace Replimat
             return stringBuilder.ToString();
         }
 
-        public void Replicate()
-        {
-            if (!this.CanDispenseNow)
-            {
-                return;
-            }
-
-            ReplicatingTicks = GenTicks.SecondsToTicks(2f);
-            CheckFeedstockAvailability(1f, out hasReplimatTanks, out hasEnoughFeedstock);
-            this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
-        }
-
-        public Thing TryDispenseFood()
-        {
-            if (!this.CanDispenseNow)
-            {
-                return null;
-            }
-
-            Thing dispensedMeal = ThingMaker.MakeThing(DispensableDef, null);
-            float dispensedMealMass = dispensedMeal.def.BaseMass;
-            Log.Message("Replimat: " + dispensedMeal.ToString() + " has mass of " + dispensedMealMass.ToString() + "kg (" + ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass) + "L feedstock required)");
-            ConsumeFeedstock(ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass));
-            return dispensedMeal;
-        }
 
     }
 }
-

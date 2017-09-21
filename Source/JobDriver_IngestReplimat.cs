@@ -11,28 +11,23 @@ namespace Replimat
     public class JobDriver_IngestReplimat : JobDriver
     {
         public static Toil TakeMealFromReplimat(TargetIndex ind, Pawn eater)
-        {
+        {            
             Toil toil = new Toil();
             toil.initAction = delegate
             {
-                Pawn actor = toil.actor;
-                Job curJob = actor.jobs.curJob;
-                Building_ReplimatTerminal rep = curJob.GetTarget(ind).Thing as Building_ReplimatTerminal;
-                rep.Replicate();
+                (toil.actor.jobs.curJob.GetTarget(ind).Thing as Building_ReplimatTerminal).Replicate();
             };
             toil.AddFinishAction(delegate
             {
-                Pawn actor = toil.actor;
-                Job curJob = actor.jobs.curJob;
-                Building_ReplimatTerminal rep = curJob.GetTarget(ind).Thing as Building_ReplimatTerminal;
-                Thing thing = rep.TryDispenseFood();
+                Thing thing = (toil.actor.jobs.curJob.GetTarget(ind).Thing as Building_ReplimatTerminal).TryDispenseFood();
                 if (thing == null)
                 {
-                    actor.jobs.curDriver.EndJobWith(JobCondition.Incompletable);
+                    toil.actor.jobs.curDriver.EndJobWith(JobCondition.Incompletable);
                     return;
                 }
-                actor.carryTracker.TryStartCarry(thing);
-                actor.CurJob.SetTarget(ind, actor.carryTracker.CarriedThing);
+                toil.actor.carryTracker.TryStartCarry(thing);
+                toil.actor.Map.reservationManager.Release(toil.actor.jobs.curJob.GetTarget(ind), toil.actor);
+                toil.actor.CurJob.SetTarget(ind, toil.actor.carryTracker.CarriedThing);
             });
             toil.FailOnCannotTouch(ind, PathEndMode.Touch);
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
@@ -65,10 +60,10 @@ namespace Replimat
 
         public override string GetReport()
         {
-            if (IngestibleSource is Building_ReplimatTerminal Replimat)
-            {
-                return base.CurJob.def.reportString.Replace("TargetA", Replimat.DispensableDef.label);
-            }
+            //  if (IngestibleSource is Building_ReplimatTerminal Replimat)
+            //  {
+            //      return base.CurJob.def.reportString.Replace("TargetA", Replimat.SelectedFood.label);
+            //   }
 
             Thing thing = this.pawn.CurJob.targetA.Thing;
             if (thing != null && thing.def.ingestible != null && !thing.def.ingestible.ingestReportString.NullOrEmpty())
@@ -82,7 +77,7 @@ namespace Replimat
         protected override IEnumerable<Toil> MakeNewToils()
         {
             Toil chew = Toils_Ingest.ChewIngestible(this.pawn, this.ChewDurationMultiplier, TargetIndex.A, TargetIndex.B).FailOn((Toil x) => !this.IngestibleSource.Spawned && (this.pawn.carryTracker == null || this.pawn.carryTracker.CarriedThing != this.IngestibleSource)).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
-
+            yield return Toils_Reserve.Reserve(TargetIndex.A, 1);
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell).FailOnDespawnedNullOrForbidden(TargetIndex.A);
             yield return TakeMealFromReplimat(TargetIndex.A, this.pawn);
             yield return Toils_Ingest.CarryIngestibleToChewSpot(this.pawn, TargetIndex.A).FailOnDestroyedNullOrForbidden(TargetIndex.A);

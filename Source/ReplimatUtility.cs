@@ -53,17 +53,15 @@ namespace Replimat
 
         private static List<ThoughtDef> ingestThoughts = new List<ThoughtDef>();
 
-        public static bool TryFindBestFoodSourceFor(Pawn getter, Pawn eater, bool desperate, out Thing foodSource, out ThingDef foodDef, bool canRefillDispenser = true, bool canUseInventory = true, bool allowForbidden = false, bool allowCorpse = true, bool allowSociallyImproper = false)
+        public static bool TryFindBestFoodSourceFor(List<Thing> replimats, Pawn getter, Pawn eater, bool desperate, out Thing foodSource, out ThingDef foodDef, bool canRefillDispenser = true, bool canUseInventory = true, bool allowForbidden = false, bool allowCorpse = true, bool allowSociallyImproper = false)
         {
-            bool flag = getter.RaceProps.ToolUser && getter.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation);
             bool allowDrug = !eater.IsTeetotaler();
             Thing thing = null;
             if (canUseInventory)
             {
-                if (flag)
-                {
-                    thing = BestFoodInInventory(getter, null, FoodPreferability.MealAwful, FoodPreferability.MealLavish, 0f, false);
-                }
+
+                thing = FoodUtility.BestFoodInInventory(getter, null, FoodPreferability.MealAwful, FoodPreferability.MealLavish, 0f, false);
+
                 if (thing != null)
                 {
                     if (getter.Faction != Faction.OfPlayer)
@@ -82,12 +80,12 @@ namespace Replimat
                 }
             }
             bool allowPlant = getter == eater;
-            Thing thing2 = BestFoodSourceOnMap(getter, eater, desperate, FoodPreferability.MealLavish, allowPlant, allowDrug, allowCorpse, true, canRefillDispenser, allowForbidden, allowSociallyImproper);
+            Thing thing2 = BestFoodSourceOnMap(replimats, getter, eater, desperate, FoodPreferability.MealLavish, allowPlant, allowDrug, allowCorpse, true, canRefillDispenser, allowForbidden, allowSociallyImproper);
             if (thing == null && thing2 == null)
             {
-                if (canUseInventory && flag)
+                if (canUseInventory)
                 {
-                    thing = BestFoodInInventory(getter, null, FoodPreferability.DesperateOnly, FoodPreferability.MealLavish, 0f, allowDrug);
+                    thing = FoodUtility.BestFoodInInventory(getter, null, FoodPreferability.DesperateOnly, FoodPreferability.MealLavish, 0f, allowDrug);
                     if (thing != null)
                     {
                         foodSource = thing;
@@ -130,13 +128,13 @@ namespace Replimat
         {
             if (foodSource is Building_ReplimatTerminal rep)
             {
-                return rep.DispensableDef;
+                return rep.SelectedFood;
             }
-            Building_NutrientPasteDispenser building_NutrientPasteDispenser = foodSource as Building_NutrientPasteDispenser;
-            if (building_NutrientPasteDispenser != null)
+            if (foodSource is Building_NutrientPasteDispenser disp)
             {
-                return building_NutrientPasteDispenser.DispensableDef;
+                return disp.DispensableDef;
             }
+
             Pawn pawn = foodSource as Pawn;
             if (pawn != null)
             {
@@ -145,33 +143,7 @@ namespace Replimat
             return foodSource.def;
         }
 
-        public static Thing BestFoodInInventory(Pawn holder, Pawn eater = null, FoodPreferability minFoodPref = FoodPreferability.NeverForNutrition, FoodPreferability maxFoodPref = FoodPreferability.MealLavish, float minStackNutrition = 0f, bool allowDrug = false)
-        {
-            if (holder.inventory == null)
-            {
-                return null;
-            }
-            if (eater == null)
-            {
-                eater = holder;
-            }
-            ThingOwner<Thing> innerContainer = holder.inventory.innerContainer;
-            for (int i = 0; i < innerContainer.Count; i++)
-            {
-                Thing thing = innerContainer[i];
-                if (thing.def.IsNutritionGivingIngestible && thing.IngestibleNow && eater.RaceProps.CanEverEat(thing) && thing.def.ingestible.preferability >= minFoodPref && thing.def.ingestible.preferability <= maxFoodPref && (allowDrug || !thing.def.IsDrug))
-                {
-                    float num = thing.def.ingestible.nutrition * (float)thing.stackCount;
-                    if (num >= minStackNutrition)
-                    {
-                        return thing;
-                    }
-                }
-            }
-            return null;
-        }
-
-        public static Thing BestFoodSourceOnMap(Pawn getter, Pawn eater, bool desperate, FoodPreferability maxPref = FoodPreferability.MealLavish, bool allowPlant = true, bool allowDrug = true, bool allowCorpse = true, bool allowDispenserFull = true, bool allowDispenserEmpty = true, bool allowForbidden = false, bool allowSociallyImproper = false)
+        public static Thing BestFoodSourceOnMap(List<Thing> replimats, Pawn getter, Pawn eater, bool desperate, FoodPreferability maxPref = FoodPreferability.MealLavish, bool allowPlant = true, bool allowDrug = true, bool allowCorpse = true, bool allowDispenserFull = true, bool allowDispenserEmpty = true, bool allowForbidden = false, bool allowSociallyImproper = false)
         {
             bool getterCanManipulate = getter.RaceProps.ToolUser && getter.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation);
             if (!getterCanManipulate && getter != eater)
@@ -209,7 +181,8 @@ namespace Replimat
 
                 if (t is Building_ReplimatTerminal replimat)
                 {
-                    if (!replimat.CanDispenseNow || replimat.DispensableDef.ingestible.preferability < minPref || replimat.DispensableDef.ingestible.preferability > maxPref || !getterCanManipulate || (t.Faction != getter.Faction && t.Faction != getter.HostFaction) || !IsFoodSourceOnMapSociallyProper(t, getter, eater, allowSociallyImproper) || !t.InteractionCell.Standable(t.Map) || !getter.Map.reachability.CanReachNonLocal(getter.Position, new TargetInfo(t.InteractionCell, t.Map, false), PathEndMode.OnCell, TraverseParms.For(getter, Danger.Some, TraverseMode.ByPawn, false)))
+                    
+                    if (!getter.CanReserve(replimat, 1) || !replimat.CanDispenseNow || replimat.MaxPreferability < minPref || replimat.MaxPreferability > maxPref || !getterCanManipulate || (t.Faction != getter.Faction && t.Faction != getter.HostFaction) || !IsFoodSourceOnMapSociallyProper(t, getter, eater, allowSociallyImproper) || !t.InteractionCell.Standable(t.Map) || !getter.Map.reachability.CanReachNonLocal(getter.Position, new TargetInfo(t.InteractionCell, t.Map, false), PathEndMode.OnCell, TraverseParms.For(getter, Danger.Some, TraverseMode.ByPawn, false)))
                     {
                         return false;
                     }
@@ -236,7 +209,7 @@ namespace Replimat
                         return false;
                     }
                 }
-              
+
                 return true;
             };
             ThingRequest thingRequest;
@@ -248,46 +221,17 @@ namespace Replimat
             {
                 thingRequest = ThingRequest.ForGroup(ThingRequestGroup.FoodSourceNotPlantOrTree);
             }
-            Thing thing=null;
+            Thing thing = null;
             if (getter.RaceProps.Humanlike)
             {
                 Predicate<Thing> validator = foodValidator;
 
-                List<Thing> searchset = getter.Map.listerThings.ThingsMatching(ThingRequest.ForDef(ReplimatDef.ReplimatTerminal));
-                searchset.AddRange(getter.Map.listerThings.ThingsMatching(thingRequest));
+                List<Thing> searchset = getter.Map.listerThings.ThingsMatching(thingRequest);
+                searchset.AddRange(replimats);
 
                 thing = SpawnedFoodSearchInnerScan(eater, getter.Position, searchset, PathEndMode.ClosestTouch, TraverseParms.For(getter, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator);
             }
-            else
-            {
-                int searchRegionsMax = 30;
-                if (getter.Faction == Faction.OfPlayer)
-                {
-                    searchRegionsMax = 100;
-                }
-                filtered.Clear();
-                foreach (Thing current in GenRadial.RadialDistinctThingsAround(getter.Position, getter.Map, 2f, true))
-                {
-                    Pawn pawn = current as Pawn;
-                    if (pawn != null && pawn != getter && pawn.RaceProps.Animal && pawn.CurJob != null && pawn.CurJob.def == JobDefOf.Ingest && pawn.CurJob.GetTarget(TargetIndex.A).HasThing)
-                    {
-                        filtered.Add(pawn.CurJob.GetTarget(TargetIndex.A).Thing);
-                    }
-                }
-                bool flag = !allowForbidden && ForbidUtility.CaresAboutForbidden(getter, true) && getter.playerSettings != null && getter.playerSettings.EffectiveAreaRestrictionInPawnCurrentMap != null;
-                Predicate<Thing> predicate = (Thing t) => foodValidator(t) && !filtered.Contains(t) && t.def.ingestible.preferability > FoodPreferability.DesperateOnly && !t.IsNotFresh();
-                Predicate<Thing> validator = predicate;
-                bool ignoreEntirelyForbiddenRegions = flag;
-                thing = GenClosest.ClosestThingReachable(getter.Position, getter.Map, thingRequest, PathEndMode.ClosestTouch, TraverseParms.For(getter, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator, null, 0, searchRegionsMax, false, RegionType.Set_Passable, ignoreEntirelyForbiddenRegions);
-                filtered.Clear();
-                if (thing == null)
-                {
-                    desperate = true;
-                    validator = foodValidator;
-                    ignoreEntirelyForbiddenRegions = flag;
-                    thing = GenClosest.ClosestThingReachable(getter.Position, getter.Map, thingRequest, PathEndMode.ClosestTouch, TraverseParms.For(getter, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator, null, 0, searchRegionsMax, false, RegionType.Set_Passable, ignoreEntirelyForbiddenRegions);
-                }
-            }
+
             return thing;
         }
 
@@ -308,10 +252,14 @@ namespace Replimat
         {
             float num = 300f;
             num -= dist;
-            ThingDef thingDef = (!(t is Building_NutrientPasteDispenser)) ? t.def : ThingDefOf.MealNutrientPaste;
+            ThingDef thingDef = t.def;
+            if (t is Building_NutrientPasteDispenser disp)
+            {
+                thingDef = disp.DispensableDef;
+            }
             if (t is Building_ReplimatTerminal rep)
             {
-                thingDef = rep.DispensableDef;
+                thingDef = rep.SelectedFood;
             }
             FoodPreferability preferability = thingDef.ingestible.preferability;
             if (preferability != FoodPreferability.NeverForNutrition)
@@ -397,13 +345,13 @@ namespace Replimat
                 return ingestThoughts;
             }
             ThingDef thingDef = t.def;
-            if (thingDef == ThingDefOf.NutrientPasteDispenser)
+            if (t is Building_NutrientPasteDispenser disp)
             {
-                thingDef = ThingDefOf.MealNutrientPaste;
+                thingDef = disp.DispensableDef;
             }
             if (t is Building_ReplimatTerminal rep)
             {
-                thingDef = rep.DispensableDef;
+                thingDef = rep.SelectedFood;
             }
             if (!ingester.story.traits.HasTrait(TraitDefOf.Ascetic) && thingDef.ingestible.tasteThought != null)
             {
@@ -441,16 +389,6 @@ namespace Replimat
                 ingestThoughts.Add(ThoughtDefOf.AteRottenFood);
             }
             return ingestThoughts;
-        }
-
-        public static int WillIngestStackCountOf(Pawn ingester, ThingDef def)
-        {
-            int num = Mathf.Min(def.ingestible.maxNumToIngestAtOnce, FoodUtility.StackCountForNutrition(def, ingester.needs.food.NutritionWanted));
-            if (num < 1)
-            {
-                num = 1;
-            }
-            return num;
         }
     }
 }

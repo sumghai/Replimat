@@ -9,38 +9,21 @@ namespace Replimat
 {
     public class IncidentWorker_ReplimatMalfunctionKibble : IncidentWorker
     {
-        private static List<Building_ReplimatTerminal> tmpReplimatTerminals = new List<Building_ReplimatTerminal>();
-
-        private List<Building_ReplimatTerminal> ReplimatCandidates(Map map)
-        {
-            IncidentWorker_ReplimatMalfunctionKibble.tmpReplimatTerminals.Clear();
-            List<Building> allBuildingsColonist = map.listerBuildings.allBuildingsColonist;
-            for (int i = 0; i < allBuildingsColonist.Count; i++)
-            {
-                Building_ReplimatTerminal building_ReplimatTerminal = allBuildingsColonist[i] as Building_ReplimatTerminal;
-                if (building_ReplimatTerminal != null && building_ReplimatTerminal.powerComp.PowerOn)
-                {
-                    IncidentWorker_ReplimatMalfunctionKibble.tmpReplimatTerminals.Add(building_ReplimatTerminal);
-                }
-            }
-            return IncidentWorker_ReplimatMalfunctionKibble.tmpReplimatTerminals;
-        }
-
         protected override bool CanFireNowSub(IIncidentTarget target)
         {
             Map map = (Map)target;
-            return this.ReplimatCandidates(map).Any<Building_ReplimatTerminal>();
+            return map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminal).Any();
         }
 
         public override bool TryExecute(IncidentParms parms)
         {
             Map map = (Map)parms.target;
-            List<Building_ReplimatTerminal> list = this.ReplimatCandidates(map);
-            if (!list.Any<Building_ReplimatTerminal>())
+            List<Thing> list = map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminal);
+            if (!list.Any())
             {
                 return false;
             }
-            Building_ReplimatTerminal building_ReplimatTerminal = list.RandomElement<Building_ReplimatTerminal>();
+            Thing building_ReplimatTerminal = list.RandomElement();
 
             Thing t = ThingMaker.MakeThing(ThingDef.Named("Kibble"), null);
             t.stackCount = 75 * 3;

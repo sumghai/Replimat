@@ -11,18 +11,18 @@
   
   <!--============= Medical ===============-->
 
-  <JobDef>
-    <defName>FeedPatientReplimat</defName>
-    <driverClass>Replimat.JobDriver_FoodFeedPatientReplimat</driverClass>
-    <reportString>feeding TargetA to TargetB.</reportString>
-  </JobDef>
+  <!-- <JobDef> -->
+    <!-- <defName>FeedPatientReplimat</defName> -->
+    <!-- <driverClass>Replimat.JobDriver_FoodFeedPatientReplimat</driverClass> -->
+    <!-- <reportString>feeding TargetA to TargetB.</reportString> -->
+  <!-- </JobDef> -->
   
   <!--============= Misc ===============-->
 
-  <JobDef>
-    <defName>DeliverFoodReplimat</defName>
-    <driverClass>Replimat.JobDriver_FoodDeliverReplimat</driverClass>
-    <reportString>feeding TargetA to TargetB.</reportString>
-  </JobDef>
+  <!-- <JobDef> -->
+    <!-- <defName>DeliverFoodReplimat</defName> -->
+    <!-- <driverClass>Replimat.JobDriver_FoodDeliverReplimat</driverClass> -->
+    <!-- <reportString>feeding TargetA to TargetB.</reportString> -->
+  <!-- </JobDef> -->
   
 </JobDefs>
