@@ -149,7 +149,7 @@
       <WorkToBuild>450</WorkToBuild>
       <Flammability>1.0</Flammability>
     </statBases>
-	<size>(1,1)</size>
+	<size>(3,1)</size>
 	<DesignationCategory>Replimat_Replimat</DesignationCategory>
 	<Passability>Impassable</Passability>
 	<castEdgeShadows>true</castEdgeShadows>
@@ -172,10 +172,6 @@
           <categories>
             <li>FoodRaw</li>
           </categories>
-          <exceptedThingDefs>
-            <li>Human_Meat</li>
-            <li>Megaspider_Meat</li>
-          </exceptedThingDefs>
         </filter>
       </defaultStorageSettings>
     </building>
