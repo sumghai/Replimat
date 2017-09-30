@@ -127,7 +127,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>ReplimatHopper</defName>
     <label>Replimat Hopper</label>
-	<thingClass>Building_Storage</thingClass>
+	<thingClass>Replimat.Building_ReplimatHopper</thingClass>
     <description>Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems.</description>
     <graphicData>
       <texPath>Things/Building/replimatHopper</texPath>
@@ -183,12 +183,22 @@
     <neverMultiSelect>true</neverMultiSelect>
 	<surfaceType>Item</surfaceType>
 	<comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-		<startElectricalFires>true</startElectricalFires>
-        <basePowerConsumption>100</basePowerConsumption>
-      </li>
-      <li Class="CompProperties_Breakdownable"/>
+		<li Class="CompProperties_Power">
+			<compClass>CompPowerTrader</compClass>
+			<startElectricalFires>true</startElectricalFires>
+			<basePowerConsumption>100</basePowerConsumption>
+		</li>
+		<li Class="CompProperties_Breakdownable"/>
+		<li Class="CompProperties_Flickable"/>
+		<li Class="Replimat.CompProperties_SecondLayer">
+			<graphicData>
+				<texPath>Things/Building/replimatHopperLid</texPath>
+				<graphicClass>Graphic_Multi</graphicClass>
+				<shaderType>Transparent</shaderType>
+				<drawSize>(3,3)</drawSize>
+				</graphicData>
+			<altitudeLayer>MoteOverhead</altitudeLayer>
+		</li>
     </comps>
     <researchPrerequisites>
       <li>MolecularNutrientResequencing</li>
