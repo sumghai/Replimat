@@ -9,6 +9,13 @@ namespace Replimat
     {
         public static readonly Graphic replimatTerminalGlow = GraphicDatabase.Get<Graphic_Multi>("FX/replimatTerminalGlow", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
 
+        public static Graphic[] replimatHopperGlow = new Graphic[]
+        {
+            GraphicDatabase.Get<Graphic_Multi>("FX/replimatHopperGlow0", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white),
+            GraphicDatabase.Get<Graphic_Multi>("FX/replimatHopperGlow1", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white),
+            GraphicDatabase.Get<Graphic_Multi>("FX/replimatHopperGlow2", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white)
+        };
+
         public static readonly Texture2D clear = SolidColorMaterials.NewSolidColorTexture(Color.clear);
         public static readonly Texture2D grey = SolidColorMaterials.NewSolidColorTexture(Color.grey);
         public static readonly Texture2D blue = SolidColorMaterials.NewSolidColorTexture(new ColorInt(38, 169, 224).ToColor);
