@@ -62,5 +62,30 @@ namespace Replimat
                 return true;
             }
         }
+
+        [HarmonyPatch(typeof(Thing))]
+        [HarmonyPatch("AmbientTemperature", PropertyMethod.Getter)]
+        class Patch_Thing_AmbientTemperature
+        {
+
+            static Patch_Thing_AmbientTemperature()
+            {
+                var harmonyInstance = HarmonyInstance.Create("com.Sumghai.Replimat.patches");
+                harmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
+            }
+
+            static void Postfix(Thing __instance, ref float __result)
+            {
+                if (__instance.Spawned && __instance.def.IsNutritionGivingIngestible)
+                {
+                    List<Thing> list = __instance.Map.thingGrid.ThingsListAtFast(__instance.Position);
+                    Building_ReplimatHopper hop = list.OfType<Building_ReplimatHopper>().FirstOrDefault();
+                    if (hop != null)
+                    {
+                        __result = hop.freezerTemp;
+                    }
+                }
+            }
+        }
     }
 }
