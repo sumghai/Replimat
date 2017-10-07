@@ -3,6 +3,7 @@ using Verse;
 using RimWorld;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace Replimat
 {
@@ -64,7 +65,8 @@ namespace Replimat
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(base.GetInspectString());
-            stringBuilder.Append("FeedstockStored".Translate(storedFeedstock, storedFeedstockMax));
+            stringBuilder.AppendLine();
+            stringBuilder.Append("FeedstockStored".Translate(Math.Round(storedFeedstock, 2), storedFeedstockMax));
             return stringBuilder.ToString().TrimEndNewlines();
         }
 

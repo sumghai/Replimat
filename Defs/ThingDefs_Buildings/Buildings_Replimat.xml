@@ -31,7 +31,7 @@
       <Mass>400</Mass>
     </statBases>
 	<size>(1,1)</size>
-	 <tickerType>Normal</tickerType>
+	<tickerType>Normal</tickerType>
 	<minifiedDef>MinifiedFurniture</minifiedDef>
 	<DesignationCategory>Replimat_Replimat</DesignationCategory>
 	<Passability>PassThroughOnly</Passability>
@@ -150,6 +150,7 @@
       <Flammability>1.0</Flammability>
     </statBases>
 	<size>(3,1)</size>
+	<tickerType>Normal</tickerType>
 	<DesignationCategory>Replimat_Replimat</DesignationCategory>
 	<Passability>Impassable</Passability>
 	<castEdgeShadows>true</castEdgeShadows>
@@ -178,7 +179,6 @@
     <inspectorTabs>
       <li>ITab_Storage</li>
     </inspectorTabs>
-	<tickerType>Never</tickerType>
     <rotatable>true</rotatable>
     <neverMultiSelect>true</neverMultiSelect>
 	<surfaceType>Item</surfaceType>

@@ -13,6 +13,8 @@ namespace Replimat
 
         public CompPowerTrader powerComp;
 
+        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet).ToList();
+
         public float freezerTemp
         {
             get
@@ -31,6 +33,32 @@ namespace Replimat
         public override IEnumerable<IntVec3> AllSlotCells()
         {
             yield return this.Position;
+        }
+
+        public override void Tick()
+        {
+            if (!this.IsHashIntervalTick(60))
+            {
+                return;
+            }
+            if (this.powerComp == null || !this.powerComp.PowerOn)
+            {
+                return;
+            }
+
+            List<Building_ReplimatFeedTank> feedstockTanks = GetTanks;
+
+            if (feedstockTanks.Count > 0)
+            {
+
+                foreach (var currentTank in feedstockTanks)
+                {
+                    if (currentTank.AmountCanAccept > 0)
+                    {
+                        currentTank.AddFeedstock(0.01f);
+                    }
+                }
+            }
         }
     }
 }
