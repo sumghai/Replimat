@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Building_ReplimatFeedTank.cs" />
+    <Compile Include="Building_ReplimatComputer.cs" />
     <Compile Include="Building_ReplimatHopper.cs" />
     <Compile Include="Building_ReplimatTerminal.cs" />
     <Compile Include="CompProperties_SecondLayer.cs" />

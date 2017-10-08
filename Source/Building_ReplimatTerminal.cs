@@ -27,14 +27,24 @@ namespace Replimat
 
         public bool hasEnoughFeedstock;
 
+
         public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet).ToList();
+
+        public bool AnyComputers
+        {
+            get
+            {
+                return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputerDef).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
+
+            }
+        }
 
         public bool CanDispenseNow
         {
             get
             {
                 CheckFeedstockAvailability(1f);
-                return this.powerComp.PowerOn && hasReplimatTanks && hasEnoughFeedstock;
+                return this.powerComp.PowerOn && hasReplimatTanks && hasEnoughFeedstock && AnyComputers;
             }
         }
 
@@ -70,8 +80,8 @@ namespace Replimat
             float totalAvailableFeedstock = feedstockTanks.Sum(x => x.storedFeedstock);
 
             hasReplimatTanks = feedstockTanks.Count() > 0;
-
-            Log.Message("Replimat: " + totalAvailableFeedstock.ToString() + " feedstock available across " + feedstockTanks.Count().ToString() + " tanks");
+            //DEBUG
+            //Log.Message("Replimat: " + totalAvailableFeedstock.ToString() + " feedstock available across " + feedstockTanks.Count().ToString() + " tanks");
 
             if (totalAvailableFeedstock >= feedstockNeeded)
             {
@@ -145,7 +155,8 @@ namespace Replimat
             ChooseMeal();
             Thing dispensedMeal = ThingMaker.MakeThing(SelectedFood, null);
             float dispensedMealMass = dispensedMeal.def.BaseMass;
-            Log.Message("Replimat: " + dispensedMeal.ToString() + " has mass of " + dispensedMealMass.ToString() + "kg (" + ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass) + "L feedstock required)");
+            //DEBUG
+            //Log.Message("Replimat: " + dispensedMeal.ToString() + " has mass of " + dispensedMealMass.ToString() + "kg (" + ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass) + "L feedstock required)");
             ConsumeFeedstock(ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass));
             return dispensedMeal;
         }
@@ -198,6 +209,12 @@ namespace Replimat
             {
                 stringBuilder.AppendLine();
                 stringBuilder.Append("Requires connection to Replimat Feedstock Tank");
+            }
+
+            if (!AnyComputers)
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.Append("Requires connection to Replimat Computer");
             }
 
             if (this.hasReplimatTanks && !this.hasEnoughFeedstock)

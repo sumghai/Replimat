@@ -4,61 +4,115 @@ using System.Linq;
 using System.Text;
 using Verse;
 using RimWorld;
+using UnityEngine;
 
 namespace Replimat
 {
     class Building_ReplimatHopper : Building_Storage
     {
-        private List<IntVec3> cachedOccupiedCells;
+        public float MaxPerTransfer = 10f;
 
         public CompPowerTrader powerComp;
 
         public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet).ToList();
 
-        public float freezerTemp
-        {
-            get
-            {
-                return (this.powerComp != null && this.powerComp.PowerOn) ? -2f : base.Position.GetTemperature(base.Map);
-            }
-        }
-
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
             this.powerComp = base.GetComp<CompPowerTrader>();
-            this.cachedOccupiedCells = this.AllSlotCells().ToList<IntVec3>();
         }
 
-        public override IEnumerable<IntVec3> AllSlotCells()
+
+        public float freezerTemp
         {
-            yield return this.Position;
+            get
+            {
+                if (powerComp.PowerOn)
+                {
+                    return -2f;
+                }
+                return this.AmbientTemperature;
+            }
         }
 
         public override void Tick()
         {
-            if (!this.IsHashIntervalTick(60))
-            {
-                return;
-            }
-            if (this.powerComp == null || !this.powerComp.PowerOn)
-            {
-                return;
-            }
+            base.Tick();
 
-            List<Building_ReplimatFeedTank> feedstockTanks = GetTanks;
 
-            if (feedstockTanks.Count > 0)
+            if (this.IsHashIntervalTick(60))
             {
+                List<Building_ReplimatFeedTank> tanks = GetTanks;
+                List<Thing> list = Map.thingGrid.ThingsListAtFast(Position);
 
-                foreach (var currentTank in feedstockTanks)
+                Thing food = list.FirstOrDefault(x => x.def.IsNutritionGivingIngestible);
+
+                powerComp.PowerOutput = -175f;
+
+                if (food == null)
                 {
-                    if (currentTank.AmountCanAccept > 0)
+                    //DEBUG
+                    //Log.Message("Replimat: " + this.ThingID.ToString() + " has nothing loaded");
+                    return;
+                }
+
+                //DEBUG
+                //Log.Message("Replimat: " + this.ThingID.ToString() + " is currently loaded with " + food.stackCount.ToString() + " units of " + food.def.defName.ToString() + " (base mass=" + food.def.BaseMass + ")");
+
+                powerComp.PowerOutput = -1000f;
+
+                MaxPerTransfer = FoodUtility.StackCountForNutrition(food.def, 1f);
+
+                //DEBUG
+                //Log.Message("Replimat: " + this.ThingID.ToString() + " has MaxPerTransfer of " + MaxPerTransfer.ToString());
+
+                float remainingVolumeAvailableInTanks = tanks.Sum(x => x.AmountCanAccept);
+
+                //DEBUG
+                //Log.Message("Replimat: " + remainingVolumeAvailableInTanks + " L of remaining volume available in " + tanks.Count.ToString() + " tanks");
+
+                float totalStackLiquidVolume = food.stackCount * ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass);
+
+                float maxStackLiquidVolume = MaxPerTransfer * ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass);
+
+                //DEBUG
+                //Log.Message("Replimat: totalStackLiquidVolume for food.stackCount of " + food.stackCount.ToString() + " is " + totalStackLiquidVolume.ToString());
+                //Log.Message("Replimat: maxStackLiquidVolume for MaxPerTransfer of " + MaxPerTransfer.ToString() +" is " + maxStackLiquidVolume.ToString());
+
+                float transferBufferLiquidVolume = Mathf.Min(totalStackLiquidVolume, remainingVolumeAvailableInTanks, maxStackLiquidVolume);
+
+                //DEBUG
+                //Log.Message("Replimat: " + this.ThingID.ToString() + " has transferBufferLiquidVolume of " + transferBufferLiquidVolume.ToString() + " (smallest out of totalStackLiquidVolume=" + totalStackLiquidVolume + ", remainingVolumeAvailableInTanks=" + remainingVolumeAvailableInTanks + ", maxStackLiquidVolume=" + maxStackLiquidVolume + ")");
+
+                food.stackCount = food.stackCount - (int) (transferBufferLiquidVolume / ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass));
+
+                //DEBUG
+                //Log.Message("Replimat: updated food.stackCount=" + food.stackCount);
+
+                if (food.stackCount == 0)
+                {
+                    food.Destroy();
+                    //DEBUG
+                    //Log.Message("Replimat: " + this.ThingID.ToString() + " has run out of raw food");
+                }
+
+                foreach (var tank in tanks.InRandomOrder())
+                {
+                    if (transferBufferLiquidVolume > 0f)
                     {
-                        currentTank.AddFeedstock(0.01f);
+                        float buffer = Mathf.Min(transferBufferLiquidVolume, tank.AmountCanAccept);
+                        transferBufferLiquidVolume -= buffer;
+                        tank.AddFeedstock(buffer);
+                        //DEBUG
+                        //Log.Message("Replimat: transferred " + buffer.ToString() + "L to" + tank.ThingID.ToString());
                     }
                 }
             }
+        }
+
+        public override IEnumerable<IntVec3> AllSlotCells()
+        {
+            yield return Position;
         }
     }
 }

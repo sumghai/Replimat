@@ -3,7 +3,6 @@ using Verse;
 using RimWorld;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 namespace Replimat
 {
@@ -64,9 +63,8 @@ namespace Replimat
         public override string GetInspectString()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(base.GetInspectString());
-            stringBuilder.AppendLine();
-            stringBuilder.Append("FeedstockStored".Translate(Math.Round(storedFeedstock, 2), storedFeedstockMax));
+            stringBuilder.AppendLine(base.GetInspectString());
+            stringBuilder.AppendLine("FeedstockStored".Translate(storedFeedstock, storedFeedstockMax));
             return stringBuilder.ToString().TrimEndNewlines();
         }
 

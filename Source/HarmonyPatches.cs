@@ -23,7 +23,7 @@ namespace Replimat
             }
             static bool Prefix(JobGiver_GetFood __instance, Pawn pawn, ref Job __result)
             {
-               
+
                 bool getterCanManipulate = pawn.RaceProps.ToolUser && pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation);
                 List<Thing> Replimats = pawn.Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminalDef);
 
