@@ -106,7 +106,7 @@
 	<size>(2,2)</size>
 	<rotatable>false</rotatable>
 	<DesignationCategory>Replimat_Replimat</DesignationCategory>
-	<Passability>Impassable</Passability>
+	<Passability>PassThroughOnly</Passability>
 	<castEdgeShadows>true</castEdgeShadows>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
 	<comps>
@@ -236,7 +236,7 @@
 	<size>(2,2)</size>
 	<rotatable>false</rotatable>
 	<DesignationCategory>Replimat_Replimat</DesignationCategory>
-	<Passability>Impassable</Passability>
+	<Passability>PassThroughOnly</Passability>
 	<castEdgeShadows>true</castEdgeShadows>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
 	<comps>
