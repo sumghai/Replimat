@@ -26,7 +26,7 @@ namespace Replimat
                     return;
                 }
                 toil.actor.carryTracker.TryStartCarry(thing);
-                toil.actor.Map.reservationManager.Release(toil.actor.jobs.curJob.GetTarget(ind), toil.actor);
+                toil.actor.Map.reservationManager.Release(toil.actor.jobs.curJob.GetTarget(ind), toil.actor, toil.actor.jobs.curJob);
                 toil.actor.CurJob.SetTarget(ind, toil.actor.carryTracker.CarriedThing);
             });
             toil.FailOnCannotTouch(ind, PathEndMode.Touch);
@@ -34,7 +34,6 @@ namespace Replimat
             toil.defaultDuration = Building_ReplimatTerminal.CollectDuration;
             return toil;
         }
-
 
         public const TargetIndex IngestibleSourceInd = TargetIndex.A;
 
@@ -46,7 +45,7 @@ namespace Replimat
         {
             get
             {
-                return base.CurJob.GetTarget(TargetIndex.A).Thing;
+                return this.pawn.CurJob.GetTarget(TargetIndex.A).Thing;
             }
         }
 
@@ -73,6 +72,20 @@ namespace Replimat
             return base.GetReport();
         }
 
+        public override bool TryMakePreToilReservations()
+        {
+            if (this.pawn.Faction != null && !(this.IngestibleSource is Building_ReplimatTerminal))
+            {
+                Thing ingestibleSource = this.IngestibleSource;
+                int num = FoodUtility.WillIngestStackCountOf(this.pawn, ingestibleSource.def);
+                if (num >= ingestibleSource.stackCount && ingestibleSource.Spawned && !this.pawn.Reserve(ingestibleSource, this.job, 1, -1, null))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
@@ -95,12 +108,12 @@ namespace Replimat
                     }
             };
             yield return Toils_Ingest.FinalizeIngest(this.pawn, TargetIndex.A);
-            yield return Toils_Jump.JumpIf(chew, () => CurJob.GetTarget(TargetIndex.A).Thing is Corpse && pawn.needs.food.CurLevelPercentage < 0.9f);
+            yield return Toils_Jump.JumpIf(chew, () => this.pawn.CurJob.GetTarget(TargetIndex.A).Thing is Corpse && pawn.needs.food.CurLevelPercentage < 0.9f);
         }
 
         public override bool ModifyCarriedThingDrawPos(ref Vector3 drawPos, ref bool behind, ref bool flip)
         {
-            IntVec3 cell = base.CurJob.GetTarget(TargetIndex.B).Cell;
+            IntVec3 cell = this.pawn.CurJob.GetTarget(TargetIndex.B).Cell;
             return JobDriver_Ingest.ModifyCarriedThingDrawPosWorker(ref drawPos, ref behind, ref flip, cell, this.pawn);
         }
     }

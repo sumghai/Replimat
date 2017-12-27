@@ -3,7 +3,7 @@
 
 
     <DesignationCategoryDef>
-        <DefName>Replimat_Replimat</DefName>
+        <defName>Replimat_Replimat</defName>
         <label>Replimat</label>
         <description>Components to build a food service replicator system.</description>
         <order>501</order>

@@ -64,7 +64,7 @@ namespace Replimat
 
             Rect OutRect = new Rect(0f, 50f, WinSize.x, WinSize.y - 50f).ContractedBy(20f);
 
-            Widgets.DrawMenuSection(OutRect, true);
+            Widgets.DrawMenuSection(OutRect);
 
             float height = 30f * defaults.AllowedDefCount + 50f;
             Rect rect = new Rect(0f, 0f, OutRect.width - 16f, height);

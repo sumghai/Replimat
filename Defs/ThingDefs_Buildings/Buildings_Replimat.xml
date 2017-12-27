@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Buildings>
+<Defs>
 
 <!--====================== Replimat Terminal ======================--> 
 
@@ -20,7 +20,7 @@
 	  <Component>20</Component>
 	  <Plasteel>20</Plasteel>
     </costList>
-	<AltitudeLayer>Building</AltitudeLayer>
+	<altitudeLayer>Building</altitudeLayer>
     <fillPercent>1</fillPercent>
     <useHitPoints>True</useHitPoints>
 	<statBases>
@@ -33,8 +33,8 @@
 	<size>(1,1)</size>
 	 <tickerType>Normal</tickerType>
 	<minifiedDef>MinifiedFurniture</minifiedDef>
-	<DesignationCategory>Replimat_Replimat</DesignationCategory>
-	<Passability>PassThroughOnly</Passability>
+	<designationCategory>Replimat_Replimat</designationCategory>
+	<passability>PassThroughOnly</passability>
 	<pathCost>200</pathCost>
 	<castEdgeShadows>true</castEdgeShadows>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
@@ -94,7 +94,7 @@
 	  <Component>10</Component>
 	  <Plasteel>80</Plasteel>
     </costList>
-	<AltitudeLayer>Building</AltitudeLayer>
+	<altitudeLayer>Building</altitudeLayer>
     <fillPercent>1</fillPercent>
     <useHitPoints>True</useHitPoints>
 	<statBases>
@@ -105,8 +105,8 @@
     </statBases>
 	<size>(2,2)</size>
 	<rotatable>false</rotatable>
-	<DesignationCategory>Replimat_Replimat</DesignationCategory>
-	<Passability>PassThroughOnly</Passability>
+	<designationCategory>Replimat_Replimat</designationCategory>
+	<passability>PassThroughOnly</passability>
 	<castEdgeShadows>true</castEdgeShadows>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
 	<comps>
@@ -141,7 +141,7 @@
 	  <Component>10</Component>
 	  <Plasteel>5</Plasteel>
     </costList>
-	<AltitudeLayer>Building</AltitudeLayer>
+	<altitudeLayer>Building</altitudeLayer>
     <fillPercent>0.5</fillPercent>
     <useHitPoints>True</useHitPoints>
 	<statBases>
@@ -150,8 +150,8 @@
       <Flammability>1.0</Flammability>
     </statBases>
 	<size>(3,1)</size>
-	<DesignationCategory>Replimat_Replimat</DesignationCategory>
-	<Passability>Impassable</Passability>
+	<designationCategory>Replimat_Replimat</designationCategory>
+	<passability>Impassable</passability>
 	<castEdgeShadows>true</castEdgeShadows>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
 	<building>
@@ -224,7 +224,7 @@
 	  <Plasteel>20</Plasteel>
 	  <IsolinearModule>1</IsolinearModule>
     </costList>
-	<AltitudeLayer>Building</AltitudeLayer>
+	<altitudeLayer>Building</altitudeLayer>
     <fillPercent>1</fillPercent>
     <useHitPoints>True</useHitPoints>
 	<statBases>
@@ -235,8 +235,8 @@
     </statBases>
 	<size>(2,2)</size>
 	<rotatable>false</rotatable>
-	<DesignationCategory>Replimat_Replimat</DesignationCategory>
-	<Passability>PassThroughOnly</Passability>
+	<designationCategory>Replimat_Replimat</designationCategory>
+	<passability>PassThroughOnly</passability>
 	<castEdgeShadows>true</castEdgeShadows>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
 	<comps>
@@ -253,4 +253,4 @@
     </researchPrerequisites>
   </ThingDef>
 
-</Buildings>
+</Defs>

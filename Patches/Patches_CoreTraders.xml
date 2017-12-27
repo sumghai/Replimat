@@ -3,7 +3,7 @@
 
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
-		<Operations>
+		<operations>
 			<li Class="PatchOperationAdd">
 				<xpath>/DefPackage-TraderKindDef/TraderKindDef[defName = "Orbital_Exotic"]/stockGenerators</xpath>
 				<value>
@@ -20,7 +20,7 @@
 					</li>
 				</value>
 			</li>
-		</Operations>
+		</operations>
 	</Operation>
 
 </Patch>

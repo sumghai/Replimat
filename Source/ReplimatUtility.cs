@@ -290,7 +290,7 @@ namespace Replimat
                 }
                 if (thingDef.ingestible != null)
                 {
-                    num += thingDef.ingestible.optimalityOffset;
+                    num += thingDef.ingestible.optimalityOffsetHumanlikes;
                 }
                 return num;
             }

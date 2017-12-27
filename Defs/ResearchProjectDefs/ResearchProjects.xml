@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ResearchProjectDefs>
+<Defs>
 
 	<!--=============================== Replimat Research Projects ===================================-->
 	
@@ -25,4 +25,4 @@
 		<researchViewY>0</researchViewY>
 	</ResearchProjectDef>
 
-</ResearchProjectDefs>
+</Defs>

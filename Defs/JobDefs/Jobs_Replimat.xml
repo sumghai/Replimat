@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<JobDefs>
+<Defs>
 
   <!--============ Need satisfaction ============-->
 
@@ -25,4 +25,4 @@
     <!-- <reportString>feeding TargetA to TargetB.</reportString> -->
   <!-- </JobDef> -->
   
-</JobDefs>
+</Defs>
