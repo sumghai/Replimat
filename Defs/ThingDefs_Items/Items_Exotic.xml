@@ -28,6 +28,7 @@
     <drawGUIOverlay>false</drawGUIOverlay>
     <tradeTags>
       <li>Exotic</li>
+	  <li>Replimat_Items</li>
     </tradeTags>
   </ThingDef>
 
