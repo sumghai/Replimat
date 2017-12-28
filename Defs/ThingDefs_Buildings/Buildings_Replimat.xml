@@ -44,7 +44,7 @@
 		<tickerType>Normal</tickerType>
 		<minifiedDef>MinifiedFurniture</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
-		<passability>PassThroughOnly</passability>
+		<passability>Impassable</passability>
 		<pathCost>200</pathCost>
 		<castEdgeShadows>true</castEdgeShadows>
 		<staticSunShadowHeight>0.20</staticSunShadowHeight>
@@ -116,7 +116,7 @@
 		<size>(2,2)</size>
 		<rotatable>false</rotatable>
 		<designationCategory>Replimat_Replimat</designationCategory>
-		<passability>PassThroughOnly</passability>
+		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>
 		<staticSunShadowHeight>0.20</staticSunShadowHeight>
 		<comps>
@@ -246,7 +246,7 @@
 		<size>(2,2)</size>
 		<rotatable>false</rotatable>
 		<designationCategory>Replimat_Replimat</designationCategory>
-		<passability>PassThroughOnly</passability>
+		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>
 		<staticSunShadowHeight>0.20</staticSunShadowHeight>
 		<comps>
