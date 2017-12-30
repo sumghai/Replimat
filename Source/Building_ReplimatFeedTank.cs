@@ -3,6 +3,7 @@ using Verse;
 using RimWorld;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace Replimat
 {
@@ -15,6 +16,14 @@ namespace Replimat
 
         public float AmountCanAccept => this.IsBrokenDown() ? 0f : (storedFeedstockMax - storedFeedstock);
 
+        public bool HasComputer
+        {
+            get
+            {
+                return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputerDef).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
+
+            }
+        }
 
         public float StoredFeedstock => storedFeedstock;
         
@@ -64,7 +73,12 @@ namespace Replimat
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine(base.GetInspectString());
-            stringBuilder.AppendLine("FeedstockStored".Translate(storedFeedstock, storedFeedstockMax));
+            stringBuilder.Append("FeedstockStored".Translate(storedFeedstock, storedFeedstockMax));
+            if (!HasComputer)
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.Append("Requires connection to Replimat Computer");
+            }
             return stringBuilder.ToString().TrimEndNewlines();
         }
 

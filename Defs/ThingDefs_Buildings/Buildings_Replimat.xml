@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
+  
 	<ThingDef Name="BuildingBase" Abstract="True">
 		<category>Building</category>
 		<thingClass>Building</thingClass>
@@ -50,6 +50,8 @@
 		<staticSunShadowHeight>0.20</staticSunShadowHeight>
 		<hasInteractionCell>True</hasInteractionCell>
 		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		    <socialPropernessMatters>true</socialPropernessMatters>
+
 		<building>
 			<fixedStorageSettings>
 				<filter>
@@ -67,6 +69,8 @@
 			</defaultStorageSettings>
 			<isMealSource>true</isMealSource>
 			<soundDispense>Replicate</soundDispense>
+			      <wantsHopperAdjacent>true</wantsHopperAdjacent>
+      <nutritionCostPerDispense>0.3</nutritionCostPerDispense>
 		</building>
 		<inspectorTabs>
 			<li>Replimat.ITab_Replimat</li>
@@ -234,6 +238,7 @@
 			<Plasteel>20</Plasteel>
 			<IsolinearModule>1</IsolinearModule>
 		</costList>
+			<tickerType>Normal</tickerType>
 		<altitudeLayer>Building</altitudeLayer>
 		<fillPercent>1</fillPercent>
 		<useHitPoints>True</useHitPoints>

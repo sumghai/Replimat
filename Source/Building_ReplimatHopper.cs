@@ -14,7 +14,7 @@ namespace Replimat
 
         public CompPowerTrader powerComp;
 
-        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet).ToList();
+        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -22,6 +22,14 @@ namespace Replimat
             this.powerComp = base.GetComp<CompPowerTrader>();
         }
 
+        public bool HasComputer
+        {
+            get
+            {
+                return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputerDef).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
+
+            }
+        }
 
         public float freezerTemp
         {

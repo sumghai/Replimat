@@ -6,13 +6,13 @@ using System.Linq;
 using System;
 using UnityEngine;
 using System.Text;
+using Verse.AI;
 
 namespace Replimat
 {
-    public class Building_ReplimatTerminal : Building
-    {
-        public CompPowerTrader powerComp;
 
+    public class Building_ReplimatTerminal : Building_NutrientPasteDispenser
+    {
         public static int CollectDuration = GenTicks.SecondsToTicks(2f);
 
         public StorageSettings MealFilter;
@@ -23,30 +23,10 @@ namespace Replimat
 
         public int ReplicatingTicks = 0;
 
-        public bool hasReplimatTanks;
+        public override ThingDef DispensableDef => SelectedFood;
 
-        public bool hasEnoughFeedstock;
+        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
 
-
-        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet).ToList();
-
-        public bool AnyComputers
-        {
-            get
-            {
-                return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputerDef).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
-
-            }
-        }
-
-        public bool CanDispenseNow
-        {
-            get
-            {
-                CheckFeedstockAvailability(1f);
-                return this.powerComp.PowerOn && hasReplimatTanks && hasEnoughFeedstock && AnyComputers;
-            }
-        }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -57,7 +37,6 @@ namespace Replimat
             {
                 this.MealFilter.CopyFrom(this.def.building.defaultStorageSettings);
             }
-            CheckFeedstockAvailability(1f);
             ChooseMeal();
         }
 
@@ -66,6 +45,7 @@ namespace Replimat
             base.ExposeData();
 
             Scribe_Deep.Look<StorageSettings>(ref MealFilter, "MealFilter", this);
+            Scribe_Defs.Look<ThingDef>(ref SelectedFood, "SelectedFood");
         }
 
         public void ChooseMeal()
@@ -73,25 +53,70 @@ namespace Replimat
             SelectedFood = def.building.fixedStorageSettings.filter.AllowedThingDefs.Where(x => x.ingestible.preferability == MaxPreferability).RandomElement();
         }
 
-        public void CheckFeedstockAvailability(float feedstockNeeded)
+
+        public override Thing FindFeedInAnyHopper()
         {
-            List<Building_ReplimatFeedTank> feedstockTanks = GetTanks;
-
-            float totalAvailableFeedstock = feedstockTanks.Sum(x => x.storedFeedstock);
-
-            hasReplimatTanks = feedstockTanks.Count() > 0;
-            //DEBUG
-            //Log.Message("Replimat: " + totalAvailableFeedstock.ToString() + " feedstock available across " + feedstockTanks.Count().ToString() + " tanks");
-
-            if (totalAvailableFeedstock >= feedstockNeeded)
-            {
-                hasEnoughFeedstock = true;
-            }
-            else
-            {
-                hasEnoughFeedstock = false;
-            }
+            return base.FindFeedInAnyHopper();
         }
+
+        public override bool HasEnoughFeedstockInHoppers()
+        {
+            float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
+            float stockneeded = ReplimatUtility.convertMassToFeedstockVolume(DispensableDef.BaseMass);
+            return totalAvailableFeedstock >= stockneeded;
+        }
+
+        public override Building AdjacentReachableHopper(Pawn reacher)
+        {
+            List<Building_ReplimatHopper> Hoppers = Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatHopper).Select(x => x as Building_ReplimatHopper).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
+
+            if (!Hoppers.NullOrEmpty())
+            {
+                foreach (var item in Hoppers)
+                {
+                    if (item != null && reacher.CanReach(item, PathEndMode.Touch, Danger.Deadly, false, TraverseMode.ByPawn))
+                    {
+                        return (Building_Storage)item;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        public override Thing TryDispenseFood()
+        {
+            if (!this.CanDispenseNow)
+            {
+                return null;
+            }
+
+            if (!HasEnoughFeedstockInHoppers())
+            {
+                Log.Error("Did not find enough food in hoppers while trying to dispense.");
+                return null;
+            }
+
+            ReplicatingTicks = GenTicks.SecondsToTicks(2f);
+            this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
+
+            Thing dispensedMeal = ThingMaker.MakeThing(DispensableDef, null);
+          
+            // ADD REPLICATED MATTER INGREDIENT
+           // CompIngredients compIngredients = dispensedMeal.TryGetComp<CompIngredients>();
+             //   compIngredients.RegisterIngredient(list[i]);
+            
+
+            float dispensedMealMass = dispensedMeal.def.BaseMass;
+            //DEBUG
+            //Log.Message("Replimat: " + dispensedMeal.ToString() + " has mass of " + dispensedMealMass.ToString() + "kg (" + ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass) + "L feedstock required)");
+            ConsumeFeedstock(ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass));
+
+            ChooseMeal();
+
+            return dispensedMeal;
+        }
+
 
         public void ConsumeFeedstock(float feedstockNeeded)
         {
@@ -134,32 +159,7 @@ namespace Replimat
 
 
 
-        public void Replicate()
-        {
-            if (!this.CanDispenseNow)
-            {
-                return;
-            }
 
-            ReplicatingTicks = GenTicks.SecondsToTicks(2f);
-            CheckFeedstockAvailability(1f);
-            this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
-        }
-
-        public Thing TryDispenseFood()
-        {
-            if (!this.CanDispenseNow)
-            {
-                return null;
-            }
-            ChooseMeal();
-            Thing dispensedMeal = ThingMaker.MakeThing(SelectedFood, null);
-            float dispensedMealMass = dispensedMeal.def.BaseMass;
-            //DEBUG
-            //Log.Message("Replimat: " + dispensedMeal.ToString() + " has mass of " + dispensedMealMass.ToString() + "kg (" + ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass) + "L feedstock required)");
-            ConsumeFeedstock(ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass));
-            return dispensedMeal;
-        }
 
         public override void Draw()
         {
@@ -198,30 +198,25 @@ namespace Replimat
                 ReplicatingTicks--;
                 powerComp.PowerOutput = -1500f;
             }
-
         }
 
         public override string GetInspectString()
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(base.GetInspectString());
-            if (!this.hasReplimatTanks)
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.Append("Requires connection to Replimat Feedstock Tank");
-            }
+            //if (!this.hasReplimatTanks)
+            //{
+            //    stringBuilder.AppendLine();
+            //    stringBuilder.Append("Requires connection to Replimat Feedstock Tank");
+            //}
 
-            if (!AnyComputers)
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.Append("Requires connection to Replimat Computer");
-            }
 
-            if (this.hasReplimatTanks && !this.hasEnoughFeedstock)
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.Append("Insufficient Feedstock");
-            }
+
+            //if (this.hasReplimatTanks && !this.hasEnoughFeedstock)
+            //{
+            //    stringBuilder.AppendLine();
+            //    stringBuilder.Append("Insufficient Feedstock");
+            //}
             return stringBuilder.ToString();
         }
 
