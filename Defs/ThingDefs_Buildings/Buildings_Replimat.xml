@@ -69,7 +69,7 @@
 			</defaultStorageSettings>
 			<isMealSource>true</isMealSource>
 			<soundDispense>Replicate</soundDispense>
-			      <wantsHopperAdjacent>true</wantsHopperAdjacent>
+			      <wantsHopperAdjacent>false</wantsHopperAdjacent>
       <nutritionCostPerDispense>0.3</nutritionCostPerDispense>
 		</building>
 		<inspectorTabs>

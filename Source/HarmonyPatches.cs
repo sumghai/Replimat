@@ -179,5 +179,24 @@ namespace Replimat
                 }
             }
         }
+
+        // Hacky workaround
+        // Trick the game into thinking that Replimat Terminals are not food dispensers
+        // so that they do not trigger the "Need food hopper" alert
+        // Will not affect stock nutrient paste dispensers or pawn food optimality
+        [HarmonyPatch(typeof(ThingDef), "get_IsFoodDispenser")]
+        static class Building
+        {
+            [HarmonyPrefix]
+            static bool IsFoodDispenserPrefix(ThingDef __instance, ref bool __result)
+            {
+                if (__instance.thingClass == typeof(Building_ReplimatTerminal))
+                {
+                    __result = false;
+                    return false;
+                }
+                return true;
+            }
+        }
     }
 }
