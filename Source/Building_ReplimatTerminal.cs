@@ -62,8 +62,14 @@ namespace Replimat
         public override bool HasEnoughFeedstockInHoppers()
         {
             float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
-            float stockneeded = ReplimatUtility.convertMassToFeedstockVolume(DispensableDef.BaseMass);
-            return totalAvailableFeedstock >= stockneeded;
+            float stockNeeded = ReplimatUtility.convertMassToFeedstockVolume(DispensableDef.BaseMass);
+            return totalAvailableFeedstock >= stockNeeded;
+        }
+
+        public bool HasEnoughFeedstockInHopperForIncident(float stockNeeded)
+        {
+            float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
+            return totalAvailableFeedstock >= stockNeeded;
         }
 
         public override Building AdjacentReachableHopper(Pawn reacher)

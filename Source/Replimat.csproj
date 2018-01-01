@@ -60,6 +60,8 @@
     <Compile Include="CompSecondLayer.cs" />
     <Compile Include="GraphicsLoader.cs" />
     <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="IncidentWorker_ReplimatMalfunctionKibble.cs" />
+    <Compile Include="IncidentWorker_ReplimatSpill.cs" />
     <Compile Include="ITab_Replimat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReplimatDef.cs" />
