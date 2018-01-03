@@ -36,7 +36,13 @@ namespace Replimat
             base.Draw();
 
             GenDraw.FillableBarRequest r = default(GenDraw.FillableBarRequest);
-            r.center = this.DrawPos + Vector3.up * 0.1f;
+
+            Vector3 currPos = this.DrawPos;
+
+            currPos.y += 0.1f;
+            currPos.z += 0.3f;
+
+            r.center = currPos + Vector3.up * 0.1f;
             r.size = BarSize;
             r.fillPercent = CapPercent;
             r.filledMat = BatteryBarFilledMat;

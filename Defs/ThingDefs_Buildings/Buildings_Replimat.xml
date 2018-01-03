@@ -228,14 +228,14 @@
 		<graphicData>
 			<texPath>Things/Building/replimatComputer</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(4,4)</drawSize>
+			<drawSize>(2,3)</drawSize>
 		</graphicData>
 		<uiIconPath>UI/replimatComputer</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
-			<Steel>50</Steel>
-			<Component>50</Component>
-			<Plasteel>20</Plasteel>
+			<Steel>25</Steel>
+			<Component>25</Component>
+			<Plasteel>10</Plasteel>
 			<IsolinearModule>1</IsolinearModule>
 		</costList>
 			<tickerType>Normal</tickerType>
@@ -244,11 +244,11 @@
 		<useHitPoints>True</useHitPoints>
 		<statBases>
 			<MaxHitPoints>400</MaxHitPoints>
-			<WorkToBuild>4000</WorkToBuild>
+			<WorkToBuild>2000</WorkToBuild>
 			<Flammability>1.0</Flammability>
 			<Mass>750</Mass>
 		</statBases>
-		<size>(2,2)</size>
+		<size>(2,1)</size>
 		<rotatable>false</rotatable>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>Impassable</passability>
