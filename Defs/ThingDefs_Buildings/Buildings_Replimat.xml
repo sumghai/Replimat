@@ -99,14 +99,14 @@
 		<graphicData>
 			<texPath>Things/Building/replimatFeedTank</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(4,4)</drawSize>
+			<drawSize>(1,2)</drawSize>
 		</graphicData>
 		<uiIconPath>UI/replimatFeedTank</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
-			<Steel>50</Steel>
+			<Steel>25</Steel>
 			<Component>10</Component>
-			<Plasteel>80</Plasteel>
+			<Plasteel>50</Plasteel>
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
 		<fillPercent>1</fillPercent>
@@ -117,7 +117,7 @@
 			<Flammability>1.0</Flammability>
 			<Mass>1000</Mass>
 		</statBases>
-		<size>(2,2)</size>
+		<size>(1,1)</size>
 		<rotatable>false</rotatable>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>Impassable</passability>

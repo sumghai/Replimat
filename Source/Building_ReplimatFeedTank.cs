@@ -9,7 +9,8 @@ namespace Replimat
 {
     public class Building_ReplimatFeedTank : Building
     {
-        public virtual float storedFeedstockMax => 8000f; //8000L capacity for a 2m diameter and 2m high liquid tank
+        public virtual float storedFeedstockMax => 250f; //250L capacity for an *insulated* 0.5m diameter and 1.5m high liquid tank
+                                                         //Originally 8000L capacity for a 2m diameter and 2m high liquid tank
 
         public float storedFeedstock;
 
