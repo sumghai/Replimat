@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   
-	<ThingDef Name="BuildingBase" Abstract="True">
+	<ThingDef Name="ReplimatBase" Abstract="True">
 		<category>Building</category>
 		<thingClass>Building</thingClass>
-		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
 		<selectable>true</selectable>
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<repairEffect>Repair</repairEffect>
 	</ThingDef>
+	
+	<ThingDef Name="ReplimatBaseMinifiable" ParentName="ReplimatBase" Abstract="True">
+		<thingCategories>
+			<li>BuildingsFurniture</li>
+		</thingCategories>
+	</ThingDef>
 
 	<!--====================== Replimat Terminal ======================--> 
 
-	<ThingDef ParentName="BuildingBase">
+	<ThingDef ParentName="ReplimatBaseMinifiable">
 		<defName>ReplimatTerminal</defName>
 		<label>Replimat Terminal</label>
 		<description>Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank via conduits.</description>
@@ -27,7 +33,7 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>50</Steel>
-			<Component>20</Component>
+			<ComponentIndustrial>20</ComponentIndustrial>
 			<Plasteel>20</Plasteel>
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
@@ -42,14 +48,14 @@
 		</statBases>
 		<size>(1,1)</size>
 		<tickerType>Normal</tickerType>
-		<minifiedDef>MinifiedFurniture</minifiedDef>
+		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>Impassable</passability>
 		<pathCost>200</pathCost>
 		<castEdgeShadows>true</castEdgeShadows>
 		<staticSunShadowHeight>0.20</staticSunShadowHeight>
 		<hasInteractionCell>True</hasInteractionCell>
-		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<interactionCellOffset>(0,0,1)</interactionCellOffset>
 		    <socialPropernessMatters>true</socialPropernessMatters>
 
 		<building>
@@ -78,7 +84,7 @@
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<startElectricalFires>true</startElectricalFires>
+				<shortCircuitInRain>true</shortCircuitInRain>
 				<basePowerConsumption>125</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Flickable"/>
@@ -91,7 +97,7 @@
 
 	<!--====================== Replimat Feedstock Tank ======================-->
 
-	<ThingDef ParentName="BuildingBase">
+	<ThingDef ParentName="ReplimatBase">
 		<defName>ReplimatFeedTank</defName>
 		<label>Replimat Feedstock Tank</label>
 		<description>Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers.</description>
@@ -105,7 +111,7 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>25</Steel>
-			<Component>10</Component>
+			<ComponentIndustrial>10</ComponentIndustrial>
 			<Plasteel>50</Plasteel>
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
@@ -126,7 +132,7 @@
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<startElectricalFires>true</startElectricalFires>
+				<shortCircuitInRain>true</shortCircuitInRain>
 				<basePowerConsumption>250</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Breakdownable"/>
@@ -138,7 +144,7 @@
 
 	<!--====================== Replimat Hopper ======================-->
 
-	<ThingDef ParentName="BuildingBase">
+	<ThingDef ParentName="ReplimatBase">
 		<defName>ReplimatHopper</defName>
 		<label>Replimat Hopper</label>
 		<thingClass>Replimat.Building_ReplimatHopper</thingClass>
@@ -152,7 +158,7 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>10</Steel>
-			<Component>10</Component>
+			<ComponentIndustrial>10</ComponentIndustrial>
 			<Plasteel>5</Plasteel>
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
@@ -198,7 +204,7 @@
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<startElectricalFires>true</startElectricalFires>
+				<shortCircuitInRain>true</shortCircuitInRain>
 				<basePowerConsumption>100</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Breakdownable"/>
@@ -220,7 +226,7 @@
 
 	<!--====================== Replimat Computer ======================-->
 
-	<ThingDef ParentName="BuildingBase">
+	<ThingDef ParentName="ReplimatBase">
 		<defName>ReplimatComputer</defName>
 		<label>Replimat Computer</label>
 		<description>Provides a wide range of meal and beverage recipes to all Replimat Terminals.</description>
@@ -234,7 +240,7 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>25</Steel>
-			<Component>25</Component>
+			<ComponentIndustrial>25</ComponentIndustrial>
 			<Plasteel>10</Plasteel>
 			<IsolinearModule>1</IsolinearModule>
 		</costList>
@@ -257,7 +263,7 @@
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<startElectricalFires>true</startElectricalFires>
+				<shortCircuitInRain>true</shortCircuitInRain>
 				<basePowerConsumption>250</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Flickable"/>

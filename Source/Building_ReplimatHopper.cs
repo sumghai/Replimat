@@ -69,7 +69,8 @@ namespace Replimat
 
                 powerComp.PowerOutput = -1000f;
 
-                MaxPerTransfer = FoodUtility.StackCountForNutrition(food.def, 1f);
+                //MaxPerTransfer = FoodUtility.StackCountForNutrition(food.def, 1f);
+                MaxPerTransfer = FoodUtility.StackCountForNutrition(food.def.ingestible.CachedNutrition, 1f); ;
 
                 //DEBUG
                 //Log.Message("Replimat: " + this.ThingID.ToString() + " has MaxPerTransfer of " + MaxPerTransfer.ToString());

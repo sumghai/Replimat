@@ -9,10 +9,9 @@ namespace Replimat
 {
     public class IncidentWorker_ReplimatSpill : IncidentWorker
     {
-        protected override bool CanFireNowSub(IIncidentTarget target)
+        protected override bool CanFireNowSub(IncidentParms parms)
         {
-            Map map = (Map)target;
-
+            Map map = (Map)parms.target;
             return map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminalDef).Any();
         }
 
@@ -32,7 +31,7 @@ namespace Replimat
             if (currentTerminal.HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockToSpill))
             {
                 currentTerminal.ConsumeFeedstock(volumeOfFeedstockToSpill);
-                ThingDef filthSlime = ThingDefOf.FilthSlime;
+                ThingDef filthSlime = ThingDefOf.Filth_Slime;
                 FilthMaker.MakeFilth(building_ReplimatTerminal.InteractionCell, map, filthSlime, Rand.Range(10, 12));
 
                 Find.LetterStack.ReceiveLetter(this.def.letterLabel, this.def.letterText, LetterDefOf.NegativeEvent, new TargetInfo(building_ReplimatTerminal.Position, map, false), null);

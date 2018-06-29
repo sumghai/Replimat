@@ -49,7 +49,7 @@ namespace Replimat
             r.unfilledMat = BatteryBarUnfilledMat;
             r.margin = 0.15f;
             Rot4 rotation = base.Rotation;
-           // rotation.Rotate(RotationDirection.Clockwise);
+            // rotation.Rotate(RotationDirection.Clockwise);
             r.rotation = rotation;
             GenDraw.DrawFillableBar(r);
 

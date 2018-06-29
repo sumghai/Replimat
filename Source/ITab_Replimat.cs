@@ -145,7 +145,7 @@ namespace Replimat
                 if (Input.GetMouseButton(0) && parentFilter.Allows(meal) != selection)
                 {
                     Terminal.MealFilter.filter.SetAllow(meal, selection);
-                    SoundDefOf.DesignateDragStandardChanged.PlayOneShotOnCamera();
+                    SoundDefOf.Designate_DragStandard_Changed.PlayOneShotOnCamera();
                 }
             }
             Text.Anchor = TextAnchor.UpperLeft;

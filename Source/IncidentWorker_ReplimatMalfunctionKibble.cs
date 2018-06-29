@@ -9,9 +9,9 @@ namespace Replimat
 {
     public class IncidentWorker_ReplimatMalfunctionKibble : IncidentWorker
     {
-        protected override bool CanFireNowSub(IIncidentTarget target)
+        protected override bool CanFireNowSub(IncidentParms parms)
         {
-            Map map = (Map)target;
+            Map map = (Map)parms.target;
             return map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminalDef).Any();
         }
 

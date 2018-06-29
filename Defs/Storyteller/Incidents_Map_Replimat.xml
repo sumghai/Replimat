@@ -7,7 +7,7 @@
 		<workerClass>Replimat.IncidentWorker_ReplimatSpill</workerClass>
 		<category>Misc</category>
 		<targetTypes>
-			<li>MapPlayerHome</li>
+			<li>Map_PlayerHome</li>
 		</targetTypes>
 		<baseChance>5</baseChance>
 		<letterLabel>Replimat Spill</letterLabel>
@@ -20,7 +20,7 @@
 		<workerClass>Replimat.IncidentWorker_ReplimatMalfunctionKibble</workerClass>
 		<category>Misc</category>
 		<targetTypes>
-			<li>MapPlayerHome</li>
+			<li>Map_PlayerHome</li>
 		</targetTypes>
 		<baseChance>5</baseChance>
 		<letterLabel>Replimat Malfunction\n(Kibble)</letterLabel>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using Verse;
 
 namespace Replimat
@@ -23,7 +24,7 @@ namespace Replimat
                 {
                     if (this.Props.graphicData == null)
                     {
-                        Log.ErrorOnce(this.parent.def + " has no SecondLayer graphicData but we are trying to access it.", 764532);
+                        Log.ErrorOnce(this.parent.def + " has no SecondLayer graphicData but we are trying to access it.", 764532, false);
                         return BaseContent.BadGraphic;
                     }
                     this.graphicInt = this.Props.graphicData.GraphicColoredFor(this.parent);
@@ -35,7 +36,7 @@ namespace Replimat
         public override void PostDraw()
         {
             base.PostDraw();
-            this.Graphic.Draw(Gen.TrueCenter(this.parent.Position, this.parent.Rotation, this.parent.def.size, this.Props.Altitude), this.parent.Rotation, this.parent);
+            this.Graphic.Draw(GenThing.TrueCenter(this.parent.Position, this.parent.Rotation, this.parent.def.size, this.Props.Altitude), this.parent.Rotation, this.parent, 0f);
         }
     }
 }
