@@ -93,18 +93,50 @@ namespace Replimat
             {
                 yield return new Command_Action
                 {
-                    defaultLabel = "DEBUG: Fill",
-                    action = delegate
-                    {
-                        this.SetStoredFeedstockPct(1f);
-                    }
-                };
-                yield return new Command_Action
-                {
                     defaultLabel = "DEBUG: Empty",
                     action = delegate
                     {
                         this.SetStoredFeedstockPct(0f);
+                    }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEBUG: -10L",
+                    action = delegate
+                    {
+                        this.DrawFeedstock(10f);
+                    }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEBUG: -1L",
+                    action = delegate
+                    {
+                        this.DrawFeedstock(1f);
+                    }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEBUG: +1L",
+                    action = delegate
+                    {
+                        this.AddFeedstock(1f);
+                    }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEBUG: +10L",
+                    action = delegate
+                    {
+                        this.AddFeedstock(10f);
+                    }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEBUG: Fill",
+                    action = delegate
+                    {
+                        this.SetStoredFeedstockPct(1f);
                     }
                 };
             }
