@@ -223,19 +223,14 @@ namespace Replimat
                 stringBuilder.AppendLine();
                 stringBuilder.Append("Requires connection to Replimat Computer");
             }
-            //if (!this.hasReplimatTanks)
-            //{
-            //    stringBuilder.AppendLine();
-            //    stringBuilder.Append("Requires connection to Replimat Feedstock Tank");
-            //}
-
-
-
-            //if (this.hasReplimatTanks && !this.hasEnoughFeedstock)
-            //{
-            //    stringBuilder.AppendLine();
-            //    stringBuilder.Append("Insufficient Feedstock");
-            //}
+            else if (!HasEnoughFeedstockInHoppers())
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.Append("Insufficient Feedstock");
+            }
+            else
+            { }
+           
             return stringBuilder.ToString();
         }
 
