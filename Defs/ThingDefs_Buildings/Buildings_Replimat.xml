@@ -27,6 +27,7 @@
 		<graphicData>
 			<texPath>Things/Building/replimatTerminal</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
 			<drawSize>(3,3)</drawSize>
 		</graphicData>
 		<uiIconPath>UI/replimatTerminal</uiIconPath>
