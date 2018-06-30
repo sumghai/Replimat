@@ -5,12 +5,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 
 namespace Replimat
 {
-    class HarmonyPatches
+
+    public class SumghaiReplimatMod : Mod
+    {
+        public SumghaiReplimatMod(ModContentPack content) : base(content)
+        {
+            HarmonyInstance.Create("com.Sumghai.Replimat.patches").PatchAll(Assembly.GetExecutingAssembly());
+        }
+    }
+
+
+    internal class HarmonyPatches
     {
         [HarmonyPatch(typeof(FoodUtility), "BestFoodSourceOnMap"), StaticConstructorOnStartup]
         static class Patch_BestFoodSourceOnMap
@@ -37,15 +48,11 @@ namespace Replimat
         }
 
 
-
         [HarmonyPatch(typeof(FoodUtility), "SpawnedFoodSearchInnerScan"), StaticConstructorOnStartup]
         static class Patch_SpawnedFoodSearchInnerScan
         {
             static Patch_SpawnedFoodSearchInnerScan()
             {
-                var harmonyInstance = HarmonyInstance.Create("com.Sumghai.Replimat.patches");
-                harmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
-
                 poop = AccessTools.Method(typo, "IsFoodSourceOnMapSociallyProper");
             }
 
@@ -67,7 +74,7 @@ namespace Replimat
             public static MethodInfo poop;
 
             static bool IsFoodSourceOnMapSociallyProper(Thing t, Pawn getter, Pawn eater, bool allowSociallyImproper)
-            {          
+            {
                 var rawValue = poop.Invoke(typo, new object[] { t, getter, eater, allowSociallyImproper });
 
                 bool x = false;
@@ -134,17 +141,11 @@ namespace Replimat
         [HarmonyPatch(typeof(ThingListGroupHelper), "Includes"), StaticConstructorOnStartup]
         static class Patch_Includes
         {
-            static Patch_Includes()
-            {
-                var harmonyInstance = HarmonyInstance.Create("com.Sumghai.Replimat.patches");
-                harmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
-            }
 
             static bool Prefix(ref ThingRequestGroup group, ref ThingDef def, ref bool __result)
             {
                 if (group == ThingRequestGroup.FoodSource || group == ThingRequestGroup.FoodSourceNotPlantOrTree)
                 {
-                    //def.thingClass.GetType().IsAssignableFrom(typeof(Building_NutrientPasteDispenser))
                     if (def.thingClass == typeof(Building_ReplimatTerminal))
                     {
                         __result = true;
@@ -159,12 +160,6 @@ namespace Replimat
         [HarmonyPatch("AmbientTemperature", PropertyMethod.Getter)]
         static class Patch_Thing_AmbientTemperature
         {
-
-            static Patch_Thing_AmbientTemperature()
-            {
-                var harmonyInstance = HarmonyInstance.Create("com.Sumghai.Replimat.patches");
-                harmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
-            }
 
             static void Postfix(Thing __instance, ref float __result)
             {
