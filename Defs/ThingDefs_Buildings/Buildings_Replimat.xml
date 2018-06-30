@@ -108,7 +108,6 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(1,2)</drawSize>
 		</graphicData>
-		<uiIconPath>UI/replimatFeedTank</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>25</Steel>
@@ -155,7 +154,6 @@
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
 		</graphicData>
-		<uiIconPath>UI/replimatHopper</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>10</Steel>
@@ -237,7 +235,6 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(2,3)</drawSize>
 		</graphicData>
-		<uiIconPath>UI/replimatComputer</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>25</Steel>
