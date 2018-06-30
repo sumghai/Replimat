@@ -27,6 +27,14 @@ namespace Replimat
 
         public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
 
+        public bool HasComputer
+        {
+            get
+            {
+                return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputerDef).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
+
+            }
+        }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -210,6 +218,11 @@ namespace Replimat
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(base.GetInspectString());
+            if (!HasComputer)
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.Append("Requires connection to Replimat Computer");
+            }
             //if (!this.hasReplimatTanks)
             //{
             //    stringBuilder.AppendLine();
