@@ -34,7 +34,7 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>50</Steel>
-			<ComponentIndustrial>20</ComponentIndustrial>
+			<ComponentSpacer>20</ComponentSpacer>
 			<Plasteel>20</Plasteel>
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
@@ -58,7 +58,6 @@
 		<hasInteractionCell>True</hasInteractionCell>
 		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
 		    <socialPropernessMatters>true</socialPropernessMatters>
-
 		<building>
 			<fixedStorageSettings>
 				<filter>
@@ -111,7 +110,8 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>25</Steel>
-			<ComponentIndustrial>10</ComponentIndustrial>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<ComponentSpacer>5</ComponentSpacer>
 			<Plasteel>50</Plasteel>
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
@@ -157,7 +157,8 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>10</Steel>
-			<ComponentIndustrial>10</ComponentIndustrial>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<ComponentSpacer>5</ComponentSpacer>
 			<Plasteel>5</Plasteel>
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
@@ -238,7 +239,7 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>25</Steel>
-			<ComponentIndustrial>25</ComponentIndustrial>
+			<ComponentSpacer>25</ComponentSpacer>
 			<Plasteel>10</Plasteel>
 			<IsolinearModule>1</IsolinearModule>
 		</costList>
