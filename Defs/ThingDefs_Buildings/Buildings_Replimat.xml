@@ -94,6 +94,73 @@
 			<li>MolecularNutrientResequencing</li>
 		</researchPrerequisites>
 	</ThingDef>
+	
+	<!--====================== Replimat Animal Feeder ======================--> 
+
+	<ThingDef ParentName="ReplimatBaseMinifiable">
+		<defName>ReplimatAnimalFeeder</defName>
+		<label>Replimat Animal Feeder</label>
+		<description>Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank via conduits.</description>
+		<thingClass>Replimat.Building_ReplimatAnimalFeeder</thingClass>
+		<graphicData>
+			<texPath>Things/Building/replimatAnimalFeeder</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<constructEffect>ConstructMetal</constructEffect>
+		<costList>
+			<Steel>5</Steel>
+			<ComponentSpacer>2</ComponentSpacer>
+			<Plasteel>2</Plasteel>
+		</costList>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<fillPercent>0.1</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<WorkToBuild>200</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>5</Beauty>
+			<Mass>5</Mass>
+		</statBases>
+		<size>(1,1)</size>
+		<tickerType>Normal</tickerType>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<designationCategory>Replimat_Replimat</designationCategory>
+		<passability>PassThroughOnly</passability>
+		<pathCost>200</pathCost>
+		<castEdgeShadows>true</castEdgeShadows>
+		<staticSunShadowHeight>0.1</staticSunShadowHeight>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<building>
+			<fixedStorageSettings>
+				<filter>
+					<thingDefs>
+						<li>Kibble</li>
+					</thingDefs>
+				</filter>
+			</fixedStorageSettings>
+			<defaultStorageSettings>
+				<filter>
+					<thingDefs>
+						<li>Kibble</li>
+					</thingDefs>
+				</filter>
+			</defaultStorageSettings>
+		</building>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>125</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<researchPrerequisites>
+			<li>MolecularNutrientResequencing</li>
+		</researchPrerequisites>
+	</ThingDef>
 
 	<!--====================== Replimat Feedstock Tank ======================-->
 

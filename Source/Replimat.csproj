@@ -52,6 +52,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Building_ReplimatAnimalFeeder.cs" />
     <Compile Include="Building_ReplimatFeedTank.cs" />
     <Compile Include="Building_ReplimatComputer.cs" />
     <Compile Include="Building_ReplimatHopper.cs" />
