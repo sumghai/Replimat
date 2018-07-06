@@ -3,4 +3,6 @@
 	<!-- ITab_Replimat !-->
 	<TabReplimat>Replimat</TabReplimat>
 	<FeedstockStored>Feedstock stored {0} / {1} L</FeedstockStored>
+	
+	<LetterTextReplimatSpill>A {0} has malfunctioned, spilling nutrient feedstock everywhere.</LetterTextReplimatSpill>
 </LanguageData>
