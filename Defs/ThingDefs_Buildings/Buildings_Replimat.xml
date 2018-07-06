@@ -113,7 +113,7 @@
 			<ComponentSpacer>2</ComponentSpacer>
 			<Plasteel>2</Plasteel>
 		</costList>
-		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<altitudeLayer>Building</altitudeLayer>
 		<fillPercent>0.1</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
