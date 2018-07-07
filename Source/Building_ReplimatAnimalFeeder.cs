@@ -71,8 +71,14 @@ namespace Replimat
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
+            string copyStr = "CommandCopyZoneSettingsLabel".Translate();
+            string pasteStr = "CommandPasteZoneSettingsLabel".Translate();
             foreach (Gizmo g in base.GetGizmos())
             {
+                if (g is Command_Action act && (act.defaultLabel == copyStr || act.defaultLabel == pasteStr))
+                {
+                    continue;
+                }
                 yield return g;
             }
         }
