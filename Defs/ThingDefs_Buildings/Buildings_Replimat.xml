@@ -127,7 +127,7 @@
 		<Beauty>5</Beauty>
 		<Mass>2</Mass>
 	</statBases>
-	<tickerType>Never</tickerType>
+	<tickerType>Normal</tickerType>
 	<minifiedDef>MinifiedThing</minifiedDef>
     <designationCategory>Replimat_Replimat</designationCategory>
     <passability>PassThroughOnly</passability>
