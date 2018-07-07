@@ -32,7 +32,6 @@ namespace Replimat
             get
             {
                 return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputerDef).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
-
             }
         }
 

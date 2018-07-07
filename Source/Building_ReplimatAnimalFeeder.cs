@@ -14,6 +14,10 @@ namespace Replimat
 
         public int ReplicatingTicks = 0;
 
+        ThingDef kibble = ThingDef.Named("Kibble");
+
+        int unitsOfKibble = 20;
+
         public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
 
         public bool HasComputer
@@ -105,12 +109,30 @@ namespace Replimat
         {
             base.Tick();
 
-            powerComp.PowerOutput = -125f;
-
-            if (ReplicatingTicks > 0)
+            if (this.IsHashIntervalTick(60))
             {
-                ReplicatingTicks--;
-                powerComp.PowerOutput = -1500f;
+                List<Thing> list = Map.thingGrid.ThingsListAtFast(Position);
+                Thing foodInFeeder = list.FirstOrDefault(x => x.def.IsNutritionGivingIngestible);
+
+                if (foodInFeeder == null)
+                {
+                    Log.Message(this.ThingID.ToString() + " is empty");
+                    Thing t = ThingMaker.MakeThing(kibble, null);
+                    t.stackCount = unitsOfKibble;
+                    GenPlace.TryPlaceThing(t, Position, Map, ThingPlaceMode.Direct);
+                }
+                else
+                {
+                    Log.Message(this.ThingID.ToString() + " currently has " + foodInFeeder.stackCount.ToString() + " units of " + foodInFeeder.def.label.ToString());
+                }
+
+                powerComp.PowerOutput = -125f;
+
+                if (ReplicatingTicks > 0)
+                {
+                    ReplicatingTicks--;
+                    powerComp.PowerOutput = -1500f;
+                }
             }
         }
 
