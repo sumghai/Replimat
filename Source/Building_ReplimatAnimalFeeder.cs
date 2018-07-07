@@ -12,7 +12,18 @@ namespace Replimat
     {
         public CompPowerTrader powerComp;
 
+        public int ReplicatingTicks = 0;
+
         public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
+
+        public bool HasComputer
+        {
+            get
+            {
+                return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputerDef).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
+
+            }
+        }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -81,6 +92,46 @@ namespace Replimat
                 }
                 yield return g;
             }
+        }
+
+        public bool HasEnoughFeedstockInHoppers()
+        {
+            float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
+            float stockNeeded = ReplimatUtility.convertMassToFeedstockVolume(1f);
+            return totalAvailableFeedstock >= stockNeeded;
+        }
+
+        public override void Tick()
+        {
+            base.Tick();
+
+            powerComp.PowerOutput = -125f;
+
+            if (ReplicatingTicks > 0)
+            {
+                ReplicatingTicks--;
+                powerComp.PowerOutput = -1500f;
+            }
+        }
+
+        public override string GetInspectString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(base.GetInspectString());
+            if (!HasComputer)
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.Append("Requires connection to Replimat Computer");
+            }
+            else if (!HasEnoughFeedstockInHoppers())
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.Append("Insufficient Feedstock");
+            }
+            else
+            { }
+
+            return stringBuilder.ToString();
         }
     }
 }
