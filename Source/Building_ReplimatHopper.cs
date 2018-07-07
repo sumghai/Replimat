@@ -14,6 +14,8 @@ namespace Replimat
 
         public CompPowerTrader powerComp;
 
+        public int DematerializingTicks = 0;
+
         public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)

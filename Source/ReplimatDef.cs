@@ -13,7 +13,6 @@ namespace Replimat
         public static ThingDef FeedTankDef = ThingDef.Named("ReplimatFeedTank");
         public static ThingDef ReplimatHopper = ThingDef.Named("ReplimatHopper");
 
-
         public static TraitDef SensitiveTaster = TraitDef.Named("SensitiveTaster");
 
         public static ThoughtDef AteReplicatedFood = ThoughtDef.Named("AteReplicatedFood");

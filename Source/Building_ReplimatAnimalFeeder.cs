@@ -68,5 +68,13 @@ namespace Replimat
                 Log.Error("Replimat: Tried to draw feedstock from non-existent tanks!");
             }
         }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (Gizmo g in base.GetGizmos())
+            {
+                yield return g;
+            }
+        }
     }
 }
