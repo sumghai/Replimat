@@ -193,18 +193,22 @@ namespace Replimat
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(base.GetInspectString());
 
-            if (!HasComputer)
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.Append("Requires connection to Replimat Computer");
+            if (ParentHolder != null && !(ParentHolder is Map)) {
+
+            } else { 
+                if (!HasComputer)
+                {
+                    stringBuilder.AppendLine();
+                    stringBuilder.Append("Requires connection to Replimat Computer");
+                }
+                else if (!HasEnoughFeedstockInHoppers())
+                {
+                    stringBuilder.AppendLine();
+                    stringBuilder.Append("Insufficient Feedstock");
+                }
+                else
+                { }
             }
-            else if (!HasEnoughFeedstockInHoppers())
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.Append("Insufficient Feedstock");
-            }
-            else
-            { }
 
             return stringBuilder.ToString();
         }
