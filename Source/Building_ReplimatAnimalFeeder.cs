@@ -5,11 +5,14 @@ using System.Text;
 using Verse;
 using RimWorld;
 using UnityEngine;
+using Verse.Sound;
 
 namespace Replimat
 {
     class Building_ReplimatAnimalFeeder : Building_Storage
     {
+        public static int KibbleReplicateDuration = GenTicks.SecondsToTicks(2f);
+
         public CompPowerTrader powerComp;
 
         public int ReplicatingTicks = 0;
@@ -63,6 +66,32 @@ namespace Replimat
             return totalAvailableFeedstock >= stockNeeded;
         }
 
+        public override void Draw()
+        {
+            base.Draw();
+
+            if (ReplicatingTicks > 0)
+            {
+                float alpha;
+                float quart = KibbleReplicateDuration * 0.25f;
+                if (ReplicatingTicks < quart)
+                {
+                    alpha = Mathf.InverseLerp(0, quart, ReplicatingTicks);
+                }
+                else if (ReplicatingTicks > quart * 3f)
+                {
+                    alpha = Mathf.InverseLerp(KibbleReplicateDuration, quart * 3f, ReplicatingTicks);
+                }
+                else
+                {
+                    alpha = 1f;
+                }
+
+                Graphics.DrawMesh(GraphicsLoader.replimatAnimalFeederGlow.MeshAt(base.Rotation), this.DrawPos + Altitudes.AltIncVect, Quaternion.identity,
+                    FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatAnimalFeederGlow.MatAt(base.Rotation, null), alpha), 0);
+            }
+        }
+
         public override void Tick()
         {
             base.Tick();
@@ -82,6 +111,7 @@ namespace Replimat
                     if (maxKib > 0 && powerComp.PowerNet.TryConsumeFeedstock(volumePerKibble * maxKib))
                     {
                         ReplicatingTicks = GenTicks.SecondsToTicks(2f);
+                        this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
 
                         Thing t = ThingMaker.MakeThing(ThingDefOf.Kibble, null);
                         t.stackCount = maxKib;
@@ -100,6 +130,7 @@ namespace Replimat
                     if (maxKib > 0 && powerComp.PowerNet.TryConsumeFeedstock(volumePerKibble * maxKib))
                     {
                         ReplicatingTicks = GenTicks.SecondsToTicks(2f);
+                        this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
 
                         foodInFeeder.stackCount += maxKib;
                     }
@@ -119,6 +150,7 @@ namespace Replimat
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(base.GetInspectString());
+
             if (!HasComputer)
             {
                 stringBuilder.AppendLine();

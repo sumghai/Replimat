@@ -9,6 +9,8 @@ namespace Replimat
     {
         public static readonly Graphic replimatTerminalGlow = GraphicDatabase.Get<Graphic_Multi>("FX/replimatTerminalGlow", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
 
+        public static readonly Graphic replimatAnimalFeederGlow = GraphicDatabase.Get<Graphic_Single>("FX/replimatAnimalFeederGlow", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
+
         public static Graphic[] replimatHopperGlow = new Graphic[]
         {
             GraphicDatabase.Get<Graphic_Multi>("FX/replimatHopperGlow0", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white),

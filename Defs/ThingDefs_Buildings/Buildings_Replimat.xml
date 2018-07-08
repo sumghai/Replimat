@@ -153,6 +153,7 @@
           </thingDefs>
         </filter>
       </defaultStorageSettings>
+	  <soundDispense>Replicate</soundDispense>
     </building>
 	<comps>
 		<li Class="CompProperties_Power">
