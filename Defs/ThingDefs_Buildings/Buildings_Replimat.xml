@@ -127,6 +127,7 @@
 		<Beauty>5</Beauty>
 		<Mass>2</Mass>
 	</statBases>
+	<rotatable>false</rotatable>
 	<tickerType>Normal</tickerType>
 	<minifiedDef>MinifiedThing</minifiedDef>
     <designationCategory>Replimat_Replimat</designationCategory>
