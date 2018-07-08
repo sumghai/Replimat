@@ -96,6 +96,11 @@ namespace Replimat
         {
             base.Tick();
 
+            if (!powerComp.PowerOn)
+            {
+                return;
+            }
+
             if (this.IsHashIntervalTick(60))
             {
                 List<Thing> list = Map.thingGrid.ThingsListAtFast(Position);

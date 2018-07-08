@@ -33,8 +33,6 @@ namespace Replimat
             }
         }
 
-
-
         public bool StorageTabVisible => false;
 
         public StorageSettings GetStoreSettings()
@@ -81,7 +79,6 @@ namespace Replimat
         {
             SelectedFood = def.building.fixedStorageSettings.filter.AllowedThingDefs.Where(x => x.ingestible.preferability == MaxPreferability).RandomElement();
         }
-
 
         public override Thing FindFeedInAnyHopper()
         {
@@ -195,6 +192,7 @@ namespace Replimat
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(base.GetInspectString());
+
             if (!HasComputer)
             {
                 stringBuilder.AppendLine();
@@ -207,7 +205,7 @@ namespace Replimat
             }
             else
             { }
-           
+
             return stringBuilder.ToString();
         }
     }
