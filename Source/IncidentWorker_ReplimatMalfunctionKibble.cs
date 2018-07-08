@@ -32,7 +32,7 @@ namespace Replimat
 
             if (currentTerminal.HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockToWaste))
             {
-                currentTerminal.ConsumeFeedstock(volumeOfFeedstockToWaste);
+                currentTerminal.powerComp.PowerNet.TryConsumeFeedstock(volumeOfFeedstockToWaste);
                 Thing t = ThingMaker.MakeThing(kibble, null);
                 t.stackCount = unitsOfKibble;
                 GenPlace.TryPlaceThing(t, building_ReplimatTerminal.InteractionCell, map, ThingPlaceMode.Near);

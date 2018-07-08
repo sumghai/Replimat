@@ -48,7 +48,7 @@ namespace Replimat
 
                 if (currentTerminal.HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockToSpill))
                 {
-                    currentTerminal.ConsumeFeedstock(volumeOfFeedstockToSpill);
+                    currentTerminal.powerComp.PowerNet.TryConsumeFeedstock(volumeOfFeedstockToSpill);
                     ThingDef filthSlime = ThingDefOf.Filth_Slime;
                     FilthMaker.MakeFilth(targetTerminal.InteractionCell, map, filthSlime, Rand.Range(10, 12));
 
@@ -71,7 +71,7 @@ namespace Replimat
 
                 if (currentAnimalFeeder.HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockToSpill))
                 {
-                    currentAnimalFeeder.ConsumeFeedstock(volumeOfFeedstockToSpill);
+                    currentAnimalFeeder.powerComp.PowerNet.TryConsumeFeedstock(volumeOfFeedstockToSpill);
                     ThingDef filthSlime = ThingDefOf.Filth_Slime;
                     FilthMaker.MakeFilth(targetTerminal.InteractionCell, map, filthSlime, Rand.Range(10, 12));
 

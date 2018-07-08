@@ -14,11 +14,7 @@ namespace Replimat
 
         public int ReplicatingTicks = 0;
 
-        ThingDef kibble = ThingDef.Named("Kibble");
-
-        int unitsOfKibble = 20;
-
-        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
+        public float volumePerKibble = ReplimatUtility.convertMassToFeedstockVolume(ThingDefOf.Kibble.BaseMass);
 
         public bool HasComputer
         {
@@ -42,46 +38,8 @@ namespace Replimat
 
         public bool HasEnoughFeedstockInHopperForIncident(float stockNeeded)
         {
-            float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
+            float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
             return totalAvailableFeedstock >= stockNeeded;
-        }
-
-        public void ConsumeFeedstock(float feedstockNeeded)
-        {
-            List<Building_ReplimatFeedTank> feedstockTanks = GetTanks;
-
-            float totalAvailableFeedstock = feedstockTanks.Sum(x => x.storedFeedstock);
-
-            if (feedstockTanks.Count() > 0)
-            {
-                feedstockTanks.Shuffle();
-
-                if (totalAvailableFeedstock >= feedstockNeeded)
-                {
-                    float feedstockLeftToConsume = feedstockNeeded;
-
-                    foreach (var currentTank in feedstockTanks)
-                    {
-                        if (feedstockLeftToConsume <= 0f)
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            float num = Math.Min(feedstockLeftToConsume, currentTank.StoredFeedstock);
-
-                            currentTank.DrawFeedstock(num);
-
-                            feedstockLeftToConsume -= num;
-                        }
-                    }
-                }
-
-            }
-            else
-            {
-                Log.Error("Replimat: Tried to draw feedstock from non-existent tanks!");
-            }
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -100,7 +58,7 @@ namespace Replimat
 
         public bool HasEnoughFeedstockInHoppers()
         {
-            float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
+            float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
             float stockNeeded = ReplimatUtility.convertMassToFeedstockVolume(1f);
             return totalAvailableFeedstock >= stockNeeded;
         }
@@ -117,22 +75,43 @@ namespace Replimat
                 if (foodInFeeder == null)
                 {
                     Log.Message(this.ThingID.ToString() + " is empty");
-                    Thing t = ThingMaker.MakeThing(kibble, null);
-                    t.stackCount = unitsOfKibble;
-                    GenPlace.TryPlaceThing(t, Position, Map, ThingPlaceMode.Direct);
+
+                    int maxKib = Mathf.FloorToInt(powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock) / volumePerKibble);
+                    maxKib = Mathf.Min(maxKib, 75);
+
+                    if (maxKib > 0 && powerComp.PowerNet.TryConsumeFeedstock(volumePerKibble * maxKib))
+                    {
+                        ReplicatingTicks = GenTicks.SecondsToTicks(2f);
+
+                        Thing t = ThingMaker.MakeThing(ThingDefOf.Kibble, null);
+                        t.stackCount = maxKib;
+                        GenPlace.TryPlaceThing(t, Position, Map, ThingPlaceMode.Direct);
+                    }
+
                 }
-                else
+                else if (foodInFeeder.def == ThingDefOf.Kibble && foodInFeeder.stackCount < 20)
                 {
                     Log.Message(this.ThingID.ToString() + " currently has " + foodInFeeder.stackCount.ToString() + " units of " + foodInFeeder.def.label.ToString());
-                }
 
-                powerComp.PowerOutput = -125f;
+                    int refill = Mathf.Min(foodInFeeder.def.stackLimit - foodInFeeder.stackCount, 75);
+                    int maxKib = Mathf.FloorToInt(powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock) / volumePerKibble);
+                    maxKib = Mathf.Min(maxKib, refill);
 
-                if (ReplicatingTicks > 0)
-                {
-                    ReplicatingTicks--;
-                    powerComp.PowerOutput = -1500f;
+                    if (maxKib > 0 && powerComp.PowerNet.TryConsumeFeedstock(volumePerKibble * maxKib))
+                    {
+                        ReplicatingTicks = GenTicks.SecondsToTicks(2f);
+
+                        foodInFeeder.stackCount += maxKib;
+                    }
                 }
+            }
+
+            powerComp.PowerOutput = -125f;
+
+            if (ReplicatingTicks > 0)
+            {
+                ReplicatingTicks--;
+                powerComp.PowerOutput = -1500f;
             }
         }
 

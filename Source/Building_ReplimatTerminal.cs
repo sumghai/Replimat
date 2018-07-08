@@ -11,7 +11,7 @@ using Verse.AI;
 namespace Replimat
 {
 
-    public class Building_ReplimatTerminal : Building_NutrientPasteDispenser
+    public class Building_ReplimatTerminal : Building_NutrientPasteDispenser, IStoreSettingsParent
     {
         public static int CollectDuration = GenTicks.SecondsToTicks(2f);
 
@@ -25,13 +25,35 @@ namespace Replimat
 
         public override ThingDef DispensableDef => SelectedFood;
 
-        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
-
         public bool HasComputer
         {
             get
             {
                 return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputerDef).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
+            }
+        }
+
+
+
+        public bool StorageTabVisible => false;
+
+        public StorageSettings GetStoreSettings()
+        {
+            return this.MealFilter;
+        }
+
+        public StorageSettings GetParentStoreSettings()
+        {
+            return this.def.building.fixedStorageSettings;
+        }
+
+        public override void PostMake()
+        {
+            base.PostMake();
+            this.MealFilter = new StorageSettings(this);
+            if (this.def.building.defaultStorageSettings != null)
+            {
+                this.MealFilter.CopyFrom(this.def.building.defaultStorageSettings);
             }
         }
 
@@ -68,14 +90,14 @@ namespace Replimat
 
         public override bool HasEnoughFeedstockInHoppers()
         {
-            float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
+            float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
             float stockNeeded = ReplimatUtility.convertMassToFeedstockVolume(DispensableDef.BaseMass);
             return totalAvailableFeedstock >= stockNeeded;
         }
 
         public bool HasEnoughFeedstockInHopperForIncident(float stockNeeded)
         {
-            float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
+            float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
             return totalAvailableFeedstock >= stockNeeded;
         }
 
@@ -123,56 +145,12 @@ namespace Replimat
             float dispensedMealMass = dispensedMeal.def.BaseMass;
             //DEBUG
             //Log.Message("Replimat: " + dispensedMeal.ToString() + " has mass of " + dispensedMealMass.ToString() + "kg (" + ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass) + "L feedstock required)");
-            ConsumeFeedstock(ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass));
+            powerComp.PowerNet.TryConsumeFeedstock(ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass));
 
             ChooseMeal();
 
             return dispensedMeal;
         }
-
-
-        public void ConsumeFeedstock(float feedstockNeeded)
-        {
-            List<Building_ReplimatFeedTank> feedstockTanks = GetTanks;
-
-            float totalAvailableFeedstock = feedstockTanks.Sum(x => x.storedFeedstock);
-
-            if (feedstockTanks.Count() > 0)
-            {
-                feedstockTanks.Shuffle();
-
-                if (totalAvailableFeedstock >= feedstockNeeded)
-                {
-                    float feedstockLeftToConsume = feedstockNeeded;
-
-                    foreach (var currentTank in feedstockTanks)
-                    {
-                        if (feedstockLeftToConsume <= 0f)
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            float num = Math.Min(feedstockLeftToConsume, currentTank.StoredFeedstock);
-
-                            currentTank.DrawFeedstock(num);
-
-                            feedstockLeftToConsume -= num;
-                        }
-                    }
-                }
-
-            }
-            else
-            {
-                Log.Error("Replimat: Tried to draw feedstock from non-existent tanks!");
-            }
-        }
-
-
-
-
-
 
         public override void Draw()
         {
@@ -232,7 +210,5 @@ namespace Replimat
            
             return stringBuilder.ToString();
         }
-
-
     }
 }
