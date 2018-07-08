@@ -158,7 +158,7 @@ namespace Replimat
 
             if (ParentHolder != null && !(ParentHolder is Map))
             {
-
+                // If minified, don't show computer and feedstock check Inspector messages
             }
             else
             {

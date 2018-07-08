@@ -61,50 +61,26 @@ namespace Replimat
 
                 if (food == null)
                 {
-                    //DEBUG
-                    //Log.Message("Replimat: " + this.ThingID.ToString() + " has nothing loaded");
                     return;
                 }
 
-                //DEBUG
-                //Log.Message("Replimat: " + this.ThingID.ToString() + " is currently loaded with " + food.stackCount.ToString() + " units of " + food.def.defName.ToString() + " (base mass=" + food.def.BaseMass + ")");
-
                 powerComp.PowerOutput = -1000f;
 
-                //MaxPerTransfer = FoodUtility.StackCountForNutrition(food.def, 1f);
                 MaxPerTransfer = FoodUtility.StackCountForNutrition(food.def.ingestible.CachedNutrition, 1f); ;
 
-                //DEBUG
-                //Log.Message("Replimat: " + this.ThingID.ToString() + " has MaxPerTransfer of " + MaxPerTransfer.ToString());
-
                 float remainingVolumeAvailableInTanks = tanks.Sum(x => x.AmountCanAccept);
-
-                //DEBUG
-                //Log.Message("Replimat: " + remainingVolumeAvailableInTanks + " L of remaining volume available in " + tanks.Count.ToString() + " tanks");
 
                 float totalStackLiquidVolume = food.stackCount * ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass);
 
                 float maxStackLiquidVolume = MaxPerTransfer * ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass);
 
-                //DEBUG
-                //Log.Message("Replimat: totalStackLiquidVolume for food.stackCount of " + food.stackCount.ToString() + " is " + totalStackLiquidVolume.ToString());
-                //Log.Message("Replimat: maxStackLiquidVolume for MaxPerTransfer of " + MaxPerTransfer.ToString() +" is " + maxStackLiquidVolume.ToString());
-
                 float transferBufferLiquidVolume = Mathf.Min(totalStackLiquidVolume, remainingVolumeAvailableInTanks, maxStackLiquidVolume);
 
-                //DEBUG
-                //Log.Message("Replimat: " + this.ThingID.ToString() + " has transferBufferLiquidVolume of " + transferBufferLiquidVolume.ToString() + " (smallest out of totalStackLiquidVolume=" + totalStackLiquidVolume + ", remainingVolumeAvailableInTanks=" + remainingVolumeAvailableInTanks + ", maxStackLiquidVolume=" + maxStackLiquidVolume + ")");
-
                 food.stackCount = food.stackCount - (int) (transferBufferLiquidVolume / ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass));
-
-                //DEBUG
-                //Log.Message("Replimat: updated food.stackCount=" + food.stackCount);
 
                 if (food.stackCount == 0)
                 {
                     food.Destroy();
-                    //DEBUG
-                    //Log.Message("Replimat: " + this.ThingID.ToString() + " has run out of raw food");
                 }
 
                 foreach (var tank in tanks.InRandomOrder())
@@ -114,8 +90,6 @@ namespace Replimat
                         float buffer = Mathf.Min(transferBufferLiquidVolume, tank.AmountCanAccept);
                         transferBufferLiquidVolume -= buffer;
                         tank.AddFeedstock(buffer);
-                        //DEBUG
-                        //Log.Message("Replimat: transferred " + buffer.ToString() + "L to" + tank.ThingID.ToString());
                     }
                 }
             }

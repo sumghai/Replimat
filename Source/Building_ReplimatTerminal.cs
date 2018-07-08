@@ -133,15 +133,9 @@ namespace Replimat
             this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
 
             Thing dispensedMeal = ThingMaker.MakeThing(DispensableDef, null);
-          
-            // ADD REPLICATED MATTER INGREDIENT
-           // CompIngredients compIngredients = dispensedMeal.TryGetComp<CompIngredients>();
-             //   compIngredients.RegisterIngredient(list[i]);
-            
 
             float dispensedMealMass = dispensedMeal.def.BaseMass;
-            //DEBUG
-            //Log.Message("Replimat: " + dispensedMeal.ToString() + " has mass of " + dispensedMealMass.ToString() + "kg (" + ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass) + "L feedstock required)");
+
             powerComp.PowerNet.TryConsumeFeedstock(ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass));
 
             ChooseMeal();
@@ -193,9 +187,12 @@ namespace Replimat
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(base.GetInspectString());
 
-            if (ParentHolder != null && !(ParentHolder is Map)) {
-
-            } else { 
+            if (ParentHolder != null && !(ParentHolder is Map))
+            {
+                // If minified, don't show computer and feedstock check Inspector messages
+            }
+            else
+            { 
                 if (!HasComputer)
                 {
                     stringBuilder.AppendLine();
