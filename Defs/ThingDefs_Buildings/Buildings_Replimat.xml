@@ -256,9 +256,9 @@
 					<categories>
 						<li>FoodRaw</li>
 					</categories>
-					<disallowedSpecialFilters>
+					<specialFiltersToDisallow>
 						<li>AllowPlantFood</li>
-					</disallowedSpecialFilters>
+					</specialFiltersToDisallow>
 				</filter>
 			</fixedStorageSettings>
 			<defaultStorageSettings>
