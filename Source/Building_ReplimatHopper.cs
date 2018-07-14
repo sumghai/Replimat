@@ -49,6 +49,7 @@ namespace Replimat
         {
             base.Tick();
 
+            powerComp.PowerOutput = -125f;
 
             if (this.IsHashIntervalTick(60))
             {
@@ -57,14 +58,10 @@ namespace Replimat
 
                 Thing food = list.FirstOrDefault(x => x.def.IsNutritionGivingIngestible);
 
-                powerComp.PowerOutput = -175f;
-
                 if (food == null)
                 {
                     return;
                 }
-
-                powerComp.PowerOutput = -1000f;
 
                 MaxPerTransfer = FoodUtility.StackCountForNutrition(food.def.ingestible.CachedNutrition, 1f); ;
 
@@ -87,11 +84,18 @@ namespace Replimat
                 {
                     if (transferBufferLiquidVolume > 0f)
                     {
+                        DematerializingTicks = GenTicks.SecondsToTicks(2f);
                         float buffer = Mathf.Min(transferBufferLiquidVolume, tank.AmountCanAccept);
                         transferBufferLiquidVolume -= buffer;
                         tank.AddFeedstock(buffer);
                     }
                 }
+            }
+
+            if (DematerializingTicks > 0)
+            {
+                DematerializingTicks--;
+                powerComp.PowerOutput = -1000f;
             }
         }
 
