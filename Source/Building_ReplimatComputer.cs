@@ -9,7 +9,7 @@ using UnityEngine;
 namespace Replimat
 {
     [StaticConstructorOnStartup]
-    class Building_ReplimatComputer : Building
+    class Building_ReplimatComputer : Building, IStoreSettingsParent
     {
 
         public CompPowerTrader powerComp;
@@ -24,6 +24,21 @@ namespace Replimat
 
         public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet).ToList();
 
+        public StorageSettings MealFilter;
+
+        public FoodPreferability MaxPreferability = FoodPreferability.MealLavish;
+
+        public bool StorageTabVisible => false;
+
+        public StorageSettings GetStoreSettings()
+        {
+            return this.MealFilter;
+        }
+
+        public StorageSettings GetParentStoreSettings()
+        {
+            return this.def.building.fixedStorageSettings;
+        }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
