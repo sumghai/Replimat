@@ -6,9 +6,9 @@
 		<label>Replimat Spill</label>
 		<workerClass>Replimat.IncidentWorker_ReplimatSpill</workerClass>
 		<category>Misc</category>
-		<targetTypes>
+		<targetTags>
 			<li>Map_PlayerHome</li>
-		</targetTypes>
+		</targetTags>
 		<baseChance>5</baseChance>
 		<letterLabel>Replimat Spill</letterLabel>
 		<letterText>A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere.</letterText>
@@ -19,9 +19,9 @@
 		<label>Replimat Malfunction</label>
 		<workerClass>Replimat.IncidentWorker_ReplimatMalfunctionKibble</workerClass>
 		<category>Misc</category>
-		<targetTypes>
+		<targetTags>
 			<li>Map_PlayerHome</li>
-		</targetTypes>
+		</targetTags>
 		<baseChance>5</baseChance>
 		<letterLabel>Replimat Malfunction\n(Kibble)</letterLabel>
 		<letterText>A Replimat Terminal has malfunctioned, producing large quantities of animal feed.</letterText>
