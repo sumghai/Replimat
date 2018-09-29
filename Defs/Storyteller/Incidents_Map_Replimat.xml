@@ -9,7 +9,7 @@
 		<targetTags>
 			<li>Map_PlayerHome</li>
 		</targetTags>
-		<baseChance>5</baseChance>
+		<baseChance>2.5</baseChance>
 		<letterLabel>Replimat Spill</letterLabel>
 		<letterText>A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere.</letterText>
 	</IncidentDef>
@@ -22,7 +22,7 @@
 		<targetTags>
 			<li>Map_PlayerHome</li>
 		</targetTags>
-		<baseChance>5</baseChance>
+		<baseChance>2.5</baseChance>
 		<letterLabel>Replimat Malfunction\n(Kibble)</letterLabel>
 		<letterText>A Replimat Terminal has malfunctioned, producing large quantities of animal feed.</letterText>
 	</IncidentDef>
