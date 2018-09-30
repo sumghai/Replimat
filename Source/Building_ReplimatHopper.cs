@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse;
+using Verse.Sound;
 using RimWorld;
 using UnityEngine;
 
@@ -19,6 +20,8 @@ namespace Replimat
         public static int DematerializeDuration = GenTicks.SecondsToTicks(2f);
 
         public int dematerializingCycleInt;
+
+        private Sustainer wickSustainer;
 
         public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
 
@@ -47,6 +50,12 @@ namespace Replimat
                 }
                 return this.AmbientTemperature;
             }
+        }
+
+        public void StartWickSustainer()
+        {
+            SoundInfo info = SoundInfo.InMap(this, MaintenanceType.PerTick);
+            this.wickSustainer = this.def.building.soundDispense.TrySpawnSustainer(info);
         }
 
         public override void Tick()
@@ -102,6 +111,19 @@ namespace Replimat
             {
                 DematerializingTicks--;
                 powerComp.PowerOutput = -1000f;
+
+                if (this.wickSustainer == null)
+                {
+                    this.StartWickSustainer();
+                }
+                else if (this.wickSustainer.Ended)
+                {
+                    this.StartWickSustainer();
+                }
+                else
+                {
+                    this.wickSustainer.Maintain();
+                }
 
                 float alpha;
                 float quart = DematerializeDuration * 0.25f;

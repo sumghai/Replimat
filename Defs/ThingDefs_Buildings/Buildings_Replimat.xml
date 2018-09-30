@@ -269,7 +269,7 @@
 					</categories>
 				</filter>
 			</defaultStorageSettings>
-			<soundDispense>Replicate</soundDispense>
+			<soundDispense>HopperDematerialize</soundDispense>
 		</building>
 		<inspectorTabs>
 			<li>ITab_Storage</li>
