@@ -16,6 +16,8 @@ namespace Replimat
 
         public int DematerializingTicks = 0;
 
+        public int dematerializingCycleInt;
+
         public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
@@ -102,9 +104,19 @@ namespace Replimat
                 // For now, I'm setting it to a static value just so I can get the animation working
                 float alpha = 1f;
 
-                // Replace with replimatHopperGlow, which is a three-frame looping animation of type Graphic[]
-                Graphics.DrawMesh(GraphicsLoader.replimatAnimalFeederGlow.MeshAt(base.Rotation), this.DrawPos + Altitudes.AltIncVect, Quaternion.identity,
-                    FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatAnimalFeederGlow.MatAt(base.Rotation, null), alpha), 0);
+
+                if (this.IsHashIntervalTick(5))
+                {
+                    dematerializingCycleInt++;
+                    if (dematerializingCycleInt > 2)
+                    {
+                        dematerializingCycleInt = 0;
+                    }
+                }
+
+                Graphics.DrawMesh(GraphicsLoader.replimatHopperGlow[dematerializingCycleInt].MeshAt(base.Rotation), this.DrawPos + new Vector3(0f, (int) AltitudeLayer.MoteOverhead
+                    * Altitudes.AltInc, 0f), Quaternion.identity,
+                        FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatHopperGlow[dematerializingCycleInt].MatAt(base.Rotation, null), alpha), 0);
             }
         }
 
