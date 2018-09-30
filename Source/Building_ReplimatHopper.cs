@@ -16,6 +16,8 @@ namespace Replimat
 
         public int DematerializingTicks = 0;
 
+        public static int DematerializeDuration = GenTicks.SecondsToTicks(2f);
+
         public int dematerializingCycleInt;
 
         public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
@@ -94,15 +96,27 @@ namespace Replimat
                 }
             }
 
+            
+
             if (DematerializingTicks > 0)
             {
                 DematerializingTicks--;
                 powerComp.PowerOutput = -1000f;
 
-                // This should eventually use the same alpha-varying code as the Terminal and AnimalFeeder
-                // to emulate the fading in/out of the glowing FX
-                // For now, I'm setting it to a static value just so I can get the animation working
-                float alpha = 1f;
+                float alpha;
+                float quart = DematerializeDuration * 0.25f;
+                if (DematerializingTicks < quart)
+                {
+                    alpha = Mathf.InverseLerp(0, quart, DematerializingTicks);
+                }
+                else if (DematerializingTicks > quart * 3f)
+                {
+                    alpha = Mathf.InverseLerp(DematerializeDuration, quart * 3f, DematerializingTicks);
+                }
+                else
+                {
+                    alpha = 1f;
+                }
 
 
                 if (this.IsHashIntervalTick(5))
