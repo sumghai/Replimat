@@ -96,6 +96,15 @@ namespace Replimat
             {
                 DematerializingTicks--;
                 powerComp.PowerOutput = -1000f;
+
+                // This should eventually use the same alpha-varying code as the Terminal and AnimalFeeder
+                // to emulate the fading in/out of the glowing FX
+                // For now, I'm setting it to a static value just so I can get the animation working
+                float alpha = 1f;
+
+                // Replace with replimatHopperGlow, which is a three-frame looping animation of type Graphic[]
+                Graphics.DrawMesh(GraphicsLoader.replimatAnimalFeederGlow.MeshAt(base.Rotation), this.DrawPos + Altitudes.AltIncVect, Quaternion.identity,
+                    FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatAnimalFeederGlow.MatAt(base.Rotation, null), alpha), 0);
             }
         }
 
