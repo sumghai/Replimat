@@ -40,10 +40,25 @@ namespace Replimat
             return this.def.building.fixedStorageSettings;
         }
 
+        public override void PostMake()
+        {
+            base.PostMake();
+            this.MealFilter = new StorageSettings(this);
+            if (this.def.building.defaultStorageSettings != null)
+            {
+                this.MealFilter.CopyFrom(this.def.building.defaultStorageSettings);
+            }
+        }
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
             this.powerComp = base.GetComp<CompPowerTrader>();
+            this.MealFilter = new StorageSettings();
+            if (this.def.building.defaultStorageSettings != null)
+            {
+                this.MealFilter.CopyFrom(this.def.building.defaultStorageSettings);
+            }
         }
 
         public override void Draw()

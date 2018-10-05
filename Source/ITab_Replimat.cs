@@ -23,39 +23,37 @@ namespace Replimat
 
         private static readonly Vector2 WinSize = new Vector2(500f, 500f);
 
-        private Building_ReplimatTerminal Terminal
+        private Building_ReplimatComputer Computer
         {
             get
             {
-                return (base.SelObject as Building_ReplimatTerminal);
+                return (base.SelObject as Building_ReplimatComputer);
             }
         }
 
         public ITab_Replimat()
         {
             this.size = WinSize;
-            this.labelKey = "Managefuel";
+            this.labelKey = "TabReplimat";
         }
 
         protected override void FillTab()
         {
-            ThingFilter defaults = Terminal.def.building.fixedStorageSettings.filter;
+            ThingFilter defaults = Computer.def.building.fixedStorageSettings.filter;
 
             Rect rect1 = new Rect(10f, 10f, 100f, 30f);
             Widgets.DrawMenuSection(rect1);
             Text.Font = GameFont.Small;
 
-            if (Widgets.ButtonText(rect1, "FoodQuality".Translate(Terminal.MaxPreferability), true, false, true))
+            if (Widgets.ButtonText(rect1, "FoodQuality".Translate(Computer.MaxPreferability), true, false, true))
             {
                 List<FloatMenuOption> list = new List<FloatMenuOption>();
                 foreach (FoodPreferability item in FoodPreferability.GetValues(typeof(FoodPreferability)))
                 {
-                    // List<FloatMenuOption> benAffleck = list;
-
                     list.Add(new FloatMenuOption(item.ToString(), delegate
                     {
                         SoundDefOf.Click.PlayOneShotOnCamera();
-                        Terminal.MaxPreferability = item;
+                        Computer.MaxPreferability = item;
 
                     }, MenuOptionPriority.Default));
                 }
@@ -76,7 +74,7 @@ namespace Replimat
             GUI.BeginGroup(position);
             int num = 0;
 
-            foreach (var item in defaults.AllowedThingDefs.Where(x => x.ingestible.preferability <= Terminal.MaxPreferability))
+            foreach (var item in defaults.AllowedThingDefs.Where(x => x.ingestible.preferability <= Computer.MaxPreferability))
             {
                 Rect rect2 = new Rect(0f, num, position.width, 30f);
 
@@ -127,7 +125,7 @@ namespace Replimat
 
         private void DoAreaSelector(Rect rect, ThingDef meal, bool selection)
         {
-            ThingFilter parentFilter = Terminal.MealFilter.filter;
+            ThingFilter parentFilter = Computer.MealFilter.filter;
 
             GUI.DrawTexture(rect, selection ? GraphicsLoader.grey : GraphicsLoader.red);
             Text.Anchor = TextAnchor.MiddleLeft;
@@ -144,7 +142,7 @@ namespace Replimat
             {
                 if (Input.GetMouseButton(0) && parentFilter.Allows(meal) != selection)
                 {
-                    Terminal.MealFilter.filter.SetAllow(meal, selection);
+                    Computer.MealFilter.filter.SetAllow(meal, selection);
                     SoundDefOf.Designate_DragStandard_Changed.PlayOneShotOnCamera();
                 }
             }

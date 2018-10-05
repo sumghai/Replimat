@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 	<!-- ITab_Replimat !-->
-	<TabReplimat>Replimat</TabReplimat>
+	<TabReplimat>Meals</TabReplimat>
 	<FeedstockStored>Feedstock stored {0} / {1} L</FeedstockStored>
 	
 	<LetterTextReplimatSpill>A {0} has malfunctioned, spilling nutrient feedstock everywhere.</LetterTextReplimatSpill>

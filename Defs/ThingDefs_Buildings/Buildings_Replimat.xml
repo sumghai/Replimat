@@ -78,9 +78,6 @@
 			      <wantsHopperAdjacent>false</wantsHopperAdjacent>
       <nutritionCostPerDispense>0.3</nutritionCostPerDispense>
 		</building>
-		<inspectorTabs>
-			<li>Replimat.ITab_Replimat</li>
-		</inspectorTabs>
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
@@ -335,6 +332,25 @@
 		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>
 		<staticSunShadowHeight>0.20</staticSunShadowHeight>
+		<building>
+			<fixedStorageSettings>
+				<filter>
+					<categories>
+						<li>FoodMeals</li>
+					</categories>
+				</filter>
+			</fixedStorageSettings>
+			<defaultStorageSettings>
+				<filter>
+					<categories>
+						<li>FoodMeals</li>
+					</categories>
+				</filter>
+			</defaultStorageSettings>
+		</building>
+		<inspectorTabs>
+			<li>Replimat.ITab_Replimat</li>
+		</inspectorTabs>
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>

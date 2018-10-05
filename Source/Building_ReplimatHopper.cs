@@ -105,8 +105,6 @@ namespace Replimat
                 }
             }
 
-            
-
             if (DematerializingTicks > 0)
             {
                 DematerializingTicks--;
