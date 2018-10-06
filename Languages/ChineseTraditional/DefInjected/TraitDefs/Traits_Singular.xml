@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- EN: Sensitive Taster -->
+	<SensitiveTaster.degreeDatas.Sensitive_Taster.label>[ZH-TW] Sensitive Taster</SensitiveTaster.degreeDatas.Sensitive_Taster.label>
+	
+	<!-- EN: [PAWN_nameDef] claims [PAWN_pronoun] can taste the difference between replicated and real food, and would prefer not using Replimat Terminals. -->
+	<SensitiveTaster.degreeDatas.Sensitive_Taster.description>(ZH-TW) [PAWN_nameDef] claims [PAWN_pronoun] can taste the difference between replicated and real food, and would prefer not using Replimat Terminals.</SensitiveTaster.degreeDatas.Sensitive_Taster.description>
+</LanguageData>

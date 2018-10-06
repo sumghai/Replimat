@@ -7,7 +7,7 @@
     <degreeDatas>
       <li>
         <label>Sensitive Taster</label>
-        <description>NAME claims HE can taste the difference between replicated and real food, and would prefer not using Replimat Terminals.</description>
+        <description>[PAWN_nameDef] claims [PAWN_pronoun] can taste the difference between replicated and real food, and would prefer not using Replimat Terminals.</description>
       </li>
     </degreeDatas>
   </TraitDef>

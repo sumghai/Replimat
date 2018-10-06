@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- EN: Replimat Terminal -->
+	<ReplimatTerminal.label>[ZH-TW] Replimat Terminal</ReplimatTerminal.label>
+	
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank via conduits. -->
+	<ReplimatTerminal.description>[ZH-TW] Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank via conduits.</ReplimatTerminal.description>
+	
+	<!-- EN: Replimat Animal Feeder -->
+	<ReplimatAnimalFeeder.label>[ZH-TW] Replimat Animal Feeder</ReplimatAnimalFeeder.label>
+	
+	<!-- EN: Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank via conduits. -->
+	<ReplimatAnimalFeeder.description>[ZH-TW] Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank via conduits.</ReplimatAnimalFeeder.description>
+	
+	<!-- EN: Replimat Feedstock Tank -->
+	<ReplimatFeedTank.label>[ZH-TW] Replimat Feedstock Tank</ReplimatFeedTank.label>
+	
+	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<ReplimatFeedTank.description>[ZH-TW] Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers.</ReplimatFeedTank.description>
+	
+	<!-- EN: Replimat Hopper -->
+	<ReplimatHopper.label>[ZH-TW] Replimat Hopper</ReplimatHopper.label>
+	
+	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->
+	<ReplimatHopper.description>[ZH-TW] Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems.</ReplimatHopper.description>
+	
+	<!-- EN: Replimat Computer -->
+	<ReplimatComputer.label>[ZH-TW] Replimat Computer</ReplimatComputer.label>
+	
+	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
+	<ReplimatComputer.description>[ZH-TW] Provides a wide range of meal and beverage recipes to all Replimat Terminals.</ReplimatComputer.description>
+</LanguageData>

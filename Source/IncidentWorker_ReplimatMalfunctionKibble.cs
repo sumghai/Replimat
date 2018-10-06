@@ -37,7 +37,14 @@ namespace Replimat
                 t.stackCount = unitsOfKibble;
                 GenPlace.TryPlaceThing(t, building_ReplimatTerminal.InteractionCell, map, ThingPlaceMode.Near);
 
-                Find.LetterStack.ReceiveLetter(this.def.letterLabel, this.def.letterText, LetterDefOf.NegativeEvent, new TargetInfo(building_ReplimatTerminal.Position, map, false), null);
+                string letterLabel = "LetterLabelReplimatMalfunctionKibble".Translate();
+
+                string letterText = "LetterTextReplimatMalfunctionKibble".Translate(new object[]
+                {
+                        currentTerminal.def.label
+                });
+
+                Find.LetterStack.ReceiveLetter(letterLabel, letterText, LetterDefOf.NegativeEvent, new TargetInfo(building_ReplimatTerminal.Position, map, false), null);
                 return true;
             }
             return false;

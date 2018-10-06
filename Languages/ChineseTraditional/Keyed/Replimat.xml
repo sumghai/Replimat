@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- EN: Meals -->
+	<TabReplimat>[ZH-TW] Meals</TabReplimat>
+	
+	<!-- EN: Feedstock stored {0} / {1} L -->
+	<FeedstockStored>[ZH-TW] Feedstock stored {0} / {1} L</FeedstockStored>
+	
+	<!-- EN: Replimat Spill -->
+	<LetterLabelReplimatSpill>[ZH-TW] Replimat Spill</LetterLabelReplimatSpill>
+	
+	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<LetterTextReplimatSpill>[ZH-TW] A {0} has malfunctioned, spilling nutrient feedstock everywhere.</LetterTextReplimatSpill>
+	
+	<!-- EN: Replimat Malfunction -->
+	<LetterLabelReplimatMalfunctionKibble>[ZH-TW] Replimat Malfunction</LetterLabelReplimatMalfunctionKibble>
+	
+	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
+	<LetterTextReplimatMalfunctionKibble>[ZH-TW] A {0} has malfunctioned, producing large quantities of animal feed.</LetterTextReplimatMalfunctionKibble>
+	
+	<!-- EN: Requires connection to Replimat Computer -->	
+	<NotConnectedToComputer>[ZH-TW] Requires connection to Replimat Computer</NotConnectedToComputer>
+	
+	<!-- EN: Insufficient Feedstock -->
+	<NotEnoughFeedstock>[ZH-TW] Insufficient Feedstock</NotEnoughFeedstock>
+</LanguageData>

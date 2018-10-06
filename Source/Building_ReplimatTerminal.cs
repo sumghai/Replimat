@@ -196,12 +196,12 @@ namespace Replimat
                 if (!HasComputer)
                 {
                     stringBuilder.AppendLine();
-                    stringBuilder.Append("Requires connection to Replimat Computer");
+                    stringBuilder.Append("NotConnectedToComputer".Translate());
                 }
                 else if (!HasEnoughFeedstockInHoppers())
                 {
                     stringBuilder.AppendLine();
-                    stringBuilder.Append("Insufficient Feedstock");
+                    stringBuilder.Append("NotEnoughFeedstock".Translate());
                 }
                 else
                 { }

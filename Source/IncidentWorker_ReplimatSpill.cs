@@ -44,12 +44,14 @@ namespace Replimat
                     ThingDef filthSlime = ThingDefOf.Filth_Slime;
                     FilthMaker.MakeFilth(targetTerminal.InteractionCell, map, filthSlime, Rand.Range(10, 12));
 
+                    string letterLabel = "LetterLabelReplimatSpill".Translate();
+
                     string letterText = "LetterTextReplimatSpill".Translate(new object[]
                     {
                         currentTerminal.def.label
                     });
 
-                    Find.LetterStack.ReceiveLetter(this.def.letterLabel, letterText, LetterDefOf.NegativeEvent, new TargetInfo(targetTerminal.Position, map, false), null);
+                    Find.LetterStack.ReceiveLetter(letterLabel, letterText, LetterDefOf.NegativeEvent, new TargetInfo(targetTerminal.Position, map, false), null);
                     return true;
                 }
 
@@ -64,12 +66,14 @@ namespace Replimat
                     ThingDef filthSlime = ThingDefOf.Filth_Slime;
                     FilthMaker.MakeFilth(targetTerminal.InteractionCell, map, filthSlime, Rand.Range(10, 12));
 
+                    string letterLabel = "LetterLabelReplimatSpill".Translate();
+
                     string letterText = "LetterTextReplimatSpill".Translate(new object[]
                     {
                         currentAnimalFeeder.def.label
                     });
 
-                    Find.LetterStack.ReceiveLetter(this.def.letterLabel, letterText, LetterDefOf.NegativeEvent, new TargetInfo(targetTerminal.Position, map, false), null);
+                    Find.LetterStack.ReceiveLetter(letterLabel, letterText, LetterDefOf.NegativeEvent, new TargetInfo(targetTerminal.Position, map, false), null);
                     return true;
                 }
             }
