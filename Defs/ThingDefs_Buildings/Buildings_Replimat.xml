@@ -22,7 +22,7 @@
 	<ThingDef ParentName="ReplimatBaseMinifiable">
 		<defName>ReplimatTerminal</defName>
 		<label>Replimat Terminal</label>
-		<description>Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank via conduits.</description>
+		<description>Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.</description>
 		<thingClass>Replimat.Building_ReplimatTerminal</thingClass>
 		<graphicData>
 			<texPath>Things/Building/replimatTerminal</texPath>
@@ -97,7 +97,7 @@
 	<ThingDef ParentName="ReplimatBaseMinifiable">
     <defName>ReplimatAnimalFeeder</defName>
     <label>Replimat Animal Feeder</label>
-    <description>Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank via conduits.</description>
+    <description>Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.</description>
     <thingClass>Replimat.Building_ReplimatAnimalFeeder</thingClass>
     <graphicData>
       <texPath>Things/Building/replimatAnimalFeeder</texPath>

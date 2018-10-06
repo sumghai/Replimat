@@ -11,7 +11,7 @@
 		</targetTags>
 		<baseChance>2.5</baseChance>
 		<letterLabel>Replimat Spill</letterLabel>
-		<letterText>A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere.</letterText>
+		<letterText>A {0} has malfunctioned, spilling nutrient feedstock everywhere.</letterText>
 	</IncidentDef>
 	
 	<IncidentDef>
@@ -24,7 +24,7 @@
 		</targetTags>
 		<baseChance>2.5</baseChance>
 		<letterLabel>Replimat Malfunction\n(Kibble)</letterLabel>
-		<letterText>A Replimat Terminal has malfunctioned, producing large quantities of animal feed.</letterText>
+		<letterText>A {0} has malfunctioned, producing large quantities of animal feed.</letterText>
 	</IncidentDef>
 
 </Defs>
