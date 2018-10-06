@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 	<!-- EN: Replimat Spill -->
-	<ReplimatSpill.label>[ZH-TW] Replimat Spill</ReplimatSpill.label>
+	<ReplimatSpill.label>食品合成器原料洩漏</ReplimatSpill.label>
 	
 	<!-- EN: Replimat Spill -->
-	<ReplimatSpill.letterLabel>[ZH-TW] Replimat Spill</ReplimatSpill.letterLabel>
+	<ReplimatSpill.letterLabel>食品合成器原料洩漏</ReplimatSpill.letterLabel>
 	
 	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
-	<ReplimatSpill.letterText>[ZH-TW] A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere.</ReplimatSpill.letterText>
+	<ReplimatSpill.letterText>你的一台{0}發生故障，並洩漏了營養原料。</ReplimatSpill.letterText>
 	
 	<!-- EN: Replimat Spill -->
-	<ReplimatMalfunctionKibble.label>[ZH-TW] Replimat Malfunction</ReplimatMalfunctionKibble.label>
+	<ReplimatMalfunctionKibble.label>食品合成器故障</ReplimatMalfunctionKibble.label>
 	
 	<!-- EN: Replimat Spill -->
-	<ReplimatMalfunctionKibble.letterLabel>[ZH-TW] Replimat Malfunction\n(Kibble)</ReplimatMalfunctionKibble.letterLabel>
+	<ReplimatMalfunctionKibble.letterLabel>食品合成器故障(飼料)</ReplimatMalfunctionKibble.letterLabel>
 	
 	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
-	<ReplimatMalfunctionKibble.letterText>[ZH-TW] A Replimat Terminal has malfunctioned, producing large quantities of animal feed.</ReplimatMalfunctionKibble.letterText>
+	<ReplimatMalfunctionKibble.letterText>你的一台{0}發生故障，並複製了大量的飼料。</ReplimatMalfunctionKibble.letterText>
 </LanguageData>

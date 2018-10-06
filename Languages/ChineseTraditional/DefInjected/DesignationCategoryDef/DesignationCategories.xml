@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 	<!-- EN: Replimat-->
-	<Replimat_Replimat.label>[ZH-TW] Replimat</Replimat_Replimat.label>
+	<Replimat_Replimat.label>食品合成</Replimat_Replimat.label>
 	
 	<!-- EN: omponents to build a food service replicator system.-->
-	<Replimat_Replimat.description>[ZH-TW] Components to build a food service replicator system.</Replimat_Replimat.description>
+	<Replimat_Replimat.description>食品合成系統的組件。</Replimat_Replimat.description>
 </LanguageData>

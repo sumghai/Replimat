@@ -1,32 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 	<!-- EN: Replimat Terminal -->
-	<ReplimatTerminal.label>[ZH-TW] Replimat Terminal</ReplimatTerminal.label>
+	<ReplimatTerminal.label>食品合成器</ReplimatTerminal.label>
 	
-	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank via conduits. -->
-	<ReplimatTerminal.description>[ZH-TW] Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank via conduits.</ReplimatTerminal.description>
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatTerminal.description>採用分子營養素重測序技術來複製各樣的食品。需要通過電纜線連接上原料儲存桶和主電腦。</ReplimatTerminal.description>
 	
 	<!-- EN: Replimat Animal Feeder -->
-	<ReplimatAnimalFeeder.label>[ZH-TW] Replimat Animal Feeder</ReplimatAnimalFeeder.label>
+	<ReplimatAnimalFeeder.label>飼料合成器</ReplimatAnimalFeeder.label>
 	
-	<!-- EN: Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank via conduits. -->
-	<ReplimatAnimalFeeder.description>[ZH-TW] Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank via conduits.</ReplimatAnimalFeeder.description>
+	<!-- EN: Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatAnimalFeeder.description>採用分子營養素重測序技術來複製飼料。需要通過電纜線連接上原料儲存桶和主電腦。</ReplimatAnimalFeeder.description>
 	
 	<!-- EN: Replimat Feedstock Tank -->
-	<ReplimatFeedTank.label>[ZH-TW] Replimat Feedstock Tank</ReplimatFeedTank.label>
+	<ReplimatFeedTank.label>食品合成系統原料儲存桶</ReplimatFeedTank.label>
 	
 	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
-	<ReplimatFeedTank.description>[ZH-TW] Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers.</ReplimatFeedTank.description>
+	<ReplimatFeedTank.description>儲存食品合成器需要用的液體形式營養原料。原料來源以儲料槽供應。</ReplimatFeedTank.description>
 	
 	<!-- EN: Replimat Hopper -->
-	<ReplimatHopper.label>[ZH-TW] Replimat Hopper</ReplimatHopper.label>
+	<ReplimatHopper.label>食品合成系統儲料槽</ReplimatHopper.label>
 	
 	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->
-	<ReplimatHopper.description>[ZH-TW] Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems.</ReplimatHopper.description>
+	<ReplimatHopper.description>儲存、冷藏與分解生鮮食材，並轉換成食品合成器需要用的液體形式營養原料。</ReplimatHopper.description>
 	
 	<!-- EN: Replimat Computer -->
-	<ReplimatComputer.label>[ZH-TW] Replimat Computer</ReplimatComputer.label>
+	<ReplimatComputer.label>食品合成系統主電腦</ReplimatComputer.label>
 	
 	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
-	<ReplimatComputer.description>[ZH-TW] Provides a wide range of meal and beverage recipes to all Replimat Terminals.</ReplimatComputer.description>
+	<ReplimatComputer.description>為食品合成器提供菜單食譜。</ReplimatComputer.description>
 </LanguageData>

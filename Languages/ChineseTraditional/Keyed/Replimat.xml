@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 	<!-- EN: Meals -->
-	<TabReplimat>[ZH-TW] Meals</TabReplimat>
+	<TabReplimat>菜單</TabReplimat>
 	
 	<!-- EN: Feedstock stored {0} / {1} L -->
-	<FeedstockStored>[ZH-TW] Feedstock stored {0} / {1} L</FeedstockStored>
+	<FeedstockStored>營養原料存量 {0} / {1} L</FeedstockStored>
 	
 	<!-- EN: Replimat Spill -->
-	<LetterLabelReplimatSpill>[ZH-TW] Replimat Spill</LetterLabelReplimatSpill>
+	<LetterLabelReplimatSpill>食品合成器原料洩漏</LetterLabelReplimatSpill>
 	
 	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
-	<LetterTextReplimatSpill>[ZH-TW] A {0} has malfunctioned, spilling nutrient feedstock everywhere.</LetterTextReplimatSpill>
+	<LetterTextReplimatSpill>你的一台{0}發生故障，並洩漏了營養原料。</LetterTextReplimatSpill>
 	
 	<!-- EN: Replimat Malfunction -->
-	<LetterLabelReplimatMalfunctionKibble>[ZH-TW] Replimat Malfunction</LetterLabelReplimatMalfunctionKibble>
+	<LetterLabelReplimatMalfunctionKibble>食品合成器故障</LetterLabelReplimatMalfunctionKibble>
 	
 	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
-	<LetterTextReplimatMalfunctionKibble>[ZH-TW] A {0} has malfunctioned, producing large quantities of animal feed.</LetterTextReplimatMalfunctionKibble>
+	<LetterTextReplimatMalfunctionKibble>你的一台{0}發生故障，並複製了大量的飼料。</LetterTextReplimatMalfunctionKibble>
 	
 	<!-- EN: Requires connection to Replimat Computer -->	
-	<NotConnectedToComputer>[ZH-TW] Requires connection to Replimat Computer</NotConnectedToComputer>
+	<NotConnectedToComputer>需要連接到食品合成系統主電腦</NotConnectedToComputer>
 	
 	<!-- EN: Insufficient Feedstock -->
-	<NotEnoughFeedstock>[ZH-TW] Insufficient Feedstock</NotEnoughFeedstock>
+	<NotEnoughFeedstock>營養原料不足</NotEnoughFeedstock>
 </LanguageData>
