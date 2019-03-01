@@ -4,17 +4,22 @@ using Verse;
 
 namespace Replimat
 {
+    [DefOf]
     public class ReplimatDef
     {
-        public static ThingDef ReplimatComputerDef = ThingDef.Named("ReplimatComputer");
+        static ReplimatDef()
+        {
+            DefOfHelper.EnsureInitializedInCtor(typeof(ReplimatDef));
+        }
 
-        public static ThingDef ReplimatTerminalDef = ThingDef.Named("ReplimatTerminal");
-        public static ThingDef ReplimatAnimalFeederDef = ThingDef.Named("ReplimatAnimalFeeder");
-        public static ThingDef FeedTankDef = ThingDef.Named("ReplimatFeedTank");
-        public static ThingDef ReplimatHopper = ThingDef.Named("ReplimatHopper");
+        public static ThingDef ReplimatComputer;
+        public static ThingDef ReplimatTerminal;
+        public static ThingDef ReplimatAnimalFeeder;
+        public static ThingDef ReplimatFeedTank;
+        public static ThingDef ReplimatHopper;
 
-        public static TraitDef SensitiveTaster = TraitDef.Named("SensitiveTaster");
+        public static TraitDef SensitiveTaster;
 
-        public static ThoughtDef AteReplicatedFood = ThoughtDef.Named("AteReplicatedFood");
+        public static ThoughtDef AteReplicatedFood;
     }
 }

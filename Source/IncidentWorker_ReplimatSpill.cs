@@ -12,15 +12,15 @@ namespace Replimat
         protected override bool CanFireNowSub(IncidentParms parms)
         {
             Map map = (Map)parms.target;
-            return map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminalDef).Any() &&
-                map.listerThings.ThingsOfDef(ReplimatDef.ReplimatAnimalFeederDef).Any();
+            return map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminal).Any() &&
+                map.listerThings.ThingsOfDef(ReplimatDef.ReplimatAnimalFeeder).Any();
         }
 
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
             Map map = (Map)parms.target;
-            List<Thing> listOfTerminals = map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminalDef);
-            List<Thing> listOfAnimalFeeders = map.listerThings.ThingsOfDef(ReplimatDef.ReplimatAnimalFeederDef);
+            List<Thing> listOfTerminals = map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminal);
+            List<Thing> listOfAnimalFeeders = map.listerThings.ThingsOfDef(ReplimatDef.ReplimatAnimalFeeder);
             List<Thing> list = listOfTerminals.Concat(listOfAnimalFeeders).ToList();
 
 
@@ -34,7 +34,7 @@ namespace Replimat
 
             int volumeOfFeedstockToSpill = 3; // Volume in litres
 
-            if (targetTerminal.def == ReplimatDef.ReplimatTerminalDef)
+            if (targetTerminal.def == ReplimatDef.ReplimatTerminal)
             {
                 Building_ReplimatTerminal currentTerminal = targetTerminal as Building_ReplimatTerminal;
 
@@ -56,7 +56,7 @@ namespace Replimat
                 }
 
             }
-            else if (targetTerminal.def == ReplimatDef.ReplimatAnimalFeederDef)
+            else if (targetTerminal.def == ReplimatDef.ReplimatAnimalFeeder)
             {
                 Building_ReplimatAnimalFeeder currentAnimalFeeder = targetTerminal as Building_ReplimatAnimalFeeder;
 

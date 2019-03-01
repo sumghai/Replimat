@@ -9,7 +9,7 @@ using UnityEngine;
 namespace Replimat
 {
     [StaticConstructorOnStartup]
-    class Building_ReplimatComputer : Building, IStoreSettingsParent
+    class Building_ReplimatComputer : Building
     {
 
         public CompPowerTrader powerComp;
@@ -22,43 +22,12 @@ namespace Replimat
 
         public float CapPercent = 0;
 
-        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet).ToList();
-
-        public StorageSettings MealFilter;
-
-        public FoodPreferability MaxPreferability = FoodPreferability.MealLavish;
-
-        public bool StorageTabVisible => false;
-
-        public StorageSettings GetStoreSettings()
-        {
-            return this.MealFilter;
-        }
-
-        public StorageSettings GetParentStoreSettings()
-        {
-            return this.def.building.fixedStorageSettings;
-        }
-
-        public override void PostMake()
-        {
-            base.PostMake();
-            this.MealFilter = new StorageSettings(this);
-            if (this.def.building.defaultStorageSettings != null)
-            {
-                this.MealFilter.CopyFrom(this.def.building.defaultStorageSettings);
-            }
-        }
+        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == PowerComp.PowerNet).ToList();
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            this.powerComp = base.GetComp<CompPowerTrader>();
-            this.MealFilter = new StorageSettings();
-            if (this.def.building.defaultStorageSettings != null)
-            {
-                this.MealFilter.CopyFrom(this.def.building.defaultStorageSettings);
-            }
+            powerComp = base.GetComp<CompPowerTrader>();
         }
 
         public override void Draw()
@@ -67,7 +36,7 @@ namespace Replimat
 
             GenDraw.FillableBarRequest r = default(GenDraw.FillableBarRequest);
 
-            Vector3 currPos = this.DrawPos;
+            Vector3 currPos = DrawPos;
 
             currPos.y += 0.1f;
             currPos.z += 0.3f;

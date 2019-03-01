@@ -11,73 +11,32 @@ using Verse.AI;
 namespace Replimat
 {
 
-    public class Building_ReplimatTerminal : Building_NutrientPasteDispenser, IStoreSettingsParent
+    public class Building_ReplimatTerminal : Building_NutrientPasteDispenser
     {
         public static int CollectDuration = GenTicks.SecondsToTicks(2f);
 
-        public StorageSettings MealFilter;
-
         public FoodPreferability MaxPreferability = FoodPreferability.MealLavish;
-
-        public ThingDef SelectedFood = ThingDefOf.MealNutrientPaste;
 
         public int ReplicatingTicks = 0;
 
-        public override ThingDef DispensableDef => SelectedFood;
+        public static Pawn MealSearcher = null;
+
+        public ThingDef chickendinner = ThingDef.Named("MealLavish");
+
+        public override ThingDef DispensableDef
+        {
+            get
+            {
+                return chickendinner;
+            }
+        }
 
         public bool HasComputer
         {
             get
             {
-                return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputerDef).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
+                return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputer).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
             }
-        }
-
-        public bool StorageTabVisible => false;
-
-        public StorageSettings GetStoreSettings()
-        {
-            return this.MealFilter;
-        }
-
-        public StorageSettings GetParentStoreSettings()
-        {
-            return this.def.building.fixedStorageSettings;
-        }
-
-        public override void PostMake()
-        {
-            base.PostMake();
-            this.MealFilter = new StorageSettings(this);
-            if (this.def.building.defaultStorageSettings != null)
-            {
-                this.MealFilter.CopyFrom(this.def.building.defaultStorageSettings);
-            }
-        }
-
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
-        {
-            base.SpawnSetup(map, respawningAfterLoad);
-            this.powerComp = base.GetComp<CompPowerTrader>();
-            this.MealFilter = new StorageSettings();
-            if (this.def.building.defaultStorageSettings != null)
-            {
-                this.MealFilter.CopyFrom(this.def.building.defaultStorageSettings);
-            }
-            ChooseMeal();
-        }
-
-        public override void ExposeData()
-        {
-            base.ExposeData();
-
-            Scribe_Deep.Look<StorageSettings>(ref MealFilter, "MealFilter", this);
-            Scribe_Defs.Look<ThingDef>(ref SelectedFood, "SelectedFood");
-        }
-
-        public void ChooseMeal()
-        {
-            SelectedFood = def.building.fixedStorageSettings.filter.AllowedThingDefs.Where(x => x.ingestible.preferability == MaxPreferability).RandomElement();
         }
 
         public override Thing FindFeedInAnyHopper()
@@ -132,14 +91,23 @@ namespace Replimat
             ReplicatingTicks = GenTicks.SecondsToTicks(2f);
             this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
 
-            Thing dispensedMeal = ThingMaker.MakeThing(DispensableDef, null);
+            ThingDef deffff = ThingDefOf.MealFine;
+
+            if (MealSearcher != null)
+            {               
+                deffff = DefDatabase<ThingDef>.AllDefs.Where(x => x.ingestible != null && x.ingestible.IsMeal)
+                    .OrderByDescending(x => x.ingestible.preferability)
+                    //.OrderByDescending(x=>x.ingestible.CachedNutrition)
+                    .FirstOrDefault(x => MealSearcher.foodRestriction.CurrentFoodRestriction.Allows(x));
+            }
+            MealSearcher = null;
+
+            Thing dispensedMeal = ThingMaker.MakeThing(deffff, null);
 
             float dispensedMealMass = dispensedMeal.def.BaseMass;
 
             powerComp.PowerNet.TryConsumeFeedstock(ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass));
-
-            ChooseMeal();
-
+      
             return dispensedMeal;
         }
 
@@ -192,7 +160,7 @@ namespace Replimat
                 // If minified, don't show computer and feedstock check Inspector messages
             }
             else
-            { 
+            {
                 if (!HasComputer)
                 {
                     stringBuilder.AppendLine();

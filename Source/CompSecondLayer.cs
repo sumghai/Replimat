@@ -12,7 +12,7 @@ namespace Replimat
         {
             get
             {
-                return (CompProperties_SecondLayer)this.props;
+                return (CompProperties_SecondLayer)props;
             }
         }
 
@@ -20,23 +20,23 @@ namespace Replimat
         {
             get
             {
-                if (this.graphicInt == null)
+                if (graphicInt == null)
                 {
-                    if (this.Props.graphicData == null)
+                    if (Props.graphicData == null)
                     {
-                        Log.ErrorOnce(this.parent.def + " has no SecondLayer graphicData but we are trying to access it.", 764532, false);
+                        Log.ErrorOnce(parent.def + " has no SecondLayer graphicData but we are trying to access it.", 764532, false);
                         return BaseContent.BadGraphic;
                     }
-                    this.graphicInt = this.Props.graphicData.GraphicColoredFor(this.parent);
+                    graphicInt = Props.graphicData.GraphicColoredFor(parent);
                 }
-                return this.graphicInt;
+                return graphicInt;
             }
         }
 
         public override void PostDraw()
         {
             base.PostDraw();
-            this.Graphic.Draw(GenThing.TrueCenter(this.parent.Position, this.parent.Rotation, this.parent.def.size, this.Props.Altitude), this.parent.Rotation, this.parent, 0f);
+            Graphic.Draw(GenThing.TrueCenter(parent.Position, parent.Rotation, parent.def.size, Props.Altitude), parent.Rotation, parent, 0f);
         }
     }
 }

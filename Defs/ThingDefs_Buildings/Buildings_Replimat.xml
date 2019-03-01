@@ -59,20 +59,6 @@
 		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
 		    <socialPropernessMatters>true</socialPropernessMatters>
 		<building>
-			<fixedStorageSettings>
-				<filter>
-					<categories>
-						<li>FoodMeals</li>
-					</categories>
-				</filter>
-			</fixedStorageSettings>
-			<defaultStorageSettings>
-				<filter>
-					<categories>
-						<li>FoodMeals</li>
-					</categories>
-				</filter>
-			</defaultStorageSettings>
 			<isMealSource>true</isMealSource>
 			<soundDispense>Replicate</soundDispense>
 			      <wantsHopperAdjacent>false</wantsHopperAdjacent>
@@ -124,6 +110,9 @@
 		<Beauty>5</Beauty>
 		<Mass>2</Mass>
 	</statBases>
+			<inspectorTabs>
+			<li>ITab_Storage</li>
+		</inspectorTabs>
 	<rotatable>false</rotatable>
 	<tickerType>Normal</tickerType>
 	<minifiedDef>MinifiedThing</minifiedDef>
@@ -332,25 +321,6 @@
 		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>
 		<staticSunShadowHeight>0.20</staticSunShadowHeight>
-		<building>
-			<fixedStorageSettings>
-				<filter>
-					<categories>
-						<li>FoodMeals</li>
-					</categories>
-				</filter>
-			</fixedStorageSettings>
-			<defaultStorageSettings>
-				<filter>
-					<categories>
-						<li>FoodMeals</li>
-					</categories>
-				</filter>
-			</defaultStorageSettings>
-		</building>
-		<inspectorTabs>
-			<li>Replimat.ITab_Replimat</li>
-		</inspectorTabs>
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>

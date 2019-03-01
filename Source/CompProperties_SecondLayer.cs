@@ -9,17 +9,11 @@ namespace Replimat
 
         public AltitudeLayer altitudeLayer;
 
-        public float Altitude
-        {
-            get
-            {
-                return Altitudes.AltitudeFor(this.altitudeLayer);
-            }
-        }
+        public float Altitude => Altitudes.AltitudeFor(altitudeLayer);
 
         public CompProperties_SecondLayer()
         {
-            this.compClass = typeof(CompSecondLayer);
+            compClass = typeof(CompSecondLayer);
         }
     }
 }

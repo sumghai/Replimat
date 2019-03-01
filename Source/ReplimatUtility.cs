@@ -31,7 +31,7 @@ namespace Replimat
         public static List<Building_ReplimatFeedTank> GetTanks(this PowerNet net)
         {
             List<Building_ReplimatFeedTank> tanks;
-            tanks = net.Map.listerThings.ThingsOfDef(ReplimatDef.FeedTankDef).OfType<Building_ReplimatFeedTank>().Where(x => x.PowerComp.PowerNet == net && x.HasComputer).ToList();
+            tanks = net.Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).OfType<Building_ReplimatFeedTank>().Where(x => x.PowerComp.PowerNet == net && x.HasComputer).ToList();
             return tanks;
         }
 

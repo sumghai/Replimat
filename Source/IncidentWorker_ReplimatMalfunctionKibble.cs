@@ -12,13 +12,13 @@ namespace Replimat
         protected override bool CanFireNowSub(IncidentParms parms)
         {
             Map map = (Map)parms.target;
-            return map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminalDef).Any();
+            return map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminal).Any();
         }
 
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
             Map map = (Map)parms.target;
-            List<Thing> list = map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminalDef);
+            List<Thing> list = map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminal);
             if (!list.Any())
             {
                 return false;
