@@ -21,13 +21,26 @@ namespace Replimat
 
         public static Pawn MealSearcher = null;
 
-        public ThingDef chickendinner = ThingDef.Named("MealLavish");
-
         public override ThingDef DispensableDef
         {
             get
             {
-                return chickendinner;
+                // TODO - Fix NullRef
+
+                // Should we default to Fine Meals if the pawn cannot be identified or if a food restriction policy can't be found?
+                ThingDef chosenMeal = ThingDef.Named("MealFine");
+
+                if (MealSearcher != null)
+                {
+                    List<ThingDef> allowedMeals = MealSearcher.foodRestriction.CurrentFoodRestriction.filter.AllowedThingDefs.ToList();
+                    chosenMeal = allowedMeals.RandomElement();
+
+                    // Debug Messages
+                    Log.Message("[Replimat] Pawn " + MealSearcher.Name.ToString() + " is allowed the following meals:");
+                    Log.Message(string.Join(", ", allowedMeals.Select(def => def.defName).ToArray()));
+                }
+
+                return chosenMeal;
             }
         }
 
@@ -91,18 +104,7 @@ namespace Replimat
             ReplicatingTicks = GenTicks.SecondsToTicks(2f);
             this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
 
-            ThingDef deffff = ThingDefOf.MealFine;
-
-            if (MealSearcher != null)
-            {               
-                deffff = DefDatabase<ThingDef>.AllDefs.Where(x => x.ingestible != null && x.ingestible.IsMeal)
-                    .OrderByDescending(x => x.ingestible.preferability)
-                    //.OrderByDescending(x=>x.ingestible.CachedNutrition)
-                    .FirstOrDefault(x => MealSearcher.foodRestriction.CurrentFoodRestriction.Allows(x));
-            }
-            MealSearcher = null;
-
-            Thing dispensedMeal = ThingMaker.MakeThing(deffff, null);
+            Thing dispensedMeal = ThingMaker.MakeThing(DispensableDef, null);
 
             float dispensedMealMass = dispensedMeal.def.BaseMass;
 
