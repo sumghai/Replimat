@@ -110,6 +110,9 @@
 			<Beauty>5</Beauty>
 			<Mass>2</Mass>
 		</statBases>
+		<inspectorTabs>
+			<li>ITab_Storage</li>
+		</inspectorTabs>
 		<rotatable>false</rotatable>
 		<tickerType>Normal</tickerType>
 		<minifiedDef>MinifiedThing</minifiedDef>
