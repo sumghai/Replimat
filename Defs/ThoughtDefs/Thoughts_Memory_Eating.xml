@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThoughtDef>
-    <defName>AteReplicatedFood</defName>
+	<ThoughtDef>
+		<defName>AteReplicatedFood</defName>
 		<showBubble>true</showBubble>
 		<icon>Things/Mote/ThoughtSymbol/Food</icon>
 		<durationDays>0.5</durationDays>
-    <stackLimit>3</stackLimit>
-    <stages>
-      <li>
-        <label>Ate replicated food</label>
-        <description>For some reason, this meal tastes a bit...off.</description>
-        <baseMoodEffect>-1</baseMoodEffect>
-      </li>
-    </stages>
-  </ThoughtDef>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>Ate replicated food</label>
+				<description>For some reason, this meal tastes a bit...off.</description>
+				<baseMoodEffect>-1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
 
 </Defs>

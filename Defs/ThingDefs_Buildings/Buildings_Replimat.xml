@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  
+
 	<ThingDef Name="ReplimatBase" Abstract="True">
 		<category>Building</category>
 		<thingClass>Building</thingClass>
@@ -10,7 +10,7 @@
 		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<repairEffect>Repair</repairEffect>
 	</ThingDef>
-	
+
 	<ThingDef Name="ReplimatBaseMinifiable" ParentName="ReplimatBase" Abstract="True">
 		<thingCategories>
 			<li>BuildingsFurniture</li>
@@ -57,12 +57,12 @@
 		<staticSunShadowHeight>0.20</staticSunShadowHeight>
 		<hasInteractionCell>True</hasInteractionCell>
 		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
-		    <socialPropernessMatters>true</socialPropernessMatters>
+		<socialPropernessMatters>true</socialPropernessMatters>
 		<building>
 			<isMealSource>true</isMealSource>
 			<soundDispense>Replicate</soundDispense>
-			      <wantsHopperAdjacent>false</wantsHopperAdjacent>
-      <nutritionCostPerDispense>0.3</nutritionCostPerDispense>
+			<wantsHopperAdjacent>false</wantsHopperAdjacent>
+			<nutritionCostPerDispense>0.3</nutritionCostPerDispense>
 		</building>
 		<comps>
 			<li Class="CompProperties_Power">
@@ -77,81 +77,81 @@
 			<li>MolecularNutrientResequencing</li>
 		</researchPrerequisites>
 	</ThingDef>
-	
+
 	<!--====================== Replimat Animal Feeder ======================--> 
 
 	<ThingDef ParentName="ReplimatBaseMinifiable">
-    <defName>ReplimatAnimalFeeder</defName>
-    <label>Replimat Animal Feeder</label>
-    <description>Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.</description>
-    <thingClass>Replimat.Building_ReplimatAnimalFeeder</thingClass>
-    <graphicData>
-      <texPath>Things/Building/replimatAnimalFeeder</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <damageData>
-        <rect>(0.05,0.1,0.9,0.9)</rect>
-        <cornerTL>Damage/Corner</cornerTL>
-        <cornerTR>Damage/Corner</cornerTR>
-      </damageData>
-    </graphicData>
-	<constructEffect>ConstructMetal</constructEffect>
-	<costList>
-		<Steel>5</Steel>
-		<ComponentSpacer>2</ComponentSpacer>
-		<Plasteel>2</Plasteel>
-	</costList>
-	<altitudeLayer>Building</altitudeLayer>
-	<fillPercent>0.1</fillPercent>
-	<useHitPoints>true</useHitPoints>
-	<statBases>
-		<MaxHitPoints>20</MaxHitPoints>
-		<WorkToBuild>200</WorkToBuild>
-		<Flammability>1.0</Flammability>
-		<Beauty>5</Beauty>
-		<Mass>2</Mass>
-	</statBases>
-	<rotatable>false</rotatable>
-	<tickerType>Normal</tickerType>
-	<minifiedDef>MinifiedThing</minifiedDef>
-    <designationCategory>Replimat_Replimat</designationCategory>
-    <passability>PassThroughOnly</passability>
-    <pathCost>70</pathCost>
-	<castEdgeShadows>true</castEdgeShadows>
-	<staticSunShadowHeight>0.1</staticSunShadowHeight>
-    <canOverlapZones>false</canOverlapZones>
-	<surfaceType>Item</surfaceType>
-    <building>
-      <fixedStorageSettings>
-        <priority>Important</priority>
-        <filter>
-          <thingDefs>
-            <li>Kibble</li>
-          </thingDefs>
-        </filter>
-      </fixedStorageSettings>
-      <defaultStorageSettings>
-        <priority>Important</priority>
-        <filter>
-          <thingDefs>
-            <li>Kibble</li>
-          </thingDefs>
-        </filter>
-      </defaultStorageSettings>
-	  <soundDispense>Replicate</soundDispense>
-    </building>
-	<comps>
-		<li Class="CompProperties_Power">
-			<compClass>CompPowerTrader</compClass>
-			<shortCircuitInRain>true</shortCircuitInRain>
-			<basePowerConsumption>125</basePowerConsumption>
-		</li>
-		<li Class="CompProperties_Flickable"/>
-		<li Class="CompProperties_Breakdownable"/>
-	</comps>
-    <researchPrerequisites>
-      <li>MolecularNutrientResequencing</li>
-    </researchPrerequisites>
-  </ThingDef>
+		<defName>ReplimatAnimalFeeder</defName>
+		<label>Replimat Animal Feeder</label>
+		<description>Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.</description>
+		<thingClass>Replimat.Building_ReplimatAnimalFeeder</thingClass>
+		<graphicData>
+			<texPath>Things/Building/replimatAnimalFeeder</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<damageData>
+				<rect>(0.05,0.1,0.9,0.9)</rect>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+			</damageData>
+		</graphicData>
+		<constructEffect>ConstructMetal</constructEffect>
+		<costList>
+			<Steel>5</Steel>
+			<ComponentSpacer>2</ComponentSpacer>
+			<Plasteel>2</Plasteel>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.1</fillPercent>
+		<useHitPoints>true</useHitPoints>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<WorkToBuild>200</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>5</Beauty>
+			<Mass>2</Mass>
+		</statBases>
+		<rotatable>false</rotatable>
+		<tickerType>Normal</tickerType>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<designationCategory>Replimat_Replimat</designationCategory>
+		<passability>PassThroughOnly</passability>
+		<pathCost>70</pathCost>
+		<castEdgeShadows>true</castEdgeShadows>
+		<staticSunShadowHeight>0.1</staticSunShadowHeight>
+		<canOverlapZones>false</canOverlapZones>
+		<surfaceType>Item</surfaceType>
+		<building>
+			<fixedStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<thingDefs>
+						<li>Kibble</li>
+					</thingDefs>
+				</filter>
+			</fixedStorageSettings>
+			<defaultStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<thingDefs>
+						<li>Kibble</li>
+					</thingDefs>
+				</filter>
+			</defaultStorageSettings>
+			<soundDispense>Replicate</soundDispense>
+		</building>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>125</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<researchPrerequisites>
+			<li>MolecularNutrientResequencing</li>
+		</researchPrerequisites>
+	</ThingDef>
 
 	<!--====================== Replimat Feedstock Tank ======================-->
 
@@ -302,7 +302,7 @@
 			<Plasteel>10</Plasteel>
 			<IsolinearModule>1</IsolinearModule>
 		</costList>
-			<tickerType>Normal</tickerType>
+		<tickerType>Normal</tickerType>
 		<altitudeLayer>Building</altitudeLayer>
 		<fillPercent>1</fillPercent>
 		<useHitPoints>True</useHitPoints>

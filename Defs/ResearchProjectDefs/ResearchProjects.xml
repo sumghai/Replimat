@@ -2,14 +2,14 @@
 <Defs>
 
 	<!--=============================== Replimat Research Projects ===================================-->
-	
+
 	<ResearchProjectDef Name="ReplimatResearchProjectBase" Abstract="True">
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 		<requiredResearchFacilities>
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
-	
+
 	<ResearchProjectDef ParentName="ReplimatResearchProjectBase">
 		<defName>MolecularNutrientResequencing</defName>
 		<label>Molecular Nutrient Resequencing</label>

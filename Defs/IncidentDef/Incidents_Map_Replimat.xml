@@ -13,7 +13,7 @@
 		<letterLabel>Replimat Spill</letterLabel>
 		<letterText>A {0} has malfunctioned, spilling nutrient feedstock everywhere.</letterText>
 	</IncidentDef>
-	
+
 	<IncidentDef>
 		<defName>ReplimatMalfunctionKibble</defName>
 		<label>Replimat Malfunction</label>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <TraitDef>
-    <defName>SensitiveTaster</defName>
-    <commonality>0.05</commonality>
-    <degreeDatas>
-      <li>
-        <label>Sensitive Taster</label>
-        <description>[PAWN_nameDef] claims [PAWN_pronoun] can taste the difference between replicated and real food, and would prefer not using Replimat Terminals.</description>
-      </li>
-    </degreeDatas>
-  </TraitDef>
-  
+	<TraitDef>
+		<defName>SensitiveTaster</defName>
+		<commonality>0.05</commonality>
+		<degreeDatas>
+			<li>
+				<label>Sensitive Taster</label>
+				<description>[PAWN_nameDef] claims [PAWN_pronoun] can taste the difference between replicated and real food, and would prefer not using Replimat Terminals.</description>
+			</li>
+		</degreeDatas>
+	</TraitDef>
+
 </Defs>

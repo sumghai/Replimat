@@ -17,10 +17,10 @@
 					<min>200</min>
 					<max>200</max>
 				</volumeRange>
-				        <distRange>
-          <min>10</min>
-          <max>20</max>
-        </distRange>
+				<distRange>
+					<min>10</min>
+					<max>20</max>
+				</distRange>
 			</li>
 		</subSounds>
 	</SoundDef>
@@ -44,10 +44,10 @@
 					<min>200</min>
 					<max>200</max>
 				</volumeRange>
-				        <distRange>
-          <min>0</min>
-          <max>20</max>
-        </distRange>
+				<distRange>
+					<min>0</min>
+					<max>20</max>
+				</distRange>
 			</li>
 		</subSounds>
 	</SoundDef>
