@@ -36,6 +36,12 @@ namespace Replimat
                 //wihtout IsMeal they try to eat stuff like chocolate and corpses, joy based consumption will need a lot more custom code
                 List<ThingDef> allowedMeals = eater.foodRestriction.CurrentFoodRestriction.filter.AllowedThingDefs.Where(x => x.ingestible.IsMeal).ToList();
 
+                //If a pawn's food restriction has other, better items available, then remove Nutrient Paste Meals from the available meal options
+                if (allowedMeals.Count() > 1)
+                {
+                    allowedMeals.Remove(ThingDef.Named("MealNutrientPaste"));
+                }
+
                 if (SumghaiReplimatMod.Settings.RandomMeals)
                 {
                     SelectedMeal = allowedMeals.RandomElement();
