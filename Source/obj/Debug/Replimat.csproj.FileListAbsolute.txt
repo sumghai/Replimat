@@ -14,4 +14,3 @@ D:\Steam\steamapps\common\RimWorld\Mods\Replimat\Assemblies\Replimat.dll
 D:\Steam\steamapps\common\RimWorld\Mods\Replimat\Source\obj\Debug\Replimat.csproj.CoreCompileInputs.cache
 D:\Steam\steamapps\common\RimWorld\Mods\Replimat\Source\obj\Debug\Replimat.dll
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Replimat\Source\obj\Debug\Replimat.csprojAssemblyReference.cache
-D:\Steam\steamapps\common\RimWorld\Mods\Replimat\Source\obj\Debug\Replimat.csprojAssemblyReference.cache

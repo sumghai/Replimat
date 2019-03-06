@@ -42,8 +42,9 @@ namespace Replimat
                     allowedMeals.Remove(ThingDef.Named("MealNutrientPaste"));
                 }
 
-                if (SumghaiReplimatMod.Settings.RandomMeals)
+                if (ReplimatMod.Settings.RandomMeals)
                 {
+                    Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " can choose random meals");
                     SelectedMeal = allowedMeals.RandomElement();
                 }
                 else
@@ -53,8 +54,8 @@ namespace Replimat
                 }
 
                 // Debug Messages
-                Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " is allowed the following meals:");
-                Log.Message(string.Join(", ", allowedMeals.Select(def => def.defName).ToArray()));
+                Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " is allowed the following meals: \n" 
+                    + string.Join(", ", allowedMeals.Select(def => def.defName).ToArray()));
             }
 
             return SelectedMeal;
@@ -178,28 +179,6 @@ namespace Replimat
                 ReplicatingTicks--;
                 powerComp.PowerOutput = -1500f;
             }
-        }
-
-        public void flip()
-        {
-            SumghaiReplimatMod.Settings.RandomMeals = !SumghaiReplimatMod.Settings.RandomMeals;
-        }
-
-        public override IEnumerable<Gizmo> GetGizmos()
-        {
-            foreach (Gizmo c in base.GetGizmos())
-            {
-                yield return c;
-            }
-
-            yield return new Command_Toggle
-            {
-                toggleAction = flip,
-                isActive = delegate () { return SumghaiReplimatMod.Settings.RandomMeals; },
-                defaultLabel = "RandomMeals".Translate(),
-                defaultDesc = "RandomMealsDesc".Translate(),
-                icon = Texture2D.blackTexture// ContentFinder<Texture2D>.Get("bad", true)
-            };
         }
 
         public override string GetInspectString()

@@ -16,11 +16,6 @@ namespace Replimat
     {
         public bool RandomMeals = false;
 
-        public void DoWindowContents(Rect canvas)
-        {
-
-        }
-
         public override void ExposeData()
         {
             base.ExposeData();
@@ -28,21 +23,34 @@ namespace Replimat
         }
     }
 
-    public class SumghaiReplimatMod : Mod
+    public class ReplimatMod : Mod
     {
         public static Settings Settings;
-        public SumghaiReplimatMod(ModContentPack content) : base(content)
+
+        public ReplimatMod(ModContentPack content) : base(content)
         {
             Settings = base.GetSettings<Settings>();
-            var harmony = HarmonyInstance.Create("com.Sumghai.Replimat.patches");
+            var harmony = HarmonyInstance.Create("com.Replimat.patches");
             harmony.PatchAll();
 
             MethodInfo qarth = AccessTools.Method("RimWorld.FoodUtility+<BestFoodSourceOnMap>c__AnonStorey0:<>m__0");
-            HarmonyMethod asshai = new HarmonyMethod(typeof(SumghaiReplimatMod).GetMethod("RepDelSwap"));
+            HarmonyMethod asshai = new HarmonyMethod(typeof(ReplimatMod).GetMethod("RepDelSwap"));
             harmony.Patch(qarth, asshai);
         }
 
+        public override void DoSettingsWindowContents(Rect canvas)
+        {
+            Listing_Standard listingStandard = new Listing_Standard();
+            listingStandard.Begin(canvas);
+            listingStandard.CheckboxLabeled(Translator.Translate("Replimat_Settings_EnableRandomMeal_Title"), ref Settings.RandomMeals, Translator.Translate("Replimat_Settings_EnableRandomMeal_Desc"));
+            listingStandard.End();
+            base.DoSettingsWindowContents(canvas);
+        }
 
+        public override string SettingsCategory()
+        {
+            return "Replimat".Translate();
+        }
 
         static bool allowForbidden;
         static bool allowDispenserFull;
@@ -55,11 +63,11 @@ namespace Replimat
         {
             static void Prefix(ref Pawn getter, ref Pawn eater, ref bool allowDispenserFull, ref bool allowDispenserEmpty, ref bool allowForbidden, ref bool allowSociallyImproper)
             {
-                SumghaiReplimatMod.getter = getter;
-                SumghaiReplimatMod.eater = eater;
-                SumghaiReplimatMod.allowDispenserFull = allowDispenserFull;
-                SumghaiReplimatMod.allowForbidden = allowForbidden;
-                SumghaiReplimatMod.allowSociallyImproper = allowSociallyImproper;
+                ReplimatMod.getter = getter;
+                ReplimatMod.eater = eater;
+                ReplimatMod.allowDispenserFull = allowDispenserFull;
+                ReplimatMod.allowForbidden = allowForbidden;
+                ReplimatMod.allowSociallyImproper = allowSociallyImproper;
             }
         }
 
