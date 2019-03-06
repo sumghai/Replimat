@@ -12,21 +12,126 @@ using Verse.AI;
 
 namespace Replimat
 {
+    public class Settings : ModSettings
+    {
+        public bool RandomMeals = false;
+
+        public void DoWindowContents(Rect canvas)
+        {
+
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref RandomMeals, "RandomMeals", false);
+        }
+    }
 
     public class SumghaiReplimatMod : Mod
     {
+        public static Settings Settings;
         public SumghaiReplimatMod(ModContentPack content) : base(content)
         {
+            Settings = base.GetSettings<Settings>();
             var harmony = HarmonyInstance.Create("com.Sumghai.Replimat.patches");
             harmony.PatchAll();
+
+            MethodInfo qarth = AccessTools.Method("RimWorld.FoodUtility+<BestFoodSourceOnMap>c__AnonStorey0:<>m__0");
+            HarmonyMethod asshai = new HarmonyMethod(typeof(SumghaiReplimatMod).GetMethod("RepDelSwap"));
+            harmony.Patch(qarth, asshai);
         }
 
-        [HarmonyPatch(typeof(JobDriver), "TryActuallyStartNextToil")]
-        static class Patch_TryActuallyStartNextToil
+
+
+        static bool allowForbidden;
+        static bool allowDispenserFull;
+        static Pawn getter;
+        static Pawn eater;
+        static bool allowSociallyImproper;
+
+        [HarmonyPatch(typeof(FoodUtility), "BestFoodSourceOnMap"), StaticConstructorOnStartup]
+        static class Patch_BestFoodSourceOnMap
         {
-            static void Prefix(JobDriver __instance)
+            static void Prefix(ref Pawn getter, ref Pawn eater, ref bool allowDispenserFull, ref bool allowDispenserEmpty, ref bool allowForbidden, ref bool allowSociallyImproper)
             {
-                Building_ReplimatTerminal.MealSearcher = __instance.pawn;
+                SumghaiReplimatMod.getter = getter;
+                SumghaiReplimatMod.eater = eater;
+                SumghaiReplimatMod.allowDispenserFull = allowDispenserFull;
+                SumghaiReplimatMod.allowForbidden = allowForbidden;
+                SumghaiReplimatMod.allowSociallyImproper = allowSociallyImproper;
+            }
+        }
+
+        static bool IsFoodSourceOnMapSociallyProper(Thing t)
+        {
+            var trav = AccessTools.Method(typeof(FoodUtility), "IsFoodSourceOnMapSociallyProper");
+            if (trav.Invoke(null, new object[] { t, getter, eater, allowSociallyImproper }) is bool b) return b;
+            return true;
+        }
+
+        static bool RepDelSwap(ref Thing t, ref bool __result)
+        {
+            if (t is Building_ReplimatTerminal term)
+            {
+                __result = true;
+                if (
+                    !allowDispenserFull
+                    || !(getter.RaceProps.ToolUser && getter.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
+                    || (t.Faction != getter.Faction && t.Faction != getter.HostFaction)
+                    || (!allowForbidden && t.IsForbidden(getter))
+                    || !term.powerComp.PowerOn
+                    || !t.InteractionCell.Standable(t.Map)
+                    || !IsFoodSourceOnMapSociallyProper(t)
+                    || getter.IsWildMan()
+                    || !getter.Map.reachability.CanReachNonLocal(getter.Position, new TargetInfo(t.InteractionCell, t.Map, false), PathEndMode.OnCell, TraverseParms.For(getter, Danger.Some, TraverseMode.ByPawn, false)))
+                {
+                    __result = false;
+                }
+                return false;
+            }
+            return true;
+        }
+
+
+        [HarmonyPatch(typeof(Toils_Ingest), "TakeMealFromDispenser")]
+        static class Patch_TakeMealFromDispenser
+        {
+            static bool Prefix(ref TargetIndex ind, ref Pawn eater, ref Toil __result)
+            {
+                if (eater.jobs.curJob.GetTarget(ind).Thing is Building_ReplimatTerminal)
+                {
+                    TargetIndex windex = ind;
+                    Toil toil = new Toil();
+                    toil.initAction = delegate
+                    {
+                        Pawn actor = toil.actor;
+                        Job curJob = actor.jobs.curJob;
+                        var repmat = (Building_ReplimatTerminal)curJob.GetTarget(windex).Thing;
+
+                        Pawn PawnForMealScan = actor;
+                        if (curJob.GetTarget(TargetIndex.B).Thing is Pawn p)
+                        {
+                            PawnForMealScan = p;
+                        }
+
+                        Thing thing = repmat.TryDispenseFood(PawnForMealScan);
+                        if (thing == null)
+                        {
+                            actor.jobs.curDriver.EndJobWith(JobCondition.Incompletable);
+                            return;
+                        }
+                        actor.carryTracker.TryStartCarry(thing);
+                        actor.CurJob.SetTarget(windex, actor.carryTracker.CarriedThing);
+                    };
+                    toil.FailOnCannotTouch(ind, PathEndMode.Touch);
+                    toil.defaultCompleteMode = ToilCompleteMode.Delay;
+                    toil.defaultDuration = Building_NutrientPasteDispenser.CollectDuration;
+                    __result = toil;
+                    return false;
+                }
+
+                return true;
             }
         }
 
@@ -69,7 +174,6 @@ namespace Replimat
         [HarmonyPatch(typeof(ThingListGroupHelper), "Includes")]
         static class Patch_Includes
         {
-
             static bool Prefix(ref ThingRequestGroup group, ref ThingDef def, ref bool __result)
             {
                 if (group == ThingRequestGroup.FoodSource || group == ThingRequestGroup.FoodSourceNotPlantOrTree)
@@ -88,7 +192,6 @@ namespace Replimat
         [HarmonyPatch("AmbientTemperature", PropertyMethod.Getter)]
         static class Patch_Thing_AmbientTemperature
         {
-
             static void Postfix(Thing __instance, ref float __result)
             {
                 if (__instance.Spawned && __instance.def.IsNutritionGivingIngestible)

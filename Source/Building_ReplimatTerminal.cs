@@ -19,28 +19,49 @@ namespace Replimat
 
         public int ReplicatingTicks = 0;
 
-        public static Pawn MealSearcher = null;
+        public bool HasStockFor(ThingDef def)
+        {
+            float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
+            float stockNeeded = ReplimatUtility.convertMassToFeedstockVolume(def.BaseMass);
+            return totalAvailableFeedstock >= stockNeeded;
+        }
 
+        public ThingDef PickMeal(Pawn eater)
+        {
+            // Should we default to Fine Meals if the pawn cannot be identified or if a food restriction policy can't be found?
+            ThingDef SelectedMeal = ThingDef.Named("MealFine");
+
+            if (eater != null)
+            {
+                //wihtout IsMeal they try to eat stuff like chocolate and corpses, joy based consumption will need a lot more custom code
+                List<ThingDef> allowedMeals = eater.foodRestriction.CurrentFoodRestriction.filter.AllowedThingDefs.Where(x => x.ingestible.IsMeal).ToList();
+
+                if (SumghaiReplimatMod.Settings.RandomMeals)
+                {
+                    SelectedMeal = allowedMeals.RandomElement();
+                }
+                else
+                {
+                    var maxpref = allowedMeals.Max(x => x.ingestible.preferability);
+                    SelectedMeal = allowedMeals.Where(x => x.ingestible.preferability == maxpref).RandomElement();
+                }
+
+                // Debug Messages
+                Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " is allowed the following meals:");
+                Log.Message(string.Join(", ", allowedMeals.Select(def => def.defName).ToArray()));
+            }
+
+            return SelectedMeal;
+        }
+
+
+        // leave this as a stub
         public override ThingDef DispensableDef
         {
             get
             {
-                // TODO - Fix NullRef
-
-                // Should we default to Fine Meals if the pawn cannot be identified or if a food restriction policy can't be found?
-                ThingDef chosenMeal = ThingDef.Named("MealFine");
-
-                if (MealSearcher != null)
-                {
-                    List<ThingDef> allowedMeals = MealSearcher.foodRestriction.CurrentFoodRestriction.filter.AllowedThingDefs.ToList();
-                    chosenMeal = allowedMeals.RandomElement();
-
-                    // Debug Messages
-                    Log.Message("[Replimat] Pawn " + MealSearcher.Name.ToString() + " is allowed the following meals:");
-                    Log.Message(string.Join(", ", allowedMeals.Select(def => def.defName).ToArray()));
-                }
-
-                return chosenMeal;
+                // Log.Warning("checked for def");
+                return ThingDef.Named("MealLavish");
             }
         }
 
@@ -48,18 +69,14 @@ namespace Replimat
         {
             get
             {
-                return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputer).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
+                return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputer).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == PowerComp.PowerNet && x.Working);
             }
-        }
-
-        public override Thing FindFeedInAnyHopper()
-        {
-            return base.FindFeedInAnyHopper();
         }
 
         public override bool HasEnoughFeedstockInHoppers()
         {
             float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
+            // USE A DEFAULT AMOUNT FOR NOW FOR ALL MEALS
             float stockNeeded = ReplimatUtility.convertMassToFeedstockVolume(DispensableDef.BaseMass);
             return totalAvailableFeedstock >= stockNeeded;
         }
@@ -72,25 +89,26 @@ namespace Replimat
 
         public override Building AdjacentReachableHopper(Pawn reacher)
         {
-            List<Building_ReplimatHopper> Hoppers = Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatHopper).Select(x => x as Building_ReplimatHopper).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
+            // DONT DO THIS ELSE THE PAWN THINKS THEY CAN REFILL THE HOPPERS
+            //List<Building_ReplimatHopper> Hoppers = Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatHopper).OfType<Building_ReplimatHopper>().Where(x => x.PowerComp.PowerNet == PowerComp.PowerNet && x.HasComputer).ToList();
 
-            if (!Hoppers.NullOrEmpty())
-            {
-                foreach (var item in Hoppers)
-                {
-                    if (item != null && reacher.CanReach(item, PathEndMode.Touch, Danger.Deadly, false, TraverseMode.ByPawn))
-                    {
-                        return (Building_Storage)item;
-                    }
-                }
-            }
+            //if (!Hoppers.NullOrEmpty())
+            //{
+            //    foreach (var item in Hoppers)
+            //    {
+            //        if (item != null && reacher.CanReach(item, PathEndMode.Touch, Danger.Deadly, false, TraverseMode.ByPawn))
+            //        {
+            //            return item;
+            //        }
+            //    }
+            //}
 
             return null;
         }
 
-        public override Thing TryDispenseFood()
+        public Thing TryDispenseFood(Pawn eater)
         {
-            if (!this.CanDispenseNow)
+            if (!CanDispenseNow)
             {
                 return null;
             }
@@ -102,14 +120,18 @@ namespace Replimat
             }
 
             ReplicatingTicks = GenTicks.SecondsToTicks(2f);
-            this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
+            def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
 
-            Thing dispensedMeal = ThingMaker.MakeThing(DispensableDef, null);
+            Thing dispensedMeal = ThingMaker.MakeThing(PickMeal(eater), null);
+
+            // STACK CALC, DONT BOTHER
+          //  int num = FoodUtility.WillIngestStackCountOf(eater, dispensedMeal.def, dispensedMeal.GetStatValue(StatDefOf.Nutrition, true));
+           // dispensedMeal.stackCount = num;
 
             float dispensedMealMass = dispensedMeal.def.BaseMass;
 
             powerComp.PowerNet.TryConsumeFeedstock(ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass));
-      
+
             return dispensedMeal;
         }
 
@@ -152,6 +174,28 @@ namespace Replimat
             }
         }
 
+        public void flip()
+        {
+            SumghaiReplimatMod.Settings.RandomMeals = !SumghaiReplimatMod.Settings.RandomMeals;
+        }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (Gizmo c in base.GetGizmos())
+            {
+                yield return c;
+            }
+
+            yield return new Command_Toggle
+            {
+                toggleAction = flip,
+                isActive = delegate () { return SumghaiReplimatMod.Settings.RandomMeals; },
+                defaultLabel = "RandomMeals".Translate(),
+                defaultDesc = "RandomMealsDesc".Translate(),
+                icon = Texture2D.blackTexture// ContentFinder<Texture2D>.Get("bad", true)
+            };
+        }
+
         public override string GetInspectString()
         {
             StringBuilder stringBuilder = new StringBuilder();
@@ -168,13 +212,14 @@ namespace Replimat
                     stringBuilder.AppendLine();
                     stringBuilder.Append("NotConnectedToComputer".Translate());
                 }
-                else if (!HasEnoughFeedstockInHoppers())
-                {
-                    stringBuilder.AppendLine();
-                    stringBuilder.Append("NotEnoughFeedstock".Translate());
-                }
-                else
-                { }
+                //CANT DO ANYMORE
+                //else if (!HasEnoughFeedstockInHoppers())
+                //{
+                //    stringBuilder.AppendLine();
+                //    stringBuilder.Append("NotEnoughFeedstock".Translate());
+                //}
+                //else
+                //{ }
             }
 
             return stringBuilder.ToString();
