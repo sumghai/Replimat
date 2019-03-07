@@ -42,15 +42,16 @@ namespace Replimat
                     allowedMeals.Remove(ThingDef.Named("MealNutrientPaste"));
                 }
 
-                if (ReplimatMod.Settings.RandomMeals)
+                if (ReplimatMod.Settings.PrioritizeFoodQuality)
                 {
-                    Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " can choose random meals");
-                    SelectedMeal = allowedMeals.RandomElement();
+                    Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " will prioritize meal quality");
+                    var maxpref = allowedMeals.Max(x => x.ingestible.preferability);
+                    SelectedMeal = allowedMeals.Where(x => x.ingestible.preferability == maxpref).RandomElement();
                 }
                 else
                 {
-                    var maxpref = allowedMeals.Max(x => x.ingestible.preferability);
-                    SelectedMeal = allowedMeals.Where(x => x.ingestible.preferability == maxpref).RandomElement();
+                    Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " can choose random meals regardless of quality");
+                    SelectedMeal = allowedMeals.RandomElement();
                 }
 
                 // Debug Messages

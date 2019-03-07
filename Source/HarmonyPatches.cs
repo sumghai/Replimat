@@ -14,12 +14,12 @@ namespace Replimat
 {
     public class Settings : ModSettings
     {
-        public bool RandomMeals = false;
+        public bool PrioritizeFoodQuality = true;
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref RandomMeals, "RandomMeals", false);
+            Scribe_Values.Look(ref PrioritizeFoodQuality, "PrioritizeFoodQuality", true, true);
         }
     }
 
@@ -42,14 +42,14 @@ namespace Replimat
         {
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(canvas);
-            listingStandard.CheckboxLabeled(Translator.Translate("Replimat_Settings_EnableRandomMeal_Title"), ref Settings.RandomMeals, Translator.Translate("Replimat_Settings_EnableRandomMeal_Desc"));
+            listingStandard.CheckboxLabeled(Translator.Translate("Replimat_Settings_PrioritizeFoodQuality_Title"), ref Settings.PrioritizeFoodQuality, Translator.Translate("Replimat_Settings_PrioritizeFoodQuality_Desc"));
             listingStandard.End();
             base.DoSettingsWindowContents(canvas);
         }
 
         public override string SettingsCategory()
         {
-            return "Replimat".Translate();
+            return "Replimat_SettingsCategory_Heading".Translate();
         }
 
         static bool allowForbidden;
