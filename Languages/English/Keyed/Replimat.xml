@@ -12,6 +12,13 @@
 	<NotConnectedToComputer>Requires connection to Replimat Computer</NotConnectedToComputer>
 	<NotEnoughFeedstock>Insufficient Feedstock</NotEnoughFeedstock>
 	
+	<BatchMakeSurvivalMeals>Batch Survival Meals</BatchMakeSurvivalMeals>
+	<BatchMakeSurvivalMeals_Desc>Replicate a batch of Packaged Survival Meals for use in caravans or emergencies.</BatchMakeSurvivalMeals_Desc>
+	
+	<MessageCannotBatchMakeSurvivalMeals>Cannot batch replicate survival meals: Terminal has insufficient feedstock, or is not connected to Computer and Feedstock tanks.</MessageCannotBatchMakeSurvivalMeals>
+	
+	<SetSurvivalMealBatchSize>Make {0} Packaged Survival Meals\n(Max allowed: {1})</SetSurvivalMealBatchSize>
+	
 	<Replimat_SettingsCategory_Heading>Replimat</Replimat_SettingsCategory_Heading>
 	<Replimat_Settings_PrioritizeFoodQuality_Title>Prioritize food quality</Replimat_Settings_PrioritizeFoodQuality_Title>
 	<Replimat_Settings_PrioritizeFoodQuality_Desc>By default, pawns will replicate meals at the highest quality allowed by their current food restriction policy.\n\nDisabling this allows pawns to replicate any random meal within their food restriction policy irrespective of quality.</Replimat_Settings_PrioritizeFoodQuality_Desc>

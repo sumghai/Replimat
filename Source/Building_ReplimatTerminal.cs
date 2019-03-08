@@ -19,6 +19,8 @@ namespace Replimat
 
         public int ReplicatingTicks = 0;
 
+        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == PowerComp.PowerNet).ToList();
+
         public bool HasStockFor(ThingDef def)
         {
             float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
@@ -183,6 +185,73 @@ namespace Replimat
                 ReplicatingTicks--;
                 powerComp.PowerOutput = -1500f;
             }
+        }
+
+        public void TryBatchMakingSurvivalMeals()
+        {
+            Log.Message("[Replimat] Requesting survival meals!");
+            
+            // Determine the maximum number of survival meals that can be replicated, based on available feedstock
+            // (Cap this at 30 meals so that players don't accidentally use up all their feedstock on survival meals)
+            ThingDef survivalMeal = ThingDef.Named("MealSurvivalPack");
+            int maxSurvivalMeals = 30;
+            float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
+            float totalAvailableFeedstockMass = ReplimatUtility.convertFeedstockVolumeToMass(totalAvailableFeedstock);
+            int maxPossibleSurvivalMeals = (int)Math.Floor(totalAvailableFeedstockMass/survivalMeal.BaseMass);
+            int survivalMealCap = (maxPossibleSurvivalMeals < maxSurvivalMeals) ? maxPossibleSurvivalMeals : maxSurvivalMeals;
+
+            Log.Message("[Replimat] Default max survival meals is " + maxSurvivalMeals + "\n"
+                + "Total available feedstock of " + totalAvailableFeedstock + " can provide up to " + maxPossibleSurvivalMeals + " survival meals\n"
+                + "Final cap on survival meals is " + survivalMealCap);
+
+            float volumeOfFeedstockRequired = ReplimatUtility.convertMassToFeedstockVolume(survivalMealCap * survivalMeal.BaseMass);
+
+            if (!CanDispenseNow)
+            {
+                Messages.Message("MessageCannotBatchMakeSurvivalMeals".Translate(), MessageTypeDefOf.RejectInput, false);
+                return;
+            }
+
+            if (!HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockRequired))
+            {
+                Log.Error("Not enough feedstock to make required survival meals.");
+                return;
+            }
+
+            Func<int, string> textGetter;
+            textGetter = ((int x) => "SetSurvivalMealBatchSize".Translate(x, survivalMealCap));
+
+            Dialog_Slider window = new Dialog_Slider(textGetter, 1, survivalMealCap, delegate (int x)
+            {
+                ReplicatingTicks = GenTicks.SecondsToTicks(2f);
+                def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
+
+                this.powerComp.PowerNet.TryConsumeFeedstock(volumeOfFeedstockRequired);
+                Thing t = ThingMaker.MakeThing(survivalMeal, null);
+                t.stackCount = x;
+                GenPlace.TryPlaceThing(t, this.InteractionCell, base.Map, ThingPlaceMode.Near);
+            }
+            , 1);
+            Find.WindowStack.Add(window);
+        }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (Gizmo c in base.GetGizmos())
+            {
+                yield return c;
+            }
+
+            yield return new Command_Action
+            {
+                defaultLabel = "BatchMakeSurvivalMeals".Translate(),
+                defaultDesc = "BatchMakeSurvivalMeals_Desc".Translate(),
+                action = delegate
+                {
+                    TryBatchMakingSurvivalMeals();
+                },
+                icon = ContentFinder<Texture2D>.Get("UI/Buttons/BatchMakeSurvivalMeals", true)
+            };
         }
 
         public override string GetInspectString()
