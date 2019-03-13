@@ -32,10 +32,6 @@ namespace Replimat
             Settings = base.GetSettings<Settings>();
             var harmony = HarmonyInstance.Create("com.Replimat.patches");
             harmony.PatchAll();
-
-            MethodInfo qarth = AccessTools.Method("RimWorld.FoodUtility+<BestFoodSourceOnMap>c__AnonStorey0:<>m__0");
-            HarmonyMethod asshai = new HarmonyMethod(typeof(ReplimatMod).GetMethod("RepDelSwap"));
-            harmony.Patch(qarth, asshai);
         }
 
         public override void DoSettingsWindowContents(Rect canvas)
@@ -57,17 +53,23 @@ namespace Replimat
         static Pawn getter;
         static Pawn eater;
         static bool allowSociallyImproper;
-
+        static bool BestFoodSourceOnMap = false;
         [HarmonyPatch(typeof(FoodUtility), "BestFoodSourceOnMap"), StaticConstructorOnStartup]
         static class Patch_BestFoodSourceOnMap
         {
             static void Prefix(ref Pawn getter, ref Pawn eater, ref bool allowDispenserFull, ref bool allowDispenserEmpty, ref bool allowForbidden, ref bool allowSociallyImproper)
             {
+                BestFoodSourceOnMap = true;
                 ReplimatMod.getter = getter;
                 ReplimatMod.eater = eater;
                 ReplimatMod.allowDispenserFull = allowDispenserFull;
                 ReplimatMod.allowForbidden = allowForbidden;
                 ReplimatMod.allowSociallyImproper = allowSociallyImproper;
+            }
+
+            static void Postfix()
+            {
+                BestFoodSourceOnMap = false;
             }
         }
 
@@ -78,29 +80,58 @@ namespace Replimat
             return true;
         }
 
-        static bool RepDelSwap(ref Thing t, ref bool __result)
+        static bool RepDel(Building_ReplimatTerminal t)
         {
-            if (t is Building_ReplimatTerminal term)
+            if (
+                !allowDispenserFull
+                || !(getter.RaceProps.ToolUser && getter.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
+                || (t.Faction != getter.Faction && t.Faction != getter.HostFaction)
+                || (!allowForbidden && t.IsForbidden(getter))
+                || !t.powerComp.PowerOn
+                || !t.InteractionCell.Standable(t.Map)
+                || !IsFoodSourceOnMapSociallyProper(t)
+                || getter.IsWildMan()
+                || t.PickMeal(eater) == null
+                || !t.HasStockFor(t.PickMeal(eater))
+                || !getter.Map.reachability.CanReachNonLocal(getter.Position, new TargetInfo(t.InteractionCell, t.Map, false), PathEndMode.OnCell, TraverseParms.For(getter, Danger.Some, TraverseMode.ByPawn, false)))
             {
-                __result = true;
-                if (
-                    !allowDispenserFull
-                    || !(getter.RaceProps.ToolUser && getter.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
-                    || (t.Faction != getter.Faction && t.Faction != getter.HostFaction)
-                    || (!allowForbidden && t.IsForbidden(getter))
-                    || !term.powerComp.PowerOn
-                    || !t.InteractionCell.Standable(t.Map)
-                    || !IsFoodSourceOnMapSociallyProper(t)
-                    || getter.IsWildMan()
-                    || !getter.Map.reachability.CanReachNonLocal(getter.Position, new TargetInfo(t.InteractionCell, t.Map, false), PathEndMode.OnCell, TraverseParms.For(getter, Danger.Some, TraverseMode.ByPawn, false)))
-                {
-                    __result = false;
-                }
                 return false;
             }
             return true;
         }
 
+        [HarmonyPatch(typeof(FoodUtility), "SpawnedFoodSearchInnerScan")]
+        static class Patch_SpawnedFoodSearchInnerScan
+        {
+            static bool Prefix(ref Predicate<Thing> validator)
+            {
+                Predicate<Thing> malidator = validator;
+                Predicate<Thing> salivator = x => (x is Building_ReplimatTerminal rep) ? RepDel(rep) : malidator(x);
+                validator = salivator;
+                return true;
+            }
+        }
+
+
+        [HarmonyPatch(typeof(FoodUtility), "GetFinalIngestibleDef")]
+        static class Patch_GetFinalIngestibleDef
+        {
+            static bool Prefix(ref Thing foodSource, ref ThingDef __result)
+            {
+                if (foodSource is Building_ReplimatTerminal d)
+                {
+                    if (BestFoodSourceOnMap)
+                    {
+                        //    Log.Warning("BestFoodSourceOnMap");
+                        __result = d.PickMeal(eater);
+                        return false;
+                    }
+
+                    //   Log.Warning("NOT BestFoodSourceOnMap");
+                }
+                return true;
+            }
+        }
 
         [HarmonyPatch(typeof(Toils_Ingest), "TakeMealFromDispenser")]
         static class Patch_TakeMealFromDispenser

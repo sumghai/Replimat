@@ -19,32 +19,21 @@ namespace Replimat
 
         public int ReplicatingTicks = 0;
 
-        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == PowerComp.PowerNet).ToList();
-
-        public bool HasStockFor(ThingDef def)
-        {
-            float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
-            float stockNeeded = ReplimatUtility.convertMassToFeedstockVolume(def.BaseMass);
-            return totalAvailableFeedstock >= stockNeeded;
-        }
-
         public ThingDef PickMeal(Pawn eater)
         {
-            // Should we default to Fine Meals if the pawn cannot be identified or if a food restriction policy can't be found?
-            ThingDef SelectedMeal = ThingDef.Named("MealFine");
+            //default null
+            ThingDef SelectedMeal = null;
 
             if (eater != null)
             {
-                //wihtout IsMeal they try to eat stuff like chocolate and corpses, joy based consumption will need a lot more custom code
-                List<ThingDef> allowedMeals = eater.foodRestriction.CurrentFoodRestriction.filter.AllowedThingDefs.Where(x => x.ingestible.IsMeal).ToList();
+                //Should never allow anything with less that 50% nutrition because whats the point in eating it!
+                //Has to be a meal else they try to eat stuff like chocolate and corpses
+                //joy based consumption will need a lot more patches
+                List<ThingDef> allowedMeals = eater.foodRestriction.CurrentFoodRestriction.filter.AllowedThingDefs.Where(x => x.ingestible.IsMeal && x.GetStatValueAbstract(StatDefOf.Nutrition) > 0.5f).ToList();
 
-                //Replimats should never provide Permmican, as it is a tribal food with low nutritional value
-                allowedMeals.Remove(ThingDef.Named("Pemmican"));
-
-                //If a pawn's food restriction has other, better items available, then remove Nutrient Paste Meals from the available meal options
-                if (allowedMeals.Count() > 1)
+                if (allowedMeals.NullOrEmpty())
                 {
-                    allowedMeals.Remove(ThingDef.Named("MealNutrientPaste"));
+                    return null;
                 }
 
                 if (ReplimatMod.Settings.PrioritizeFoodQuality)
@@ -55,12 +44,23 @@ namespace Replimat
                 }
                 else
                 {
+
                     Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " can choose random meals regardless of quality");
-                    SelectedMeal = allowedMeals.RandomElement();
+
+                    //If set to random then attempt to replicate a meal that isn't just plain awful
+                    if (allowedMeals.Any(x => x.ingestible.preferability > FoodPreferability.MealAwful))
+                    {
+                        SelectedMeal = allowedMeals.Where(x => x.ingestible.preferability > FoodPreferability.MealAwful).RandomElement();
+                    }
+                    else
+                    {
+                        SelectedMeal = allowedMeals.RandomElement();
+                    }
+
                 }
 
                 // Debug Messages
-                Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " is allowed the following meals: \n" 
+                Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " is allowed the following meals: \n"
                     + string.Join(", ", allowedMeals.Select(def => def.defName).ToArray()));
             }
 
@@ -84,6 +84,13 @@ namespace Replimat
             {
                 return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputer).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == PowerComp.PowerNet && x.Working);
             }
+        }
+
+        public bool HasStockFor(ThingDef def)
+        {
+            float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
+            float stockNeeded = ReplimatUtility.convertMassToFeedstockVolume(def.BaseMass);
+            return totalAvailableFeedstock >= stockNeeded;
         }
 
         public override bool HasEnoughFeedstockInHoppers()
@@ -126,20 +133,28 @@ namespace Replimat
                 return null;
             }
 
-            if (!HasEnoughFeedstockInHoppers())
+            ThingDef meal = PickMeal(eater);
+            if (meal == null)
             {
-                Log.Error("Did not find enough food in hoppers while trying to dispense.");
+                return null;
+            }
+
+            if (!HasStockFor(meal))
+            {
+                Log.Error("Did not find enough foodstock in tanks while trying to replicate.");
                 return null;
             }
 
             ReplicatingTicks = GenTicks.SecondsToTicks(2f);
             def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
 
-            Thing dispensedMeal = ThingMaker.MakeThing(PickMeal(eater), null);
+
+
+            Thing dispensedMeal = ThingMaker.MakeThing(meal, null);
 
             // STACK CALC, DONT BOTHER
-          //  int num = FoodUtility.WillIngestStackCountOf(eater, dispensedMeal.def, dispensedMeal.GetStatValue(StatDefOf.Nutrition, true));
-           // dispensedMeal.stackCount = num;
+            //  int num = FoodUtility.WillIngestStackCountOf(eater, dispensedMeal.def, dispensedMeal.GetStatValue(StatDefOf.Nutrition, true));
+            // dispensedMeal.stackCount = num;
 
             float dispensedMealMass = dispensedMeal.def.BaseMass;
 
@@ -193,9 +208,9 @@ namespace Replimat
             
             // Determine the maximum number of survival meals that can be replicated, based on available feedstock
             // (Cap this at 30 meals so that players don't accidentally use up all their feedstock on survival meals)
-            ThingDef survivalMeal = ThingDef.Named("MealSurvivalPack");
+            ThingDef survivalMeal = ThingDefOf.MealSurvivalPack;
             int maxSurvivalMeals = 30;
-            float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
+            float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
             float totalAvailableFeedstockMass = ReplimatUtility.convertFeedstockVolumeToMass(totalAvailableFeedstock);
             int maxPossibleSurvivalMeals = (int)Math.Floor(totalAvailableFeedstockMass/survivalMeal.BaseMass);
             int survivalMealCap = (maxPossibleSurvivalMeals < maxSurvivalMeals) ? maxPossibleSurvivalMeals : maxSurvivalMeals;
