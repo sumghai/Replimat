@@ -112,6 +112,20 @@ namespace Replimat
             }
         }
 
+        [HarmonyPatch(typeof(FoodUtility), "FoodOptimality")]
+        static class Patch_FoodOptimality
+        {
+            static bool Prefix(ref ThingDef foodDef, ref float __result)
+            {
+                if (foodDef == null)
+                {
+                    __result = -9999999f;
+                    return false;
+                }
+
+                return true;
+            }
+        }
 
         [HarmonyPatch(typeof(FoodUtility), "GetFinalIngestibleDef")]
         static class Patch_GetFinalIngestibleDef
