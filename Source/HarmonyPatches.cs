@@ -73,13 +73,6 @@ namespace Replimat
             }
         }
 
-        static bool IsFoodSourceOnMapSociallyProper(Thing t)
-        {
-            var trav = AccessTools.Method(typeof(FoodUtility), "IsFoodSourceOnMapSociallyProper");
-            if (trav.Invoke(null, new object[] { t, getter, eater, allowSociallyImproper }) is bool b) return b;
-            return true;
-        }
-
         static bool RepDel(Building_ReplimatTerminal t)
         {
             if (
@@ -89,7 +82,7 @@ namespace Replimat
                 || (!allowForbidden && t.IsForbidden(getter))
                 || !t.powerComp.PowerOn
                 || !t.InteractionCell.Standable(t.Map)
-                || !IsFoodSourceOnMapSociallyProper(t)
+                || !FoodUtility.IsFoodSourceOnMapSociallyProper(t, getter, eater, allowSociallyImproper)
                 || getter.IsWildMan()
                 || t.PickMeal(eater) == null
                 || !t.HasStockFor(t.PickMeal(eater))

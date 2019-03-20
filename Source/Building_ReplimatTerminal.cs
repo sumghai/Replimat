@@ -7,6 +7,7 @@ using System;
 using UnityEngine;
 using System.Text;
 using Verse.AI;
+using UnofficialMultiplayerAPI;
 
 namespace Replimat
 {
@@ -238,16 +239,21 @@ namespace Replimat
 
             Dialog_Slider window = new Dialog_Slider(textGetter, 1, survivalMealCap, delegate (int x)
             {
-                ReplicatingTicks = GenTicks.SecondsToTicks(2f);
-                def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
-
-                this.powerComp.PowerNet.TryConsumeFeedstock(volumeOfFeedstockRequired);
-                Thing t = ThingMaker.MakeThing(survivalMeal, null);
-                t.stackCount = x;
-                GenPlace.TryPlaceThing(t, this.InteractionCell, base.Map, ThingPlaceMode.Near);
-            }
-            , 1);
+                ConfirmAction(x, volumeOfFeedstockRequired);
+            }, 1);
             Find.WindowStack.Add(window);
+        }
+
+        [SyncMethod]
+        public void ConfirmAction(int x, float volumeOfFeedstockRequired)
+        {
+            ReplicatingTicks = GenTicks.SecondsToTicks(2f);
+            def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
+
+            this.powerComp.PowerNet.TryConsumeFeedstock(volumeOfFeedstockRequired);
+            Thing t = ThingMaker.MakeThing(ThingDefOf.MealSurvivalPack, null);
+            t.stackCount = x;
+            GenPlace.TryPlaceThing(t, this.InteractionCell, base.Map, ThingPlaceMode.Near);
         }
 
         public override IEnumerable<Gizmo> GetGizmos()

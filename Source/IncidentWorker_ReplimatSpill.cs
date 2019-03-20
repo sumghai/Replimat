@@ -9,14 +9,14 @@ namespace Replimat
 {
     public class IncidentWorker_ReplimatSpill : IncidentWorker
     {
-        protected override bool CanFireNowSub(IncidentParms parms)
+        public override bool CanFireNowSub(IncidentParms parms)
         {
             Map map = (Map)parms.target;
             return map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminal).Any() &&
                 map.listerThings.ThingsOfDef(ReplimatDef.ReplimatAnimalFeeder).Any();
         }
 
-        protected override bool TryExecuteWorker(IncidentParms parms)
+        public override bool TryExecuteWorker(IncidentParms parms)
         {
             Map map = (Map)parms.target;
             List<Thing> listOfTerminals = map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminal);
