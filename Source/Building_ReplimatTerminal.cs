@@ -7,7 +7,6 @@ using System;
 using UnityEngine;
 using System.Text;
 using Verse.AI;
-using UnofficialMultiplayerAPI;
 
 namespace Replimat
 {
@@ -244,7 +243,7 @@ namespace Replimat
             Find.WindowStack.Add(window);
         }
 
-        [SyncMethod]
+        [MP]
         public void ConfirmAction(int x, float volumeOfFeedstockRequired)
         {
             ReplicatingTicks = GenTicks.SecondsToTicks(2f);
