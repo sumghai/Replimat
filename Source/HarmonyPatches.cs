@@ -131,12 +131,10 @@ namespace Replimat
                 {
                     if (BestFoodSourceOnMap)
                     {
-                        //    Log.Warning("BestFoodSourceOnMap");
                         __result = d.PickMeal(eater);
                         return false;
                     }
 
-                    //   Log.Warning("NOT BestFoodSourceOnMap");
                 }
                 return true;
             }

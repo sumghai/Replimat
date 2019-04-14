@@ -23,7 +23,6 @@ namespace Replimat
             List<Thing> listOfAnimalFeeders = map.listerThings.ThingsOfDef(ReplimatDef.ReplimatAnimalFeeder);
             List<Thing> list = listOfTerminals.Concat(listOfAnimalFeeders).ToList();
 
-
             if (!list.Any())
             {
                 // If there are no Terminals or Animal Feeders, break out of execution early

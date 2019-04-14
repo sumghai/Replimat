@@ -100,7 +100,7 @@ namespace Replimat
         public override bool HasEnoughFeedstockInHoppers()
         {
             float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
-            // USE A DEFAULT AMOUNT FOR NOW FOR ALL MEALS
+            // Use a default amount for all meals
             float stockNeeded = ReplimatUtility.convertMassToFeedstockVolume(DispensableDef.BaseMass);
             return totalAvailableFeedstock >= stockNeeded;
         }
@@ -113,20 +113,6 @@ namespace Replimat
 
         public override Building AdjacentReachableHopper(Pawn reacher)
         {
-            // DONT DO THIS ELSE THE PAWN THINKS THEY CAN REFILL THE HOPPERS
-            //List<Building_ReplimatHopper> Hoppers = Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatHopper).OfType<Building_ReplimatHopper>().Where(x => x.PowerComp.PowerNet == PowerComp.PowerNet && x.HasComputer).ToList();
-
-            //if (!Hoppers.NullOrEmpty())
-            //{
-            //    foreach (var item in Hoppers)
-            //    {
-            //        if (item != null && reacher.CanReach(item, PathEndMode.Touch, Danger.Deadly, false, TraverseMode.ByPawn))
-            //        {
-            //            return item;
-            //        }
-            //    }
-            //}
-
             return null;
         }
 
@@ -152,13 +138,7 @@ namespace Replimat
             ReplicatingTicks = GenTicks.SecondsToTicks(2f);
             def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
 
-
-
             Thing dispensedMeal = ThingMaker.MakeThing(meal, null);
-
-            // STACK CALC, DONT BOTHER
-            //  int num = FoodUtility.WillIngestStackCountOf(eater, dispensedMeal.def, dispensedMeal.GetStatValue(StatDefOf.Nutrition, true));
-            // dispensedMeal.stackCount = num;
 
             float dispensedMealMass = dispensedMeal.def.BaseMass;
 
@@ -294,14 +274,6 @@ namespace Replimat
                     stringBuilder.AppendLine();
                     stringBuilder.Append("NotConnectedToComputer".Translate());
                 }
-                //CANT DO ANYMORE
-                //else if (!HasEnoughFeedstockInHoppers())
-                //{
-                //    stringBuilder.AppendLine();
-                //    stringBuilder.Append("NotEnoughFeedstock".Translate());
-                //}
-                //else
-                //{ }
             }
 
             return stringBuilder.ToString();
