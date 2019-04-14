@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<LanguageData>
-	<!-- EN: Ate replicated food -->
-	<AteReplicatedFood.stages.Ate_replicated_food.label>吃了人工複製的食物</AteReplicatedFood.stages.Ate_replicated_food.label>
-	
-	<!-- EN: For some reason, this meal tastes a bit...off. -->
-	<AteReplicatedFood.stages.Ate_replicated_food.description>這道菜的味道好像不太對勁...</AteReplicatedFood.stages.Ate_replicated_food.description>
-</LanguageData>
