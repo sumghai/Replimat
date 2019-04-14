@@ -215,6 +215,7 @@
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
 		</graphicData>
+		<uiIconPath>UI/replimatHopper</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>10</Steel>
