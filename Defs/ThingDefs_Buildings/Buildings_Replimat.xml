@@ -166,8 +166,9 @@
 		<graphicData>
 			<texPath>Things/Building/replimatFeedTank</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1,2)</drawSize>
+			<drawSize>(3,3)</drawSize>
 		</graphicData>
+		<uiIconPath>UI/replimatFeedTank</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>25</Steel>
@@ -297,8 +298,9 @@
 		<graphicData>
 			<texPath>Things/Building/replimatComputer</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(2,3)</drawSize>
+			<drawSize>(2,2)</drawSize>
 		</graphicData>
+		<uiIconPath>UI/replimatComputer</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>25</Steel>
