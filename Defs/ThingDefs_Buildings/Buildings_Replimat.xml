@@ -293,7 +293,7 @@
 
 	<!--====================== Replimat Computer ======================-->
 
-	<ThingDef ParentName="ReplimatBase">
+	<ThingDef ParentName="ReplimatBaseMinifiable">
 		<defName>ReplimatComputer</defName>
 		<label>Replimat Computer</label>
 		<description>Provides a wide range of meal and beverage recipes to all Replimat Terminals.</description>
@@ -323,6 +323,7 @@
 		</statBases>
 		<size>(2,1)</size>
 		<rotatable>false</rotatable>
+		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>
