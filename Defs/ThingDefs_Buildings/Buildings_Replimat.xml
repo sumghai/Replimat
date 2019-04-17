@@ -207,7 +207,7 @@
 
 	<!--====================== Replimat Hopper ======================-->
 
-	<ThingDef ParentName="ReplimatBase">
+	<ThingDef ParentName="ReplimatBaseMinifiable">
 		<defName>ReplimatHopper</defName>
 		<label>Replimat Hopper</label>
 		<thingClass>Replimat.Building_ReplimatHopper</thingClass>
@@ -232,8 +232,10 @@
 			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>450</WorkToBuild>
 			<Flammability>1.0</Flammability>
+			<Mass>750</Mass>
 		</statBases>
 		<size>(3,1)</size>
+		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>
