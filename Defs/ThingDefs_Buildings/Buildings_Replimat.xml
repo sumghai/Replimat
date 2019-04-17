@@ -158,7 +158,7 @@
 
 	<!--====================== Replimat Feedstock Tank ======================-->
 
-	<ThingDef ParentName="ReplimatBase">
+	<ThingDef ParentName="ReplimatBaseMinifiable">
 		<defName>ReplimatFeedTank</defName>
 		<label>Replimat Feedstock Tank</label>
 		<description>Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers.</description>
@@ -183,10 +183,11 @@
 			<MaxHitPoints>200</MaxHitPoints>
 			<WorkToBuild>4000</WorkToBuild>
 			<Flammability>1.0</Flammability>
-			<Mass>1000</Mass>
+			<Mass>300</Mass>
 		</statBases>
 		<size>(1,1)</size>
 		<rotatable>false</rotatable>
+		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>
