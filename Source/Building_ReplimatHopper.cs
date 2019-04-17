@@ -62,6 +62,11 @@ namespace Replimat
         {
             base.Tick();
 
+            if (!powerComp.PowerOn)
+            {
+                return;
+            }
+
             powerComp.PowerOutput = -125f;
 
             if (this.IsHashIntervalTick(60))
