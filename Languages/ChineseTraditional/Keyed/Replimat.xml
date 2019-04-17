@@ -4,6 +4,9 @@
 	<!-- EN: Feedstock stored {0} / {1} L -->
 	<FeedstockStored>營養原料存量 {0} / {1} L</FeedstockStored>
 	
+	<!-- EN: Total feedstock stored {0} / {1} L -->
+	<TotalFeedstockStored>營養原料總存量 {0} / {1} L</TotalFeedstockStored>
+	
 	<!-- EN: Replimat Spill -->
 	<LetterLabelReplimatSpill>食品合成器原料洩漏</LetterLabelReplimatSpill>
 	

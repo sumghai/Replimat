@@ -69,7 +69,6 @@ namespace Replimat
             storedFeedstock = storedFeedstockMax * pct;
         }
 
-
         public override string GetInspectString()
         {
             StringBuilder stringBuilder = new StringBuilder();

@@ -2,6 +2,7 @@
 <LanguageData>
 
 	<FeedstockStored>Feedstock stored {0} / {1} L</FeedstockStored>
+	<TotalFeedstockStored>Total feedstock stored {0} / {1} L</TotalFeedstockStored>
 	
 	<LetterLabelReplimatSpill>Replimat Spill</LetterLabelReplimatSpill>
 	<LetterTextReplimatSpill>A {0} has malfunctioned, spilling nutrient feedstock everywhere.</LetterTextReplimatSpill>
