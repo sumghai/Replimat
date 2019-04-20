@@ -7,5 +7,7 @@
 	<supportedVersions>
     	<li>1.0</li>
   	</supportedVersions>
-	<description>Adds Star Trek-style food replicator terminals and supporting hardware.</description>
+	<description>Adds Star Trek-style food replicator terminals and supporting hardware, for efficient and on-demand feeding of colonists.
+	
+v1.0</description>
 </ModMetaData>

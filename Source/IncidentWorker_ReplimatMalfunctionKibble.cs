@@ -19,10 +19,13 @@ namespace Replimat
         {
             Map map = (Map)parms.target;
             List<Thing> list = map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminal);
+
             if (!list.Any())
             {
+                // If there are no Terminals or Animal Feeders, break out of execution early
                 return false;
             }
+
             Thing building_ReplimatTerminal = list.RandomElement();
             Building_ReplimatTerminal currentTerminal = building_ReplimatTerminal as Building_ReplimatTerminal;
 

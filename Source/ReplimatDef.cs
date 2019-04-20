@@ -17,9 +17,5 @@ namespace Replimat
         public static ThingDef ReplimatAnimalFeeder;
         public static ThingDef ReplimatFeedTank;
         public static ThingDef ReplimatHopper;
-
-        public static TraitDef SensitiveTaster;
-
-        public static ThoughtDef AteReplicatedFood;
     }
 }

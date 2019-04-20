@@ -23,7 +23,6 @@ namespace Replimat
            var Multiplayer = AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(assembly => assembly.GetName().Name == "Multiplayer");
             if (Multiplayer != null)
             {
-              //  Log.Message($"Patching Multiplayer for {Assembly.GetExecutingAssembly().GetName().Name}...");
                 HarmonyMethod asshai = new HarmonyMethod(typeof(MultiplayerFixUtil), "asshai");
                 MethodInfo qarth = AccessTools.Method("Multiplayer.Client.SyncHandlers:Init");
                 harmony.Patch(qarth, asshai);
@@ -39,7 +38,6 @@ namespace Replimat
 
             foreach (var head in methheads)
             {
-             //   Log.Warning("meth- " + head.Name);
                 AccessTools.Method("Multiplayer.Client.SyncMethod:Register").Invoke(null, new object[] { head.DeclaringType, head.Name, null });
             }
 

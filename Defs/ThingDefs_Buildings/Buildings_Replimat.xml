@@ -158,7 +158,7 @@
 
 	<!--====================== Replimat Feedstock Tank ======================-->
 
-	<ThingDef ParentName="ReplimatBase">
+	<ThingDef ParentName="ReplimatBaseMinifiable">
 		<defName>ReplimatFeedTank</defName>
 		<label>Replimat Feedstock Tank</label>
 		<description>Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers.</description>
@@ -166,8 +166,9 @@
 		<graphicData>
 			<texPath>Things/Building/replimatFeedTank</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1,2)</drawSize>
+			<drawSize>(3,3)</drawSize>
 		</graphicData>
+		<uiIconPath>UI/replimatFeedTank</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>25</Steel>
@@ -182,10 +183,11 @@
 			<MaxHitPoints>200</MaxHitPoints>
 			<WorkToBuild>4000</WorkToBuild>
 			<Flammability>1.0</Flammability>
-			<Mass>1000</Mass>
+			<Mass>300</Mass>
 		</statBases>
 		<size>(1,1)</size>
 		<rotatable>false</rotatable>
+		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>
@@ -205,7 +207,7 @@
 
 	<!--====================== Replimat Hopper ======================-->
 
-	<ThingDef ParentName="ReplimatBase">
+	<ThingDef ParentName="ReplimatBaseMinifiable">
 		<defName>ReplimatHopper</defName>
 		<label>Replimat Hopper</label>
 		<thingClass>Replimat.Building_ReplimatHopper</thingClass>
@@ -215,6 +217,7 @@
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
 		</graphicData>
+		<uiIconPath>UI/replimatHopper</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>10</Steel>
@@ -229,8 +232,10 @@
 			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>450</WorkToBuild>
 			<Flammability>1.0</Flammability>
+			<Mass>750</Mass>
 		</statBases>
 		<size>(3,1)</size>
+		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>
@@ -288,7 +293,7 @@
 
 	<!--====================== Replimat Computer ======================-->
 
-	<ThingDef ParentName="ReplimatBase">
+	<ThingDef ParentName="ReplimatBaseMinifiable">
 		<defName>ReplimatComputer</defName>
 		<label>Replimat Computer</label>
 		<description>Provides a wide range of meal and beverage recipes to all Replimat Terminals.</description>
@@ -296,8 +301,9 @@
 		<graphicData>
 			<texPath>Things/Building/replimatComputer</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(2,3)</drawSize>
+			<drawSize>(2,2)</drawSize>
 		</graphicData>
+		<uiIconPath>UI/replimatComputer</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>25</Steel>
@@ -317,6 +323,7 @@
 		</statBases>
 		<size>(2,1)</size>
 		<rotatable>false</rotatable>
+		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>

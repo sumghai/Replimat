@@ -20,6 +20,8 @@ namespace Replimat
          
         public static readonly Material BatteryBarUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.1f, 0.1f, 0.1f));
 
+        public static readonly Material BatteryBarNoPowerMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.5f, 0.5f, 0.5f));
+
         public float CapPercent = 0;
 
         public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == PowerComp.PowerNet).ToList();
@@ -28,6 +30,18 @@ namespace Replimat
         {
             base.SpawnSetup(map, respawningAfterLoad);
             powerComp = base.GetComp<CompPowerTrader>();
+        }
+
+        public bool Working
+        {
+            get
+            {
+                if (powerComp.PowerOn)
+                {
+                    return true;
+                }
+                return false;
+            }
         }
 
         public override void Draw()
@@ -43,9 +57,19 @@ namespace Replimat
 
             r.center = currPos + Vector3.up * 0.1f;
             r.size = BarSize;
-            r.fillPercent = CapPercent;
-            r.filledMat = BatteryBarFilledMat;
-            r.unfilledMat = BatteryBarUnfilledMat;
+            if (Working)
+            {
+                r.fillPercent = CapPercent;
+                r.filledMat = BatteryBarFilledMat;
+                r.unfilledMat = BatteryBarUnfilledMat;
+            }
+            else
+            {
+                r.fillPercent = 0;
+                r.filledMat = BatteryBarFilledMat;
+                r.unfilledMat = BatteryBarNoPowerMat;
+            }
+            
             r.margin = 0.15f;
             Rot4 rotation = base.Rotation;
             r.rotation = rotation;
@@ -65,16 +89,27 @@ namespace Replimat
             }
         }
 
-        public bool Working
+        public override string GetInspectString()
         {
-            get
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine(base.GetInspectString());
+            
+
+            if (ParentHolder != null && !(ParentHolder is Map))
             {
-                if (powerComp.PowerOn)
-                {
-                    return true;
-                }
-                return false;
+                // If minified, don't show computer and feedstock check Inspector messages
             }
+            else
+            {
+                if (Working)
+                {
+                    float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
+                    float totalSpace = GetTanks.Sum(x => x.storedFeedstockMax);
+                    stringBuilder.Append("TotalFeedstockStored".Translate(totalAvailableFeedstock, totalSpace));
+                }
+            }
+
+            return stringBuilder.ToString().TrimEndNewlines();
         }
     }
 }

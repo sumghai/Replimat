@@ -69,16 +69,23 @@ namespace Replimat
             storedFeedstock = storedFeedstockMax * pct;
         }
 
-
         public override string GetInspectString()
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine(base.GetInspectString());
             stringBuilder.Append("FeedstockStored".Translate(storedFeedstock, storedFeedstockMax));
-            if (!HasComputer)
+
+            if (ParentHolder != null && !(ParentHolder is Map))
             {
-                stringBuilder.AppendLine();
-                stringBuilder.Append("NotConnectedToComputer".Translate());
+                // If minified, don't show computer and feedstock check Inspector messages
+            }
+            else
+            {
+                if (!HasComputer)
+                {
+                    stringBuilder.AppendLine();
+                    stringBuilder.Append("NotConnectedToComputer".Translate());
+                }
             }
             return stringBuilder.ToString().TrimEndNewlines();
         }

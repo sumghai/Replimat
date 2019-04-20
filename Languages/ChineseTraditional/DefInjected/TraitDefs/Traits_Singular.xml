@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<LanguageData>
-	<!-- EN: Sensitive Taster -->
-	<SensitiveTaster.degreeDatas.Sensitive_Taster.label>靈敏舌頭</SensitiveTaster.degreeDatas.Sensitive_Taster.label>
-	
-	<!-- EN: [PAWN_nameDef] claims [PAWN_pronoun] can taste the difference between replicated and real food, and would prefer not using Replimat Terminals. -->
-	<SensitiveTaster.degreeDatas.Sensitive_Taster.description>[PAWN_nameDef]認為[PAWN_pronoun]吃的出來人工複製與天然食物的差別，因此平常不喜歡使用食品合成器。</SensitiveTaster.degreeDatas.Sensitive_Taster.description>
-</LanguageData>

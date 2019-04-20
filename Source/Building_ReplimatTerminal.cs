@@ -21,11 +21,12 @@ namespace Replimat
 
         public ThingDef PickMeal(Pawn eater)
         {
-            //default null
+            // Default to null
             ThingDef SelectedMeal = null;
 
             if (eater != null)
             {
+
                 //Should never allow anything with less that 50% nutrition because whats the point in eating it!
                 //Has to be a meal else they try to eat stuff like chocolate and corpses
                 //joy based consumption will need a lot more patches
@@ -37,6 +38,16 @@ namespace Replimat
                 }
 
                 List<ThingDef> allowedMeals = eater.foodRestriction.CurrentFoodRestriction.filter.AllowedThingDefs.Where(x => x.ingestible != null && x.ingestible.IsMeal && x.GetStatValueAbstract(StatDefOf.Nutrition) > 0.5f).ToList();
+
+                // Compile list of allowed meals for current pawn, limited to at least 40% nutrition
+                // This eliminates stuff like chocolate and corpses
+                // Joy-based consumption will require more patches, and is outside the scope of this mod
+                List<ThingDef> allowedMeals = eater.foodRestriction.CurrentFoodRestriction.filter.AllowedThingDefs.Where(x => x.ingestible.IsMeal && x.GetStatValueAbstract(StatDefOf.Nutrition) > 0.4f).ToList();
+
+                // Manually remove Packaged Survival Meals, as pawns should only be getting "fresh" food to meet their immediate food needs
+                // (Survival Meals are reserved for caravans, as per custom gizmo)
+                allowedMeals.Remove(ThingDefOf.MealSurvivalPack);
+
 
                 if (allowedMeals.NullOrEmpty())
                 {
@@ -54,7 +65,7 @@ namespace Replimat
 
                     //      Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " can choose random meals regardless of quality");
 
-                    //If set to random then attempt to replicate a meal that isn't just plain awful
+                    // If set to random then attempt to replicate any meal with preferability above awful
                     if (allowedMeals.Any(x => x.ingestible.preferability > FoodPreferability.MealAwful))
                     {
                         SelectedMeal = allowedMeals.Where(x => x.ingestible.preferability > FoodPreferability.MealAwful).RandomElement();
@@ -75,7 +86,7 @@ namespace Replimat
         }
 
 
-        // leave this as a stub
+        // Leave this as a stub
         public override ThingDef DispensableDef
         {
             get
@@ -103,7 +114,7 @@ namespace Replimat
         public override bool HasEnoughFeedstockInHoppers()
         {
             float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
-            // USE A DEFAULT AMOUNT FOR NOW FOR ALL MEALS
+            // Use a default amount for all meals
             float stockNeeded = ReplimatUtility.convertMassToFeedstockVolume(DispensableDef.BaseMass);
             return totalAvailableFeedstock >= stockNeeded;
         }
@@ -116,20 +127,6 @@ namespace Replimat
 
         public override Building AdjacentReachableHopper(Pawn reacher)
         {
-            // DONT DO THIS ELSE THE PAWN THINKS THEY CAN REFILL THE HOPPERS
-            //List<Building_ReplimatHopper> Hoppers = Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatHopper).OfType<Building_ReplimatHopper>().Where(x => x.PowerComp.PowerNet == PowerComp.PowerNet && x.HasComputer).ToList();
-
-            //if (!Hoppers.NullOrEmpty())
-            //{
-            //    foreach (var item in Hoppers)
-            //    {
-            //        if (item != null && reacher.CanReach(item, PathEndMode.Touch, Danger.Deadly, false, TraverseMode.ByPawn))
-            //        {
-            //            return item;
-            //        }
-            //    }
-            //}
-
             return null;
         }
 
@@ -155,13 +152,7 @@ namespace Replimat
             ReplicatingTicks = GenTicks.SecondsToTicks(2f);
             def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
 
-
-
             Thing dispensedMeal = ThingMaker.MakeThing(meal, null);
-
-            // STACK CALC, DONT BOTHER
-            //  int num = FoodUtility.WillIngestStackCountOf(eater, dispensedMeal.def, dispensedMeal.GetStatValue(StatDefOf.Nutrition, true));
-            // dispensedMeal.stackCount = num;
 
             float dispensedMealMass = dispensedMeal.def.BaseMass;
 
@@ -297,14 +288,6 @@ namespace Replimat
                     stringBuilder.AppendLine();
                     stringBuilder.Append("NotConnectedToComputer".Translate());
                 }
-                //CANT DO ANYMORE
-                //else if (!HasEnoughFeedstockInHoppers())
-                //{
-                //    stringBuilder.AppendLine();
-                //    stringBuilder.Append("NotEnoughFeedstock".Translate());
-                //}
-                //else
-                //{ }
             }
 
             return stringBuilder.ToString();
