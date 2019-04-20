@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- EN: Replimat Terminal -->
+	<ReplimatTerminal.label>レプリマット端末</ReplimatTerminal.label>
+	
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatTerminal.description>分子再構成によって食事と飲料を合成します.レプリマット原料タンクとレプリマットコンピューターを電力線で接続する必要があります.</ReplimatTerminal.description>
+	
+	<!-- EN: Replimat Terminal (blueprint)-->
+	<ReplimatTerminal_Blueprint.label>レプリマット端末(設計図)</ReplimatTerminal_Blueprint.label>
+	
+	<!-- EN: Replimat Terminal (blueprint)-->
+	<ReplimatTerminal_Blueprint_Install.label>レプリマット端末(設計図)</ReplimatTerminal_Blueprint_Install.label>
+	
+	<!-- EN: Replimat Terminal (building)-->
+	<ReplimatTerminal_Frame.label>レプリマット端末(建設中)</ReplimatTerminal_Frame.label>
+	
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatTerminal_Frame.description>分子再構成によって食事と飲料を合成します.レプリマット原料タンクとレプリマットコンピューターを電力線で接続する必要があります.</ReplimatTerminal_Frame.description>
+	
+	<!-- EN: Replimat Animal Feeder -->
+	<ReplimatAnimalFeeder.label>レプリマット給餌器</ReplimatAnimalFeeder.label>
+	
+	<!-- EN: Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatAnimalFeeder.description>分子再構成によってペットやその他のコロニー動物用の飼料を合成します.レプリマット原料タンクとレプリマットコンピューターを電力線で接続する必要があります.</ReplimatAnimalFeeder.description>
+	
+	<!-- EN: Replimat Animal Feeder (blueprint)-->
+	<ReplimatAnimalFeeder_Blueprint.label>レプリマット給餌器(設計図)</ReplimatAnimalFeeder_Blueprint.label>
+	
+	<!-- EN: Replimat Animal Feeder (blueprint)-->
+	<ReplimatAnimalFeeder_Blueprint_Install.label>レプリマット給餌器(設計図)</ReplimatAnimalFeeder_Blueprint_Install.label>
+	
+	<!-- EN: Replimat Animal Feeder (building)-->
+	<ReplimatAnimalFeeder_Frame.label>レプリマット給餌器(建設中)</ReplimatAnimalFeeder_Frame.label>
+	
+	<!-- EN: Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatAnimalFeeder_Frame.description>分子再構成によってペットやその他のコロニー動物用の飼料を合成します.レプリマット原料タンクとレプリマットコンピューターを電力線で接続する必要があります.</ReplimatAnimalFeeder_Frame.description>
+	
+	<!-- EN: Replimat Feedstock Tank -->
+	<ReplimatFeedTank.label>レプリマット原料タンク</ReplimatFeedTank.label>
+	
+	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<ReplimatFeedTank.description>レプリマット端末で使用するための有機微粒子懸濁液を保管しています.原料はレプリマットホッパーから搬入します.</ReplimatFeedTank.description>
+	
+	<!-- EN: Replimat Feedstock Tank (blueprint)-->
+	<ReplimatFeedTank_Blueprint.label>レプリマット原料タンク(設計図)</ReplimatFeedTank_Blueprint.label>
+	
+	<!-- EN: Replimat Feedstock Tank (blueprint)-->
+	<ReplimatFeedTank_Blueprint_Install.label>レプリマット原料タンク(設計図)</ReplimatFeedTank_Blueprint_Install.label>
+	
+	<!-- EN: Replimat Feedstock Tank (building)-->
+	<ReplimatFeedTank_Frame.label>レプリマット原料タンク(建設中)</ReplimatFeedTank_Frame.label>
+	
+	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<ReplimatFeedTank_Frame.description>レプリマット端末で使用するための有機微粒子懸濁液を保管しています.原料はレプリマットホッパーから搬入します.</ReplimatFeedTank_Frame.description>
+	
+	<!-- EN: Replimat Hopper -->
+	<ReplimatHopper.label>レプリマットホッパー</ReplimatHopper.label>
+	
+	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->	
+	<ReplimatHopper.description>食材を冷凍状態で保持し,レプリマットシステムに供給するため分子レベルで有機微粒子懸濁液に分解します.</ReplimatHopper.description>
+	
+	<!-- EN: Replimat Hopper (blueprint)-->
+	<ReplimatHopper_Blueprint.label>レプリマットホッパー(設計図)</ReplimatHopper_Blueprint.label>
+	
+	<!-- EN: Replimat Hopper (blueprint)-->
+	<ReplimatHopper_Blueprint_Install.label>レプリマットホッパー(設計図)</ReplimatHopper_Blueprint_Install.label>
+	
+	<!-- EN: Replimat Hopper (building)-->
+	<ReplimatHopper_Frame.label>レプリマットホッパー(建設中)</ReplimatHopper_Frame.label>
+	
+	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->	
+	<ReplimatHopper_Frame.description>食材を冷凍状態で保持し,レプリマットシステムに供給するため分子レベルで有機微粒子懸濁液に分解します.</ReplimatHopper_Frame.description>
+	
+	<!-- EN: Replimat Computer -->
+	<ReplimatComputer.label>レプリマットコンピューター</ReplimatComputer.label>
+	
+	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
+	<ReplimatComputer.description>すべてのレプリマット端末にさまざまな食事と飲み物のレシピを提供します.</ReplimatComputer.description>
+	
+	<!-- EN: Replimat Computer (blueprint)-->
+	<ReplimatComputer_Blueprint.label>レプリマットコンピューター(設計図)</ReplimatComputer_Blueprint.label>
+	
+	<!-- EN: Replimat Computer (blueprint)-->
+	<ReplimatComputer_Blueprint_Install.label>レプリマットコンピューター(設計図)</ReplimatComputer_Blueprint_Install.label>
+	
+	<!-- EN: Replimat Computer (building)-->
+	<ReplimatComputer_Frame.label>レプリマットコンピューター(建設中)</ReplimatComputer_Frame.label>
+	
+	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
+	<ReplimatComputer_Frame.description>すべてのレプリマット端末にさまざまな食事と飲み物のレシピを提供します.</ReplimatComputer_Frame.description>
+</LanguageData>
