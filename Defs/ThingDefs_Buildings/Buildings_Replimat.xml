@@ -37,7 +37,7 @@
 			<ComponentSpacer>20</ComponentSpacer>
 			<Plasteel>20</Plasteel>
 		</costList>
-		<altitudeLayer>Building</altitudeLayer>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<fillPercent>1</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
@@ -176,7 +176,7 @@
 			<ComponentSpacer>5</ComponentSpacer>
 			<Plasteel>50</Plasteel>
 		</costList>
-		<altitudeLayer>Building</altitudeLayer>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<fillPercent>1</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
