@@ -69,7 +69,9 @@ namespace Replimat
                 List<Building_ReplimatFeedTank> tanks = GetTanks;
                 List<Thing> list = Map.thingGrid.ThingsListAtFast(Position);
 
-                Thing food = list.FirstOrDefault(x => x.def.IsNutritionGivingIngestible);
+
+
+                Thing food = list.FirstOrDefault(x => settings.AllowedToAccept(x));
 
                 if (food == null)
                 {
