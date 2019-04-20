@@ -37,12 +37,10 @@ namespace Replimat
                     return null;
                 }
 
-                List<ThingDef> allowedMeals = eater.foodRestriction.CurrentFoodRestriction.filter.AllowedThingDefs.Where(x => x.ingestible != null && x.ingestible.IsMeal && x.GetStatValueAbstract(StatDefOf.Nutrition) > 0.5f).ToList();
-
                 // Compile list of allowed meals for current pawn, limited to at least 40% nutrition
                 // This eliminates stuff like chocolate and corpses
                 // Joy-based consumption will require more patches, and is outside the scope of this mod
-                List<ThingDef> allowedMeals = eater.foodRestriction.CurrentFoodRestriction.filter.AllowedThingDefs.Where(x => x.ingestible.IsMeal && x.GetStatValueAbstract(StatDefOf.Nutrition) > 0.4f).ToList();
+                List<ThingDef> allowedMeals = phil.AllowedThingDefs.Where(x => x.ingestible != null && x.ingestible.IsMeal && x.GetStatValueAbstract(StatDefOf.Nutrition) > 0.4f).ToList();
 
                 // Manually remove Packaged Survival Meals, as pawns should only be getting "fresh" food to meet their immediate food needs
                 // (Survival Meals are reserved for caravans, as per custom gizmo)
