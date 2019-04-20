@@ -216,6 +216,10 @@
 			<texPath>Things/Building/replimatHopper</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
+			<shadowData>
+				<volume>(2.35,0.5,1)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
 		</graphicData>
 		<uiIconPath>UI/replimatHopper</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
@@ -239,7 +243,6 @@
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>Impassable</passability>
 		<castEdgeShadows>true</castEdgeShadows>
-		<staticSunShadowHeight>0.20</staticSunShadowHeight>
 		<building>
 			<fixedStorageSettings>
 				<priority>Important</priority>
