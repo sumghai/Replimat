@@ -24,7 +24,6 @@ namespace Replimat
             get
             {
                 return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputer).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
-
             }
         }
 
@@ -108,7 +107,7 @@ namespace Replimat
 
                 if (foodInFeeder == null)
                 {
-                    Log.Message(this.ThingID.ToString() + " is empty");
+                    Log.Message("[Replimat] " + this.ThingID.ToString() + " is empty");
 
                     int maxKib = Mathf.FloorToInt(powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock) / volumePerKibble);
                     maxKib = Mathf.Min(maxKib, 75);
@@ -126,7 +125,7 @@ namespace Replimat
                 }
                 else if (foodInFeeder.def == ThingDefOf.Kibble && foodInFeeder.stackCount < 20)
                 {
-                    Log.Message(this.ThingID.ToString() + " currently has " + foodInFeeder.stackCount.ToString() + " units of " + foodInFeeder.def.label.ToString());
+                    Log.Message("[Replimat] " + this.ThingID.ToString() + " currently has " + foodInFeeder.stackCount.ToString() + " units of " + foodInFeeder.def.label.ToString());
 
                     int refill = Mathf.Min(foodInFeeder.def.stackLimit - foodInFeeder.stackCount, 75);
                     int maxKib = Mathf.FloorToInt(powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock) / volumePerKibble);

@@ -27,25 +27,22 @@ namespace Replimat
             if (eater != null)
             {
 
-                //Should never allow anything with less that 50% nutrition because whats the point in eating it!
-                //Has to be a meal else they try to eat stuff like chocolate and corpses
-                //joy based consumption will need a lot more patches
+                // Compile list of allowed meals for current pawn, limited to at least 40% nutrition
+                // This eliminates stuff like chocolate and corpses
+                // Joy-based consumption will require more patches, and is outside the scope of this mod
 
                 var phil = eater?.foodRestriction?.CurrentFoodRestriction?.filter;
+
                 if (phil == null)
                 {
                     return null;
                 }
 
-                // Compile list of allowed meals for current pawn, limited to at least 40% nutrition
-                // This eliminates stuff like chocolate and corpses
-                // Joy-based consumption will require more patches, and is outside the scope of this mod
                 List<ThingDef> allowedMeals = phil.AllowedThingDefs.Where(x => x.ingestible != null && x.ingestible.IsMeal && x.GetStatValueAbstract(StatDefOf.Nutrition) > 0.4f).ToList();
 
                 // Manually remove Packaged Survival Meals, as pawns should only be getting "fresh" food to meet their immediate food needs
                 // (Survival Meals are reserved for caravans, as per custom gizmo)
                 allowedMeals.Remove(ThingDefOf.MealSurvivalPack);
-
 
                 if (allowedMeals.NullOrEmpty())
                 {
@@ -54,15 +51,11 @@ namespace Replimat
 
                 if (ReplimatMod.Settings.PrioritizeFoodQuality)
                 {
-                    //       Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " will prioritize meal quality");
                     var maxpref = allowedMeals.Max(x => x.ingestible.preferability);
                     SelectedMeal = allowedMeals.Where(x => x.ingestible.preferability == maxpref).RandomElement();
                 }
                 else
                 {
-
-                    //      Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " can choose random meals regardless of quality");
-
                     // If set to random then attempt to replicate any meal with preferability above awful
                     if (allowedMeals.Any(x => x.ingestible.preferability > FoodPreferability.MealAwful))
                     {
@@ -75,21 +68,16 @@ namespace Replimat
 
                 }
 
-                // Debug Messages
-                //  Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " is allowed the following meals: \n"
-                //       + string.Join(", ", allowedMeals.Select(def => def.defName).ToArray()));
             }
 
             return SelectedMeal;
         }
-
 
         // Leave this as a stub
         public override ThingDef DispensableDef
         {
             get
             {
-                // Log.Warning("checked for def");
                 return ThingDef.Named("MealLavish");
             }
         }
@@ -143,7 +131,7 @@ namespace Replimat
 
             if (!HasStockFor(meal))
             {
-                Log.Error("Did not find enough foodstock in tanks while trying to replicate.");
+                Log.Error("[Replimat] " + "Did not find enough foodstock in tanks while trying to replicate.");
                 return null;
             }
 
@@ -200,7 +188,7 @@ namespace Replimat
 
         public void TryBatchMakingSurvivalMeals()
         {
-            Log.Message("[Replimat] Requesting survival meals!");
+            Log.Message("[Replimat] " + "Requesting survival meals!");
 
             // Determine the maximum number of survival meals that can be replicated, based on available feedstock
             // (Cap this at 30 meals so that players don't accidentally use up all their feedstock on survival meals)
@@ -211,7 +199,7 @@ namespace Replimat
             int maxPossibleSurvivalMeals = (int)Math.Floor(totalAvailableFeedstockMass / survivalMeal.BaseMass);
             int survivalMealCap = (maxPossibleSurvivalMeals < maxSurvivalMeals) ? maxPossibleSurvivalMeals : maxSurvivalMeals;
 
-            Log.Message("[Replimat] Default max survival meals is " + maxSurvivalMeals + "\n"
+            Log.Message("[Replimat] " + "Default max survival meals is " + maxSurvivalMeals + "\n"
                 + "Total available feedstock of " + totalAvailableFeedstock + " can provide up to " + maxPossibleSurvivalMeals + " survival meals\n"
                 + "Final cap on survival meals is " + survivalMealCap);
 
@@ -225,7 +213,7 @@ namespace Replimat
 
             if (!HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockRequired))
             {
-                Log.Error("Not enough feedstock to make required survival meals.");
+                Log.Error("[Replimat] " + "Not enough feedstock to make required survival meals.");
                 return;
             }
 
