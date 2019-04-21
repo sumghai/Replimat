@@ -83,31 +83,41 @@ namespace Replimat
                     return;
                 }
 
-                MaxPerTransfer = FoodUtility.StackCountForNutrition(food.def.ingestible.CachedNutrition, 1f); ;
+                //MaxPerTransfer = FoodUtility.StackCountForNutrition(food.def.ingestible.CachedNutrition, 1f); ;
 
-                float remainingVolumeAvailableInTanks = tanks.Sum(x => x.AmountCanAccept);
+                //float remainingVolumeAvailableInTanks = tanks.Sum(x => x.AmountCanAccept);
 
-                float totalStackLiquidVolume = food.stackCount * ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass);
+                //float totalStackLiquidVolume = food.stackCount * ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass);
 
-                float maxStackLiquidVolume = MaxPerTransfer * ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass);
+                //float maxStackLiquidVolume = MaxPerTransfer * ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass);
 
-                float transferBufferLiquidVolume = Mathf.Min(totalStackLiquidVolume, remainingVolumeAvailableInTanks, maxStackLiquidVolume);
+                //float transferBufferLiquidVolume = Mathf.Min(totalStackLiquidVolume, remainingVolumeAvailableInTanks, maxStackLiquidVolume);
 
-                food.stackCount = food.stackCount - (int) (transferBufferLiquidVolume / ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass));
+                //food.stackCount = food.stackCount - (int) (transferBufferLiquidVolume / ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass));
+                float stockvol = ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass);
+                float FreeSpace = tanks.Sum(x => x.AmountCanAccept);
 
-                if (food.stackCount == 0)
+                if (FreeSpace >= stockvol)
                 {
-                    food.Destroy();
-                }
+                    float buffy = stockvol;
 
-                foreach (var tank in tanks.InRandomOrder())
-                {
-                    if (transferBufferLiquidVolume > 0f)
+                    food.stackCount = food.stackCount - 1;
+
+                    if (food.stackCount == 0)
                     {
-                        DematerializingTicks = GenTicks.SecondsToTicks(2f);
-                        float buffer = Mathf.Min(transferBufferLiquidVolume, tank.AmountCanAccept);
-                        transferBufferLiquidVolume -= buffer;
-                        tank.AddFeedstock(buffer);
+                        food.Destroy();
+                    }
+
+                    DematerializingTicks = GenTicks.SecondsToTicks(2f);
+
+                    foreach (var tank in tanks.InRandomOrder())
+                    {
+                        if (buffy > 0f)
+                        {                           
+                            float sent = Mathf.Min(buffy, tank.AmountCanAccept);
+                            buffy -= sent;
+                            tank.AddFeedstock(sent);
+                        }
                     }
                 }
             }
@@ -155,7 +165,7 @@ namespace Replimat
                     }
                 }
 
-                Graphics.DrawMesh(GraphicsLoader.replimatHopperGlow[dematerializingCycleInt].MeshAt(base.Rotation), this.DrawPos + new Vector3(0f, (int) AltitudeLayer.MoteOverhead
+                Graphics.DrawMesh(GraphicsLoader.replimatHopperGlow[dematerializingCycleInt].MeshAt(base.Rotation), this.DrawPos + new Vector3(0f, (int)AltitudeLayer.MoteOverhead
                     * Altitudes.AltInc, 0f), Quaternion.identity,
                         FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatHopperGlow[dematerializingCycleInt].MatAt(base.Rotation, null), alpha), 0);
             }
