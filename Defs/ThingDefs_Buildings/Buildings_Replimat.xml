@@ -44,7 +44,7 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>50</Steel>
-			<ComponentSpacer>20</ComponentSpacer>
+			<ComponentSpacer>3</ComponentSpacer>
 			<Plasteel>20</Plasteel>
 		</costList>
 		<altitudeLayer>ItemImportant</altitudeLayer>
@@ -108,7 +108,7 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>5</Steel>
-			<ComponentSpacer>2</ComponentSpacer>
+			<ComponentSpacer>1</ComponentSpacer>
 			<Plasteel>2</Plasteel>
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
@@ -186,7 +186,7 @@
 		<costList>
 			<Steel>25</Steel>
 			<ComponentIndustrial>5</ComponentIndustrial>
-			<ComponentSpacer>5</ComponentSpacer>
+			<ComponentSpacer>1</ComponentSpacer>
 			<Plasteel>50</Plasteel>
 		</costList>
 		<altitudeLayer>ItemImportant</altitudeLayer>
@@ -245,7 +245,7 @@
 		<costList>
 			<Steel>10</Steel>
 			<ComponentIndustrial>5</ComponentIndustrial>
-			<ComponentSpacer>5</ComponentSpacer>
+			<ComponentSpacer>3</ComponentSpacer>
 			<Plasteel>5</Plasteel>
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
@@ -336,7 +336,7 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>25</Steel>
-			<ComponentSpacer>25</ComponentSpacer>
+			<ComponentSpacer>4</ComponentSpacer>
 			<Plasteel>10</Plasteel>
 			<IsolinearModule>1</IsolinearModule>
 		</costList>
