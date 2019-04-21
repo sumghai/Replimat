@@ -29,6 +29,16 @@
 			<graphicClass>Graphic_Multi</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
 			<drawSize>(3,3)</drawSize>
+			<shadowData>
+				<volume>(1,1,0.5)</volume>
+				<offset>(0,0,0.25)</offset>
+			</shadowData>
+			<damageData>
+				<rectN>(0,0.17,1,1.25)</rectN>
+				<rectS>(0,-0.1,1,0.67)</rectS>
+				<rectE>(0.5,0,0.5,1.375)</rectE>
+				<rectW>(0,0,0.5,1.375)</rectW>
+			</damageData>
 		</graphicData>
 		<uiIconPath>UI/replimatTerminal</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
@@ -37,7 +47,7 @@
 			<ComponentSpacer>20</ComponentSpacer>
 			<Plasteel>20</Plasteel>
 		</costList>
-		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<altitudeLayer>ItemImportant</altitudeLayer>
 		<fillPercent>1</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
@@ -53,8 +63,7 @@
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>Impassable</passability>
 		<pathCost>200</pathCost>
-		<castEdgeShadows>true</castEdgeShadows>
-		<staticSunShadowHeight>0.20</staticSunShadowHeight>
+		<castEdgeShadows>false</castEdgeShadows>
 		<hasInteractionCell>True</hasInteractionCell>
 		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
 		<socialPropernessMatters>true</socialPropernessMatters>
@@ -88,10 +97,12 @@
 		<graphicData>
 			<texPath>Things/Building/replimatAnimalFeeder</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(1,0.1,0.89)</volume>
+				<offset>(0,0,-0.055)</offset>
+			</shadowData>
 			<damageData>
-				<rect>(0.05,0.1,0.9,0.9)</rect>
-				<cornerTL>Damage/Corner</cornerTL>
-				<cornerTR>Damage/Corner</cornerTR>
+				<rect>(0,0,1,0.89)</rect>
 			</damageData>
 		</graphicData>
 		<constructEffect>ConstructMetal</constructEffect>
@@ -119,8 +130,7 @@
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>PassThroughOnly</passability>
 		<pathCost>70</pathCost>
-		<castEdgeShadows>true</castEdgeShadows>
-		<staticSunShadowHeight>0.1</staticSunShadowHeight>
+		<castEdgeShadows>false</castEdgeShadows>
 		<canOverlapZones>false</canOverlapZones>
 		<surfaceType>Item</surfaceType>
 		<building>
@@ -167,6 +177,9 @@
 			<texPath>Things/Building/replimatFeedTank</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(3,3)</drawSize>
+			<damageData>
+				<rect>(0,0,1,1.47)</rect>
+			</damageData>
 		</graphicData>
 		<uiIconPath>UI/replimatFeedTank</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
@@ -176,7 +189,7 @@
 			<ComponentSpacer>5</ComponentSpacer>
 			<Plasteel>50</Plasteel>
 		</costList>
-		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<altitudeLayer>ItemImportant</altitudeLayer>
 		<fillPercent>1</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
@@ -190,7 +203,7 @@
 		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>Impassable</passability>
-		<castEdgeShadows>true</castEdgeShadows>
+		<castEdgeShadows>false</castEdgeShadows>
 		<staticSunShadowHeight>0.20</staticSunShadowHeight>
 		<comps>
 			<li Class="CompProperties_Power">
@@ -217,9 +230,15 @@
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
 			<shadowData>
-				<volume>(2.35,0.5,1)</volume>
+				<volume>(2.35,0.5,1.2)</volume>
 				<offset>(0,0,0)</offset>
 			</shadowData>
+			<damageData>
+				<rectN>(0.5,0,2,1.375)</rectN>
+				<rectS>(0.5,0,2,1.25)</rectS>
+				<rectE>(0,0.375,1,2.45)</rectE>
+				<rectW>(0,0.375,1,2.45)</rectW>
+			</damageData>
 		</graphicData>
 		<uiIconPath>UI/replimatHopper</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
@@ -242,7 +261,7 @@
 		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>Impassable</passability>
-		<castEdgeShadows>true</castEdgeShadows>
+		<castEdgeShadows>false</castEdgeShadows>
 		<building>
 			<fixedStorageSettings>
 				<priority>Important</priority>
@@ -286,7 +305,7 @@
 					<shaderType>Transparent</shaderType>
 					<drawSize>(3,3)</drawSize>
 				</graphicData>
-				<altitudeLayer>MoteOverhead</altitudeLayer>
+				<altitudeLayer>ItemImportant</altitudeLayer>
 			</li>
 		</comps>
 		<researchPrerequisites>
@@ -305,6 +324,13 @@
 			<texPath>Things/Building/replimatComputer</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(1.875,1,1)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.0625,0,2,1.15)</rect>
+			</damageData>
 		</graphicData>
 		<uiIconPath>UI/replimatComputer</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
@@ -329,8 +355,7 @@
 		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>Impassable</passability>
-		<castEdgeShadows>true</castEdgeShadows>
-		<staticSunShadowHeight>0.20</staticSunShadowHeight>
+		<castEdgeShadows>false</castEdgeShadows>
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
