@@ -19,71 +19,6 @@ namespace Replimat
 
         public int ReplicatingTicks = 0;
 
-        public ThingDef PickMeal(Pawn eater)
-        {
-            // Default to null
-            ThingDef SelectedMeal = null;
-
-            if (eater != null)
-            {
-
-                //Should never allow anything with less that 50% nutrition because whats the point in eating it!
-                //Has to be a meal else they try to eat stuff like chocolate and corpses
-                //joy based consumption will need a lot more patches
-
-                var phil = eater?.foodRestriction?.CurrentFoodRestriction?.filter;
-                if (phil == null)
-                {
-                    return null;
-                }
-
-                // Compile list of allowed meals for current pawn, limited to at least 40% nutrition
-                // This eliminates stuff like chocolate and corpses
-                // Joy-based consumption will require more patches, and is outside the scope of this mod
-                List<ThingDef> allowedMeals = phil.AllowedThingDefs.Where(x => x.ingestible != null && x.ingestible.IsMeal && x.GetStatValueAbstract(StatDefOf.Nutrition) > 0.4f).ToList();
-
-                // Manually remove Packaged Survival Meals, as pawns should only be getting "fresh" food to meet their immediate food needs
-                // (Survival Meals are reserved for caravans, as per custom gizmo)
-                allowedMeals.Remove(ThingDefOf.MealSurvivalPack);
-
-
-                if (allowedMeals.NullOrEmpty())
-                {
-                    return null;
-                }
-
-                if (ReplimatMod.Settings.PrioritizeFoodQuality)
-                {
-                    //       Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " will prioritize meal quality");
-                    var maxpref = allowedMeals.Max(x => x.ingestible.preferability);
-                    SelectedMeal = allowedMeals.Where(x => x.ingestible.preferability == maxpref).RandomElement();
-                }
-                else
-                {
-
-                    //      Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " can choose random meals regardless of quality");
-
-                    // If set to random then attempt to replicate any meal with preferability above awful
-                    if (allowedMeals.Any(x => x.ingestible.preferability > FoodPreferability.MealAwful))
-                    {
-                        SelectedMeal = allowedMeals.Where(x => x.ingestible.preferability > FoodPreferability.MealAwful).RandomElement();
-                    }
-                    else
-                    {
-                        SelectedMeal = allowedMeals.RandomElement();
-                    }
-
-                }
-
-                // Debug Messages
-                //  Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " is allowed the following meals: \n"
-                //       + string.Join(", ", allowedMeals.Select(def => def.defName).ToArray()));
-            }
-
-            return SelectedMeal;
-        }
-
-
         // Leave this as a stub
         public override ThingDef DispensableDef
         {
@@ -128,14 +63,18 @@ namespace Replimat
             return null;
         }
 
-        public Thing TryDispenseFood(Pawn eater)
+        public Thing TryDispenseFood(Pawn eater, Pawn getter)
         {
+            if (getter == null)
+            {
+                getter = eater;
+            }
             if (!CanDispenseNow)
             {
                 return null;
             }
 
-            ThingDef meal = PickMeal(eater);
+            ThingDef meal = ReplimatUtility.PickMeal(eater, getter);
             if (meal == null)
             {
                 return null;

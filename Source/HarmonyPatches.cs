@@ -86,8 +86,8 @@ namespace Replimat
                 || !t.InteractionCell.Standable(t.Map)
                 || !FoodUtility.IsFoodSourceOnMapSociallyProper(t, getter, eater, allowSociallyImproper)
                 || getter.IsWildMan()
-                || t.PickMeal(eater) == null
-                || !t.HasStockFor(t.PickMeal(eater))
+                || ReplimatUtility.PickMeal(eater, getter) == null
+                || !t.HasStockFor(ReplimatUtility.PickMeal(eater, getter))
                 || !getter.Map.reachability.CanReachNonLocal(getter.Position, new TargetInfo(t.InteractionCell, t.Map, false), PathEndMode.OnCell, TraverseParms.For(getter, Danger.Some, TraverseMode.ByPawn, false)))
             {
                 return false;
@@ -131,7 +131,7 @@ namespace Replimat
                 {
                     if (BestFoodSourceOnMap)
                     {
-                        __result = d.PickMeal(eater);
+                        __result = ReplimatUtility.PickMeal(eater, getter);
                         return false;
                     }
 
@@ -158,10 +158,11 @@ namespace Replimat
                         Pawn PawnForMealScan = actor;
                         if (curJob.GetTarget(TargetIndex.B).Thing is Pawn p)
                         {
+                          //  Log.Warning("for "+p.Label);
                             PawnForMealScan = p;
                         }
 
-                        Thing thing = repmat.TryDispenseFood(PawnForMealScan);
+                        Thing thing = repmat.TryDispenseFood(PawnForMealScan, actor);
                         if (thing == null)
                         {
                             actor.jobs.curDriver.EndJobWith(JobCondition.Incompletable);
@@ -212,7 +213,8 @@ namespace Replimat
             {
                 if (__instance.job.GetTarget(TargetIndex.A).Thing is Building_ReplimatTerminal)
                 {
-                    __result = __instance.job.def.reportString.Replace("TargetA", "Replicated Meal");
+                    __instance.usingNutrientPasteDispenser = false;
+                       __result = __instance.job.def.reportString.Replace("TargetA", "Replicated Meal");
                 }
             }
         }

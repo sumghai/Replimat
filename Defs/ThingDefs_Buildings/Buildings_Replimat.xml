@@ -81,6 +81,7 @@
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Forbiddable"/>
 		</comps>
 		<researchPrerequisites>
 			<li>MolecularNutrientResequencing</li>
@@ -160,6 +161,7 @@
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Forbiddable"/>
 		</comps>
 		<researchPrerequisites>
 			<li>MolecularNutrientResequencing</li>
@@ -298,6 +300,7 @@
 			</li>
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Forbiddable"/>
 			<li Class="Replimat.CompProperties_SecondLayer">
 				<graphicData>
 					<texPath>Things/Building/replimatHopperLid</texPath>
