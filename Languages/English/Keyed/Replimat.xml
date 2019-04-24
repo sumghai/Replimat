@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-<ReplicatedMeal>Replicated Meal</ReplicatedMeal>
+	<ReplicatedMeal>Replicated Meal</ReplicatedMeal>
+	
 	<FeedstockStored>Feedstock stored {0} / {1} L</FeedstockStored>
 	<TotalFeedstockStored>Total feedstock stored {0} / {1} L</TotalFeedstockStored>
 	

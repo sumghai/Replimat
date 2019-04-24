@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
+	<!-- EN: Replicated Meal -->
+	<ReplicatedMeal>レプリマット合成な食事</ReplicatedMeal>
+	
 	<!-- EN: Feedstock stored {0} / {1} L -->
 	<FeedstockStored>原料量 {0} / {1} L</FeedstockStored>
 	
