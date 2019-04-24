@@ -189,7 +189,7 @@ namespace Replimat
             {
                 if (__instance.job.GetTarget(TargetIndex.A).Thing is Building_ReplimatTerminal && (Pawn)__instance.job.targetB.Thing != null)
                 {
-                    __result = __instance.job.def.reportString.Replace("TargetA", "Replicated Meal").Replace("TargetB", __instance.job.targetB.Thing.LabelShort);
+                    __result = __instance.job.def.reportString.Replace("TargetA", "ReplicatedMeal".Translate()).Replace("TargetB", __instance.job.targetB.Thing.LabelShort);
                 }
             }
         }
@@ -201,7 +201,7 @@ namespace Replimat
             {
                 if (__instance.job.GetTarget(TargetIndex.A).Thing is Building_ReplimatTerminal && (Pawn)__instance.job.targetB.Thing != null)
                 {
-                    __result = __instance.job.def.reportString.Replace("TargetA", "Replicated Meal").Replace("TargetB", __instance.job.targetB.Thing.LabelShort);
+                    __result = __instance.job.def.reportString.Replace("TargetA", "ReplicatedMeal".Translate()).Replace("TargetB", __instance.job.targetB.Thing.LabelShort);
                 }
             }
         }
@@ -211,11 +211,16 @@ namespace Replimat
         {
             static void Postfix(JobDriver_Ingest __instance, ref string __result)
             {
-                if (__instance.job.GetTarget(TargetIndex.A).Thing is Building_ReplimatTerminal)
+                if (__instance.usingNutrientPasteDispenser)
                 {
-                    __instance.usingNutrientPasteDispenser = false;
-                       __result = __instance.job.def.reportString.Replace("TargetA", "Replicated Meal");
+                    if (__instance.job.GetTarget(TargetIndex.A).Thing is Building_ReplimatTerminal)
+                    {
+                        __result = __instance.job.def.reportString.Replace("TargetA", "ReplicatedMeal".Translate());
+                    }else{
+                        __result = __instance.job.def.reportString.Replace("TargetA", __instance.job.GetTarget(TargetIndex.A).Thing.Label);
+                    }            
                 }
+
             }
         }
 
