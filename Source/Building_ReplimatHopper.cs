@@ -83,17 +83,6 @@ namespace Replimat
                     return;
                 }
 
-                //MaxPerTransfer = FoodUtility.StackCountForNutrition(food.def.ingestible.CachedNutrition, 1f); ;
-
-                //float remainingVolumeAvailableInTanks = tanks.Sum(x => x.AmountCanAccept);
-
-                //float totalStackLiquidVolume = food.stackCount * ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass);
-
-                //float maxStackLiquidVolume = MaxPerTransfer * ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass);
-
-                //float transferBufferLiquidVolume = Mathf.Min(totalStackLiquidVolume, remainingVolumeAvailableInTanks, maxStackLiquidVolume);
-
-                //food.stackCount = food.stackCount - (int) (transferBufferLiquidVolume / ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass));
                 float stockvol = ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass);
                 float FreeSpace = tanks.Sum(x => x.AmountCanAccept);
 

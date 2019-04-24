@@ -41,7 +41,7 @@ namespace Replimat
                 AccessTools.Method("Multiplayer.Client.SyncMethod:Register").Invoke(null, new object[] { head.DeclaringType, head.Name, null });
             }
 
-            Log.Message($"Patching Multiplayer for {Assembly.GetExecutingAssembly().GetName().Name}...OK");
+            Log.Message("[Replimat] " + $"Patching Multiplayer for {Assembly.GetExecutingAssembly().GetName().Name}...OK");
         }
     }
 }

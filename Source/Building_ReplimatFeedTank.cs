@@ -9,8 +9,8 @@ namespace Replimat
 {
     public class Building_ReplimatFeedTank : Building
     {
-        public virtual float storedFeedstockMax => 250f; //250L capacity for an *insulated* 0.5m diameter and 1.5m high liquid tank
-                                                         //Originally 8000L capacity for a 2m diameter and 2m high liquid tank
+        public virtual float storedFeedstockMax => 250f; // 250L capacity for an *insulated* 0.5m diameter and 1.5m high liquid tank
+                                                         // Originally 8000L capacity for a 2m diameter and 2m high liquid tank
 
         public float storedFeedstock;
 
@@ -43,7 +43,7 @@ namespace Replimat
         {
             if (amount < 0f)
             {
-                Log.Error("Cannot add negative feedstock " + amount);
+                Log.Error("[Replimat] " + "Cannot add negative feedstock " + amount);
                 return;
             }
             if (amount > AmountCanAccept)
@@ -58,7 +58,7 @@ namespace Replimat
             storedFeedstock -= amount;
             if (storedFeedstock < 0f)
             {
-                Log.Error("Drawing feedstock we don't have from " + this);
+                Log.Error("[Replimat] " + "Drawing feedstock we don't have from " + this);
                 storedFeedstock = 0f;
             }
         }

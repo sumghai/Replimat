@@ -106,7 +106,7 @@ namespace Replimat
 
             if (feedstockNeeded <= 0f)
             {
-                Log.Warning("Replimat: Tried to draw 0 feedstock!");
+                Log.Warning("[Replimat] " + "Tried to draw 0 feedstock!");
                 return false;
             }
 
@@ -142,17 +142,17 @@ namespace Replimat
                         }
                     }
 
-                    Log.Warning("Replimat: Tried but tanks ran out of feedstock, needed:" + feedstockNeeded);
+                    Log.Warning("[Replimat] " + "Tried but tanks ran out of feedstock, needed:" + feedstockNeeded);
                     return false;
                 }
                 else
                 {
-                    Log.Warning("Replimat: Tanks didn't have enough feedstock, needed:" + feedstockNeeded);
+                    Log.Warning("[Replimat] " + " Tanks didn't have enough feedstock, needed:" + feedstockNeeded);
                     return false;
                 }
             }
 
-            Log.Warning("Replimat: Tried to draw feedstock from non-existent tanks!");
+            Log.Warning("[Replimat] " + "Tried to draw feedstock from non-existent tanks!");
             return false;
 
         }

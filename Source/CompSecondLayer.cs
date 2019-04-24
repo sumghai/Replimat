@@ -24,7 +24,7 @@ namespace Replimat
                 {
                     if (Props.graphicData == null)
                     {
-                        Log.ErrorOnce(parent.def + " has no SecondLayer graphicData but we are trying to access it.", 764532, false);
+                        Log.ErrorOnce("[Replimat] " + parent.def + " has no SecondLayer graphicData but we are trying to access it.", 764532, false);
                         return BaseContent.BadGraphic;
                     }
                     graphicInt = Props.graphicData.GraphicColoredFor(parent);
