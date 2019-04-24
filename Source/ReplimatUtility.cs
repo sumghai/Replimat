@@ -46,24 +46,14 @@ namespace Replimat
 
             if (eater != null)
             {
-                //Should never allow anything with less that 50% nutrition because whats the point in eating it!
-                //Has to be a meal else they try to eat stuff like chocolate and corpses
-                //joy based consumption will need a lot more patches
-
-                // Compile list of allowed meals for current pawn, limited to at least 40% nutrition
-                // This eliminates stuff like chocolate and corpses
+                // Compile list of allowed meals for current pawn, limited to at least 40% nutrition with preferability above awful
+                // This eliminates stuff like chocolate, nutrient paste meals and corpses
                 // Joy-based consumption will require more patches, and is outside the scope of this mod
-                // List<ThingDef> allowedMeals = phil.AllowedThingDefs.Where(x => x.ingestible != null && x.ingestible.IsMeal && x.GetStatValueAbstract(StatDefOf.Nutrition) > 0.4f).ToList();
-                List<ThingDef> allowedMeals = ThingCategoryDefOf.Foods.DescendantThingDefs.Where(x => x.GetStatValueAbstract(StatDefOf.Nutrition) > 0.4f && eater.WillEat(x, getter)).ToList();
+                List<ThingDef> allowedMeals = ThingCategoryDefOf.Foods.DescendantThingDefs.Where(x => x.GetStatValueAbstract(StatDefOf.Nutrition) > 0.4f && x.ingestible.preferability > FoodPreferability.MealAwful && eater.WillEat(x, getter)).ToList();
 
                 // Manually remove Packaged Survival Meals, as pawns should only be getting "fresh" food to meet their immediate food needs
                 // (Survival Meals are reserved for caravans, as per custom gizmo)
                 allowedMeals.Remove(ThingDefOf.MealSurvivalPack);
-
-                //foreach (var item in allowedMeals)
-                //{
-                //    Log.Warning("allowed " + item.label);
-                //}
 
                 if (allowedMeals.NullOrEmpty())
                 {
