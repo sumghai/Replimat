@@ -55,7 +55,7 @@
 			<WorkToBuild>2000</WorkToBuild>
 			<Flammability>1.0</Flammability>
 			<Beauty>5</Beauty>
-			<Mass>400</Mass>
+			<Mass>75</Mass>
 		</statBases>
 		<size>(1,1)</size>
 		<tickerType>Normal</tickerType>
@@ -189,7 +189,7 @@
 			<Steel>25</Steel>
 			<ComponentIndustrial>5</ComponentIndustrial>
 			<ComponentSpacer>1</ComponentSpacer>
-			<Plasteel>50</Plasteel>
+			<Plasteel>75</Plasteel>
 		</costList>
 		<altitudeLayer>ItemImportant</altitudeLayer>
 		<fillPercent>1</fillPercent>
@@ -198,7 +198,7 @@
 			<MaxHitPoints>200</MaxHitPoints>
 			<WorkToBuild>4000</WorkToBuild>
 			<Flammability>1.0</Flammability>
-			<Mass>300</Mass>
+			<Mass>100</Mass>
 		</statBases>
 		<size>(1,1)</size>
 		<rotatable>false</rotatable>
@@ -257,7 +257,7 @@
 			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>450</WorkToBuild>
 			<Flammability>1.0</Flammability>
-			<Mass>750</Mass>
+			<Mass>150</Mass>
 		</statBases>
 		<size>(3,1)</size>
 		<minifiedDef>MinifiedThing</minifiedDef>
@@ -351,7 +351,7 @@
 			<MaxHitPoints>400</MaxHitPoints>
 			<WorkToBuild>2000</WorkToBuild>
 			<Flammability>1.0</Flammability>
-			<Mass>750</Mass>
+			<Mass>100</Mass>
 		</statBases>
 		<size>(2,1)</size>
 		<rotatable>false</rotatable>
