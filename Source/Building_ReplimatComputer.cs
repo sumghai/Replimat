@@ -22,9 +22,14 @@ namespace Replimat
 
         public static readonly Material BatteryBarNoPowerMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.5f, 0.5f, 0.5f));
 
-        public float CapPercent = 0;
-
         public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == PowerComp.PowerNet).ToList();
+
+        public float GetFeedstockPercent()
+        {
+            float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
+            float totalSpace = GetTanks.Sum(x => x.storedFeedstockMax);
+            return totalAvailableFeedstock / totalSpace;
+        }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -59,7 +64,7 @@ namespace Replimat
             r.size = BarSize;
             if (Working)
             {
-                r.fillPercent = CapPercent;
+                r.fillPercent = GetFeedstockPercent();
                 r.filledMat = BatteryBarFilledMat;
                 r.unfilledMat = BatteryBarUnfilledMat;
             }
@@ -75,18 +80,6 @@ namespace Replimat
             r.rotation = rotation;
             GenDraw.DrawFillableBar(r);
 
-        }
-
-        public override void Tick()
-        {
-            base.Tick();
-
-            if (this.IsHashIntervalTick(60))
-            {
-                float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
-                float totalSpace = GetTanks.Sum(x => x.storedFeedstockMax);
-                CapPercent = totalAvailableFeedstock / totalSpace;
-            }
         }
 
         public override string GetInspectString()
