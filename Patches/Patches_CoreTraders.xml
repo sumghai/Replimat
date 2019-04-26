@@ -5,17 +5,16 @@
 		<success>Always</success>
 		<operations>
 			<li Class="PatchOperationAdd">
-				<xpath>/Defs/TraderKindDef[defName = "Orbital_Exotic"]/stockGenerators</xpath>
+				<xpath>/Defs/TraderKindDef[
+					defName = "Caravan_Outlander_Exotic" or
+					defName = "Orbital_Exotic"
+				]/stockGenerators</xpath>
 				<value>
-					<li Class="StockGenerator_Tag">
-						<tradeTag>Replimat_Items</tradeTag>
-						<thingDefCountRange>
-							<min>1</min>
-							<max>1</max>
-						</thingDefCountRange>
+					<li Class="StockGenerator_SingleDef">
+						<thingDef>IsolinearModule</thingDef>
 						<countRange>
 							<min>1</min>
-							<max>4</max>
+							<max>1</max>
 						</countRange>
 					</li>
 				</value>
