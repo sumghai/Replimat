@@ -58,6 +58,31 @@ namespace Replimat
             this.wickSustainer = this.def.building.soundDispense.TrySpawnSustainer(info);
         }
 
+        public override void Draw()
+        {
+            base.Draw();
+
+
+            float alpha;
+            float quart = DematerializeDuration * 0.25f;
+            if (DematerializingTicks < quart)
+            {
+                alpha = Mathf.InverseLerp(0, quart, DematerializingTicks);
+            }
+            else if (DematerializingTicks > quart * 3f)
+            {
+                alpha = Mathf.InverseLerp(DematerializeDuration, quart * 3f, DematerializingTicks);
+            }
+            else
+            {
+                alpha = 1f;
+            }
+
+            Graphics.DrawMesh(GraphicsLoader.replimatHopperGlow[dematerializingCycleInt].MeshAt(base.Rotation), this.DrawPos + new Vector3(0f, (int)AltitudeLayer.MoteOverhead
+                * Altitudes.AltInc, 0f), Quaternion.identity,
+                    FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatHopperGlow[dematerializingCycleInt].MatAt(base.Rotation, null), alpha), 0);
+        }
+
         public override void Tick()
         {
             base.Tick();
@@ -129,20 +154,6 @@ namespace Replimat
                     this.wickSustainer.Maintain();
                 }
 
-                float alpha;
-                float quart = DematerializeDuration * 0.25f;
-                if (DematerializingTicks < quart)
-                {
-                    alpha = Mathf.InverseLerp(0, quart, DematerializingTicks);
-                }
-                else if (DematerializingTicks > quart * 3f)
-                {
-                    alpha = Mathf.InverseLerp(DematerializeDuration, quart * 3f, DematerializingTicks);
-                }
-                else
-                {
-                    alpha = 1f;
-                }
 
 
                 if (this.IsHashIntervalTick(5))
@@ -154,9 +165,6 @@ namespace Replimat
                     }
                 }
 
-                Graphics.DrawMesh(GraphicsLoader.replimatHopperGlow[dematerializingCycleInt].MeshAt(base.Rotation), this.DrawPos + new Vector3(0f, (int)AltitudeLayer.MoteOverhead
-                    * Altitudes.AltInc, 0f), Quaternion.identity,
-                        FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatHopperGlow[dematerializingCycleInt].MatAt(base.Rotation, null), alpha), 0);
             }
         }
 
