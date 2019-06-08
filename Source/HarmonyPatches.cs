@@ -33,7 +33,7 @@ namespace Replimat
             var harmony = HarmonyInstance.Create("com.Replimat.patches");
             harmony.PatchAll();
 
-            MultiplayerFixUtil.Bootup();
+            MP_Util.Bootup(harmony);
         }
 
         public override void DoSettingsWindowContents(Rect canvas)
