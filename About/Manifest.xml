@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest>
+	<identifier>Replimat</identifier>
+	<version>1.0.7</version>
+	<incompatibleWith>
+		<li>887716138</li>
+		<!-- WM Smarter Food Selection -->
+	</incompatibleWith>
+	<showCrossPromotions>true</showCrossPromotions>
+	<manifestUri>https://raw.githubusercontent.com/sumghai/Replimat/master/About/Manifest.xml</manifestUri>
+	<downloadUri>https://github.com/sumghai/Replimat/releases/latest</downloadUri>
+</Manifest>
