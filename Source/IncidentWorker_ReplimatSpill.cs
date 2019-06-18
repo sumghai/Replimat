@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using Verse;
 using RimWorld;
 
@@ -11,6 +9,7 @@ namespace Replimat
     {
         public override bool CanFireNowSub(IncidentParms parms)
         {
+            if (!ReplimatMod.Settings.RepSpills) return false;
             Map map = (Map)parms.target;
             return map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminal).Any() &&
                 map.listerThings.ThingsOfDef(ReplimatDef.ReplimatAnimalFeeder).Any();
@@ -35,9 +34,7 @@ namespace Replimat
 
             if (targetTerminal.def == ReplimatDef.ReplimatTerminal)
             {
-                Building_ReplimatTerminal currentTerminal = targetTerminal as Building_ReplimatTerminal;
-
-                if (currentTerminal.HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockToSpill))
+                if (targetTerminal is Building_ReplimatTerminal currentTerminal && currentTerminal.HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockToSpill))
                 {
                     currentTerminal.powerComp.PowerNet.TryConsumeFeedstock(volumeOfFeedstockToSpill);
                     ThingDef filthSlime = ThingDefOf.Filth_Slime;
@@ -50,16 +47,14 @@ namespace Replimat
                         currentTerminal.def.label
                     });
 
-                    Find.LetterStack.ReceiveLetter(letterLabel, letterText, LetterDefOf.NegativeEvent, new TargetInfo(targetTerminal.Position, map, false), null);
+                    Find.LetterStack.ReceiveLetter(letterLabel, letterText, LetterDefOf.NegativeEvent, new TargetInfo(targetTerminal.Position, map));
                     return true;
                 }
 
             }
             else if (targetTerminal.def == ReplimatDef.ReplimatAnimalFeeder)
             {
-                Building_ReplimatAnimalFeeder currentAnimalFeeder = targetTerminal as Building_ReplimatAnimalFeeder;
-
-                if (currentAnimalFeeder.HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockToSpill))
+                if (targetTerminal is Building_ReplimatAnimalFeeder currentAnimalFeeder && currentAnimalFeeder.HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockToSpill))
                 {
                     currentAnimalFeeder.powerComp.PowerNet.TryConsumeFeedstock(volumeOfFeedstockToSpill);
                     ThingDef filthSlime = ThingDefOf.Filth_Slime;
@@ -72,14 +67,11 @@ namespace Replimat
                         currentAnimalFeeder.def.label
                     });
 
-                    Find.LetterStack.ReceiveLetter(letterLabel, letterText, LetterDefOf.NegativeEvent, new TargetInfo(targetTerminal.Position, map, false), null);
+                    Find.LetterStack.ReceiveLetter(letterLabel, letterText, LetterDefOf.NegativeEvent, new TargetInfo(targetTerminal.Position, map));
                     return true;
                 }
             }
-            else {
 
-            }
-            
             return false;
         }
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse;
@@ -22,7 +21,7 @@ namespace Replimat
 
         public static readonly Material BatteryBarNoPowerMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.5f, 0.5f, 0.5f));
 
-        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == PowerComp.PowerNet).ToList();
+        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).OfType<Building_ReplimatFeedTank>().Where(x => x.PowerComp.PowerNet == PowerComp.PowerNet).ToList();
 
         public float GetFeedstockPercent()
         {
@@ -34,7 +33,7 @@ namespace Replimat
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            powerComp = base.GetComp<CompPowerTrader>();
+            powerComp = GetComp<CompPowerTrader>();
         }
 
         public bool Working
@@ -53,7 +52,7 @@ namespace Replimat
         {
             base.Draw();
 
-            GenDraw.FillableBarRequest r = default(GenDraw.FillableBarRequest);
+            GenDraw.FillableBarRequest r = default;
 
             Vector3 currPos = DrawPos;
 
@@ -76,7 +75,7 @@ namespace Replimat
             }
             
             r.margin = 0.15f;
-            Rot4 rotation = base.Rotation;
+            Rot4 rotation = Rotation;
             r.rotation = rotation;
             GenDraw.DrawFillableBar(r);
 

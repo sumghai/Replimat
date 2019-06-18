@@ -1,11 +1,7 @@
-﻿using Harmony;
-using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System;
 using System.Linq;
-using System.Reflection;
-using System.Text;
+using Harmony;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -15,11 +11,22 @@ namespace Replimat
     public class Settings : ModSettings
     {
         public bool PrioritizeFoodQuality = true;
-
+        public bool RepSpills;
         public override void ExposeData()
         {
             base.ExposeData();
+            Scribe_Values.Look(ref RepSpills, "RepSpills", true, true);
             Scribe_Values.Look(ref PrioritizeFoodQuality, "PrioritizeFoodQuality", true, true);
+        }
+
+        public void Draw(Rect canvas)
+        {
+            var listingStandard = new Listing_Standard();
+            listingStandard.Begin(canvas);
+            listingStandard.CheckboxLabeled("Replimat_Settings_PrioritizeFoodQuality_Title".Translate(),
+                ref PrioritizeFoodQuality, "Replimat_Settings_PrioritizeFoodQuality_Desc".Translate());
+            listingStandard.CheckboxLabeled("RepSpills".Translate(), ref RepSpills, "RepSpillsDesc".Translate());
+            listingStandard.End();
         }
     }
 
@@ -27,9 +34,17 @@ namespace Replimat
     {
         public static Settings Settings;
 
+        private static bool allowForbidden;
+        private static bool allowDispenserFull;
+        private static Pawn getter;
+        private static Pawn eater;
+        private static bool allowSociallyImproper;
+        private static bool BestFoodSourceOnMap;
+
+
         public ReplimatMod(ModContentPack content) : base(content)
         {
-            Settings = base.GetSettings<Settings>();
+            Settings = GetSettings<Settings>();
             var harmony = HarmonyInstance.Create("com.Replimat.patches");
             harmony.PatchAll();
 
@@ -38,10 +53,7 @@ namespace Replimat
 
         public override void DoSettingsWindowContents(Rect canvas)
         {
-            Listing_Standard listingStandard = new Listing_Standard();
-            listingStandard.Begin(canvas);
-            listingStandard.CheckboxLabeled(Translator.Translate("Replimat_Settings_PrioritizeFoodQuality_Title"), ref Settings.PrioritizeFoodQuality, Translator.Translate("Replimat_Settings_PrioritizeFoodQuality_Desc"));
-            listingStandard.End();
+            Settings.Draw(canvas);
             base.DoSettingsWindowContents(canvas);
         }
 
@@ -50,16 +62,36 @@ namespace Replimat
             return "Replimat_SettingsCategory_Heading".Translate();
         }
 
-        static bool allowForbidden;
-        static bool allowDispenserFull;
-        static Pawn getter;
-        static Pawn eater;
-        static bool allowSociallyImproper;
-        static bool BestFoodSourceOnMap = false;
-        [HarmonyPatch(typeof(FoodUtility), "BestFoodSourceOnMap"), StaticConstructorOnStartup]
-        static class Patch_BestFoodSourceOnMap
+
+
+        private static bool RepDel(Building_ReplimatTerminal t)
         {
-            static void Prefix(ref Pawn getter, ref Pawn eater, ref bool allowDispenserFull, ref bool allowDispenserEmpty, ref bool allowForbidden, ref bool allowSociallyImproper)
+            if (
+                !allowDispenserFull
+                || !(getter.RaceProps.ToolUser && getter.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
+                || t.Faction != getter.Faction && t.Faction != getter.HostFaction
+                || !allowForbidden && t.IsForbidden(getter)
+                || !t.powerComp.PowerOn
+                || !t.InteractionCell.Standable(t.Map)
+                || !FoodUtility.IsFoodSourceOnMapSociallyProper(t, getter, eater, allowSociallyImproper)
+                || getter.IsWildMan()
+                || ReplimatUtility.PickMeal(eater, getter) == null
+                || !t.HasStockFor(ReplimatUtility.PickMeal(eater, getter))
+                || !getter.Map.reachability.CanReachNonLocal(getter.Position, new TargetInfo(t.InteractionCell, t.Map),
+                    PathEndMode.OnCell, TraverseParms.For(getter, Danger.Some)))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        [HarmonyPatch(typeof(FoodUtility), "BestFoodSourceOnMap")]
+        [StaticConstructorOnStartup]
+        private static class Patch_BestFoodSourceOnMap
+        {
+            private static void Prefix(ref Pawn getter, ref Pawn eater, ref bool allowDispenserFull,
+                ref bool allowForbidden, ref bool allowSociallyImproper)
             {
                 BestFoodSourceOnMap = true;
                 ReplimatMod.getter = getter;
@@ -69,48 +101,28 @@ namespace Replimat
                 ReplimatMod.allowSociallyImproper = allowSociallyImproper;
             }
 
-            static void Postfix()
+            private static void Postfix()
             {
                 BestFoodSourceOnMap = false;
             }
         }
 
-        static bool RepDel(Building_ReplimatTerminal t)
-        {
-            if (
-                !allowDispenserFull
-                || !(getter.RaceProps.ToolUser && getter.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
-                || (t.Faction != getter.Faction && t.Faction != getter.HostFaction)
-                || (!allowForbidden && t.IsForbidden(getter))
-                || !t.powerComp.PowerOn
-                || !t.InteractionCell.Standable(t.Map)
-                || !FoodUtility.IsFoodSourceOnMapSociallyProper(t, getter, eater, allowSociallyImproper)
-                || getter.IsWildMan()
-                || ReplimatUtility.PickMeal(eater, getter) == null
-                || !t.HasStockFor(ReplimatUtility.PickMeal(eater, getter))
-                || !getter.Map.reachability.CanReachNonLocal(getter.Position, new TargetInfo(t.InteractionCell, t.Map, false), PathEndMode.OnCell, TraverseParms.For(getter, Danger.Some, TraverseMode.ByPawn, false)))
-            {
-                return false;
-            }
-            return true;
-        }
-
         [HarmonyPatch(typeof(FoodUtility), "SpawnedFoodSearchInnerScan")]
-        static class Patch_SpawnedFoodSearchInnerScan
+        private static class Patch_SpawnedFoodSearchInnerScan
         {
-            static bool Prefix(ref Predicate<Thing> validator)
+            private static bool Prefix(ref Predicate<Thing> validator)
             {
-                Predicate<Thing> malidator = validator;
-                Predicate<Thing> salivator = x => (x is Building_ReplimatTerminal rep) ? RepDel(rep) : malidator(x);
+                var malidator = validator;
+                Predicate<Thing> salivator = x => x is Building_ReplimatTerminal rep ? RepDel(rep) : malidator(x);
                 validator = salivator;
                 return true;
             }
         }
 
         [HarmonyPatch(typeof(FoodUtility), "FoodOptimality")]
-        static class Patch_FoodOptimality
+        private static class Patch_FoodOptimality
         {
-            static bool Prefix(ref ThingDef foodDef, ref float __result)
+            private static bool Prefix(ref ThingDef foodDef, ref float __result)
             {
                 if (foodDef == null)
                 {
@@ -123,51 +135,49 @@ namespace Replimat
         }
 
         [HarmonyPatch(typeof(FoodUtility), "GetFinalIngestibleDef")]
-        static class Patch_GetFinalIngestibleDef
+        private static class Patch_GetFinalIngestibleDef
         {
-            static bool Prefix(ref Thing foodSource, ref ThingDef __result)
+            private static bool Prefix(ref Thing foodSource, ref ThingDef __result)
             {
-                if (foodSource is Building_ReplimatTerminal d)
+                if (foodSource is Building_ReplimatTerminal && BestFoodSourceOnMap)
                 {
-                    if (BestFoodSourceOnMap)
-                    {
-                        __result = ReplimatUtility.PickMeal(eater, getter);
-                        return false;
-                    }
-
+                    __result = ReplimatUtility.PickMeal(eater, getter);
+                    return false;
                 }
+
                 return true;
             }
         }
 
         [HarmonyPatch(typeof(Toils_Ingest), "TakeMealFromDispenser")]
-        static class Patch_TakeMealFromDispenser
+        private static class Patch_TakeMealFromDispenser
         {
-            static bool Prefix(ref TargetIndex ind, ref Pawn eater, ref Toil __result)
+            private static bool Prefix(ref TargetIndex ind, ref Pawn eater, ref Toil __result)
             {
                 if (eater.jobs.curJob.GetTarget(ind).Thing is Building_ReplimatTerminal)
                 {
-                    TargetIndex windex = ind;
-                    Toil toil = new Toil();
+                    var windex = ind;
+                    var toil = new Toil();
                     toil.initAction = delegate
                     {
-                        Pawn actor = toil.actor;
-                        Job curJob = actor.jobs.curJob;
+                        var actor = toil.actor;
+                        var curJob = actor.jobs.curJob;
                         var repmat = (Building_ReplimatTerminal)curJob.GetTarget(windex).Thing;
 
-                        Pawn PawnForMealScan = actor;
+                        var PawnForMealScan = actor;
                         if (curJob.GetTarget(TargetIndex.B).Thing is Pawn p)
                         {
-                          //  Log.Warning("for "+p.Label);
+                            //  Log.Warning("for "+p.Label);
                             PawnForMealScan = p;
                         }
-
-                        Thing thing = repmat.TryDispenseFood(PawnForMealScan, actor);
+                       
+                        var thing = repmat.TryDispenseFood(PawnForMealScan, actor);
                         if (thing == null)
                         {
                             actor.jobs.curDriver.EndJobWith(JobCondition.Incompletable);
                             return;
                         }
+
                         actor.carryTracker.TryStartCarry(thing);
                         actor.CurJob.SetTarget(windex, actor.carryTracker.CarriedThing);
                     };
@@ -183,51 +193,57 @@ namespace Replimat
         }
 
         [HarmonyPatch(typeof(JobDriver_FoodDeliver), "GetReport")]
-        static class Patch_JobDriver_FoodDeliver_GetReport
+        private static class Patch_JobDriver_FoodDeliver_GetReport
         {
-            static void Postfix(JobDriver_FoodDeliver __instance, ref string __result)
+            private static void Postfix(JobDriver_FoodDeliver __instance, ref string __result)
             {
-                if (__instance.job.GetTarget(TargetIndex.A).Thing is Building_ReplimatTerminal && (Pawn)__instance.job.targetB.Thing != null)
+                if (__instance.job.GetTarget(TargetIndex.A).Thing is Building_ReplimatTerminal &&
+                    (Pawn)__instance.job.targetB.Thing != null)
                 {
-                    __result = __instance.job.def.reportString.Replace("TargetA", "ReplicatedMeal".Translate()).Replace("TargetB", __instance.job.targetB.Thing.LabelShort);
+                    __result = __instance.job.def.reportString.Replace("TargetA", "ReplicatedMeal".Translate())
+                        .Replace("TargetB", __instance.job.targetB.Thing.LabelShort);
                 }
             }
         }
 
         [HarmonyPatch(typeof(JobDriver_FoodFeedPatient), "GetReport")]
-        static class Patch_JobDriver_FoodFeedPatient_GetReport
+        private static class Patch_JobDriver_FoodFeedPatient_GetReport
         {
-            static void Postfix(JobDriver_FoodFeedPatient __instance, ref string __result)
+            private static void Postfix(JobDriver_FoodFeedPatient __instance, ref string __result)
             {
-                if (__instance.job.GetTarget(TargetIndex.A).Thing is Building_ReplimatTerminal && (Pawn)__instance.job.targetB.Thing != null)
+                if (__instance.job.GetTarget(TargetIndex.A).Thing is Building_ReplimatTerminal &&
+                    (Pawn)__instance.job.targetB.Thing != null)
                 {
-                    __result = __instance.job.def.reportString.Replace("TargetA", "ReplicatedMeal".Translate()).Replace("TargetB", __instance.job.targetB.Thing.LabelShort);
+                    __result = __instance.job.def.reportString.Replace("TargetA", "ReplicatedMeal".Translate())
+                        .Replace("TargetB", __instance.job.targetB.Thing.LabelShort);
                 }
             }
         }
 
         [HarmonyPatch(typeof(JobDriver_Ingest), "GetReport")]
-        static class Patch_JobDriver_Ingest_GetReport
+        private static class Patch_JobDriver_Ingest_GetReport
         {
-            static void Postfix(JobDriver_Ingest __instance, ref string __result)
+            private static void Postfix(JobDriver_Ingest __instance, ref string __result)
             {
                 if (__instance.usingNutrientPasteDispenser)
                 {
                     if (__instance.job.GetTarget(TargetIndex.A).Thing is Building_ReplimatTerminal)
                     {
                         __result = __instance.job.def.reportString.Replace("TargetA", "ReplicatedMeal".Translate());
-                    }else{
-                        __result = __instance.job.def.reportString.Replace("TargetA", __instance.job.GetTarget(TargetIndex.A).Thing.Label);
-                    }            
+                    }
+                    else
+                    {
+                        __result = __instance.job.def.reportString.Replace("TargetA",
+                            __instance.job.GetTarget(TargetIndex.A).Thing.Label);
+                    }
                 }
-
             }
         }
 
         [HarmonyPatch(typeof(ThingListGroupHelper), "Includes")]
-        static class Patch_Includes
+        private static class Patch_Includes
         {
-            static bool Prefix(ref ThingRequestGroup group, ref ThingDef def, ref bool __result)
+            private static bool Prefix(ref ThingRequestGroup group, ref ThingDef def, ref bool __result)
             {
                 if (group == ThingRequestGroup.FoodSource || group == ThingRequestGroup.FoodSourceNotPlantOrTree)
                 {
@@ -237,19 +253,21 @@ namespace Replimat
                         return false;
                     }
                 }
+
                 return true;
             }
         }
 
         [HarmonyPatch(typeof(Thing))]
         [HarmonyPatch("AmbientTemperature", PropertyMethod.Getter)]
-        static class Patch_Thing_AmbientTemperature
+        private static class Patch_Thing_AmbientTemperature
         {
-            static void Postfix(Thing __instance, ref float __result)
+            private static void Postfix(Thing __instance, ref float __result)
             {
                 if (__instance.Spawned && __instance.def.IsNutritionGivingIngestible)
                 {
-                    var hop = __instance.Map.thingGrid.ThingsListAtFast(__instance.Position).OfType<Building_ReplimatHopper>().FirstOrDefault(x => x.powerComp.PowerOn);
+                    var hop = __instance.Map.thingGrid.ThingsListAtFast(__instance.Position)
+                        .OfType<Building_ReplimatHopper>().FirstOrDefault(x => x.powerComp.PowerOn);
                     if (hop != null)
                     {
                         __result = hop.freezerTemp;
@@ -263,16 +281,17 @@ namespace Replimat
         // so that they do not trigger the "Need food hopper" alert
         // Will not affect stock nutrient paste dispensers or pawn food optimality
         [HarmonyPatch(typeof(ThingDef), "get_IsFoodDispenser")]
-        static class Building
+        private static class Building
         {
             [HarmonyPrefix]
-            static bool IsFoodDispenserPrefix(ThingDef __instance, ref bool __result)
+            private static bool IsFoodDispenserPrefix(ThingDef __instance, ref bool __result)
             {
                 if (__instance.thingClass == typeof(Building_ReplimatTerminal))
                 {
                     __result = false;
                     return false;
                 }
+
                 return true;
             }
         }
