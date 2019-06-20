@@ -9,10 +9,10 @@ namespace Replimat
     {
         public override bool CanFireNowSub(IncidentParms parms)
         {
-            if (!ReplimatMod.Settings.RepSpills) return false;
             Map map = (Map)parms.target;
-            return map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminal).Any() &&
-                map.listerThings.ThingsOfDef(ReplimatDef.ReplimatAnimalFeeder).Any();
+            return ReplimatMod.Settings.EnableIncidentSpill && 
+                (map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminal).Any() |
+                map.listerThings.ThingsOfDef(ReplimatDef.ReplimatAnimalFeeder).Any());
         }
 
         public override bool TryExecuteWorker(IncidentParms parms)

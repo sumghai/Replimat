@@ -9,7 +9,8 @@ namespace Replimat
         public override bool CanFireNowSub(IncidentParms parms)
         {
             Map map = (Map)parms.target;
-            return map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminal).Any();
+            return ReplimatMod.Settings.EnableIncidentKibble &&
+                map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminal).Any();
         }
 
         public override bool TryExecuteWorker(IncidentParms parms)
