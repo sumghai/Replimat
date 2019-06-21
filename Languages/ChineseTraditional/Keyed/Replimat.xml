@@ -44,10 +44,10 @@
 	<Replimat_SettingsCategory_Heading>食品合成系統</Replimat_SettingsCategory_Heading>
 
 	<!-- EN: General -->
-	<Replimat_Settings_HeaderGeneral>(ZH-TW) General</Replimat_Settings_HeaderGeneral>
+	<Replimat_Settings_HeaderGeneral>主要</Replimat_Settings_HeaderGeneral>
 
 	<!-- EN: Incidents -->
-	<Replimat_Settings_HeaderIncidents>(ZH-TW) Incidents</Replimat_Settings_HeaderIncidents>
+	<Replimat_Settings_HeaderIncidents>事件</Replimat_Settings_HeaderIncidents>
 
 	<!-- EN: Prioritize food quality -->
 	<Replimat_Settings_PrioritizeFoodQuality_Title>優先複製最高價值食品</Replimat_Settings_PrioritizeFoodQuality_Title>
@@ -56,15 +56,15 @@
 	<Replimat_Settings_PrioritizeFoodQuality_Desc>在預設情況下，居民會在客製化菜單內優先複製最高價值的食品。\n\n取消此選項會讓居民不考慮食品價值，任意複製食品。</Replimat_Settings_PrioritizeFoodQuality_Desc>
 
 	<!-- EN: Enable Spills -->
-	<Replimat_Settings_EnableIncidentSpill_Title>(ZH-TW) Enable Spills</Replimat_Settings_EnableIncidentSpill_Title>
+	<Replimat_Settings_EnableIncidentSpill_Title>啟用原料洩漏事件</Replimat_Settings_EnableIncidentSpill_Title>
 
 	<!-- EN: Allows any Terminal or Animal Feeder to have a small chance of malfunctioning and spilling feedstock. -->
-	<Replimat_Settings_EnableIncidentSpill_Desc>(ZH-TW) Allows any Terminal or Animal Feeder to have a small chance of malfunctioning and spilling feedstock.</Replimat_Settings_EnableIncidentSpill_Desc>
+	<Replimat_Settings_EnableIncidentSpill_Desc>讓任何食品或飼料合成器有發生營養原料洩漏的機會。</Replimat_Settings_EnableIncidentSpill_Desc>
 
 	<!-- EN: Enable Kibble Malfunctions -->
-	<Replimat_Settings_EnableIncidentKibble_Title>(ZH-TW) Enable Kibble Malfunctions</Replimat_Settings_EnableIncidentKibble_Title>
+	<Replimat_Settings_EnableIncidentKibble_Title>啟用飼料故障事件</Replimat_Settings_EnableIncidentKibble_Title>
 
 	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. -->
-	<Replimat_Settings_EnableIncidentKibble_Desc>(ZH-TW) Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. </Replimat_Settings_EnableIncidentKibble_Desc>
+	<Replimat_Settings_EnableIncidentKibble_Desc>讓任何食品合成器有發生故障後複製大量飼料的機會。</Replimat_Settings_EnableIncidentKibble_Desc>
 
 </LanguageData>
