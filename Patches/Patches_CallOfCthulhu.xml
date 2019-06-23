@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Call of Cthulhu - Cosmic Horrors</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="ReplimatHopper"]/building/fixedStorageSettings/filter/categories</xpath>
+					<value>
+						<li>ROM_StrangeMeatRaw</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="ReplimatHopper"]/building/defaultStorageSettings/filter/categories</xpath>
+					<value>
+						<li>ROM_StrangeMeatRaw</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>	
+</Patch>
