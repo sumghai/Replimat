@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!-- EN: Replicated Meal -->
+	<ReplicatedMeal>人工复制料理</ReplicatedMeal>
+
+	<!-- EN: Feedstock stored {0} / {1} L -->
+	<FeedstockStored>营养原料存量  {0} / {1} L</FeedstockStored>
+
+	<!-- EN: Total feedstock stored {0} / {1} L -->
+	<TotalFeedstockStored>营养原料总存量 {0} / {1} L</TotalFeedstockStored>
+
+	<!-- EN: Replimat Spill -->
+	<LetterLabelReplimatSpill>食品合成器原料泄漏 </LetterLabelReplimatSpill>
+
+	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<LetterTextReplimatSpill>你的一台{0}发生故障，并泄漏了营养原料。</LetterTextReplimatSpill>
+
+	<!-- EN: Replimat Malfunction -->
+	<LetterLabelReplimatMalfunctionKibble>食品合成器故障 </LetterLabelReplimatMalfunctionKibble>
+
+	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
+	<LetterTextReplimatMalfunctionKibble>你的一台{0}发生故障，并复制了大量的饲料。</LetterTextReplimatMalfunctionKibble>
+
+	<!-- EN: Requires connection to Replimat Computer -->	
+	<NotConnectedToComputer>需要连接到食品合成系统主计算机</NotConnectedToComputer>
+
+	<!-- EN: Insufficient Feedstock -->
+	<NotEnoughFeedstock>营养原料不足</NotEnoughFeedstock>
+
+	<!-- EN: Batch Survival Meals -->
+	<BatchMakeSurvivalMeals>复制生存食品包</BatchMakeSurvivalMeals>
+
+	<!-- EN: Replicate a batch of Packaged Survival Meals for use in caravans or emergencies. -->
+	<BatchMakeSurvivalMeals_Desc>复制一批生存食品包，供旅队或紧急情况准备用。</BatchMakeSurvivalMeals_Desc>
+
+	<!-- EN: Cannot batch replicate survival meals: Terminal has insufficient feedstock, or is not connected to Computer and Feedstock tanks-->
+	<MessageCannotBatchMakeSurvivalMeals>无法复制生存食品包: 营养原料不足，或合成器未连结到系统主计算机和原料储存桶。</MessageCannotBatchMakeSurvivalMeals>
+
+	<!-- EN: Make {0} Packaged Survival Meals\n(Max allowed: {1}) -->	
+	<SetSurvivalMealBatchSize>将生存食品包复制数量为{0}\n(最大复制数量: {1})</SetSurvivalMealBatchSize>
+
+	<!-- EN: Replimat -->
+	<Replimat_SettingsCategory_Heading>食品合成系统</Replimat_SettingsCategory_Heading>
+
+	<!-- EN: General -->
+	<Replimat_Settings_HeaderGeneral>主要</Replimat_Settings_HeaderGeneral>
+
+	<!-- EN: Incidents -->
+	<Replimat_Settings_HeaderIncidents>事件</Replimat_Settings_HeaderIncidents>
+
+	<!-- EN: Prioritize food quality -->
+	<Replimat_Settings_PrioritizeFoodQuality_Title>优先复制最高价值食品</Replimat_Settings_PrioritizeFoodQuality_Title>
+
+	<!-- EN: By default, pawns will replicate meals at the highest quality allowed by their current food restriction policy.\n\nDisabling this allows pawns to replicate any random meal within their food restriction policy irrespective of quality. -->
+	<Replimat_Settings_PrioritizeFoodQuality_Desc>在预设情况下，居民会在客制化菜单内优先复制最高价值的食品。\n\n取消此选项会让居民不考虑食品价值，任意复制食品。</Replimat_Settings_PrioritizeFoodQuality_Desc>
+
+	<!-- EN: Enable Spills -->
+	<Replimat_Settings_EnableIncidentSpill_Title>启用原料泄漏事件</Replimat_Settings_EnableIncidentSpill_Title>
+
+	<!-- EN: Allows any Terminal or Animal Feeder to have a small chance of malfunctioning and spilling feedstock. -->
+	<Replimat_Settings_EnableIncidentSpill_Desc>让任何食品或饲料合成器有发生营养原料泄漏的机会。</Replimat_Settings_EnableIncidentSpill_Desc>
+
+	<!-- EN: Enable Kibble Malfunctions -->
+	<Replimat_Settings_EnableIncidentKibble_Title>启用饲料故障事件</Replimat_Settings_EnableIncidentKibble_Title>
+
+	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. -->
+	<Replimat_Settings_EnableIncidentKibble_Desc>让任何食品合成器有发生故障后复制大量饲料的机会。</Replimat_Settings_EnableIncidentKibble_Desc>
+
+</LanguageData>

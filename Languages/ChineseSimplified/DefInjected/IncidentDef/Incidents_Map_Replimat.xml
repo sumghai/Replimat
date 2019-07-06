@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- EN: Replimat Spill -->
+	<ReplimatSpill.label>食品合成器原料泄漏</ReplimatSpill.label>
+	
+	<!-- EN: Replimat Spill -->
+	<ReplimatSpill.letterLabel>食品合成器原料泄漏</ReplimatSpill.letterLabel>
+	
+	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<ReplimatSpill.letterText>你的一台{0}发生故障，并泄漏了营养原料。</ReplimatSpill.letterText>
+	
+	<!-- EN: Replimat Spill -->
+	<ReplimatMalfunctionKibble.label>食品合成器故障</ReplimatMalfunctionKibble.label>
+	
+	<!-- EN: Replimat Spill -->
+	<ReplimatMalfunctionKibble.letterLabel>食品合成器故障(饲料)</ReplimatMalfunctionKibble.letterLabel>
+	
+	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<ReplimatMalfunctionKibble.letterText>你的一台{0}发生故障，并复制了大量的饲料。</ReplimatMalfunctionKibble.letterText>
+</LanguageData>

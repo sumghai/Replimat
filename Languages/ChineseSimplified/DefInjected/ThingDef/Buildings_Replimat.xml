@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- EN: Replimat Terminal -->
+	<ReplimatTerminal.label>食品合成器</ReplimatTerminal.label>
+	
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatTerminal.description>采用分子营养素重测序技术来复制各样的食品。需要通过电缆线连接上原料储存桶和主计算机。</ReplimatTerminal.description>
+	
+	<!-- EN: Replimat Terminal (blueprint)-->
+	<ReplimatTerminal_Blueprint.label>食品合成器 (蓝图)</ReplimatTerminal_Blueprint.label>
+	
+	<!-- EN: Replimat Terminal (blueprint)-->
+	<ReplimatTerminal_Blueprint_Install.label>食品合成器 (蓝图)</ReplimatTerminal_Blueprint_Install.label>
+	
+	<!-- EN: Replimat Terminal (building)-->
+	<ReplimatTerminal_Frame.label>食品合成器 (建造中)</ReplimatTerminal_Frame.label>
+	
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatTerminal_Frame.description>采用分子营养素重测序技术来复制各样的食品。需要通过电缆线连接上原料储存桶和主计算机。</ReplimatTerminal_Frame.description>
+	
+	<!-- EN: Replimat Animal Feeder -->
+	<ReplimatAnimalFeeder.label>饲料合成器</ReplimatAnimalFeeder.label>
+	
+	<!-- EN: Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatAnimalFeeder.description>采用分子营养素重测序技术来复制饲料。需要通过电缆线连接上原料储存桶和主计算机。</ReplimatAnimalFeeder.description>
+	
+	<!-- EN: Replimat Animal Feeder (blueprint)-->
+	<ReplimatAnimalFeeder_Blueprint.label>饲料合成器 (蓝图)</ReplimatAnimalFeeder_Blueprint.label>
+	
+	<!-- EN: Replimat Animal Feeder (blueprint)-->
+	<ReplimatAnimalFeeder_Blueprint_Install.label>饲料合成器 (蓝图)</ReplimatAnimalFeeder_Blueprint_Install.label>
+	
+	<!-- EN: Replimat Animal Feeder (building)-->
+	<ReplimatAnimalFeeder_Frame.label>饲料合成器 (建造中)</ReplimatAnimalFeeder_Frame.label>
+	
+	<!-- EN: Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatAnimalFeeder_Frame.description>采用分子营养素重测序技术来复制饲料。需要通过电缆线连接上原料储存桶和主计算机。</ReplimatAnimalFeeder_Frame.description>
+	
+	<!-- EN: Replimat Feedstock Tank -->
+	<ReplimatFeedTank.label>食品合成系统原料储存桶</ReplimatFeedTank.label>
+	
+	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<ReplimatFeedTank.description>储存食品合成器需要用的液体形式营养原料。原料来源以储料槽供应。</ReplimatFeedTank.description>
+	
+	<!-- EN: Replimat Feedstock Tank (blueprint)-->
+	<ReplimatFeedTank_Blueprint.label>食品合成系统原料储存桶 (蓝图)</ReplimatFeedTank_Blueprint.label>
+	
+	<!-- EN: Replimat Feedstock Tank (blueprint)-->
+	<ReplimatFeedTank_Blueprint_Install.label>食品合成系统原料储存桶 (蓝图)</ReplimatFeedTank_Blueprint_Install.label>
+	
+	<!-- EN: Replimat Feedstock Tank (building)-->
+	<ReplimatFeedTank_Frame.label>食品合成系统原料储存桶 (建造中)</ReplimatFeedTank_Frame.label>
+	
+	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<ReplimatFeedTank_Frame.description>储存食品合成器需要用的液体形式营养原料。原料来源以储料槽供应。</ReplimatFeedTank_Frame.description>
+	
+	<!-- EN: Replimat Hopper -->
+	<ReplimatHopper.label>食品合成系统储料槽</ReplimatHopper.label>
+	
+	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->
+	<ReplimatHopper.description>储存、冷藏与分解生鲜食材，并转换成食品合成器需要用的液体形式营养原料。</ReplimatHopper.description>
+	
+	<!-- EN: Replimat Hopper (blueprint)-->
+	<ReplimatHopper_Blueprint.label>食品合成系统储料槽 (蓝图)</ReplimatHopper_Blueprint.label>
+	
+	<!-- EN: Replimat Hopper (blueprint)-->
+	<ReplimatHopper_Blueprint_Install.label>食品合成系统储料槽 (蓝图)</ReplimatHopper_Blueprint_Install.label>
+	
+	<!-- EN: Replimat Hopper (building)-->
+	<ReplimatHopper_Frame.label>食品合成系统储料槽 (建造中)</ReplimatHopper_Frame.label>
+	
+	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->	
+	<ReplimatHopper_Frame.description>储存、冷藏与分解生鲜食材，并转换成食品合成器需要用的液体形式营养原料。</ReplimatHopper_Frame.description>
+	
+	<!-- EN: Replimat Computer -->
+	<ReplimatComputer.label>食品合成系统主计算机 </ReplimatComputer.label>
+	
+	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
+	<ReplimatComputer.description>为食品合成器提供菜单食谱。</ReplimatComputer.description>
+	
+	<!-- EN: Replimat Computer (blueprint)-->
+	<ReplimatComputer_Blueprint.label>食品合成系统主计算机 (蓝图)</ReplimatComputer_Blueprint.label>
+	
+	<!-- EN: Replimat Computer (blueprint)-->
+	<ReplimatComputer_Blueprint_Install.label>食品合成系统主计算机 (蓝图)</ReplimatComputer_Blueprint_Install.label>
+	
+	<!-- EN: Replimat Computer (building)-->
+	<ReplimatComputer_Frame.label>食品合成系统主计算机 (建造中)</ReplimatComputer_Frame.label>
+	
+	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
+	<ReplimatComputer_Frame.description>为食品合成器提供菜单食谱。</ReplimatComputer_Frame.description>
+</LanguageData>
