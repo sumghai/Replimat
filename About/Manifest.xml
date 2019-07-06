@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest>
 	<identifier>Replimat</identifier>
-	<version>1.0.9</version>
+	<version>1.0.10</version>
 	<incompatibleWith>
-		<li>887716138</li>
-		<!-- WM Smarter Food Selection -->
+		<li>887716138</li> <!-- WM Smarter Food Selection -->
+		<li>1499843448</li> <!-- Pawn Rules -->
+		<li>1792335142</li> <!-- Replimat_zh (aka the unauthorized Simplified Chinese translation submod) -->
 	</incompatibleWith>
 	<showCrossPromotions>true</showCrossPromotions>
 	<manifestUri>https://raw.githubusercontent.com/sumghai/Replimat/master/About/Manifest.xml</manifestUri>
