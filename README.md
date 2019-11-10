@@ -1,4 +1,4 @@
-# [1.0] Replimat 1.0.11
+# [1.0] Replimat 1.0.12
 Distributed food replicator system for RimWorld
 
 **Author:** Robin "sumghai" Chang (sumdumghai@gmail.com) and Dubwise
