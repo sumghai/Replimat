@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Harmony;
+using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -62,7 +62,7 @@ namespace Replimat
         public ReplimatMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<Settings>();
-            var harmony = HarmonyInstance.Create("com.Replimat.patches");
+            var harmony = new Harmony("com.Replimat.patches");
             harmony.PatchAll();
 
             MP_Util.Bootup(harmony);
@@ -276,7 +276,7 @@ namespace Replimat
         }
 
         [HarmonyPatch(typeof(Thing))]
-        [HarmonyPatch("AmbientTemperature", PropertyMethod.Getter)]
+        [HarmonyPatch("AmbientTemperature", MethodType.Getter)]
         private static class Patch_Thing_AmbientTemperature
         {
             private static void Postfix(Thing __instance, ref float __result)

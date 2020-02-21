@@ -6,7 +6,7 @@
 		<label>Disassemble AI persona core</label>
 		<description>Disassemble an AI persona core for useful parts.</description>
 		<jobString>Disassembling AI persona core.</jobString>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Cook</effectWorking>
 		<soundWorking>Recipe_Machining</soundWorking>
 		<workAmount>15000</workAmount>

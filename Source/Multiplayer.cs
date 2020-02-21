@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace Replimat
     public static class MP_Util
     {
         public static bool Active = false;
-        public static void Bootup(HarmonyInstance harmony)
+        public static void Bootup(Harmony harmony)
         {
             var asshai = new HarmonyMethod(typeof(MP_Util).GetMethod(nameof(MP_Util.asshai)));
             Type SyncHandlers = null;

@@ -38,7 +38,7 @@ namespace Replimat
                 {
                     currentTerminal.powerComp.PowerNet.TryConsumeFeedstock(volumeOfFeedstockToSpill);
                     ThingDef filthSlime = ThingDefOf.Filth_Slime;
-                    FilthMaker.MakeFilth(targetTerminal.InteractionCell, map, filthSlime, Rand.Range(10, 12));
+                    FilthMaker.TryMakeFilth(targetTerminal.InteractionCell, map, filthSlime, Rand.Range(10, 12));
 
                     string letterLabel = "LetterLabelReplimatSpill".Translate();
 
@@ -58,7 +58,7 @@ namespace Replimat
                 {
                     currentAnimalFeeder.powerComp.PowerNet.TryConsumeFeedstock(volumeOfFeedstockToSpill);
                     ThingDef filthSlime = ThingDefOf.Filth_Slime;
-                    FilthMaker.MakeFilth(targetTerminal.InteractionCell, map, filthSlime, Rand.Range(10, 12));
+                    FilthMaker.TryMakeFilth(targetTerminal.InteractionCell, map, filthSlime, Rand.Range(10, 12));
 
                     string letterLabel = "LetterLabelReplimatSpill".Translate();
 
