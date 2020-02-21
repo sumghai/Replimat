@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<IncidentDef>
+		<defName>ReplimatSpill</defName>
+		<label>Replimat Spill</label>
+		<workerClass>Replimat.IncidentWorker_ReplimatSpill</workerClass>
+		<category>Misc</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<baseChance>2.5</baseChance>
+		<letterLabel>Replimat Spill</letterLabel>
+		<letterText>A {0} has malfunctioned, spilling nutrient feedstock everywhere.</letterText>
+	</IncidentDef>
+
+	<IncidentDef>
+		<defName>ReplimatMalfunctionKibble</defName>
+		<label>Replimat Malfunction</label>
+		<workerClass>Replimat.IncidentWorker_ReplimatMalfunctionKibble</workerClass>
+		<category>Misc</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<baseChance>2.5</baseChance>
+		<letterLabel>Replimat Malfunction\n(Kibble)</letterLabel>
+		<letterText>A {0} has malfunctioned, producing large quantities of animal feed.</letterText>
+	</IncidentDef>
+
+</Defs>

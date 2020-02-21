@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<DesignationCategoryDef>
+		<defName>Replimat_Replimat</defName>
+		<label>Replimat</label>
+		<description>Components to build a food service replicator system.</description>
+		<order>501</order>
+		<specialDesignatorClasses>
+			<li>Designator_Cancel</li>
+			<li>Designator_Deconstruct</li>
+		</specialDesignatorClasses>
+	</DesignationCategoryDef>
+
+</Defs>

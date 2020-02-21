@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingSetMakerDef[defName = "Reward_ItemStashQuestContents"]/root/options</xpath>
+				<value>
+					<li>
+						<weight>1</weight>
+						<weightIfPlayerHasNoItem>5</weightIfPlayerHasNoItem>
+						<weightIfPlayerHasNoItemItem>IsolinearModule</weightIfPlayerHasNoItemItem>
+						<thingSetMaker Class="ThingSetMaker_Conditional_MinMaxTotalMarketValue">
+							<minMaxTotalMarketValue>2000</minMaxTotalMarketValue>
+							<thingSetMaker Class="ThingSetMaker_Conditional_ResearchFinished">
+								<researchProject>MultiAnalyzer</researchProject>
+								<thingSetMaker Class="ThingSetMaker_Count">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>IsolinearModule</li>
+											</thingDefs>
+										</filter>
+									</fixedParams>
+								</thingSetMaker>
+							</thingSetMaker>
+						</thingSetMaker>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

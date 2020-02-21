@@ -8,9 +8,14 @@ D:\Games\RimWorld.Alpha.17.v0.17.1557.rev1150\Mods\Replimat\Source\obj\Debug\Rep
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Replimat-master\Source\obj\Debug\Replimat.csprojResolveAssemblyReference.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Replimat-master\Source\obj\Debug\Replimat.csproj.CoreCompileInputs.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Replimat\Assemblies\Replimat.dll
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Replimat\Source\obj\Debug\Replimat.csproj.CoreCompileInputs.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Replimat\Source\obj\Debug\Replimat.dll
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Replimat\Source\obj\Debug\Replimat.csprojAssemblyReference.cache
 D:\Steam\steamapps\common\RimWorld\Mods\Replimat\Assemblies\Replimat.dll
 D:\Steam\steamapps\common\RimWorld\Mods\Replimat\Source\obj\Debug\Replimat.csproj.CoreCompileInputs.cache
 D:\Steam\steamapps\common\RimWorld\Mods\Replimat\Source\obj\Debug\Replimat.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Replimat\Source\..1.0\Assemblies\Replimat.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Replimat\Source\..1.0\Assemblies\0Harmony.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Replimat\Source\obj\Debug\Replimat.csproj.CopyComplete
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Replimat\Source\1.0\Assemblies\Replimat.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Replimat\Source\1.0\Assemblies\0Harmony.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Replimat\1.0\Assemblies\Replimat.dll
