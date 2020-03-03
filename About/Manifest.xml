@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest>
 	<identifier>Replimat</identifier>
-	<version>1.0.12</version>
+	<version>1.1.0</version>
 	<incompatibleWith>
 		<li>887716138</li> <!-- WM Smarter Food Selection -->
 		<li>1499843448</li> <!-- Pawn Rules -->
+		<li>1899474310</li> <!-- Prison Labor -->
 		<li>1792335142</li> <!-- Replimat_zh (aka the unauthorized Simplified Chinese translation submod) -->
 	</incompatibleWith>
 	<showCrossPromotions>true</showCrossPromotions>
