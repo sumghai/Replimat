@@ -43,7 +43,7 @@ namespace Replimat
         {
             if (amount < 0f)
             {
-                Log.Error("[Replimat] " + "Cannot add negative feedstock " + amount);
+                //Log.Error("[Replimat] " + "Cannot add negative feedstock " + amount);
                 return;
             }
             if (amount > AmountCanAccept)
@@ -58,7 +58,7 @@ namespace Replimat
             storedFeedstock -= amount;
             if (storedFeedstock < 0f)
             {
-                Log.Error("[Replimat] " + "Drawing feedstock we don't have from " + this);
+                //Log.Error("[Replimat] " + "Drawing feedstock we don't have from " + this);
                 storedFeedstock = 0f;
             }
         }

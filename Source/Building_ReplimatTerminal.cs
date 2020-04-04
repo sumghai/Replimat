@@ -80,7 +80,7 @@ namespace Replimat
 
             if (!HasStockFor(meal))
             {
-                Log.Error("[Replimat] " + "Did not find enough foodstock in tanks while trying to replicate.");
+                //Log.Error("[Replimat] " + "Did not find enough foodstock in tanks while trying to replicate.");
                 return null;
             }
 
@@ -137,7 +137,7 @@ namespace Replimat
 
         public void TryBatchMakingSurvivalMeals()
         {
-            Log.Message("[Replimat] " + "Requesting survival meals!");
+            //Log.Message("[Replimat] " + "Requesting survival meals!");
 
             // Determine the maximum number of survival meals that can be replicated, based on available feedstock
             // (Cap this at 30 meals so that players don't accidentally use up all their feedstock on survival meals)
@@ -148,9 +148,9 @@ namespace Replimat
             int maxPossibleSurvivalMeals = (int)Math.Floor(totalAvailableFeedstockMass / survivalMeal.BaseMass);
             int survivalMealCap = (maxPossibleSurvivalMeals < maxSurvivalMeals) ? maxPossibleSurvivalMeals : maxSurvivalMeals;
 
-            Log.Message("[Replimat] " + "Default max survival meals is " + maxSurvivalMeals + "\n"
+            /*Log.Message("[Replimat] " + "Default max survival meals is " + maxSurvivalMeals + "\n"
                 + "Total available feedstock of " + totalAvailableFeedstock + " can provide up to " + maxPossibleSurvivalMeals + " survival meals\n"
-                + "Final cap on survival meals is " + survivalMealCap);
+                + "Final cap on survival meals is " + survivalMealCap);*/
 
             float volumeOfFeedstockRequired = ReplimatUtility.convertMassToFeedstockVolume(survivalMealCap * survivalMeal.BaseMass);
 
@@ -162,7 +162,7 @@ namespace Replimat
 
             if (!HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockRequired))
             {
-                Log.Error("[Replimat] " + "Not enough feedstock to make required survival meals.");
+                //Log.Error("[Replimat] " + "Not enough feedstock to make required survival meals.");
                 return;
             }
 
