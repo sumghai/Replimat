@@ -13,4 +13,7 @@
 	<incompatibleWith>
 		<li>Jaxe.PawnRules</li>
 	</incompatibleWith>
+	<loadBefore>
+		<li>avilmask.CommonSense</li>
+	</loadBefore>
 </ModMetaData>
