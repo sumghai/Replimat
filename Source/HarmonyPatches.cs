@@ -58,6 +58,8 @@ namespace Replimat
         private static bool allowSociallyImproper;
         private static bool BestFoodSourceOnMap;
 
+        private static int minimumHopperRefillThresholdPercent = 10;
+
 
         public ReplimatMod(ModContentPack content) : base(content)
         {
@@ -312,5 +314,31 @@ namespace Replimat
                 return true;
             }
         }
+
+        [HarmonyPatch(typeof(StoreUtility), "NoStorageBlockersIn")]
+        internal class StoreUtility_NoStorageBlockersIn
+        {
+
+            [HarmonyPostfix]
+            public static void ReplimatHopperFilledEnough(ref bool __result, IntVec3 c, Map map, Thing thing)
+            {
+                if (__result)
+                {
+                    
+                    if (c.GetSlotGroup(map).parent.GetType().ToString() == "Replimat.Building_ReplimatHopper")
+                    {
+                        // Apply the minimum Hopper refilling threshold only to Replimat Hoppers
+                        __result &= !map.thingGrid.ThingsListAt(c).Any(t => t.def.EverStorable(false) && t.stackCount >= thing.def.stackLimit * (minimumHopperRefillThresholdPercent / 100f));
+                    }
+                    else
+                    {
+                        // Ignore the threshold for all other storage buildings and stockpiles
+                        // This ensures compatibility with other mods that control stack refilling thresholds on a more general level (e.g. Hauling Hysteresis, Satisfied Storage)
+                        __result = __result;
+                    }
+                }
+            }
+        }
+
     }
 }
