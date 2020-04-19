@@ -11,12 +11,14 @@ namespace Replimat
     public class Settings : ModSettings
     {
         public bool PrioritizeFoodQuality = true;
+        public float HopperRefillThresholdPercent;
         public bool EnableIncidentSpill = true;
         public bool EnableIncidentKibble = true;
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look(ref PrioritizeFoodQuality, "PrioritizeFoodQuality", true, true);
+            Scribe_Values.Look(ref HopperRefillThresholdPercent, "HopperRefillThresholdPercent", 0.5f, true);
             Scribe_Values.Look(ref EnableIncidentSpill, "EnableIncidentSpill", true, true);
             Scribe_Values.Look(ref EnableIncidentKibble, "EnableIncidentKibble", true, true);
         }
@@ -34,8 +36,10 @@ namespace Replimat
 
             listingStandard.CheckboxLabeled("Replimat_Settings_PrioritizeFoodQuality_Title".Translate(),
                 ref PrioritizeFoodQuality, "Replimat_Settings_PrioritizeFoodQuality_Desc".Translate());
+            listingStandard.Label("Replimat_Settings_HopperRefillThresholdPercent_Title".Translate() + ": " + HopperRefillThresholdPercent.ToStringPercent("F0"), -1f, "Replimat_Settings_HopperRefillThresholdPercent_Desc".Translate());
+            HopperRefillThresholdPercent = (float)Math.Round((double)listingStandard.Slider(HopperRefillThresholdPercent, 0.05f, 1f), 2);            
 
-            // Do general settings
+            // Do incident settings
             Text.Font = GameFont.Medium;
             listingStandard.Label("Replimat_Settings_HeaderIncidents".Translate());
             Text.Font = GameFont.Small;
@@ -58,7 +62,7 @@ namespace Replimat
         private static bool allowSociallyImproper;
         private static bool BestFoodSourceOnMap;
 
-        private static int minimumHopperRefillThresholdPercent = 10;
+        public static int minimumHopperRefillThresholdPercent = 10;
 
 
         public ReplimatMod(ModContentPack content) : base(content)
@@ -326,9 +330,9 @@ namespace Replimat
                 {
                     
                     if (c.GetSlotGroup(map).parent.GetType().ToString() == "Replimat.Building_ReplimatHopper")
-                    {
+                    {   
                         // Apply the minimum Hopper refilling threshold only to Replimat Hoppers
-                        __result &= !map.thingGrid.ThingsListAt(c).Any(t => t.def.EverStorable(false) && t.stackCount >= thing.def.stackLimit * (minimumHopperRefillThresholdPercent / 100f));
+                        __result &= !map.thingGrid.ThingsListAt(c).Any(t => t.def.EverStorable(false) && t.stackCount >= thing.def.stackLimit * Settings.HopperRefillThresholdPercent);
                     }
                     else
                     {
