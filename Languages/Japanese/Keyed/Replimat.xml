@@ -44,7 +44,7 @@
 	<Replimat_SettingsCategory_Heading>レプリマット</Replimat_SettingsCategory_Heading>
 	
 		<!-- EN: General -->
-	<Replimat_Settings_HeaderGeneral>(JPN) General</Replimat_Settings_HeaderGeneral>
+	<Replimat_Settings_HeaderGeneral>主な設定</Replimat_Settings_HeaderGeneral>
 	
 	<!-- EN: Incidents -->
 	<Replimat_Settings_HeaderIncidents>偶発事件</Replimat_Settings_HeaderIncidents>
@@ -56,22 +56,21 @@
 	<Replimat_Settings_PrioritizeFoodQuality_Desc>デフォルトでは,ポーンは現在の食事制限で許可されている中で最高品質の食事を複製します.\n\nこれを無効にすると,ポーンは食事制限で許可されている内の任意の食事を複製できます.</Replimat_Settings_PrioritizeFoodQuality_Desc>
 	
 	<!-- EN: Replimat Hopper refill threshold -->
-	<Replimat_Settings_HopperRefillThresholdPercent_Title>(JPN) Replimat Hopper refill threshold</Replimat_Settings_HopperRefillThresholdPercent_Title>
+	<Replimat_Settings_HopperRefillThresholdPercent_Title>レプリマットホッパーの補充しきい値</Replimat_Settings_HopperRefillThresholdPercent_Title>
 	
 	<!-- EN: Sets the threshold at which the Replimat Hopper will be restocked with raw food. -->
-	<Replimat_Settings_HopperRefillThresholdPercent_Desc>(JPN) Sets the threshold at which the Replimat Hopper will be restocked with raw food.</Replimat_Settings_HopperRefillThresholdPercent_Desc>
+	<Replimat_Settings_HopperRefillThresholdPercent_Desc>レプリマットホッパーに食材が補充されるしきい値を設定します.</Replimat_Settings_HopperRefillThresholdPercent_Desc>
 	
 	<!-- EN: Enable Spills -->
-	<Replimat_Settings_EnableIncidentSpill_Title>(JPN) Enable Spills</Replimat_Settings_EnableIncidentSpill_Title>
+	<Replimat_Settings_EnableIncidentSpill_Title>レプリマット漏出事件を有効にする</Replimat_Settings_EnableIncidentSpill_Title>
 
 	<!-- EN: Allows any Terminal or Animal Feeder to have a small chance of malfunctioning and spilling feedstock. -->
-	<Replimat_Settings_EnableIncidentSpill_Desc>(JPN) Allows any Terminal or Animal Feeder to have a small chance of malfunctioning and spilling feedstock.</Replimat_Settings_EnableIncidentSpill_Desc>
+	<Replimat_Settings_EnableIncidentSpill_Desc>任意の端末または給餌器が誤動作して、原料をこぼす可能性があります.</Replimat_Settings_EnableIncidentSpill_Desc>
 
 	<!-- EN: Enable Kibble Malfunctions -->
-	<Replimat_Settings_EnableIncidentKibble_Title>(JPN) Enable Kibble Malfunctions</Replimat_Settings_EnableIncidentKibble_Title>
+	<Replimat_Settings_EnableIncidentKibble_Title>レプリマット誤動作事件を有効にする</Replimat_Settings_EnableIncidentKibble_Title>
 
 	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. -->
-	<Replimat_Settings_EnableIncidentKibble_Desc>(JPN) Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. </Replimat_Settings_EnableIncidentKibble_Desc>
+	<Replimat_Settings_EnableIncidentKibble_Desc>任意の端末が誤動作して、大量の動物飼料を自動的に生産する可能性があります.</Replimat_Settings_EnableIncidentKibble_Desc>
 
-	
 </LanguageData>
