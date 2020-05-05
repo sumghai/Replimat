@@ -23,6 +23,8 @@
 		</prerequisites>
 		<researchViewX>0</researchViewX>
 		<researchViewY>0</researchViewY>
+		<discoveredLetterTitle>About: Building a Replimat system</discoveredLetterTitle>
+		<discoveredLetterText>You now have the technology to build a Replimat system.\n\nA typical Replimat setup requires:\n\n  -One Replimat Computer, to control the entire system\n  -One (or more) Replimat Hoppers(s), to convert raw food into nutrient feedstock\n  -One (or more) Replimat Feedstock Tanks(s), to store the nutrient feedstock\n  -One (or more) Replimat Terminal(s), to serve meals to your colonists\n\nHowever, each Replimat Computer requires a special Isolinear Computing Module component. You can collect Isolinear Computing Modules several ways:\n\n  -Orbital or caravan exotic goods traders sell Isolinear Computing Modules. Invite or wait for them.\n  -Some quests are rewarded with Isolinear Computing Modules.\n  -Disassemble an AI persona core to extract an Isolinear Computing Module (along with various other components).\n\nOnce you have built a Replimat Computer, you can connect it to multiple Hoppers, Tanks and Terminals via the same power grid to build a comprehensive Replimat system.</discoveredLetterText>
 	</ResearchProjectDef>
 
 </Defs>
