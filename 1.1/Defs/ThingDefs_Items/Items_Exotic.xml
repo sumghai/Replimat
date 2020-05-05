@@ -16,7 +16,7 @@
 		<soundDrop>Standard_Drop</soundDrop>
 		<stackLimit>1</stackLimit>
 		<statBases>
-			<MarketValue>2000</MarketValue>
+			<MarketValue>1000</MarketValue>
 			<MaxHitPoints>100</MaxHitPoints>
 			<Mass>0.5</Mass>
 		</statBases>
@@ -29,6 +29,9 @@
 			<li>Exotic</li>
 			<li>Replimat_Items</li>
 		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardMidFreq</li>
+		</thingSetMakerTags>
 	</ThingDef>
 
 </Defs>
