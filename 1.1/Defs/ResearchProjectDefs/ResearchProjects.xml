@@ -18,7 +18,7 @@
 		<baseCost>6000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
-			<li>MultiAnalyzer</li>
+			<li>AdvancedFabrication</li>
 			<li>NutrientPaste</li>
 		</prerequisites>
 		<researchViewX>0</researchViewX>
