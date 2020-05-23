@@ -328,8 +328,8 @@ namespace Replimat
             {
                 if (__result)
                 {
-                    
-                    if (c.GetSlotGroup(map).parent.GetType().ToString() == "Replimat.Building_ReplimatHopper")
+
+                    if (c.GetSlotGroup(map)?.parent?.GetType().ToString() == "Replimat.Building_ReplimatHopper")
                     {   
                         // Apply the minimum Hopper refilling threshold only to Replimat Hoppers
                         __result &= !map.thingGrid.ThingsListAt(c).Any(t => t.def.EverStorable(false) && t.stackCount >= thing.def.stackLimit * Settings.HopperRefillThresholdPercent);
