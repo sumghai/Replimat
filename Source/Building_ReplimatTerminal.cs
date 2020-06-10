@@ -148,11 +148,11 @@ namespace Replimat
             int maxPossibleSurvivalMeals = (int)Math.Floor(totalAvailableFeedstockMass / survivalMeal.BaseMass);
             int survivalMealCap = (maxPossibleSurvivalMeals < maxSurvivalMeals) ? maxPossibleSurvivalMeals : maxSurvivalMeals;
 
-            /*Log.Message("[Replimat] " + "Default max survival meals is " + maxSurvivalMeals + "\n"
-                + "Total available feedstock of " + totalAvailableFeedstock + " can provide up to " + maxPossibleSurvivalMeals + " survival meals\n"
-                + "Final cap on survival meals is " + survivalMealCap);*/
+            float survivalMealCapVolumeOfFeedstockRequired = ReplimatUtility.convertMassToFeedstockVolume(survivalMealCap * survivalMeal.BaseMass);
 
-            float volumeOfFeedstockRequired = ReplimatUtility.convertMassToFeedstockVolume(survivalMealCap * survivalMeal.BaseMass);
+            Log.Message("[Replimat] " + "Default max survival meals is " + maxSurvivalMeals + " (which requires " + ReplimatUtility.convertMassToFeedstockVolume(maxSurvivalMeals * survivalMeal.BaseMass) + " L of feedstock)\n"
+                + "Total available feedstock of " + totalAvailableFeedstock + " can provide up to " + maxPossibleSurvivalMeals + " survival meals\n"
+                + "Final cap on survival meals is " + survivalMealCap + " (which requires " + survivalMealCapVolumeOfFeedstockRequired + " L of feedstock)");
 
             if (!CanDispenseNow)
             {
@@ -160,7 +160,7 @@ namespace Replimat
                 return;
             }
 
-            if (!HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockRequired))
+            if (!HasEnoughFeedstockInHopperForIncident(survivalMealCapVolumeOfFeedstockRequired))
             {
                 //Log.Error("[Replimat] " + "Not enough feedstock to make required survival meals.");
                 return;
@@ -171,7 +171,7 @@ namespace Replimat
 
             Dialog_Slider window = new Dialog_Slider(textGetter, 1, survivalMealCap, delegate (int x)
             {
-                ConfirmAction(x, volumeOfFeedstockRequired);
+                ConfirmAction(x, ReplimatUtility.convertMassToFeedstockVolume(survivalMeal.BaseMass));
             }, 1);
             Find.WindowStack.Add(window);
         }
@@ -182,7 +182,9 @@ namespace Replimat
             ReplicatingTicks = GenTicks.SecondsToTicks(2f);
             def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
 
-            this.powerComp.PowerNet.TryConsumeFeedstock(volumeOfFeedstockRequired);
+            Log.Message("[Replimat] Player requesting " + x + " survival meals (which requires " + (x * volumeOfFeedstockRequired) + " L of feedstock)");
+
+            this.powerComp.PowerNet.TryConsumeFeedstock(x * volumeOfFeedstockRequired);
             Thing t = ThingMaker.MakeThing(ThingDefOf.MealSurvivalPack, null);
             t.stackCount = x;
             GenPlace.TryPlaceThing(t, this.InteractionCell, base.Map, ThingPlaceMode.Near);
