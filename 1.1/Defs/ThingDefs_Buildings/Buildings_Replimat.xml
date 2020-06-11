@@ -325,14 +325,15 @@
 		<thingClass>Replimat.Building_ReplimatComputer</thingClass>
 		<graphicData>
 			<texPath>Things/Building/replimatComputer</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(2,2)</drawSize>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
 			<shadowData>
 				<volume>(1.875,1,1)</volume>
 				<offset>(0,0,0)</offset>
 			</shadowData>
 			<damageData>
-				<rect>(0.0625,0,2,1.15)</rect>
+				<rectN>(0.0625,0,2,1.15)</rectN>
+				<rectE>(0,0.0625,1.15,2)</rectE>
 			</damageData>
 		</graphicData>
 		<uiIconPath>UI/replimatComputer</uiIconPath>
@@ -354,7 +355,6 @@
 			<Mass>100</Mass>
 		</statBases>
 		<size>(2,1)</size>
-		<rotatable>false</rotatable>
 		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>Impassable</passability>
