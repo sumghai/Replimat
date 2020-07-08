@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+
 	<!-- EN: Molecular Nutrient Resequencing -->
 	<MolecularNutrientResequencing.label>分子营养素重测序</MolecularNutrientResequencing.label>
 	
 	<!-- EN: Allows the construction of Replimat systems, advanced versions of nutrient paste dispensers that convert raw nutritive feedstock into a wider variety of high quality meals. Also automatically lays nutrient feedstock pipelines along existing power conduit networks. -->
 	<MolecularNutrientResequencing.description>让你可以建造食品合成系统，使储存的营养原料转换成各样的美味食品，同时在现有的电网旁自动铺设营养原料输送管道。</MolecularNutrientResequencing.description>
+	
+	<!-- EN: About: Building a Replimat system -->
+	<MolecularNutrientResequencing.discoveredLetterTitle>关于：建造食品合成系统</MolecularNutrientResequencing.discoveredLetterTitle>
+	
+	<!-- EN: You now have the technology to build a Replimat system.\n\nA typical Replimat setup requires:\n\n  -One Replimat Computer, to control the entire system\n  -One (or more) Replimat Hoppers(s), to convert raw food into nutrient feedstock\n  -One (or more) Replimat Feedstock Tanks(s), to store the nutrient feedstock\n  -One (or more) Replimat Terminal(s), to serve meals to your colonists\n\nHowever, each Replimat Computer requires a special Isolinear Computing Module component. You can collect Isolinear Computing Modules several ways:\n\n  -Orbital or caravan exotic goods traders sell Isolinear Computing Modules. Invite or wait for them.\n  -Some quests are rewarded with Isolinear Computing Modules.\n  -Disassemble an AI persona core to extract an Isolinear Computing Module (along with various other components).\n\nOnce you have built a Replimat Computer, you can connect it to multiple Hoppers, Tanks and Terminals via the same power grid to build a comprehensive Replimat system.-->
+	
+	<MolecularNutrientResequencing.discoveredLetterText>现在你可以建造食品合成系统了。 \n\n通常一个食品合成系统需要:\n\n  -一台主电脑，来控制整个食品合成系统\n  -(至少)一个食品合成系统储料槽，来把生鲜食材转换成系统用的液体形式营养原料\n  -(至少)一个原料储存桶，来储存营养原料\n  -(至少)一个食品合成器，来复制居民要吃的食品\n\n不过，每台主电脑需要一个等线性电脑模块零件来建造。你可以透过以下几种方式收集等线性电脑模块：\n\n  -外贸轨道商人或拜访的外贸贸易旅队有时候会卖等线性电脑模块。邀请或等待他们拜访。\n  -有些任务会有等线性电脑模块作为奖励。\n   -拆解一个AI人格核心，以获取等线性电脑模块(与其他有用的零件)。\n\n建造了主电脑之后，你可以透过电线连接到多数的储料槽，原料储存桶和食品合成器，组成一个完善的食品合成系统。</MolecularNutrientResequencing.discoveredLetterText>
+	
 </LanguageData>
