@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 	<!-- EN: Isolinear Computing Module -->
-	<IsolinearModule.label>等値線計算モジュール</IsolinearModule.label>
+	<IsolinearModule.label>等線形計算モジュール</IsolinearModule.label>
 	
 	<!-- EN: A high-density optical data storage and processing module preprogrammed with a library of meal and beverage recipes. The key component of a Replimat Computer. -->
 	<IsolinearModule.description>高密度の光学データストレージと食事と飲み物のレシピライブラリがあらかじめプログラムされた加工モジュール.レプリマットコンピューターの主要部品です.</IsolinearModule.description>
