@@ -61,7 +61,7 @@
 		<tickerType>Normal</tickerType>
 		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
-		<passability>Impassable</passability>
+		<passability>PassThroughOnly</passability>
 		<pathCost>200</pathCost>
 		<castEdgeShadows>false</castEdgeShadows>
 		<hasInteractionCell>True</hasInteractionCell>
@@ -130,7 +130,7 @@
 		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>PassThroughOnly</passability>
-		<pathCost>70</pathCost>
+		<pathCost>40</pathCost>
 		<castEdgeShadows>false</castEdgeShadows>
 		<canOverlapZones>false</canOverlapZones>
 		<surfaceType>Item</surfaceType>
@@ -204,7 +204,8 @@
 		<rotatable>false</rotatable>
 		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
-		<passability>Impassable</passability>
+		<passability>PassThroughOnly</passability>
+		<pathCost>200</pathCost>
 		<castEdgeShadows>false</castEdgeShadows>
 		<staticSunShadowHeight>0.20</staticSunShadowHeight>
 		<comps>
@@ -262,7 +263,8 @@
 		<size>(3,1)</size>
 		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
-		<passability>Impassable</passability>
+		<passability>PassThroughOnly</passability>
+		<pathCost>150</pathCost>
 		<castEdgeShadows>false</castEdgeShadows>
 		<building>
 			<fixedStorageSettings>
@@ -357,7 +359,8 @@
 		<size>(2,1)</size>
 		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
-		<passability>Impassable</passability>
+		<passability>PassThroughOnly</passability>
+		<pathCost>200</pathCost>
 		<castEdgeShadows>false</castEdgeShadows>
 		<comps>
 			<li Class="CompProperties_Power">
