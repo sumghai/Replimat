@@ -100,6 +100,16 @@ namespace Replimat
         {
             base.Draw();
 
+            if (powerComp.PowerOn && (Rotation == Rot4.North))
+            {
+                Graphic screenGlow = GraphicDatabase.Get<Graphic_Single>("FX/replimatTerminalScreenGlow_north", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
+                Mesh screenGlowMesh = screenGlow.MeshAt(Rotation);
+                Vector3 screenGlowDrawPos = DrawPos;
+                screenGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
+
+                Graphics.DrawMesh(screenGlowMesh, screenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(screenGlow.MatAt(Rotation, null), 1), 0);
+            }
+
             if (ReplicatingTicks > 0)
             {
                 float alpha;

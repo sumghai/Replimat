@@ -47,7 +47,7 @@
 			<ComponentSpacer>3</ComponentSpacer>
 			<Plasteel>20</Plasteel>
 		</costList>
-		<altitudeLayer>ItemImportant</altitudeLayer>
+		<altitudeLayer>Building</altitudeLayer>
 		<fillPercent>1</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>

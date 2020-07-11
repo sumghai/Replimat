@@ -60,6 +60,34 @@ namespace Replimat
         {
             base.Draw();
 
+            if (powerComp.PowerOn)
+            {
+                string screenGlowFxGraphicPath = null;
+
+                if (Rotation == Rot4.North)
+                {
+                    screenGlowFxGraphicPath = "FX/replimatHopperScreenGlow_north";
+                }
+                if (Rotation == Rot4.East)
+                {
+                    screenGlowFxGraphicPath = "FX/replimatHopperScreenGlow_east";
+                }
+                if (Rotation == Rot4.South)
+                {
+                    screenGlowFxGraphicPath = "FX/replimatHopperScreenGlow_south";
+                }
+                if (Rotation == Rot4.West)
+                {
+                    screenGlowFxGraphicPath = "FX/replimatHopperScreenGlow_west";
+                }
+
+                Graphic screenGlow = GraphicDatabase.Get<Graphic_Single>(screenGlowFxGraphicPath, ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
+                Mesh screenGlowMesh = screenGlow.MeshAt(Rotation);
+                Vector3 screenGlowDrawPos = DrawPos;
+                screenGlowDrawPos.y = AltitudeLayer.ItemImportant.AltitudeFor() + 0.03f;
+
+                Graphics.DrawMesh(screenGlowMesh, screenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(screenGlow.MatAt(Rotation, null), 1), 0);
+            }
 
             float alpha;
             float quart = DematerializeDuration * 0.25f;
