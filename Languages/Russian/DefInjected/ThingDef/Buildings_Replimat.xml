@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- EN: Replimat Terminal -->
+	<ReplimatTerminal.label>Реплимат терминал</ReplimatTerminal.label>
+	
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatTerminal.description>Синтезирует еду и напитки путем молекулярного перестроения. Требуется подключение к Бункеру Реплимат и Компьютеру Реплимат через кабеля.</ReplimatTerminal.description>
+	
+	<!-- EN: Replimat Terminal (blueprint)-->
+	<ReplimatTerminal_Blueprint.label>Реплимат терминал</ReplimatTerminal_Blueprint.label>
+	
+	<!-- EN: Replimat Terminal (blueprint)-->
+	<ReplimatTerminal_Blueprint_Install.label>Реплимат терминал</ReplimatTerminal_Blueprint_Install.label>
+	
+	<!-- EN: Replimat Terminal (building)-->
+	<ReplimatTerminal_Frame.label>Реплимат терминал</ReplimatTerminal_Frame.label>
+	
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatTerminal_Frame.description>Синтезирует еду и напитки путем молекулярного перестроения. Требуется подключение к Бункеру Реплимат и Компьютеру Реплимат через кабеля.</ReplimatTerminal_Frame.description>
+	
+	<!-- EN: Replimat Animal Feeder -->
+	<ReplimatAnimalFeeder.label>Кормушка Реплимат</ReplimatAnimalFeeder.label>
+	
+	<!-- EN: Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatAnimalFeeder.description>Синтезирует корм для животных путем молекулярного перестроения. Требуется подключение к Бункеру Реплимат и Компьютеру Реплимат через кабеля.</ReplimatAnimalFeeder.description>
+	
+	<!-- EN: Replimat Animal Feeder (blueprint)-->
+	<ReplimatAnimalFeeder_Blueprint.label>Кормушка Реплимат</ReplimatAnimalFeeder_Blueprint.label>
+	
+	<!-- EN: Replimat Animal Feeder (blueprint)-->
+	<ReplimatAnimalFeeder_Blueprint_Install.label>Кормушка Реплимат</ReplimatAnimalFeeder_Blueprint_Install.label>
+	
+	<!-- EN: Replimat Animal Feeder (building)-->
+	<ReplimatAnimalFeeder_Frame.label>Кормушка Реплимат</ReplimatAnimalFeeder_Frame.label>
+	
+	<!-- EN: Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatAnimalFeeder_Frame.description>Синтезирует корм для животных путем молекулярного перестроения. Требуется подключение к Бункеру Реплимат и Компьютеру Реплимат через кабеля.</ReplimatAnimalFeeder_Frame.description>
+	
+	<!-- EN: Replimat Feedstock Tank -->
+	<ReplimatFeedTank.label>Хранилище сырья Реплимат</ReplimatFeedTank.label>
+	
+	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<ReplimatFeedTank.description>Хранит суспензию органических частиц для использования Терминалами Реплимат. Поставляется Бункером Реплимат.</ReplimatFeedTank.description>
+	
+	<!-- EN: Replimat Feedstock Tank (blueprint)-->
+	<ReplimatFeedTank_Blueprint.label>Хранилище сырья Реплимат</ReplimatFeedTank_Blueprint.label>
+	
+	<!-- EN: Replimat Feedstock Tank (blueprint)-->
+	<ReplimatFeedTank_Blueprint_Install.label>Хранилище сырья Реплимат</ReplimatFeedTank_Blueprint_Install.label>
+	
+	<!-- EN: Replimat Feedstock Tank (building)-->
+	<ReplimatFeedTank_Frame.label>Хранилище сырья Реплимат</ReplimatFeedTank_Frame.label>
+	
+	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<ReplimatFeedTank_Frame.description>Хранит суспензию органических частиц для использования Терминалами Реплимат. Поставляется Бункером Реплимат.</ReplimatFeedTank_Frame.description>
+	
+	<!-- EN: Replimat Hopper -->
+	<ReplimatHopper.label>Бункер Реплимат</ReplimatHopper.label>
+	
+	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->	
+	<ReplimatHopper.description>Содержит охлажденные сырые продукты и разбирает их на молекулярном уровне в суспензию органических частиц для питания систем Реплимат.</ReplimatHopper.description>
+	
+	<!-- EN: Replimat Hopper (blueprint)-->
+	<ReplimatHopper_Blueprint.label>Бункер Реплимат</ReplimatHopper_Blueprint.label>
+	
+	<!-- EN: Replimat Hopper (blueprint)-->
+	<ReplimatHopper_Blueprint_Install.label>Бункер Реплимат</ReplimatHopper_Blueprint_Install.label>
+	
+	<!-- EN: Replimat Hopper (building)-->
+	<ReplimatHopper_Frame.label>Бункер Реплимат</ReplimatHopper_Frame.label>
+	
+	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->	
+	<ReplimatHopper_Frame.description>Содержит охлажденные сырые продукты и разбирает их на молекулярном уровне в суспензию органических частиц для питания систем Реплимат.</ReplimatHopper_Frame.description>
+	
+	<!-- EN: Replimat Computer -->
+	<ReplimatComputer.label>Компьютер Реплимат</ReplimatComputer.label>
+	
+	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
+	<ReplimatComputer.description>Предоставляет широкий выбор рецептов еды и напитков для всех терминалов Реплимат.</ReplimatComputer.description>
+	
+	<!-- EN: Replimat Computer (blueprint)-->
+	<ReplimatComputer_Blueprint.label>Компьютер Реплимат</ReplimatComputer_Blueprint.label>
+	
+	<!-- EN: Replimat Computer (blueprint)-->
+	<ReplimatComputer_Blueprint_Install.label>Компьютер Реплимат</ReplimatComputer_Blueprint_Install.label>
+	
+	<!-- EN: Replimat Computer (building)-->
+	<ReplimatComputer_Frame.label>Компьютер Реплимат</ReplimatComputer_Frame.label>
+	
+	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
+	<ReplimatComputer_Frame.description>Предоставляет широкий выбор рецептов еды и напитков для всех терминалов Реплимат.</ReplimatComputer_Frame.description>
+</LanguageData>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!-- EN: Replicated Meal -->
+	<ReplicatedMeal>Создаваемая еда</ReplicatedMeal>
+
+	<!-- EN: Feedstock stored {0} / {1} L -->
+	<FeedstockStored>Сырья хранится {0} / {1} L</FeedstockStored>
+
+	<!-- EN: Total feedstock stored {0} / {1} L -->
+	<TotalFeedstockStored>Всего сырья хранится {0} / {1} L</TotalFeedstockStored>
+
+	<!-- EN: Replimat Spill -->
+	<LetterLabelReplimatSpill>Поток сырья</LetterLabelReplimatSpill>
+
+	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<LetterTextReplimatSpill>A {0} неисправен, разливая питательное сырье повсюду.</LetterTextReplimatSpill>
+
+	<!-- EN: Replimat Malfunction -->
+	<LetterLabelReplimatMalfunctionKibble>Неисправность создания</LetterLabelReplimatMalfunctionKibble>
+
+	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
+	<LetterTextReplimatMalfunctionKibble>Произошел сбой {0}, что привело к образованию большого количества корма для животных.</LetterTextReplimatMalfunctionKibble>
+
+	<!-- EN: Requires connection to Replimat Computer -->	
+	<NotConnectedToComputer>Требуется подключение к компьютеру Реплимат</NotConnectedToComputer>
+
+	<!-- EN: Insufficient Feedstock -->
+	<NotEnoughFeedstock>Недостаточно сырья</NotEnoughFeedstock>
+
+	<!-- EN: Batch Survival Meals -->
+	<BatchMakeSurvivalMeals>Получить сухпаёк</BatchMakeSurvivalMeals>
+
+	<!-- EN: Replicate a batch of Packaged Survival Meals for use in caravans or emergencies. -->
+	<BatchMakeSurvivalMeals_Desc>Создать сухпаёк для использования в караванах или чрезвычайных ситуациях.</BatchMakeSurvivalMeals_Desc>
+
+	<!-- EN: Cannot batch replicate survival meals: Terminal has insufficient feedstock, or is not connected to Computer and Feedstock tanks-->
+	<MessageCannotBatchMakeSurvivalMeals>Невозможно создать пищу для выживания: в терминале недостаточно сырья или он не подключен к резервуарам компьютера и сырья.</MessageCannotBatchMakeSurvivalMeals>
+
+	<!-- EN: Make {0} Packaged Survival Meals\n(Max allowed: {1}) -->	
+	<SetSurvivalMealBatchSize>Сделать {0} сухпайков\n(максимально допустимое: {1})</SetSurvivalMealBatchSize>
+
+	<!-- EN: Replimat -->
+	<Replimat_SettingsCategory_Heading>Реплимат</Replimat_SettingsCategory_Heading>
+
+	<!-- EN: General -->
+	<Replimat_Settings_HeaderGeneral>Общее</Replimat_Settings_HeaderGeneral>
+
+	<!-- EN: Incidents -->
+	<Replimat_Settings_HeaderIncidents>Проишествия</Replimat_Settings_HeaderIncidents>
+
+	<!-- EN: Prioritize food quality -->
+	<Replimat_Settings_PrioritizeFoodQuality_Title>Приоритет качества еды</Replimat_Settings_PrioritizeFoodQuality_Title>
+
+	<!-- EN: By default, pawns will replicate meals at the highest quality allowed by their current food restriction policy.\n\nDisabling this allows pawns to replicate any random meal within their food restriction policy irrespective of quality. -->
+	<Replimat_Settings_PrioritizeFoodQuality_Desc>По умолчанию пешки будут воспроизводить пищу с наивысшим качеством, в соответствии с их политикой приёма пищи.\n\nОтключение этого параметра позволяет пешкам создавать любую случайную еду в соответствии с установленной политикой независимо от качества.</Replimat_Settings_PrioritizeFoodQuality_Desc>
+
+	<!-- EN: Replimat Hopper refill threshold -->
+	<Replimat_Settings_HopperRefillThresholdPercent_Title>Реплимат бункер порог пополнения</Replimat_Settings_HopperRefillThresholdPercent_Title>
+
+	<!-- EN: Sets the threshold at which the Replimat Hopper will be restocked with raw food. -->
+	<Replimat_Settings_HopperRefillThresholdPercent_Desc>Устанавливает порог, при котором бункер Реплимат будет пополняться сырой пищей.</Replimat_Settings_HopperRefillThresholdPercent_Desc>
+
+	<!-- EN: Enable Spills -->
+	<Replimat_Settings_EnableIncidentSpill_Title>Разрешить разливы</Replimat_Settings_EnableIncidentSpill_Title>
+
+	<!-- EN: Allows any Terminal or Animal Feeder to have a small chance of malfunctioning and spilling feedstock. -->
+	<Replimat_Settings_EnableIncidentSpill_Desc>Позволить любому терминалу или кормушке иметь небольшую вероятность неправильной работы и разлива сырья.</Replimat_Settings_EnableIncidentSpill_Desc>
+
+	<!-- EN: Enable Kibble Malfunctions -->
+	<Replimat_Settings_EnableIncidentKibble_Title>Разрешить неисправности дробления</Replimat_Settings_EnableIncidentKibble_Title>
+
+	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. -->
+	<Replimat_Settings_EnableIncidentKibble_Desc>Позволяет любому терминалу иметь небольшую вероятность сбоя и репликации большого количества дробления по собственному желанию. </Replimat_Settings_EnableIncidentKibble_Desc>
+
+</LanguageData>
