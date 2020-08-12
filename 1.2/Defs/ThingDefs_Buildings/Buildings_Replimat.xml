@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef Name="ReplimatBase" Abstract="True">
+		<category>Building</category>
+		<thingClass>Building</thingClass>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<repairEffect>Repair</repairEffect>
+	</ThingDef>
+
+	<ThingDef Name="ReplimatBaseMinifiable" ParentName="ReplimatBase" Abstract="True">
+		<thingCategories>
+			<li>BuildingsFurniture</li>
+		</thingCategories>
+	</ThingDef>
+
+	<!--====================== Replimat Terminal ======================--> 
+
+	<ThingDef ParentName="ReplimatBaseMinifiable">
+		<defName>ReplimatTerminal</defName>
+		<label>Replimat Terminal</label>
+		<description>Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.</description>
+		<thingClass>Replimat.Building_ReplimatTerminal</thingClass>
+		<graphicData>
+			<texPath>Things/Building/replimatTerminal</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(3,3)</drawSize>
+			<shadowData>
+				<volume>(1,1,0.5)</volume>
+				<offset>(0,0,0.25)</offset>
+			</shadowData>
+			<damageData>
+				<rectN>(0,0.17,1,1.25)</rectN>
+				<rectS>(0,-0.1,1,0.67)</rectS>
+				<rectE>(0.5,0,0.5,1.375)</rectE>
+				<rectW>(0,0,0.5,1.375)</rectW>
+			</damageData>
+		</graphicData>
+		<uiIconPath>UI/replimatTerminal</uiIconPath>
+		<constructEffect>ConstructMetal</constructEffect>
+		<costList>
+			<Steel>50</Steel>
+			<ComponentSpacer>3</ComponentSpacer>
+			<Plasteel>20</Plasteel>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>1</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>2000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>5</Beauty>
+			<Mass>75</Mass>
+		</statBases>
+		<size>(1,1)</size>
+		<tickerType>Normal</tickerType>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<designationCategory>Replimat_Replimat</designationCategory>
+		<passability>PassThroughOnly</passability>
+		<pathCost>200</pathCost>
+		<castEdgeShadows>false</castEdgeShadows>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<building>
+			<isMealSource>true</isMealSource>
+			<soundDispense>Replicate</soundDispense>
+			<wantsHopperAdjacent>false</wantsHopperAdjacent>
+			<nutritionCostPerDispense>0.3</nutritionCostPerDispense>
+		</building>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>125</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+		<researchPrerequisites>
+			<li>MolecularNutrientResequencing</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+	<!--====================== Replimat Animal Feeder ======================--> 
+
+	<ThingDef ParentName="ReplimatBaseMinifiable">
+		<defName>ReplimatAnimalFeeder</defName>
+		<label>Replimat Animal Feeder</label>
+		<description>Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.</description>
+		<thingClass>Replimat.Building_ReplimatAnimalFeeder</thingClass>
+		<graphicData>
+			<texPath>Things/Building/replimatAnimalFeeder</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(1,0.1,0.89)</volume>
+				<offset>(0,0,-0.055)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0,0,1,0.89)</rect>
+			</damageData>
+		</graphicData>
+		<constructEffect>ConstructMetal</constructEffect>
+		<costList>
+			<Steel>5</Steel>
+			<ComponentSpacer>1</ComponentSpacer>
+			<Plasteel>2</Plasteel>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.1</fillPercent>
+		<useHitPoints>true</useHitPoints>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<WorkToBuild>200</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>5</Beauty>
+			<Mass>2</Mass>
+		</statBases>
+		<inspectorTabs>
+			<li>ITab_Storage</li>
+		</inspectorTabs>
+		<rotatable>false</rotatable>
+		<tickerType>Normal</tickerType>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<designationCategory>Replimat_Replimat</designationCategory>
+		<passability>PassThroughOnly</passability>
+		<pathCost>40</pathCost>
+		<castEdgeShadows>false</castEdgeShadows>
+		<canOverlapZones>false</canOverlapZones>
+		<surfaceType>Item</surfaceType>
+		<building>
+			<fixedStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<thingDefs>
+						<li>Kibble</li>
+					</thingDefs>
+				</filter>
+			</fixedStorageSettings>
+			<defaultStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<thingDefs>
+						<li>Kibble</li>
+					</thingDefs>
+				</filter>
+			</defaultStorageSettings>
+			<soundDispense>Replicate</soundDispense>
+		</building>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>125</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+		<researchPrerequisites>
+			<li>MolecularNutrientResequencing</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+	<!--====================== Replimat Feedstock Tank ======================-->
+
+	<ThingDef ParentName="ReplimatBaseMinifiable">
+		<defName>ReplimatFeedTank</defName>
+		<label>Replimat Feedstock Tank</label>
+		<description>Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers.</description>
+		<thingClass>Replimat.Building_ReplimatFeedTank</thingClass>
+		<graphicData>
+			<texPath>Things/Building/replimatFeedTank</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<damageData>
+				<rect>(0,0,1,1.47)</rect>
+			</damageData>
+		</graphicData>
+		<uiIconPath>UI/replimatFeedTank</uiIconPath>
+		<constructEffect>ConstructMetal</constructEffect>
+		<costList>
+			<Steel>25</Steel>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+			<Plasteel>75</Plasteel>
+		</costList>
+		<altitudeLayer>ItemImportant</altitudeLayer>
+		<fillPercent>1</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>4000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Mass>100</Mass>
+		</statBases>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<designationCategory>Replimat_Replimat</designationCategory>
+		<passability>PassThroughOnly</passability>
+		<pathCost>200</pathCost>
+		<castEdgeShadows>false</castEdgeShadows>
+		<staticSunShadowHeight>0.20</staticSunShadowHeight>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>250</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<researchPrerequisites>
+			<li>MolecularNutrientResequencing</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+	<!--====================== Replimat Hopper ======================-->
+
+	<ThingDef ParentName="ReplimatBaseMinifiable">
+		<defName>ReplimatHopper</defName>
+		<label>Replimat Hopper</label>
+		<thingClass>Replimat.Building_ReplimatHopper</thingClass>
+		<description>Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems.</description>
+		<graphicData>
+			<texPath>Things/Building/replimatHopper</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<shadowData>
+				<volume>(2.35,0.5,1.2)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+			<damageData>
+				<rectN>(0.5,0,2,1.375)</rectN>
+				<rectS>(0.5,0,2,1.25)</rectS>
+				<rectE>(0,0.375,1,2.45)</rectE>
+				<rectW>(0,0.375,1,2.45)</rectW>
+			</damageData>
+		</graphicData>
+		<uiIconPath>UI/replimatHopper</uiIconPath>
+		<constructEffect>ConstructMetal</constructEffect>
+		<costList>
+			<Steel>10</Steel>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<ComponentSpacer>3</ComponentSpacer>
+			<Plasteel>5</Plasteel>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>450</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Mass>150</Mass>
+		</statBases>
+		<size>(3,1)</size>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<designationCategory>Replimat_Replimat</designationCategory>
+		<passability>PassThroughOnly</passability>
+		<pathCost>150</pathCost>
+		<castEdgeShadows>false</castEdgeShadows>
+		<building>
+			<fixedStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<categories>
+						<li>FoodRaw</li>
+					</categories>
+					<specialFiltersToDisallow>
+						<li>AllowPlantFood</li>
+					</specialFiltersToDisallow>
+				</filter>
+			</fixedStorageSettings>
+			<defaultStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<categories>
+						<li>FoodRaw</li>
+					</categories>
+				</filter>
+			</defaultStorageSettings>
+			<soundDispense>HopperDematerialize</soundDispense>
+		</building>
+		<inspectorTabs>
+			<li>ITab_Storage</li>
+		</inspectorTabs>
+		<tickerType>Normal</tickerType>
+		<rotatable>true</rotatable>
+		<surfaceType>Item</surfaceType>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>125</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Forbiddable"/>
+			<li Class="Replimat.CompProperties_SecondLayer">
+				<graphicData>
+					<texPath>Things/Building/replimatHopperLid</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<shaderType>Transparent</shaderType>
+					<drawSize>(3,3)</drawSize>
+				</graphicData>
+				<altitudeLayer>ItemImportant</altitudeLayer>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>MolecularNutrientResequencing</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+	<!--====================== Replimat Computer ======================-->
+
+	<ThingDef ParentName="ReplimatBaseMinifiable">
+		<defName>ReplimatComputer</defName>
+		<label>Replimat Computer</label>
+		<description>Provides a wide range of meal and beverage recipes to all Replimat Terminals.</description>
+		<thingClass>Replimat.Building_ReplimatComputer</thingClass>
+		<graphicData>
+			<texPath>Things/Building/replimatComputer</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<shadowData>
+				<volume>(1.875,1,1)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+			<damageData>
+				<rectN>(0.0625,0,2,1.15)</rectN>
+				<rectE>(0,0.0625,1.15,2)</rectE>
+			</damageData>
+		</graphicData>
+		<uiIconPath>UI/replimatComputer</uiIconPath>
+		<constructEffect>ConstructMetal</constructEffect>
+		<costList>
+			<Steel>25</Steel>
+			<ComponentSpacer>4</ComponentSpacer>
+			<Plasteel>10</Plasteel>
+			<IsolinearModule>1</IsolinearModule>
+		</costList>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>1</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<WorkToBuild>2000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Mass>100</Mass>
+		</statBases>
+		<size>(2,1)</size>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<designationCategory>Replimat_Replimat</designationCategory>
+		<passability>PassThroughOnly</passability>
+		<pathCost>200</pathCost>
+		<castEdgeShadows>false</castEdgeShadows>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>250</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<researchPrerequisites>
+			<li>MolecularNutrientResequencing</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+</Defs>
