@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest>
 	<identifier>Replimat</identifier>
-	<version>1.1.4</version>
+	<version>1.2.0</version>
 	<incompatibleWith>
 		<li>887716138</li> <!-- WM Smarter Food Selection -->
 		<li>1499843448</li> <!-- Pawn Rules -->

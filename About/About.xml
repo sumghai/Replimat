@@ -4,11 +4,11 @@
 	<name>Replimat</name>
 	<author>sumghai and Dubwise</author>
 	<packageId>sumghaiDubwise.Replimat</packageId>
-	<description>Adds Star Trek-style food replicator terminals and supporting hardware, for efficient and on-demand feeding of colonists.\n\nv1.1.4</description>
+	<description>Adds Star Trek-style food replicator terminals and supporting hardware, for efficient and on-demand feeding of colonists.\n\nv1.2.0</description>
 	<url/>
 	<supportedVersions>
-		<li>1.0</li>
 		<li>1.1</li>
+		<li>1.2</li>
 	</supportedVersions>
 	<incompatibleWith>
 		<li>avius.prisonlabor</li>
