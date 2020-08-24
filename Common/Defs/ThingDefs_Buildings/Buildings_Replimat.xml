@@ -51,6 +51,7 @@
 		<fillPercent>1</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
+			<MarketValue>3000</MarketValue>
 			<MaxHitPoints>200</MaxHitPoints>
 			<WorkToBuild>2000</WorkToBuild>
 			<Flammability>1.0</Flammability>
@@ -116,6 +117,7 @@
 		<fillPercent>0.1</fillPercent>
 		<useHitPoints>true</useHitPoints>
 		<statBases>
+			<MarketValue>1200</MarketValue>
 			<MaxHitPoints>20</MaxHitPoints>
 			<WorkToBuild>200</WorkToBuild>
 			<Flammability>1.0</Flammability>
@@ -195,6 +197,7 @@
 		<fillPercent>1</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
+			<MarketValue>1000</MarketValue>
 			<MaxHitPoints>200</MaxHitPoints>
 			<WorkToBuild>4000</WorkToBuild>
 			<Flammability>1.0</Flammability>
@@ -255,6 +258,7 @@
 		<fillPercent>0.5</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
+			<MarketValue>2000</MarketValue>
 			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>450</WorkToBuild>
 			<Flammability>1.0</Flammability>
@@ -351,6 +355,7 @@
 		<fillPercent>1</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
+			<MarketValue>4000</MarketValue>
 			<MaxHitPoints>400</MaxHitPoints>
 			<WorkToBuild>2000</WorkToBuild>
 			<Flammability>1.0</Flammability>
