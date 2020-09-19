@@ -31,7 +31,7 @@ namespace Replimat
             int unitsOfKibble = 75 * 3;
             float volumeOfFeedstockToWaste = ReplimatUtility.convertMassToFeedstockVolume(unitsOfKibble * kibble.BaseMass);
 
-            if (currentTerminal.HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockToWaste))
+            if (currentTerminal.powerComp.PowerOn && currentTerminal.HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockToWaste))
             {
                 currentTerminal.powerComp.PowerNet.TryConsumeFeedstock(volumeOfFeedstockToWaste);
                 Thing t = ThingMaker.MakeThing(kibble, null);

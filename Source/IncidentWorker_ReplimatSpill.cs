@@ -18,23 +18,22 @@ namespace Replimat
         public override bool TryExecuteWorker(IncidentParms parms)
         {
             Map map = (Map)parms.target;
-            List<Thing> listOfTerminals = map.listerThings.ThingsOfDef(ReplimatDef.ReplimatTerminal);
-            List<Thing> listOfAnimalFeeders = map.listerThings.ThingsOfDef(ReplimatDef.ReplimatAnimalFeeder);
-            List<Thing> list = listOfTerminals.Concat(listOfAnimalFeeders).ToList();
 
-            if (!list.Any())
+            List<Thing> listOfTerminals = map.listerThings.AllThings.Where(t => t.def == ReplimatDef.ReplimatTerminal || t.def == ReplimatDef.ReplimatAnimalFeeder).ToList();
+
+            if (!listOfTerminals.Any())
             {
                 // If there are no Terminals or Animal Feeders, break out of execution early
                 return false;
             }
 
-            Thing targetTerminal = list.RandomElement();
+            Thing targetTerminal = listOfTerminals.RandomElement();
 
             int volumeOfFeedstockToSpill = 3; // Volume in litres
 
             if (targetTerminal.def == ReplimatDef.ReplimatTerminal)
             {
-                if (targetTerminal is Building_ReplimatTerminal currentTerminal && currentTerminal.HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockToSpill))
+                if (targetTerminal is Building_ReplimatTerminal currentTerminal && currentTerminal.powerComp.PowerOn && currentTerminal.HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockToSpill))
                 {
                     currentTerminal.powerComp.PowerNet.TryConsumeFeedstock(volumeOfFeedstockToSpill);
                     ThingDef filthSlime = ThingDefOf.Filth_Slime;
@@ -54,7 +53,7 @@ namespace Replimat
             }
             else if (targetTerminal.def == ReplimatDef.ReplimatAnimalFeeder)
             {
-                if (targetTerminal is Building_ReplimatAnimalFeeder currentAnimalFeeder && currentAnimalFeeder.HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockToSpill))
+                if (targetTerminal is Building_ReplimatAnimalFeeder currentAnimalFeeder && currentAnimalFeeder.powerComp.PowerOn && currentAnimalFeeder.HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockToSpill))
                 {
                     currentAnimalFeeder.powerComp.PowerNet.TryConsumeFeedstock(volumeOfFeedstockToSpill);
                     ThingDef filthSlime = ThingDefOf.Filth_Slime;
