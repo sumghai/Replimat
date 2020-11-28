@@ -15,6 +15,7 @@
 		<li>Jaxe.PawnRules</li>
 		<li>Wishmaster.SmarterFoodSelection</li>
 		<li>Replimat.rus</li>
+		<li>Replimat_zh</li>
 	</incompatibleWith>
 	<loadBefore>
 		<li>avilmask.CommonSense</li>
