@@ -38,4 +38,8 @@
 	
 	<Replimat_Settings_EnableIncidentKibble_Title>Enable Kibble Malfunctions</Replimat_Settings_EnableIncidentKibble_Title>
 	<Replimat_Settings_EnableIncidentKibble_Desc>Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. </Replimat_Settings_EnableIncidentKibble_Desc>
+	
+	<Replimat_Stat_ActiveModePowerConsumption_Label>Power consumption (Active)</Replimat_Stat_ActiveModePowerConsumption_Label>
+	<Replimat_Stat_ActiveModePowerConsumption_Desc>The amount of power this building will draw from the power grid while actively running.</Replimat_Stat_ActiveModePowerConsumption_Desc>
+	
 </LanguageData>

@@ -12,11 +12,20 @@ namespace Replimat
 
     public class Building_ReplimatTerminal : Building_NutrientPasteDispenser
     {
+        public CompStateDependentPowerUse stateDependentPowerComp;
+
         public static int CollectDuration = GenTicks.SecondsToTicks(2f);
 
         public FoodPreferability MaxPreferability = FoodPreferability.MealLavish;
 
         public int ReplicatingTicks = 0;
+
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+            powerComp = GetComp<CompPowerTrader>();
+            stateDependentPowerComp = GetComp<CompStateDependentPowerUse>();
+        }
 
         // Leave this as a stub
         public override ThingDef DispensableDef
@@ -136,12 +145,12 @@ namespace Replimat
         {
             base.Tick();
 
-            powerComp.PowerOutput = -125f;
+            powerComp.PowerOutput = -powerComp.Props.basePowerConsumption;
 
             if (ReplicatingTicks > 0)
             {
                 ReplicatingTicks--;
-                powerComp.PowerOutput = -1500f;
+                powerComp.PowerOutput = -Math.Max(stateDependentPowerComp.ActiveModePowerConsumption, powerComp.Props.basePowerConsumption);
             }
         }
 

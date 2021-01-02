@@ -78,11 +78,14 @@
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<shortCircuitInRain>true</shortCircuitInRain>
-				<basePowerConsumption>125</basePowerConsumption>
+				<basePowerConsumption>2000</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="CompProperties_Forbiddable"/>
+			<li Class="Replimat.CompProperties_StateDependentPowerUse">
+				<activeModePowerConsumption>10000</activeModePowerConsumption>
+			</li>
 		</comps>
 		<researchPrerequisites>
 			<li>MolecularNutrientResequencing</li>
@@ -159,11 +162,14 @@
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<shortCircuitInRain>true</shortCircuitInRain>
-				<basePowerConsumption>125</basePowerConsumption>
+				<basePowerConsumption>500</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="CompProperties_Forbiddable"/>
+			<li Class="Replimat.CompProperties_StateDependentPowerUse">
+				<activeModePowerConsumption>2500</activeModePowerConsumption>
+			</li>
 		</comps>
 		<researchPrerequisites>
 			<li>MolecularNutrientResequencing</li>
@@ -215,7 +221,7 @@
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<shortCircuitInRain>true</shortCircuitInRain>
-				<basePowerConsumption>250</basePowerConsumption>
+				<basePowerConsumption>500</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>
@@ -302,7 +308,7 @@
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<shortCircuitInRain>true</shortCircuitInRain>
-				<basePowerConsumption>125</basePowerConsumption>
+				<basePowerConsumption>2000</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="CompProperties_Flickable"/>
@@ -315,6 +321,9 @@
 					<drawSize>(3,3)</drawSize>
 				</graphicData>
 				<altitudeLayer>ItemImportant</altitudeLayer>
+			</li>
+			<li Class="Replimat.CompProperties_StateDependentPowerUse">
+				<activeModePowerConsumption>20000</activeModePowerConsumption>
 			</li>
 		</comps>
 		<researchPrerequisites>
@@ -371,7 +380,7 @@
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<shortCircuitInRain>true</shortCircuitInRain>
-				<basePowerConsumption>250</basePowerConsumption>
+				<basePowerConsumption>1000</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>

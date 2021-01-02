@@ -42,7 +42,9 @@
     <Compile Include="Building_ReplimatHopper.cs" />
     <Compile Include="Building_ReplimatTerminal.cs" />
     <Compile Include="CompProperties_SecondLayer.cs" />
+    <Compile Include="CompProperties_StateDependentPowerUse.cs" />
     <Compile Include="CompSecondLayer.cs" />
+    <Compile Include="CompStateDependentPowerUse.cs" />
     <Compile Include="GraphicsLoader.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="IncidentWorker_ReplimatMalfunctionKibble.cs" />

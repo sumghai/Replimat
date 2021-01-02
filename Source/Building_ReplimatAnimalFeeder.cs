@@ -5,6 +5,7 @@ using Verse;
 using RimWorld;
 using UnityEngine;
 using Verse.Sound;
+using System;
 
 namespace Replimat
 {
@@ -13,6 +14,8 @@ namespace Replimat
         public static int KibbleReplicateDuration = GenTicks.SecondsToTicks(2f);
 
         public CompPowerTrader powerComp;
+
+        public CompStateDependentPowerUse stateDependentPowerComp;
 
         public int ReplicatingTicks = 0;
 
@@ -29,7 +32,8 @@ namespace Replimat
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            this.powerComp = base.GetComp<CompPowerTrader>();
+            powerComp = GetComp<CompPowerTrader>();
+            stateDependentPowerComp = GetComp<CompStateDependentPowerUse>();
         }
 
         public override IEnumerable<IntVec3> AllSlotCells()
@@ -140,12 +144,12 @@ namespace Replimat
                 }
             }
 
-            powerComp.PowerOutput = -125f;
+            powerComp.PowerOutput = -powerComp.Props.basePowerConsumption;
 
             if (ReplicatingTicks > 0)
             {
                 ReplicatingTicks--;
-                powerComp.PowerOutput = -1500f;
+                powerComp.PowerOutput = -Math.Max(stateDependentPowerComp.ActiveModePowerConsumption, powerComp.Props.basePowerConsumption);
             }
         }
 

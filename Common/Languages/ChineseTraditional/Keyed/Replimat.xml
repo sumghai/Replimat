@@ -72,5 +72,11 @@
 
 	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. -->
 	<Replimat_Settings_EnableIncidentKibble_Desc>讓任何食品合成器有發生故障後複製大量飼料的機會。</Replimat_Settings_EnableIncidentKibble_Desc>
+	
+	<!-- EN: Power consumption (Active) -->
+	<Replimat_Stat_ActiveModePowerConsumption_Label>耗電量 (運行中)</Replimat_Stat_ActiveModePowerConsumption_Label>
+	
+	<!-- EN: The amount of power this building will draw from the power grid while actively running. -->
+	<Replimat_Stat_ActiveModePowerConsumption_Desc>此建築物在運行中將從電線中獲取的電量。</Replimat_Stat_ActiveModePowerConsumption_Desc>
 
 </LanguageData>
