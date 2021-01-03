@@ -44,17 +44,17 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>50</Steel>
-			<ComponentSpacer>3</ComponentSpacer>
+			<ComponentSpacer>5</ComponentSpacer>
 			<Plasteel>20</Plasteel>
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
 		<fillPercent>1</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
-			<MarketValue>3000</MarketValue>
+			<MarketValue>20000</MarketValue>
 			<MaxHitPoints>200</MaxHitPoints>
-			<WorkToBuild>2000</WorkToBuild>
-			<Flammability>1.0</Flammability>
+			<WorkToBuild>5000</WorkToBuild>
+			<Flammability>0.3</Flammability>
 			<Beauty>5</Beauty>
 			<Mass>75</Mass>
 		</statBases>
@@ -113,17 +113,17 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>5</Steel>
-			<ComponentSpacer>1</ComponentSpacer>
+			<ComponentSpacer>2</ComponentSpacer>
 			<Plasteel>2</Plasteel>
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
 		<fillPercent>0.1</fillPercent>
 		<useHitPoints>true</useHitPoints>
 		<statBases>
-			<MarketValue>1200</MarketValue>
+			<MarketValue>5000</MarketValue>
 			<MaxHitPoints>20</MaxHitPoints>
-			<WorkToBuild>200</WorkToBuild>
-			<Flammability>1.0</Flammability>
+			<WorkToBuild>2000</WorkToBuild>
+			<Flammability>0.3</Flammability>
 			<Beauty>5</Beauty>
 			<Mass>2</Mass>
 		</statBases>
@@ -205,8 +205,9 @@
 		<statBases>
 			<MarketValue>1000</MarketValue>
 			<MaxHitPoints>200</MaxHitPoints>
-			<WorkToBuild>4000</WorkToBuild>
-			<Flammability>1.0</Flammability>
+			<WorkToBuild>3000</WorkToBuild>
+			<Flammability>0.3</Flammability>
+			<Beauty>-3</Beauty>
 			<Mass>100</Mass>
 		</statBases>
 		<size>(1,1)</size>
@@ -255,19 +256,20 @@
 		<uiIconPath>UI/replimatHopper</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
-			<Steel>10</Steel>
-			<ComponentIndustrial>5</ComponentIndustrial>
-			<ComponentSpacer>3</ComponentSpacer>
-			<Plasteel>5</Plasteel>
+			<Steel>80</Steel>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<ComponentSpacer>8</ComponentSpacer>
+			<Plasteel>50</Plasteel>
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
 		<fillPercent>0.5</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
-			<MarketValue>2000</MarketValue>
+			<MarketValue>30000</MarketValue>
 			<MaxHitPoints>100</MaxHitPoints>
-			<WorkToBuild>450</WorkToBuild>
-			<Flammability>1.0</Flammability>
+			<WorkToBuild>7000</WorkToBuild>
+			<Flammability>0.3</Flammability>
+			<Beauty>-2</Beauty>
 			<Mass>150</Mass>
 		</statBases>
 		<size>(3,1)</size>
@@ -354,9 +356,10 @@
 		<uiIconPath>UI/replimatComputer</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
-			<Steel>25</Steel>
-			<ComponentSpacer>4</ComponentSpacer>
-			<Plasteel>10</Plasteel>
+			<Steel>80</Steel>
+			<ComponentSpacer>12</ComponentSpacer>
+			<ComponentIndustrial>8</ComponentIndustrial>
+			<Plasteel>60</Plasteel>
 			<IsolinearModule>1</IsolinearModule>
 		</costList>
 		<tickerType>Normal</tickerType>
@@ -364,10 +367,11 @@
 		<fillPercent>1</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
-			<MarketValue>4000</MarketValue>
+			<MarketValue>40000</MarketValue>
 			<MaxHitPoints>400</MaxHitPoints>
-			<WorkToBuild>2000</WorkToBuild>
-			<Flammability>1.0</Flammability>
+			<WorkToBuild>10000</WorkToBuild>
+			<Flammability>0.3</Flammability>
+			<Beauty>-1</Beauty>
 			<Mass>100</Mass>
 		</statBases>
 		<size>(2,1)</size>
