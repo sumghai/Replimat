@@ -9,6 +9,7 @@
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<repairEffect>Repair</repairEffect>
+		<tradeability>Buyable</tradeability>
 	</ThingDef>
 
 	<ThingDef Name="ReplimatBaseMinifiable" ParentName="ReplimatBase" Abstract="True">
