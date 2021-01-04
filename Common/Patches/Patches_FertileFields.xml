@@ -9,19 +9,15 @@
 		<match Class="PatchOperationSequence">
 			<operations>
 				<li Class="PatchOperationAdd">
-					<xpath>Defs/ThingDef[defName="ReplimatHopper"]/building/fixedStorageSettings/filter</xpath>
+					<xpath>Defs/ThingDef[defName="ReplimatHopper"]/building/fixedStorageSettings/filter/thingDefs</xpath>
 					<value>
-						<thingDefs>
-							<li>PlantScraps</li>
-						</thingDefs>
+						<li>PlantScraps</li>
 					</value>
 				</li>
 				<li Class="PatchOperationAdd">
-					<xpath>Defs/ThingDef[defName="ReplimatHopper"]/building/defaultStorageSettings/filter</xpath>
+					<xpath>Defs/ThingDef[defName="ReplimatHopper"]/building/defaultStorageSettings/filter/thingDefs</xpath>
 					<value>
-						<thingDefs>
-							<li>PlantScraps</li>
-						</thingDefs>
+						<li>PlantScraps</li>
 					</value>
 				</li>
 			</operations>
