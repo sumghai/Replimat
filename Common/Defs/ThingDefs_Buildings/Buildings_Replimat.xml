@@ -285,10 +285,11 @@
 				<filter>
 					<categories>
 						<li>FoodRaw</li>
+						<li>PlantMatter</li>
 					</categories>
-					<specialFiltersToDisallow>
-						<li>AllowPlantFood</li>
-					</specialFiltersToDisallow>
+					<thingDefs>
+						<li>Hay</li>
+					</thingDefs>
 				</filter>
 			</fixedStorageSettings>
 			<defaultStorageSettings>
@@ -296,7 +297,11 @@
 				<filter>
 					<categories>
 						<li>FoodRaw</li>
+						<li>PlantMatter</li>
 					</categories>
+					<thingDefs>
+						<li>Hay</li>
+					</thingDefs>
 				</filter>
 			</defaultStorageSettings>
 			<soundDispense>HopperDematerialize</soundDispense>
