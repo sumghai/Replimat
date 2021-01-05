@@ -124,24 +124,21 @@ namespace Replimat
 
             powerComp.PowerOutput = -powerComp.Props.basePowerConsumption;
 
-            if (this.IsHashIntervalTick(60))
+            List<Building_ReplimatFeedTank> tanks = GetTanks;
+            List<Thing> list = Map.thingGrid.ThingsListAtFast(Position);
+            Thing food = list.FirstOrDefault(x => settings.AllowedToAccept(x));
+
+            if (food != null)
             {
-                List<Building_ReplimatFeedTank> tanks = GetTanks;
-                List<Thing> list = Map.thingGrid.ThingsListAtFast(Position);
-
-
-
-                Thing food = list.FirstOrDefault(x => settings.AllowedToAccept(x));
-
-                if (food == null)
-                {
-                    return;
-                }
-
                 float stockvol = ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass);
                 float FreeSpace = tanks.Sum(x => x.AmountCanAccept);
 
-                if (FreeSpace >= stockvol)
+                if (this.IsHashIntervalTick(60) && FreeSpace >= stockvol)
+                {
+                    DematerializingTicks = GenTicks.SecondsToTicks(2f);
+                }
+
+                if (this.IsHashIntervalTick(5) && FreeSpace >= stockvol)
                 {
                     float buffy = stockvol;
 
@@ -152,12 +149,10 @@ namespace Replimat
                         food.Destroy();
                     }
 
-                    DematerializingTicks = GenTicks.SecondsToTicks(2f);
-
                     foreach (var tank in tanks.InRandomOrder())
                     {
                         if (buffy > 0f)
-                        {                           
+                        {
                             float sent = Mathf.Min(buffy, tank.AmountCanAccept);
                             buffy -= sent;
                             tank.AddFeedstock(sent);
@@ -183,8 +178,6 @@ namespace Replimat
                 {
                     this.wickSustainer.Maintain();
                 }
-
-
 
                 if (this.IsHashIntervalTick(5))
                 {
