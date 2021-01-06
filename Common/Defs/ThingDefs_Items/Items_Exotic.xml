@@ -16,7 +16,7 @@
 		<soundDrop>Standard_Drop</soundDrop>
 		<stackLimit>1</stackLimit>
 		<statBases>
-			<MarketValue>1000</MarketValue>
+			<MarketValue>18000</MarketValue>
 			<MaxHitPoints>100</MaxHitPoints>
 			<Mass>0.5</Mass>
 		</statBases>
