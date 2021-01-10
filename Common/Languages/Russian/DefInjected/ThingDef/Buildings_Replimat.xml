@@ -7,16 +7,16 @@
 	<ReplimatTerminal.description>Синтезирует еду и напитки путем молекулярного перестроения. Требуется подключение к Бункеру Реплимат и Компьютеру Реплимат через кабеля.</ReplimatTerminal.description>
 	
 	<!-- EN: Replimat Terminal (blueprint)-->
-	<ReplimatTerminal_Blueprint.label>Реплимат терминал</ReplimatTerminal_Blueprint.label>
+	<Blueprint_ReplimatTerminal.label>Реплимат терминал</Blueprint_ReplimatTerminal.label>
 	
 	<!-- EN: Replimat Terminal (blueprint)-->
-	<ReplimatTerminal_Blueprint_Install.label>Реплимат терминал</ReplimatTerminal_Blueprint_Install.label>
+	<Blueprint_Install_ReplimatTerminal.label>Реплимат терминал</Blueprint_Install_ReplimatTerminal.label>
 	
 	<!-- EN: Replimat Terminal (building)-->
-	<ReplimatTerminal_Frame.label>Реплимат терминал</ReplimatTerminal_Frame.label>
+	<Frame_ReplimatTerminal.label>Реплимат терминал</Frame_ReplimatTerminal.label>
 	
 	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
-	<ReplimatTerminal_Frame.description>Синтезирует еду и напитки путем молекулярного перестроения. Требуется подключение к Бункеру Реплимат и Компьютеру Реплимат через кабеля.</ReplimatTerminal_Frame.description>
+	<Frame_ReplimatTerminal.description>Синтезирует еду и напитки путем молекулярного перестроения. Требуется подключение к Бункеру Реплимат и Компьютеру Реплимат через кабеля.</Frame_ReplimatTerminal.description>
 	
 	<!-- EN: Replimat Animal Feeder -->
 	<ReplimatAnimalFeeder.label>Кормушка Реплимат</ReplimatAnimalFeeder.label>
@@ -25,16 +25,16 @@
 	<ReplimatAnimalFeeder.description>Синтезирует корм для животных путем молекулярного перестроения. Требуется подключение к Бункеру Реплимат и Компьютеру Реплимат через кабеля.</ReplimatAnimalFeeder.description>
 	
 	<!-- EN: Replimat Animal Feeder (blueprint)-->
-	<ReplimatAnimalFeeder_Blueprint.label>Кормушка Реплимат</ReplimatAnimalFeeder_Blueprint.label>
+	<Blueprint_ReplimatAnimalFeeder.label>Кормушка Реплимат</Blueprint_ReplimatAnimalFeeder.label>
 	
 	<!-- EN: Replimat Animal Feeder (blueprint)-->
-	<ReplimatAnimalFeeder_Blueprint_Install.label>Кормушка Реплимат</ReplimatAnimalFeeder_Blueprint_Install.label>
+	<Blueprint_Install_ReplimatAnimalFeeder.label>Кормушка Реплимат</Blueprint_Install_ReplimatAnimalFeeder.label>
 	
 	<!-- EN: Replimat Animal Feeder (building)-->
-	<ReplimatAnimalFeeder_Frame.label>Кормушка Реплимат</ReplimatAnimalFeeder_Frame.label>
+	<Frame_ReplimatAnimalFeeder.label>Кормушка Реплимат</Frame_ReplimatAnimalFeeder.label>
 	
 	<!-- EN: Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
-	<ReplimatAnimalFeeder_Frame.description>Синтезирует корм для животных путем молекулярного перестроения. Требуется подключение к Бункеру Реплимат и Компьютеру Реплимат через кабеля.</ReplimatAnimalFeeder_Frame.description>
+	<Frame_ReplimatAnimalFeeder.description>Синтезирует корм для животных путем молекулярного перестроения. Требуется подключение к Бункеру Реплимат и Компьютеру Реплимат через кабеля.</Frame_ReplimatAnimalFeeder.description>
 	
 	<!-- EN: Replimat Feedstock Tank -->
 	<ReplimatFeedTank.label>Хранилище сырья Реплимат</ReplimatFeedTank.label>
@@ -43,16 +43,16 @@
 	<ReplimatFeedTank.description>Хранит суспензию органических частиц для использования Терминалами Реплимат. Поставляется Бункером Реплимат.</ReplimatFeedTank.description>
 	
 	<!-- EN: Replimat Feedstock Tank (blueprint)-->
-	<ReplimatFeedTank_Blueprint.label>Хранилище сырья Реплимат</ReplimatFeedTank_Blueprint.label>
+	<Blueprint_ReplimatFeedTank.label>Хранилище сырья Реплимат</Blueprint_ReplimatFeedTank.label>
 	
 	<!-- EN: Replimat Feedstock Tank (blueprint)-->
-	<ReplimatFeedTank_Blueprint_Install.label>Хранилище сырья Реплимат</ReplimatFeedTank_Blueprint_Install.label>
+	<Blueprint_Install_ReplimatFeedTank.label>Хранилище сырья Реплимат</Blueprint_Install_ReplimatFeedTank.label>
 	
 	<!-- EN: Replimat Feedstock Tank (building)-->
-	<ReplimatFeedTank_Frame.label>Хранилище сырья Реплимат</ReplimatFeedTank_Frame.label>
+	<Frame_ReplimatFeedTank.label>Хранилище сырья Реплимат</Frame_ReplimatFeedTank.label>
 	
 	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
-	<ReplimatFeedTank_Frame.description>Хранит суспензию органических частиц для использования Терминалами Реплимат. Поставляется Бункером Реплимат.</ReplimatFeedTank_Frame.description>
+	<Frame_ReplimatFeedTank.description>Хранит суспензию органических частиц для использования Терминалами Реплимат. Поставляется Бункером Реплимат.</Frame_ReplimatFeedTank.description>
 	
 	<!-- EN: Replimat Hopper -->
 	<ReplimatHopper.label>Бункер Реплимат</ReplimatHopper.label>
@@ -61,16 +61,16 @@
 	<ReplimatHopper.description>Содержит охлажденные сырые продукты и разбирает их на молекулярном уровне в суспензию органических частиц для питания систем Реплимат.</ReplimatHopper.description>
 	
 	<!-- EN: Replimat Hopper (blueprint)-->
-	<ReplimatHopper_Blueprint.label>Бункер Реплимат</ReplimatHopper_Blueprint.label>
+	<Blueprint_ReplimatHopper.label>Бункер Реплимат</Blueprint_ReplimatHopper.label>
 	
 	<!-- EN: Replimat Hopper (blueprint)-->
-	<ReplimatHopper_Blueprint_Install.label>Бункер Реплимат</ReplimatHopper_Blueprint_Install.label>
+	<Blueprint_Install_ReplimatHopper.label>Бункер Реплимат</Blueprint_Install_ReplimatHopper.label>
 	
 	<!-- EN: Replimat Hopper (building)-->
-	<ReplimatHopper_Frame.label>Бункер Реплимат</ReplimatHopper_Frame.label>
+	<Frame_ReplimatHopper.label>Бункер Реплимат</Frame_ReplimatHopper.label>
 	
 	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->	
-	<ReplimatHopper_Frame.description>Содержит охлажденные сырые продукты и разбирает их на молекулярном уровне в суспензию органических частиц для питания систем Реплимат.</ReplimatHopper_Frame.description>
+	<Frame_ReplimatHopper.description>Содержит охлажденные сырые продукты и разбирает их на молекулярном уровне в суспензию органических частиц для питания систем Реплимат.</Frame_ReplimatHopper.description>
 	
 	<!-- EN: Replimat Computer -->
 	<ReplimatComputer.label>Компьютер Реплимат</ReplimatComputer.label>
@@ -79,14 +79,14 @@
 	<ReplimatComputer.description>Предоставляет широкий выбор рецептов еды и напитков для всех терминалов Реплимат.</ReplimatComputer.description>
 	
 	<!-- EN: Replimat Computer (blueprint)-->
-	<ReplimatComputer_Blueprint.label>Компьютер Реплимат</ReplimatComputer_Blueprint.label>
+	<Blueprint_ReplimatComputer.label>Компьютер Реплимат</Blueprint_ReplimatComputer.label>
 	
 	<!-- EN: Replimat Computer (blueprint)-->
-	<ReplimatComputer_Blueprint_Install.label>Компьютер Реплимат</ReplimatComputer_Blueprint_Install.label>
+	<Blueprint_Install_ReplimatComputer.label>Компьютер Реплимат</Blueprint_Install_ReplimatComputer.label>
 	
 	<!-- EN: Replimat Computer (building)-->
-	<ReplimatComputer_Frame.label>Компьютер Реплимат</ReplimatComputer_Frame.label>
+	<Frame_ReplimatComputer.label>Компьютер Реплимат</Frame_ReplimatComputer.label>
 	
 	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
-	<ReplimatComputer_Frame.description>Предоставляет широкий выбор рецептов еды и напитков для всех терминалов Реплимат.</ReplimatComputer_Frame.description>
+	<Frame_ReplimatComputer.description>Предоставляет широкий выбор рецептов еды и напитков для всех терминалов Реплимат.</Frame_ReplimatComputer.description>
 </LanguageData>
