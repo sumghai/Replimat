@@ -3,7 +3,6 @@
 	<identifier>Replimat</identifier>
 	<version>1.2.1</version>
 	<incompatibleWith>
-		<li>avius.prisonlabor</li>
 		<li>Jaxe.PawnRules</li>
 		<li>Wishmaster.SmarterFoodSelection</li>
 		<li>Replimat.rus</li>
