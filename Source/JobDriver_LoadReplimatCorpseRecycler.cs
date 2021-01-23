@@ -33,7 +33,7 @@ namespace Replimat
             this.FailOn(delegate 
             {
                 // Fail if corpse recycler has no power, or its current storage settings does not allow the chosen corpse
-                return !CorpseRecycler.powerComp.PowerOn || !CorpseRecycler.storageSettings.AllowedToAccept(Corpse);
+                return !CorpseRecycler.powerComp.PowerOn || !CorpseRecycler.allowedCorpseFilterSettings.AllowedToAccept(Corpse);
             });
             AddEndCondition(() => (CorpseRecycler.Empty) ? JobCondition.Ongoing : JobCondition.Succeeded);
             yield return Toils_General.DoAtomic(delegate

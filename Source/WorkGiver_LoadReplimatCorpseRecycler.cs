@@ -60,7 +60,7 @@ namespace Replimat
             Predicate<Thing> validator = delegate (Thing t)
             {
                 Corpse corpse = t as Corpse;
-                return corpse.InnerPawn.RaceProps.Humanlike && corpse.InnerPawn.RaceProps.IsFlesh && (corpse.GetRotStage() != RotStage.Dessicated) && !corpse.IsForbidden(pawn) && corpseRecycler.storageSettings.AllowedToAccept(corpse) && pawn.CanReserve(corpse);
+                return corpse.InnerPawn.RaceProps.Humanlike && corpse.InnerPawn.RaceProps.IsFlesh && (corpse.GetRotStage() != RotStage.Dessicated) && !corpse.IsForbidden(pawn) && corpseRecycler.allowedCorpseFilterSettings.AllowedToAccept(corpse) && pawn.CanReserve(corpse);
             };
 
             return (Corpse)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.Corpse), PathEndMode.ClosestTouch, TraverseParms.For(pawn), 9999f, validator);

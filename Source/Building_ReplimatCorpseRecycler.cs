@@ -14,7 +14,7 @@ namespace Replimat
 
         public CompStateDependentPowerUse stateDependentPowerComp;
 
-        public StorageSettings storageSettings;
+        public StorageSettings allowedCorpseFilterSettings;
 
         private float corpseInitialMass;
 
@@ -72,7 +72,7 @@ namespace Replimat
 
         public StorageSettings GetStoreSettings()
         {
-            return storageSettings;
+            return allowedCorpseFilterSettings;
         }
 
         public StorageSettings GetParentStoreSettings()
@@ -83,17 +83,17 @@ namespace Replimat
         public override void PostMake()
         {
             base.PostMake();
-            storageSettings = new StorageSettings(this);
+            allowedCorpseFilterSettings = new StorageSettings(this);
             if (def.building.defaultStorageSettings != null)
             {
-                storageSettings.CopyFrom(def.building.defaultStorageSettings);
+                allowedCorpseFilterSettings.CopyFrom(def.building.defaultStorageSettings);
             }
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Deep.Look(ref storageSettings, "storageSettings", this);
+            Scribe_Deep.Look(ref allowedCorpseFilterSettings, "allowedCorpseFilterSettings", this);
             Scribe_Values.Look(ref corpseInitialMass, "corpseInitialMass", 0f);
             Scribe_Values.Look(ref corpseRemainingMass, "corpseRemaningMass", 0f);
         }
@@ -144,6 +144,18 @@ namespace Replimat
                         }
                     }
                 }
+            }
+        }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (Gizmo gizmo in base.GetGizmos())
+            {
+                yield return gizmo;
+            }
+            foreach (Gizmo item in StorageSettingsClipboard.CopyPasteGizmosFor(allowedCorpseFilterSettings))
+            {
+                yield return item;
             }
         }
     }
