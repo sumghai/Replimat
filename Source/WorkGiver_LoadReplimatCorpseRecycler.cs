@@ -13,7 +13,7 @@ namespace Replimat
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            if (!(t is Building_ReplimatCorpseRecycler building_ReplimatCorpseRecycler) || !building_ReplimatCorpseRecycler.Empty || !building_ReplimatCorpseRecycler.powerComp.PowerOn)
+            if (!(t is Building_ReplimatCorpseRecycler building_ReplimatCorpseRecycler) || !building_ReplimatCorpseRecycler.powerComp.PowerOn)
             {
                 return false;
             }
@@ -25,9 +25,14 @@ namespace Replimat
             {
                 return false;
             }
+            if (!building_ReplimatCorpseRecycler.Empty)
+            {
+                JobFailReason.Is("Not empty");
+                return false;
+            }
             if (FindHumanlikeCorpse(pawn, building_ReplimatCorpseRecycler) == null)
             {
-                JobFailReason.Is("No valid corpse found for Corpse Recycler");
+                JobFailReason.Is("No valid corpse found");
                 return false;
             }
             if (t.IsBurning())
