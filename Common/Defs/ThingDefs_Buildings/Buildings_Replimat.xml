@@ -339,6 +339,95 @@
 		</researchPrerequisites>
 	</ThingDef>
 
+	<!--====================== Replimat Cadaver Processor ======================-->
+
+	<ThingDef ParentName="ReplimatBaseMinifiable">
+		<defName>ReplimatCorpseRecycler</defName>
+		<label>Replimat Cadaver Processor</label>
+		<description>Recycles humanoid corpses in a dignified manner into organic particulate suspension for supplying Replimat systems.</description>
+		<thingClass>Replimat.Building_ReplimatCorpseRecycler</thingClass>
+		<graphicData>
+			<texPath>Things/Building/Misc/Sarcophagus</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,4)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<constructEffect>ConstructMetal</constructEffect>
+		<costList>
+			<Steel>100</Steel>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<ComponentSpacer>8</ComponentSpacer>
+			<Plasteel>80</Plasteel>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<MarketValue>35000</MarketValue>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToBuild>8000</WorkToBuild>
+			<Flammability>0.3</Flammability>
+			<Beauty>1</Beauty>
+			<Mass>250</Mass>
+		</statBases>
+		<size>(1,2)</size>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<designationCategory>Replimat_Replimat</designationCategory>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+		<castEdgeShadows>true</castEdgeShadows>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<preventDeteriorationInside>true</preventDeteriorationInside>
+			<haulToContainerDuration>500</haulToContainerDuration>
+			<fixedStorageSettings>
+				<filter>
+					<categories>
+						<li>CorpsesHumanlike</li>
+					</categories>
+				</filter>
+			</fixedStorageSettings>
+			<defaultStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<categories>
+						<li>CorpsesHumanlike</li>
+					</categories>
+					<specialFiltersToDisallow>
+						<li>AllowCorpsesColonist</li>
+					</specialFiltersToDisallow>
+				</filter>
+			</defaultStorageSettings>
+		</building>
+		<inspectorTabs>
+			<li>ITab_Storage</li>
+		</inspectorTabs>
+		<tickerType>Normal</tickerType>
+		<rotatable>true</rotatable>
+		<canOverlapZones>false</canOverlapZones>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>2000</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Forbiddable"/>
+			<li Class="Replimat.CompProperties_StateDependentPowerUse">
+				<activeModePowerConsumption>25000</activeModePowerConsumption>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>MolecularNutrientResequencing</li>
+		</researchPrerequisites>
+	</ThingDef>
+
 	<!--====================== Replimat Computer ======================-->
 
 	<ThingDef ParentName="ReplimatBaseMinifiable">

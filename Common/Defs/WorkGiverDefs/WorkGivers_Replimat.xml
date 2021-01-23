@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<WorkGiverDef>
+		<defName>LoadReplimatCorpseRecycler</defName>
+		<label>haul corpses to Replimat Cadaver Processor</label>
+		<giverClass>Replimat.WorkGiver_LoadReplimatCorpseRecycler</giverClass>
+		<workType>Hauling</workType>
+		<verb>haul to</verb>
+		<gerund>hauling to</gerund>
+		<priorityInType>91</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+</Defs>
