@@ -100,10 +100,9 @@ namespace Replimat
 
         public void LoadCorpse(Corpse corpse)
         {
-            corpseInitialMass = corpse.InnerPawn.def.BaseMass;
-            corpseRemainingMass = corpseInitialMass;
-            Log.Warning("Replimat :: " + ThingID.ToString() + " has received " + corpse.ToString() + " (mass=" + corpseInitialMass.ToString() + ") for processing!");
-            
+            // Initial mass should account for missing body parts
+            corpseInitialMass = corpse.InnerPawn.def.BaseMass * corpse.InnerPawn.health.hediffSet.GetCoverageOfNotMissingNaturalParts(corpse.InnerPawn.RaceProps.body.corePart);
+            corpseRemainingMass = corpseInitialMass;            
             corpse.Destroy();
         }
 
