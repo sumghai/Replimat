@@ -50,6 +50,7 @@
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="IncidentWorker_ReplimatMalfunctionKibble.cs" />
     <Compile Include="IncidentWorker_ReplimatSpill.cs" />
+    <Compile Include="ITab_CorpseFilters.cs" />
     <Compile Include="JobDriver_LoadReplimatCorpseRecycler.cs" />
     <Compile Include="Multiplayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -405,7 +405,7 @@
 			</defaultStorageSettings>
 		</building>
 		<inspectorTabs>
-			<li>ITab_Storage</li>
+			<li>Replimat.ITab_CorpseFilters</li>
 		</inspectorTabs>
 		<tickerType>Normal</tickerType>
 		<rotatable>true</rotatable>
