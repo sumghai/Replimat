@@ -72,6 +72,24 @@
 	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->	
 	<Frame_ReplimatHopper.description>食材を冷凍状態で保持し,レプリマットシステムに供給するため分子レベルで有機微粒子懸濁液に分解します.</Frame_ReplimatHopper.description>
 	
+	<!-- EN: Replimat Cadaver Processor -->
+	<ReplimatCorpseRecycler.label>レプリマット死体リサイクル機</ReplimatCorpseRecycler.label>
+
+	<!-- EN: Recycles humanoid corpses in a dignified manner into organic particulate suspension for supplying Replimat systems. -->
+	<ReplimatCorpseRecycler.description>死体を堂々とリサイクル,レプリマットシステムに供給するため分子レベルで有機微粒子懸濁液に分解します.</ReplimatCorpseRecycler.description>
+
+	<!-- EN: Replimat Cadaver Processor (blueprint)-->
+	<Blueprint_ReplimatCorpseRecycler.label>レプリマット死体リサイクル機 (設計図)</Blueprint_ReplimatCorpseRecycler.label>
+
+	<!-- EN: Replimat Cadaver Processor (blueprint)-->
+	<Blueprint_Install_ReplimatCorpseRecycler.label>レプリマット死体リサイクル機 (設計図)</Blueprint_Install_ReplimatCorpseRecycler.label>
+
+	<!-- EN: Replimat Cadaver Processor (building)-->
+	<Frame_ReplimatCorpseRecycler.label>レプリマット死体リサイクル機 (建設中)</Frame_ReplimatCorpseRecycler.label>
+
+	<!-- EN: Recycles humanoid corpses in a dignified manner into organic particulate suspension for supplying Replimat systems. -->	
+	<Frame_ReplimatCorpseRecycler.description>死体を堂々とリサイクル,レプリマットシステムに供給するため分子レベルで有機微粒子懸濁液に分解します.</Frame_ReplimatCorpseRecycler.description>
+	
 	<!-- EN: Replimat Computer -->
 	<ReplimatComputer.label>レプリマットコンピューター</ReplimatComputer.label>
 	

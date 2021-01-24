@@ -28,6 +28,21 @@
 	<!-- EN: Insufficient Feedstock -->
 	<NotEnoughFeedstock>營養原料不足</NotEnoughFeedstock>
 
+	<!-- EN: Empty -->
+	<CorpseRecyclerEmpty>空槽</CorpseRecyclerEmpty>
+	
+	<!-- EN: Remaining mass: {0} / {1} kg -->
+	<CorpseRecyclerMassRemaining>剩餘屍體質量: {0} / {1} kg</CorpseRecyclerMassRemaining>
+	
+	<!-- EN: Not empty -->
+	<CorpseRecyclerNotEmpty>屍槽未空</CorpseRecyclerNotEmpty>
+	
+	<!-- EN: Need non-dessicated humanoid corpse -->
+	<CorpseRecyclerNeedValidCorpse>需要未白骨化的人形屍體</CorpseRecyclerNeedValidCorpse>
+	
+	<!-- EN: Corpses -->
+	<TabCorpseFilters>屍體</TabCorpseFilters>
+
 	<!-- EN: Batch Survival Meals -->
 	<BatchMakeSurvivalMeals>複製生存食品包</BatchMakeSurvivalMeals>
 

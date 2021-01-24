@@ -72,6 +72,24 @@
 	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->	
 	<Frame_ReplimatHopper.description>储存、冷藏与分解生鲜食材，并转换成食品合成器需要用的液体形式营养原料。</Frame_ReplimatHopper.description>
 	
+	<!-- EN: Replimat Cadaver Processor -->
+	<ReplimatCorpseRecycler.label>食品合成系统尸体回收机</ReplimatCorpseRecycler.label>
+
+	<!-- EN: Recycles humanoid corpses in a dignified manner into organic particulate suspension for supplying Replimat systems. -->
+	<ReplimatCorpseRecycler.description>尊严地回收与分解人形尸体，并转换成食品合成器需要用的液体形式营养原料。</ReplimatCorpseRecycler.description>
+
+	<!-- EN: Replimat Cadaver Processor (blueprint)-->
+	<Blueprint_ReplimatCorpseRecycler.label>食品合成系统尸体回收机 (藍圖)</Blueprint_ReplimatCorpseRecycler.label>
+
+	<!-- EN: Replimat Cadaver Processor (blueprint)-->
+	<Blueprint_Install_ReplimatCorpseRecycler.label>食品合成系统尸体回收机 (藍圖)</Blueprint_Install_ReplimatCorpseRecycler.label>
+
+	<!-- EN: Replimat Cadaver Processor (building)-->
+	<Frame_ReplimatCorpseRecycler.label>食品合成系统尸体回收机 (建造中)</Frame_ReplimatCorpseRecycler.label>
+
+	<!-- EN: Recycles humanoid corpses in a dignified manner into organic particulate suspension for supplying Replimat systems. -->	
+	<Frame_ReplimatCorpseRecycler.description>尊严地回收与分解人形尸体，并转换成食品合成器需要用的液体形式营养原料。</Frame_ReplimatCorpseRecycler.description>
+	
 	<!-- EN: Replimat Computer -->
 	<ReplimatComputer.label>食品合成系统主计算机 </ReplimatComputer.label>
 	

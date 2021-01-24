@@ -27,12 +27,12 @@ namespace Replimat
             }
             if (!building_ReplimatCorpseRecycler.Empty)
             {
-                JobFailReason.Is("Not empty");
+                JobFailReason.Is("CorpseRecyclerNotEmpty".Translate());
                 return false;
             }
             if (FindHumanlikeCorpse(pawn, building_ReplimatCorpseRecycler) == null)
             {
-                JobFailReason.Is("No valid corpse found");
+                JobFailReason.Is("CorpseRecyclerNeedValidCorpse".Translate());
                 return false;
             }
             if (t.IsBurning())

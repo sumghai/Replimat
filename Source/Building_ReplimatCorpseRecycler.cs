@@ -56,15 +56,13 @@ namespace Replimat
             }
             else
             {
-                //do stuff here
                 if (Empty)
                 {
-                    stringBuilder.AppendLine("Empty");
+                    stringBuilder.AppendLine("CorpseRecyclerEmpty".Translate());
                 }
                 else
                 {
-                    //int progress = (int)((corpseInitialMass - corpseRemainingMass) / corpseInitialMass * 100);
-                    stringBuilder.AppendLine("Mass remaining: " + corpseRemainingMass + " / " + corpseInitialMass.ToString() + " kg");
+                    stringBuilder.AppendLine("CorpseRecyclerMassRemaining".Translate(corpseRemainingMass, corpseInitialMass));
                 }
             }
             return stringBuilder.ToString().TrimEndNewlines();

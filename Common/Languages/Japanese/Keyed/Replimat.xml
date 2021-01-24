@@ -28,6 +28,21 @@
 	<!-- EN: Insufficient Feedstock -->
 	<NotEnoughFeedstock>原料の供給が不十分です.</NotEnoughFeedstock>
 	
+	<!-- EN: Empty -->
+	<CorpseRecyclerEmpty>空っぽ</CorpseRecyclerEmpty>
+	
+	<!-- EN: Remaining mass: {0} / {1} kg -->
+	<CorpseRecyclerMassRemaining>残り重量: {0} / {1} kg</CorpseRecyclerMassRemaining>
+	
+	<!-- EN: Not empty -->
+	<CorpseRecyclerNotEmpty>空ではない</CorpseRecyclerNotEmpty>
+	
+	<!-- EN: Need non-dessicated humanoid corpse -->
+	<CorpseRecyclerNeedValidCorpse>乾燥していないヒト型の死骸が必要です.</CorpseRecyclerNeedValidCorpse>
+	
+	<!-- EN: Corpses -->
+	<TabCorpseFilters>死骸</TabCorpseFilters>
+	
 	<!-- EN: Batch Survival Meals -->
 	<BatchMakeSurvivalMeals>非常用食品を１セット合成</BatchMakeSurvivalMeals>
 	

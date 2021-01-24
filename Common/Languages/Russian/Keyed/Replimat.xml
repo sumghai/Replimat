@@ -27,6 +27,21 @@
 
 	<!-- EN: Insufficient Feedstock -->
 	<NotEnoughFeedstock>Недостаточно сырья</NotEnoughFeedstock>
+	
+	<!-- EN: Empty -->
+	<CorpseRecyclerEmpty>пустой</CorpseRecyclerEmpty>
+	
+	<!-- EN: Remaining mass: {0} / {1} kg -->
+	<CorpseRecyclerMassRemaining>остаточная масса: {0} / {1} kg</CorpseRecyclerMassRemaining>
+	
+	<!-- EN: Not empty -->
+	<CorpseRecyclerNotEmpty>не пустой</CorpseRecyclerNotEmpty>
+	
+	<!-- EN: Need non-dessicated humanoid corpse -->
+	<CorpseRecyclerNeedValidCorpse>нужны нескелетированные гуманоидные трупы</CorpseRecyclerNeedValidCorpse>
+	
+	<!-- EN: Corpses -->
+	<TabCorpseFilters>трупы</TabCorpseFilters>
 
 	<!-- EN: Batch Survival Meals -->
 	<BatchMakeSurvivalMeals>Получить сухпаёк</BatchMakeSurvivalMeals>

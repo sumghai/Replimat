@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- EN: haul corpses to Replimat Cadaver Processor -->
+	<LoadReplimatCorpseRecycler.label>运送尸体至尸体回收机</LoadReplimatCorpseRecycler.label>
+	
+	<!-- EN: hauling to -->
+	<LoadReplimatCorpseRecycler.gerund>运送</LoadReplimatCorpseRecycler.gerund>
+
+	<!-- EN: haul to -->
+	<LoadReplimatCorpseRecycler.verb>运送</LoadReplimatCorpseRecycler.verb>
+</LanguageData>

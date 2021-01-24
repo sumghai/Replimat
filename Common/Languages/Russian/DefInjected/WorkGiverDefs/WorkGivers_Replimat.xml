@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- EN: haul corpses to Replimat Cadaver Processor -->
+	<LoadReplimatCorpseRecycler.label>переносить трупы в Реплимат переработчик трупов</LoadReplimatCorpseRecycler.label>
+	
+	<!-- EN: hauling to -->
+	<LoadReplimatCorpseRecycler.gerund>перенести</LoadReplimatCorpseRecycler.gerund>
+
+	<!-- EN: haul to -->
+	<LoadReplimatCorpseRecycler.verb>перенести</LoadReplimatCorpseRecycler.verb>
+</LanguageData>

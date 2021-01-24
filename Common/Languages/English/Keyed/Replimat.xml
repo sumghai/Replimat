@@ -15,6 +15,13 @@
 	<NotConnectedToComputer>Requires connection to Replimat Computer</NotConnectedToComputer>
 	<NotEnoughFeedstock>Insufficient Feedstock</NotEnoughFeedstock>
 	
+	<CorpseRecyclerEmpty>Empty</CorpseRecyclerEmpty>
+	<CorpseRecyclerMassRemaining>Remaining mass: {0} / {1} kg</CorpseRecyclerMassRemaining>
+	<CorpseRecyclerNotEmpty>Not empty</CorpseRecyclerNotEmpty>
+	<CorpseRecyclerNeedValidCorpse>Need non-dessicated humanoid corpse</CorpseRecyclerNeedValidCorpse>
+	
+	<TabCorpseFilters>Corpses</TabCorpseFilters>
+	
 	<BatchMakeSurvivalMeals>Batch Survival Meals</BatchMakeSurvivalMeals>
 	<BatchMakeSurvivalMeals_Desc>Replicate a batch of Packaged Survival Meals for use in caravans or emergencies.</BatchMakeSurvivalMeals_Desc>
 	
