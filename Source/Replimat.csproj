@@ -42,6 +42,7 @@
     <Compile Include="Building_ReplimatComputer.cs" />
     <Compile Include="Building_ReplimatHopper.cs" />
     <Compile Include="Building_ReplimatTerminal.cs" />
+    <Compile Include="ModCompatibility.cs" />
     <Compile Include="CompProperties_SecondLayer.cs" />
     <Compile Include="CompProperties_StateDependentPowerUse.cs" />
     <Compile Include="CompSecondLayer.cs" />
@@ -63,6 +64,10 @@
     <Reference Include="0Harmony, Version=2.0.0.8, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\1.2\Assemblies\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="AlienRace">
+      <HintPath>..\..\AlienRaces\1.2\Assemblies\AlienRace.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp_public">
       <HintPath>..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp_public.dll</HintPath>
@@ -313,6 +318,9 @@
       <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.XRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

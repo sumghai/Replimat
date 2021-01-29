@@ -71,6 +71,11 @@ namespace Replimat
             var harmony = new Harmony("com.Replimat.patches");
             harmony.PatchAll();
 
+            if (ModCompatibility.AlienRacesIsActive)
+            {
+                Log.Message("Replimat :: Humanoid Alien Races 2.0 detected!", true);
+            }
+
             MP_Util.Bootup(harmony);
         }
 

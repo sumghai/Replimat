@@ -65,7 +65,22 @@ namespace Replimat
             Predicate<Thing> validator = delegate (Thing t)
             {
                 Corpse corpse = t as Corpse;
-                return corpse.InnerPawn.RaceProps.Humanlike && (corpse.InnerPawn.RaceProps.FleshType == FleshTypeDefOf.Normal) && (corpse.GetRotStage() != RotStage.Dessicated) && !corpse.IsForbidden(pawn) && corpseRecycler.allowedCorpseFilterSettings.AllowedToAccept(corpse) && pawn.CanReserve(corpse);
+
+                bool IsOrganicFlesh;
+
+                // If the Humanoid Alien Race mod is active, allow only humanoid alien corpses that have organic flesh
+                // (using <compatibility><isFlesh>false</isFlesh></compatibility> for ThingDef_AlienRace )
+                if (ModCompatibility.AlienRacesIsActive)
+                {
+                    IsOrganicFlesh = ModCompatibility.AlienRaceHasOrganicFlesh(corpse.InnerPawn);
+                }
+                // Otherwise, assume it is a vanilla RimWorld human, which should only have normal flesh
+                else
+                {
+                    IsOrganicFlesh = (corpse.InnerPawn.RaceProps.FleshType == FleshTypeDefOf.Normal);
+                }
+
+                return corpse.InnerPawn.RaceProps.Humanlike && IsOrganicFlesh && (corpse.GetRotStage() != RotStage.Dessicated) && !corpse.IsForbidden(pawn) && corpseRecycler.allowedCorpseFilterSettings.AllowedToAccept(corpse) && pawn.CanReserve(corpse);
             };
 
             return (Corpse)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.Corpse), PathEndMode.ClosestTouch, TraverseParms.For(pawn), 9999f, validator);

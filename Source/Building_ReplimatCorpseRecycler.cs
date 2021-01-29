@@ -75,7 +75,15 @@ namespace Replimat
 
         public StorageSettings GetParentStoreSettings()
         {
-            return def.building.fixedStorageSettings;
+            StorageSettings foobar = def.building.fixedStorageSettings;
+
+            // Remove non-fleshy corpses from filter if Humanoid Alien Races mod is active
+            if (ModCompatibility.AlienRacesIsActive)
+            {
+                foobar.filter.allowedDefs.RemoveWhere(def => ModCompatibility.AlienCorpseHasOrganicFlesh(def));
+            }
+
+            return foobar;
         }
 
         public override void PostMake()
