@@ -5,6 +5,7 @@ using Verse;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Verse.Sound;
 
 namespace Replimat
 {
@@ -27,7 +28,11 @@ namespace Replimat
 
         public bool Empty => corpseRemainingMass <= 0;
 
+        private bool Running;
+
         public bool StorageTabVisible => true; //Always show storage options tab
+
+        private Sustainer wickSustainer;
 
         public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
 
@@ -134,6 +139,27 @@ namespace Replimat
             corpse.Destroy();
         }
 
+        public void StartWickSustainer()
+        {
+            SoundInfo info = SoundInfo.InMap(this, MaintenanceType.PerTick);
+            wickSustainer = def.building.soundDispense.TrySpawnSustainer(info);
+        }
+
+        public override void Draw()
+        {
+            base.Draw();
+
+            Graphic runningGlow = GraphicDatabase.Get<Graphic_Multi>("FX/replimatCorpseRecyclerGlow", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
+            Mesh runningGlowMesh = runningGlow.MeshAt(Rotation);
+            Vector3 runningGlowDrawPos = DrawPos;
+            runningGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
+
+            if (Running)
+            {
+                Graphics.DrawMesh(runningGlowMesh, runningGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(runningGlow.MatAt(Rotation, null), 1), 0);
+            }
+        }
+
         public override void Tick()
         {
             base.Tick();
@@ -147,6 +173,7 @@ namespace Replimat
                 if (Empty)
                 {
                     corpseInitialMass = 0;
+                    Running = false;
                 }
                 else
                 {
@@ -156,6 +183,8 @@ namespace Replimat
 
                     if (powerComp.PowerOn && freeSpaceInTanks >= feedstockVolume)
                     {
+                        Running = true;
+
                         powerComp.PowerOutput = -Math.Max(stateDependentPowerComp.ActiveModePowerConsumption, powerComp.Props.basePowerConsumption);
 
                         float buffer = feedstockVolume;
@@ -171,8 +200,24 @@ namespace Replimat
                             }
                         }
                     }
+                    else
+                    {
+                        Running = false;
+                    }
                 }
                 Map.mapDrawer.MapMeshDirty(Position, MapMeshFlag.Things | MapMeshFlag.Buildings);
+            }
+
+            if (Running)
+            {
+                if (wickSustainer == null || wickSustainer.Ended)
+                {
+                    StartWickSustainer();
+                }
+                else
+                {
+                    wickSustainer.Maintain();
+                }
             }
         }
 

@@ -407,6 +407,7 @@
 					</specialFiltersToDisallow>
 				</filter>
 			</defaultStorageSettings>
+			<soundDispense>HopperDematerialize</soundDispense>
 		</building>
 		<inspectorTabs>
 			<li>Replimat.ITab_CorpseFilters</li>
