@@ -357,6 +357,7 @@
 				<cornerBR>Damage/Corner</cornerBR>
 			</damageData>
 		</graphicData>
+		<uiIconPath>UI/replimatCorpseRecycler</uiIconPath>
 		<constructEffect>ConstructMetal</constructEffect>
 		<costList>
 			<Steel>100</Steel>
