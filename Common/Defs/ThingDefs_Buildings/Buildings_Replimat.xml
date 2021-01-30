@@ -347,9 +347,9 @@
 		<description>Recycles humanoid corpses in a dignified manner into organic particulate suspension for supplying Replimat systems.</description>
 		<thingClass>Replimat.Building_ReplimatCorpseRecycler</thingClass>
 		<graphicData>
-			<texPath>Things/Building/Misc/Sarcophagus</texPath>
+			<texPath>Things/Building/replimatCorpseRecycler</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
-			<drawSize>(3,4)</drawSize>
+			<drawSize>(3,3)</drawSize>
 			<damageData>
 				<cornerTL>Damage/Corner</cornerTL>
 				<cornerTR>Damage/Corner</cornerTR>
@@ -375,7 +375,7 @@
 			<Beauty>1</Beauty>
 			<Mass>250</Mass>
 		</statBases>
-		<size>(1,2)</size>
+		<size>(1,3)</size>
 		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<passability>PassThroughOnly</passability>
@@ -383,8 +383,12 @@
 		<castEdgeShadows>true</castEdgeShadows>
 		<building>
 			<ai_chillDestination>false</ai_chillDestination>
-			<preventDeteriorationInside>true</preventDeteriorationInside>
 			<haulToContainerDuration>500</haulToContainerDuration>
+			<fullGraveGraphicData>
+				<texPath>Things/Building/replimatCorpseRecyclerFull</texPath>
+				<graphicClass>Graphic_Multi</graphicClass>
+				<drawSize>(3,3)</drawSize>
+			</fullGraveGraphicData>
 			<fixedStorageSettings>
 				<filter>
 					<categories>

@@ -16,6 +16,8 @@ namespace Replimat
 
         public StorageSettings allowedCorpseFilterSettings;
 
+        private Graphic cachedGraphicFull;
+
         private float corpseInitialMass;
 
         private float corpseRemainingMass;
@@ -28,6 +30,26 @@ namespace Replimat
         public bool StorageTabVisible => true; //Always show storage options tab
 
         public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
+
+        public override Graphic Graphic
+        {
+            get
+            {
+                if (!Empty)
+                {
+                    if (def.building.fullGraveGraphicData == null)
+                    {
+                        return base.Graphic;
+                    }
+                    if (cachedGraphicFull == null)
+                    {
+                        cachedGraphicFull = def.building.fullGraveGraphicData.GraphicColoredFor(this);
+                    }
+                    return cachedGraphicFull;
+                }
+                return base.Graphic;
+            }
+        }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -150,6 +172,7 @@ namespace Replimat
                         }
                     }
                 }
+                Map.mapDrawer.MapMeshDirty(Position, MapMeshFlag.Things | MapMeshFlag.Buildings);
             }
         }
 
