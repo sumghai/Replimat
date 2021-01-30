@@ -17,8 +17,17 @@ namespace Replimat
             {
                 return false;
             }
-            if (t.IsForbidden(pawn) || !pawn.CanReserve(t, 1, -1, null, forced))
+            if (t.IsForbidden(pawn))
             {
+                return false;
+            }
+            if (!pawn.CanReserve(t, 1, -1, null, forced))
+            {
+                Pawn pawn2 = pawn.Map.reservationManager.FirstRespectedReserver(t, pawn);
+                if (pawn2 != null)
+                {
+                    JobFailReason.Is("ReservedBy".Translate(pawn2.LabelShort, pawn2));
+                }
                 return false;
             }
             if (pawn.Map.designationManager.DesignationOn(t, DesignationDefOf.Deconstruct) != null)
