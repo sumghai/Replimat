@@ -73,7 +73,7 @@ namespace Replimat
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine(base.GetInspectString());
-            stringBuilder.Append("FeedstockStored".Translate(storedFeedstock, storedFeedstockMax));
+            stringBuilder.Append("FeedstockStored".Translate(storedFeedstock.ToString("0.00"), storedFeedstockMax.ToString("0.00")));
 
             if (ParentHolder != null && !(ParentHolder is Map))
             {

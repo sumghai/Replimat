@@ -107,7 +107,7 @@ namespace Replimat
                 {
                     float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
                     float totalSpace = GetTanks.Sum(x => x.storedFeedstockMax);
-                    stringBuilder.Append("TotalFeedstockStored".Translate(totalAvailableFeedstock, totalSpace));
+                    stringBuilder.Append("TotalFeedstockStored".Translate(totalAvailableFeedstock.ToString("0.00"), totalSpace.ToString("0.00")));
                 }
             }
 

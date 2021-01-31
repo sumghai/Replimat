@@ -89,7 +89,7 @@ namespace Replimat
                 }
                 else
                 {
-                    stringBuilder.AppendLine("CorpseRecyclerMassRemaining".Translate(corpseRemainingMass, corpseInitialMass));
+                    stringBuilder.AppendLine("CorpseRecyclerMassRemaining".Translate(corpseRemainingMass.ToString("0.00"), corpseInitialMass.ToString("0.00")));
                 }
             }
             return stringBuilder.ToString().TrimEndNewlines();
