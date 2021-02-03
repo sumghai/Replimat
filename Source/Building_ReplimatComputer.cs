@@ -54,12 +54,10 @@ namespace Replimat
 
             if (powerComp.PowerOn && (Rotation == Rot4.North || Rotation == Rot4.South))
             {
-                Graphic screenGlow = GraphicDatabase.Get<Graphic_Single>("FX/replimatComputerScreenGlow_north", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
-                Mesh screenGlowMesh = screenGlow.MeshAt(Rotation);
-                Vector3 screenGlowDrawPos = DrawPos;
-                screenGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
+                Vector3 replimatComputerScreenGlowDrawPos = DrawPos;
+                replimatComputerScreenGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
 
-                Graphics.DrawMesh(screenGlowMesh, screenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(screenGlow.MatAt(Rotation, null), 1), 0);
+                Graphics.DrawMesh(GraphicsLoader.replimatComputerScreenGlow.MeshAt(Rotation), replimatComputerScreenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatComputerScreenGlow.MatAt(Rotation, null), 1), 0);
             }
 
             GenDraw.FillableBarRequest r = default;

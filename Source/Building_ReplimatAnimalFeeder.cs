@@ -21,14 +21,6 @@ namespace Replimat
 
         public float volumePerKibble = ReplimatUtility.convertMassToFeedstockVolume(ThingDefOf.Kibble.BaseMass);
 
-        public bool HasComputer
-        {
-            get
-            {
-                return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputer).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
-            }
-        }
-
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
@@ -89,8 +81,10 @@ namespace Replimat
                     alpha = 1f;
                 }
 
-                Graphics.DrawMesh(GraphicsLoader.replimatAnimalFeederGlow.MeshAt(base.Rotation), this.DrawPos + Altitudes.AltIncVect, Quaternion.identity,
-                    FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatAnimalFeederGlow.MatAt(base.Rotation, null), alpha), 0);
+                Vector3 replimatAnimalFeederGlowDrawPos = DrawPos;
+                replimatAnimalFeederGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
+
+                Graphics.DrawMesh(GraphicsLoader.replimatAnimalFeederGlow.MeshAt(Rotation), replimatAnimalFeederGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatAnimalFeederGlow.MatAt(Rotation, null), alpha), 0);
             }
         }
 
@@ -98,7 +92,7 @@ namespace Replimat
         {
             base.Tick();
 
-            if (!powerComp.PowerOn)
+            if (!powerComp.PowerOn || !ReplimatUtility.CanFindComputer(this))
             {
                 return;
             }
@@ -110,15 +104,13 @@ namespace Replimat
 
                 if (foodInFeeder == null)
                 {
-                    //Log.Message("[Replimat] " + this.ThingID.ToString() + " is empty");
-
                     int maxKib = Mathf.FloorToInt(powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock) / volumePerKibble);
                     maxKib = Mathf.Min(maxKib, 75);
 
                     if (maxKib > 0 && powerComp.PowerNet.TryConsumeFeedstock(volumePerKibble * maxKib))
                     {
                         ReplicatingTicks = GenTicks.SecondsToTicks(2f);
-                        this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
+                        def.building.soundDispense.PlayOneShot(new TargetInfo(Position, Map, false));
 
                         Thing t = ThingMaker.MakeThing(ThingDefOf.Kibble, null);
                         t.stackCount = maxKib;
@@ -128,8 +120,6 @@ namespace Replimat
                 }
                 else if (foodInFeeder.def == ThingDefOf.Kibble && foodInFeeder.stackCount < 20)
                 {
-                    //Log.Message("[Replimat] " + this.ThingID.ToString() + " currently has " + foodInFeeder.stackCount.ToString() + " units of " + foodInFeeder.def.label.ToString());
-
                     int refill = Mathf.Min(foodInFeeder.def.stackLimit - foodInFeeder.stackCount, 75);
                     int maxKib = Mathf.FloorToInt(powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock) / volumePerKibble);
                     maxKib = Mathf.Min(maxKib, refill);
@@ -137,7 +127,7 @@ namespace Replimat
                     if (maxKib > 0 && powerComp.PowerNet.TryConsumeFeedstock(volumePerKibble * maxKib))
                     {
                         ReplicatingTicks = GenTicks.SecondsToTicks(2f);
-                        this.def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
+                        def.building.soundDispense.PlayOneShot(new TargetInfo(Position, Map, false));
 
                         foodInFeeder.stackCount += maxKib;
                     }
@@ -164,7 +154,7 @@ namespace Replimat
             }
             else
             {
-                if (!HasComputer)
+                if (!ReplimatUtility.CanFindComputer(this))
                 {
                     stringBuilder.AppendLine();
                     stringBuilder.Append("NotConnectedToComputer".Translate());

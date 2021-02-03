@@ -34,7 +34,7 @@ namespace Replimat
 
         private Sustainer wickSustainer;
 
-        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
+        public List<Building_ReplimatFeedTank> GetTanks => ReplimatUtility.GetTanks(powerComp.PowerNet);
 
         public override Graphic Graphic
         {
@@ -63,15 +63,6 @@ namespace Replimat
             stateDependentPowerComp = GetComp<CompStateDependentPowerUse>();
         }
 
-        public bool HasComputer
-        {
-            get
-            {
-                return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputer).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
-
-            }
-        }
-
         public override string GetInspectString()
         {
             StringBuilder stringBuilder = new StringBuilder();
@@ -83,6 +74,11 @@ namespace Replimat
             }
             else
             {
+                if (!ReplimatUtility.CanFindComputer(this))
+                {
+                    stringBuilder.AppendLine("NotConnectedToComputer".Translate());
+                }
+
                 if (Empty)
                 {
                     stringBuilder.AppendLine("CorpseRecyclerEmpty".Translate());
@@ -149,14 +145,12 @@ namespace Replimat
         {
             base.Draw();
 
-            Graphic runningGlow = GraphicDatabase.Get<Graphic_Multi>("FX/replimatCorpseRecyclerGlow", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
-            Mesh runningGlowMesh = runningGlow.MeshAt(Rotation);
-            Vector3 runningGlowDrawPos = DrawPos;
-            runningGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
+            Vector3 replimatCorpseRecyclerGlowDrawPos = DrawPos;
+            replimatCorpseRecyclerGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
 
             if (Running)
             {
-                Graphics.DrawMesh(runningGlowMesh, runningGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(runningGlow.MatAt(Rotation, null), 1), 0);
+                Graphics.DrawMesh(GraphicsLoader.replimatCorpseRecyclerGlow.MeshAt(Rotation), replimatCorpseRecyclerGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatCorpseRecyclerGlow.MatAt(Rotation, null), 1), 0);
             }
         }
 

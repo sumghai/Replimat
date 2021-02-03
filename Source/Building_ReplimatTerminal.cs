@@ -36,14 +36,6 @@ namespace Replimat
             }
         }
 
-        public bool HasComputer
-        {
-            get
-            {
-                return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputer).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == PowerComp.PowerNet && x.Working);
-            }
-        }
-
         public bool HasStockFor(ThingDef def)
         {
             float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
@@ -89,7 +81,6 @@ namespace Replimat
 
             if (!HasStockFor(meal))
             {
-                //Log.Error("[Replimat] " + "Did not find enough foodstock in tanks while trying to replicate.");
                 return null;
             }
 
@@ -111,12 +102,10 @@ namespace Replimat
 
             if (powerComp.PowerOn && (Rotation == Rot4.North))
             {
-                Graphic screenGlow = GraphicDatabase.Get<Graphic_Single>("FX/replimatTerminalScreenGlow_north", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
-                Mesh screenGlowMesh = screenGlow.MeshAt(Rotation);
-                Vector3 screenGlowDrawPos = DrawPos;
-                screenGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
+                Vector3 replimatTerminalScreenGlowDrawPos = DrawPos;
+                replimatTerminalScreenGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
 
-                Graphics.DrawMesh(screenGlowMesh, screenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(screenGlow.MatAt(Rotation, null), 1), 0);
+                Graphics.DrawMesh(GraphicsLoader.replimatTerminalScreenGlow.MeshAt(Rotation), replimatTerminalScreenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatTerminalScreenGlow.MatAt(Rotation, null), 1), 0);
             }
 
             if (ReplicatingTicks > 0)
@@ -136,8 +125,10 @@ namespace Replimat
                     alpha = 1f;
                 }
 
-                Graphics.DrawMesh(GraphicsLoader.replimatTerminalGlow.MeshAt(base.Rotation), this.DrawPos + Altitudes.AltIncVect, Quaternion.identity,
-                    FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatTerminalGlow.MatAt(base.Rotation, null), alpha), 0);
+                Vector3 replimatTerminalGlowDrawPos = DrawPos;
+                replimatTerminalGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
+
+                Graphics.DrawMesh(GraphicsLoader.replimatTerminalGlow.MeshAt(Rotation), replimatTerminalGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatTerminalGlow.MatAt(Rotation, null), alpha), 0);
             }
         }
 
@@ -156,8 +147,6 @@ namespace Replimat
 
         public void TryBatchMakingSurvivalMeals()
         {
-            //Log.Message("[Replimat] " + "Requesting survival meals!");
-
             // Determine the maximum number of survival meals that can be replicated, based on available feedstock
             // (Cap this at 30 meals so that players don't accidentally use up all their feedstock on survival meals)
             ThingDef survivalMeal = ThingDefOf.MealSurvivalPack;
@@ -169,10 +158,6 @@ namespace Replimat
 
             float survivalMealCapVolumeOfFeedstockRequired = ReplimatUtility.convertMassToFeedstockVolume(survivalMealCap * survivalMeal.BaseMass);
 
-            Log.Message("[Replimat] " + "Default max survival meals is " + maxSurvivalMeals + " (which requires " + ReplimatUtility.convertMassToFeedstockVolume(maxSurvivalMeals * survivalMeal.BaseMass) + " L of feedstock)\n"
-                + "Total available feedstock of " + totalAvailableFeedstock + " can provide up to " + maxPossibleSurvivalMeals + " survival meals\n"
-                + "Final cap on survival meals is " + survivalMealCap + " (which requires " + survivalMealCapVolumeOfFeedstockRequired + " L of feedstock)");
-
             if (!CanDispenseNow)
             {
                 Messages.Message("MessageCannotBatchMakeSurvivalMeals".Translate(), MessageTypeDefOf.RejectInput, false);
@@ -181,7 +166,6 @@ namespace Replimat
 
             if (!HasEnoughFeedstockInHopperForIncident(survivalMealCapVolumeOfFeedstockRequired))
             {
-                //Log.Error("[Replimat] " + "Not enough feedstock to make required survival meals.");
                 return;
             }
 
@@ -201,12 +185,10 @@ namespace Replimat
             ReplicatingTicks = GenTicks.SecondsToTicks(2f);
             def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
 
-            Log.Message("[Replimat] Player requesting " + x + " survival meals (which requires " + (x * volumeOfFeedstockRequired) + " L of feedstock)");
-
-            this.powerComp.PowerNet.TryConsumeFeedstock(x * volumeOfFeedstockRequired);
+            powerComp.PowerNet.TryConsumeFeedstock(x * volumeOfFeedstockRequired);
             Thing t = ThingMaker.MakeThing(ThingDefOf.MealSurvivalPack, null);
             t.stackCount = x;
-            GenPlace.TryPlaceThing(t, this.InteractionCell, base.Map, ThingPlaceMode.Near);
+            GenPlace.TryPlaceThing(t, InteractionCell, Map, ThingPlaceMode.Near);
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -239,7 +221,7 @@ namespace Replimat
             }
             else
             {
-                if (!HasComputer)
+                if (!ReplimatUtility.CanFindComputer(this))
                 {
                     stringBuilder.AppendLine();
                     stringBuilder.Append("NotConnectedToComputer".Translate());

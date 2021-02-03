@@ -14,28 +14,16 @@ namespace Replimat
 
         public float storedFeedstock;
 
-
         public float AmountCanAccept => this.IsBrokenDown() ? 0f : (storedFeedstockMax - storedFeedstock);
-
-        public bool HasComputer
-        {
-            get
-            {
-                return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputer).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
-
-            }
-        }
 
         public float StoredFeedstock => storedFeedstock;
         
-
         public float StoredFeedstockPct => storedFeedstock / storedFeedstockMax;
 
         public override void ExposeData()
         {
             base.ExposeData();
-
-            Scribe_Values.Look<float>(ref storedFeedstock, "storedFeedstock", 0f, false);
+            Scribe_Values.Look(ref storedFeedstock, "storedFeedstock", 0f, false);
 
         }
 
@@ -43,7 +31,6 @@ namespace Replimat
         {
             if (amount < 0f)
             {
-                //Log.Error("[Replimat] " + "Cannot add negative feedstock " + amount);
                 return;
             }
             if (amount > AmountCanAccept)
@@ -58,7 +45,6 @@ namespace Replimat
             storedFeedstock -= amount;
             if (storedFeedstock < 0f)
             {
-                //Log.Error("[Replimat] " + "Drawing feedstock we don't have from " + this);
                 storedFeedstock = 0f;
             }
         }
@@ -81,7 +67,7 @@ namespace Replimat
             }
             else
             {
-                if (!HasComputer)
+                if (!ReplimatUtility.CanFindComputer(this))
                 {
                     stringBuilder.AppendLine();
                     stringBuilder.Append("NotConnectedToComputer".Translate());
@@ -103,7 +89,7 @@ namespace Replimat
                     defaultLabel = "DEBUG: Empty",
                     action = delegate
                     {
-                        this.SetStoredFeedstockPct(0f);
+                        SetStoredFeedstockPct(0f);
                     }
                 };
                 yield return new Command_Action
@@ -111,7 +97,7 @@ namespace Replimat
                     defaultLabel = "DEBUG: -10L",
                     action = delegate
                     {
-                        this.DrawFeedstock(10f);
+                        DrawFeedstock(10f);
                     }
                 };
                 yield return new Command_Action
@@ -119,7 +105,7 @@ namespace Replimat
                     defaultLabel = "DEBUG: -1L",
                     action = delegate
                     {
-                        this.DrawFeedstock(1f);
+                        DrawFeedstock(1f);
                     }
                 };
                 yield return new Command_Action
@@ -127,7 +113,7 @@ namespace Replimat
                     defaultLabel = "DEBUG: +1L",
                     action = delegate
                     {
-                        this.AddFeedstock(1f);
+                        AddFeedstock(1f);
                     }
                 };
                 yield return new Command_Action
@@ -135,7 +121,7 @@ namespace Replimat
                     defaultLabel = "DEBUG: +10L",
                     action = delegate
                     {
-                        this.AddFeedstock(10f);
+                        AddFeedstock(10f);
                     }
                 };
                 yield return new Command_Action
@@ -143,11 +129,10 @@ namespace Replimat
                     defaultLabel = "DEBUG: Fill",
                     action = delegate
                     {
-                        this.SetStoredFeedstockPct(1f);
+                        SetStoredFeedstockPct(1f);
                     }
                 };
             }
         }
     }
 }
-

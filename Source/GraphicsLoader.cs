@@ -8,14 +8,22 @@ namespace Replimat
     {
         public static readonly Graphic replimatTerminalGlow = GraphicDatabase.Get<Graphic_Multi>("FX/replimatTerminalGlow", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
 
+        public static readonly Graphic replimatTerminalScreenGlow = GraphicDatabase.Get<Graphic_Single>("FX/replimatTerminalScreenGlow_north", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
+
         public static readonly Graphic replimatAnimalFeederGlow = GraphicDatabase.Get<Graphic_Single>("FX/replimatAnimalFeederGlow", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
 
-        public static Graphic[] replimatHopperGlow = new Graphic[]
+        public static readonly Graphic[] replimatHopperGlow = new Graphic[]
         {
             GraphicDatabase.Get<Graphic_Multi>("FX/replimatHopperGlow0", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white),
             GraphicDatabase.Get<Graphic_Multi>("FX/replimatHopperGlow1", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white),
             GraphicDatabase.Get<Graphic_Multi>("FX/replimatHopperGlow2", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white)
         };
+
+        public static readonly Graphic replimatHopperScreenGlow = GraphicDatabase.Get<Graphic_Multi>("FX/replimatHopperScreenGlow", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
+
+        public static readonly Graphic replimatCorpseRecyclerGlow = GraphicDatabase.Get<Graphic_Multi>("FX/replimatCorpseRecyclerGlow", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
+
+        public static readonly Graphic replimatComputerScreenGlow = GraphicDatabase.Get<Graphic_Single>("FX/replimatComputerScreenGlow_north", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
 
         public static readonly Texture2D clear = SolidColorMaterials.NewSolidColorTexture(Color.clear);
         public static readonly Texture2D grey = SolidColorMaterials.NewSolidColorTexture(Color.grey);

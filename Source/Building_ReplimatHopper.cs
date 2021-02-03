@@ -5,6 +5,7 @@ using Verse.Sound;
 using RimWorld;
 using UnityEngine;
 using System;
+using System.Text;
 
 namespace Replimat
 {
@@ -24,22 +25,13 @@ namespace Replimat
 
         private Sustainer wickSustainer;
 
-        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).Select(x => x as Building_ReplimatFeedTank).Where(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.HasComputer).ToList();
+        public List<Building_ReplimatFeedTank> GetTanks => ReplimatUtility.GetTanks(powerComp.PowerNet);
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
             powerComp = GetComp<CompPowerTrader>();
             stateDependentPowerComp = GetComp<CompStateDependentPowerUse>();
-        }
-
-        public bool HasComputer
-        {
-            get
-            {
-                return Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputer).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == this.PowerComp.PowerNet && x.Working);
-
-            }
         }
 
         public float freezerTemp
@@ -50,14 +42,14 @@ namespace Replimat
                 {
                     return -2f;
                 }
-                return this.AmbientTemperature;
+                return AmbientTemperature;
             }
         }
 
         public void StartWickSustainer()
         {
             SoundInfo info = SoundInfo.InMap(this, MaintenanceType.PerTick);
-            this.wickSustainer = this.def.building.soundDispense.TrySpawnSustainer(info);
+            wickSustainer = def.building.soundDispense.TrySpawnSustainer(info);
         }
 
         public override void Draw()
@@ -66,31 +58,10 @@ namespace Replimat
 
             if (powerComp.PowerOn)
             {
-                string screenGlowFxGraphicPath = null;
+                Vector3 replimatHopperScreenGlowDrawPos = DrawPos;
+                replimatHopperScreenGlowDrawPos.y = AltitudeLayer.ItemImportant.AltitudeFor() + 0.03f;
 
-                if (Rotation == Rot4.North)
-                {
-                    screenGlowFxGraphicPath = "FX/replimatHopperScreenGlow_north";
-                }
-                if (Rotation == Rot4.East)
-                {
-                    screenGlowFxGraphicPath = "FX/replimatHopperScreenGlow_east";
-                }
-                if (Rotation == Rot4.South)
-                {
-                    screenGlowFxGraphicPath = "FX/replimatHopperScreenGlow_south";
-                }
-                if (Rotation == Rot4.West)
-                {
-                    screenGlowFxGraphicPath = "FX/replimatHopperScreenGlow_west";
-                }
-
-                Graphic screenGlow = GraphicDatabase.Get<Graphic_Single>(screenGlowFxGraphicPath, ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
-                Mesh screenGlowMesh = screenGlow.MeshAt(Rotation);
-                Vector3 screenGlowDrawPos = DrawPos;
-                screenGlowDrawPos.y = AltitudeLayer.ItemImportant.AltitudeFor() + 0.03f;
-
-                Graphics.DrawMesh(screenGlowMesh, screenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(screenGlow.MatAt(Rotation, null), 1), 0);
+                Graphics.DrawMesh(GraphicsLoader.replimatHopperScreenGlow.MeshAt(Rotation), replimatHopperScreenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatHopperScreenGlow.MatAt(Rotation, null), 1), 0);
             }
 
             float alpha;
@@ -108,9 +79,10 @@ namespace Replimat
                 alpha = 1f;
             }
 
-            Graphics.DrawMesh(GraphicsLoader.replimatHopperGlow[dematerializingCycleInt].MeshAt(base.Rotation), this.DrawPos + new Vector3(0f, (int)AltitudeLayer.MoteOverhead
-                * Altitudes.AltInc, 0f), Quaternion.identity,
-                    FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatHopperGlow[dematerializingCycleInt].MatAt(base.Rotation, null), alpha), 0);
+            Vector3 replimatHopperGlowDrawPos = DrawPos;
+            replimatHopperGlowDrawPos.y = AltitudeLayer.MoteOverhead.AltitudeFor() + 0.03f;
+
+            Graphics.DrawMesh(GraphicsLoader.replimatHopperGlow[dematerializingCycleInt].MeshAt(Rotation), replimatHopperGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatHopperGlow[dematerializingCycleInt].MatAt(Rotation, null), alpha), 0);
         }
 
         public override void Tick()
@@ -166,17 +138,17 @@ namespace Replimat
                 DematerializingTicks--;
                 powerComp.PowerOutput = -Math.Max(stateDependentPowerComp.ActiveModePowerConsumption, powerComp.Props.basePowerConsumption);
 
-                if (this.wickSustainer == null)
+                if (wickSustainer == null)
                 {
-                    this.StartWickSustainer();
+                    StartWickSustainer();
                 }
-                else if (this.wickSustainer.Ended)
+                else if (wickSustainer.Ended)
                 {
-                    this.StartWickSustainer();
+                    StartWickSustainer();
                 }
                 else
                 {
-                    this.wickSustainer.Maintain();
+                    wickSustainer.Maintain();
                 }
 
                 if (this.IsHashIntervalTick(5))
@@ -194,6 +166,27 @@ namespace Replimat
         public override IEnumerable<IntVec3> AllSlotCells()
         {
             yield return Position;
+        }
+
+        public override string GetInspectString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(base.GetInspectString());
+
+            if (ParentHolder != null && !(ParentHolder is Map))
+            {
+                // If minified, don't show computer and feedstock check Inspector messages
+            }
+            else
+            {
+                if (!ReplimatUtility.CanFindComputer(this))
+                {
+                    stringBuilder.AppendLine();
+                    stringBuilder.Append("NotConnectedToComputer".Translate());
+                }
+            }
+
+            return stringBuilder.ToString();
         }
     }
 }

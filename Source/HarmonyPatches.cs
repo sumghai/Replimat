@@ -195,7 +195,6 @@ namespace Replimat
                         var PawnForMealScan = actor;
                         if (curJob.GetTarget(TargetIndex.B).Thing is Pawn p)
                         {
-                            //  Log.Warning("for "+p.Label);
                             PawnForMealScan = p;
                         }
                        

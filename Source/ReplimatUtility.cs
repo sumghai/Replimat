@@ -18,9 +18,15 @@ namespace Replimat
 
         public static float convertFeedstockVolumeToMass(float volume) => volume * nutrientFeedStockDensity;
 
+        public static bool CanFindComputer(Building building)
+        {
+            var computer = building.Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputer).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == building.PowerComp.PowerNet && x.Working);
+            return computer;
+        }
+
         public static List<Building_ReplimatFeedTank> GetTanks(this PowerNet net)
         {
-            var tanks = net.Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).OfType<Building_ReplimatFeedTank>().Where(x => x.PowerComp.PowerNet == net && x.HasComputer).ToList();
+            var tanks = net.Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).OfType<Building_ReplimatFeedTank>().Where(x => x.PowerComp.PowerNet == net && CanFindComputer(x)).ToList();
             return tanks;
         }
 
@@ -41,10 +47,6 @@ namespace Replimat
                 {
                     return true;
                 }
-                //if (p.foodRestriction.pawn.Faction != Faction.OfPlayer && (getter == null || getter.Faction != Faction.OfPlayer))
-                //{
-                //    return true;
-                //}
                 if (p.foodRestriction.pawn.InMentalState)
                 {
                     return true;
@@ -81,20 +83,16 @@ namespace Replimat
 
                 if (allowedMeals.NullOrEmpty())
                 {
-                    // Log.Warning("Null meal.");
                     return null;
                 }
 
                 if (ReplimatMod.Settings.PrioritizeFoodQuality)
                 {
-                    //       Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " will prioritize meal quality");
                     var maxpref = allowedMeals.Max(x => x.ingestible.preferability);
                     SelectedMeal = allowedMeals.Where(x => x.ingestible.preferability == maxpref).RandomElement();
                 }
                 else
                 {
-                    //      Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " can choose random meals regardless of quality");
-
                     // If set to random then attempt to replicate any meal with preferability above awful
                     if (allowedMeals.Any(x => x.ingestible.preferability > FoodPreferability.MealAwful))
                     {
@@ -106,10 +104,6 @@ namespace Replimat
                     }
 
                 }
-
-                // Debug Messages
-                //  Log.Message("[Replimat] Pawn " + eater.Name.ToString() + " is allowed the following meals: \n"
-                //       + string.Join(", ", allowedMeals.Select(def => def.defName).ToArray()));
             }
 
             return SelectedMeal;
@@ -120,7 +114,6 @@ namespace Replimat
 
             if (feedstockNeeded <= 0f)
             {
-                Log.Warning("[Replimat] " + "Tried to draw 0 feedstock!");
                 return false;
             }
 
@@ -155,20 +148,14 @@ namespace Replimat
                             return true;
                         }
                     }
-
-                    Log.Warning("[Replimat] " + "Tried but tanks ran out of feedstock, needed:" + feedstockNeeded);
                     return false;
                 }
                 else
                 {
-                    Log.Warning("[Replimat] " + " Tanks didn't have enough feedstock, needed:" + feedstockNeeded);
                     return false;
                 }
             }
-
-            Log.Warning("[Replimat] " + "Tried to draw feedstock from non-existent tanks!");
             return false;
-
         }
     }
 }
