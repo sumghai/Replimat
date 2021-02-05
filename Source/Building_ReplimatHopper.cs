@@ -21,7 +21,7 @@ namespace Replimat
 
         public static int DematerializeDuration = GenTicks.SecondsToTicks(2f);
 
-        public int dematerializingCycleInt;
+        private int dematerializingCycleInt;
 
         private Sustainer wickSustainer;
 

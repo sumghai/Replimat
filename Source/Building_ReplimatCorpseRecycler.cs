@@ -32,6 +32,8 @@ namespace Replimat
 
         public bool StorageTabVisible => true; //Always show storage options tab
 
+        private int dematerializingCycleInt;
+
         private Sustainer wickSustainer;
 
         public List<Building_ReplimatFeedTank> GetTanks => ReplimatUtility.GetTanks(powerComp.PowerNet);
@@ -150,7 +152,7 @@ namespace Replimat
 
             if (Running)
             {
-                Graphics.DrawMesh(GraphicsLoader.replimatCorpseRecyclerGlow.MeshAt(Rotation), replimatCorpseRecyclerGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatCorpseRecyclerGlow.MatAt(Rotation, null), 1), 0);
+                Graphics.DrawMesh(GraphicsLoader.replimatCorpseRecyclerGlow[dematerializingCycleInt].MeshAt(Rotation), replimatCorpseRecyclerGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatCorpseRecyclerGlow[dematerializingCycleInt].MatAt(Rotation, null), 1), 0);
             }
         }
 
@@ -193,6 +195,12 @@ namespace Replimat
                                 corpseRemainingMass -= Mathf.Min(defaultMassDecrementStepSize, corpseRemainingMass);
                             }
                         }
+
+                        dematerializingCycleInt++;
+                        if (dematerializingCycleInt > 3)
+                        {
+                            dematerializingCycleInt = 0;
+                        }
                     }
                     else
                     {
@@ -224,6 +232,68 @@ namespace Replimat
             foreach (Gizmo item in StorageSettingsClipboard.CopyPasteGizmosFor(allowedCorpseFilterSettings))
             {
                 yield return item;
+            }
+            if (Prefs.DevMode)
+            {
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEBUG: Empty",
+                    action = delegate
+                    {
+                        corpseRemainingMass = 0;
+                    }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEBUG: -10kg",
+                    action = delegate
+                    {
+                        corpseRemainingMass = (corpseRemainingMass > 10) ? (corpseRemainingMass - 10) : 0;
+                    }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEBUG: -1kg",
+                    action = delegate
+                    {
+                        corpseRemainingMass = (corpseRemainingMass > 1) ? (corpseRemainingMass - 1) : 0;
+                    }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEBUG: +1kg",
+                    action = delegate
+                    {
+                        if (Empty)
+                        {
+                            corpseInitialMass = ThingDefOf.Human.BaseMass;
+                        }
+
+                        corpseRemainingMass = (corpseInitialMass - corpseRemainingMass > 1) ? (corpseRemainingMass + 1) : corpseInitialMass;
+                    }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEBUG: +10kg",
+                    action = delegate
+                    {
+                        if (Empty)
+                        {
+                            corpseInitialMass = ThingDefOf.Human.BaseMass;
+                        }
+
+                        corpseRemainingMass = (corpseInitialMass - corpseRemainingMass > 10) ? (corpseRemainingMass + 10) : corpseInitialMass;
+                    }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEBUG: Load Corpse",
+                    action = delegate
+                    {
+                        corpseInitialMass = ThingDefOf.Human.BaseMass;
+                        corpseRemainingMass = corpseInitialMass;
+                    }
+                };
             }
         }
     }
