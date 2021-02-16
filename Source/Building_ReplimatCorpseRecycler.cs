@@ -160,10 +160,17 @@ namespace Replimat
         {
             base.Tick();
 
+            if (!powerComp.PowerOn)
+            {
+                return;
+            }
+
+            powerComp.PowerOutput = -powerComp.Props.basePowerConsumption;
+
+            List<Building_ReplimatFeedTank> tanks = GetTanks;
+
             if (this.IsHashIntervalTick(5))
             {
-                powerComp.PowerOutput = -powerComp.Props.basePowerConsumption;
-
                 if (Empty)
                 {
                     corpseInitialMass = 0;
@@ -171,8 +178,6 @@ namespace Replimat
                 }
                 else
                 {
-                    List<Building_ReplimatFeedTank> tanks = GetTanks;
-
                     float massDecrementStepSize = Mathf.Min(defaultMassDecrementStepSize, corpseRemainingMass);
                     float feedstockVolume = ReplimatUtility.convertMassToFeedstockVolume(massDecrementStepSize);
                     float freeSpaceInTanks = tanks.Sum(x => x.AmountCanAccept);
