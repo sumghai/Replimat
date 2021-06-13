@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System.Collections.Generic;
 using Verse;
-using RimWorld;
 
 namespace Replimat
 {
@@ -29,7 +29,7 @@ namespace Replimat
 
             ThingDef kibble = ThingDef.Named("Kibble");
             int unitsOfKibble = 75 * 3;
-            float volumeOfFeedstockToWaste = ReplimatUtility.convertMassToFeedstockVolume(unitsOfKibble * kibble.BaseMass);
+            float volumeOfFeedstockToWaste = ReplimatUtility.ConvertMassToFeedstockVolume(unitsOfKibble * kibble.BaseMass);
 
             if (currentTerminal.powerComp.PowerOn && currentTerminal.HasEnoughFeedstockInHopperForIncident(volumeOfFeedstockToWaste))
             {

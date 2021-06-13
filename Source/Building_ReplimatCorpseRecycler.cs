@@ -1,10 +1,10 @@
 ﻿using RimWorld;
 using System;
-using System.Text;
-using Verse;
-using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using UnityEngine;
+using Verse;
 using Verse.Sound;
 
 namespace Replimat
@@ -179,7 +179,7 @@ namespace Replimat
                 else
                 {
                     float massDecrementStepSize = Mathf.Min(defaultMassDecrementStepSize, corpseRemainingMass);
-                    float feedstockVolume = ReplimatUtility.convertMassToFeedstockVolume(massDecrementStepSize);
+                    float feedstockVolume = ReplimatUtility.ConvertMassToFeedstockVolume(massDecrementStepSize);
                     float freeSpaceInTanks = tanks.Sum(x => x.AmountCanAccept);
 
                     if (powerComp.PowerOn && freeSpaceInTanks >= feedstockVolume)

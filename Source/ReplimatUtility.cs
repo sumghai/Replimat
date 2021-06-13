@@ -1,8 +1,8 @@
-﻿using Verse;
-using RimWorld;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
+using Verse;
 
 namespace Replimat
 {
@@ -10,13 +10,11 @@ namespace Replimat
     [StaticConstructorOnStartup]
     public static class ReplimatUtility
     {
-        private static HashSet<Thing> filtered = new HashSet<Thing>();
-
         private const float nutrientFeedStockDensity = 1.07f; // 1.07 kg/L (equivalent to Abbott's Ensure Nutritional Shake)
 
-        public static float convertMassToFeedstockVolume(float mass) => mass / nutrientFeedStockDensity;
+        public static float ConvertMassToFeedstockVolume(float mass) => mass / nutrientFeedStockDensity;
 
-        public static float convertFeedstockVolumeToMass(float volume) => volume * nutrientFeedStockDensity;
+        public static float ConvertFeedstockVolumeToMass(float volume) => volume * nutrientFeedStockDensity;
 
         public static bool CanFindComputer(Building building)
         {

@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Verse;
-using RimWorld;
 using UnityEngine;
+using Verse;
 
 namespace Replimat
 {
@@ -26,7 +26,7 @@ namespace Replimat
         public float GetFeedstockPercent()
         {
             float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
-            float totalSpace = GetTanks.Sum(x => x.storedFeedstockMax);
+            float totalSpace = GetTanks.Sum(x => x.StoredFeedstockMax);
             return totalAvailableFeedstock / totalSpace;
         }
 
@@ -94,7 +94,6 @@ namespace Replimat
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine(base.GetInspectString());
             
-
             if (ParentHolder != null && !(ParentHolder is Map))
             {
                 // If minified, don't show computer and feedstock check Inspector messages
@@ -104,7 +103,7 @@ namespace Replimat
                 if (Working)
                 {
                     float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
-                    float totalSpace = GetTanks.Sum(x => x.storedFeedstockMax);
+                    float totalSpace = GetTanks.Sum(x => x.StoredFeedstockMax);
                     stringBuilder.Append("TotalFeedstockStored".Translate(totalAvailableFeedstock.ToString("0.00"), totalSpace.ToString("0.00")));
                 }
             }

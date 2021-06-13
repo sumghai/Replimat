@@ -1,11 +1,11 @@
-﻿using Verse;
-using Verse.Sound;
-using RimWorld;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
-using UnityEngine;
 using System.Text;
+using UnityEngine;
+using Verse;
+using Verse.Sound;
 
 namespace Replimat
 {
@@ -39,7 +39,7 @@ namespace Replimat
         public bool HasStockFor(ThingDef def)
         {
             float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
-            float stockNeeded = ReplimatUtility.convertMassToFeedstockVolume(def.BaseMass);
+            float stockNeeded = ReplimatUtility.ConvertMassToFeedstockVolume(def.BaseMass);
             return totalAvailableFeedstock >= stockNeeded;
         }
 
@@ -47,7 +47,7 @@ namespace Replimat
         {
             float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
             // Use a default amount for all meals
-            float stockNeeded = ReplimatUtility.convertMassToFeedstockVolume(DispensableDef.BaseMass);
+            float stockNeeded = ReplimatUtility.ConvertMassToFeedstockVolume(DispensableDef.BaseMass);
             return totalAvailableFeedstock >= stockNeeded;
         }
 
@@ -91,7 +91,7 @@ namespace Replimat
 
             float dispensedMealMass = dispensedMeal.def.BaseMass;
 
-            powerComp.PowerNet.TryConsumeFeedstock(ReplimatUtility.convertMassToFeedstockVolume(dispensedMealMass));
+            powerComp.PowerNet.TryConsumeFeedstock(ReplimatUtility.ConvertMassToFeedstockVolume(dispensedMealMass));
 
             return dispensedMeal;
         }
@@ -152,11 +152,11 @@ namespace Replimat
             ThingDef survivalMeal = ThingDefOf.MealSurvivalPack;
             int maxSurvivalMeals = 30;
             float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
-            float totalAvailableFeedstockMass = ReplimatUtility.convertFeedstockVolumeToMass(totalAvailableFeedstock);
+            float totalAvailableFeedstockMass = ReplimatUtility.ConvertFeedstockVolumeToMass(totalAvailableFeedstock);
             int maxPossibleSurvivalMeals = (int)Math.Floor(totalAvailableFeedstockMass / survivalMeal.BaseMass);
             int survivalMealCap = (maxPossibleSurvivalMeals < maxSurvivalMeals) ? maxPossibleSurvivalMeals : maxSurvivalMeals;
 
-            float survivalMealCapVolumeOfFeedstockRequired = ReplimatUtility.convertMassToFeedstockVolume(survivalMealCap * survivalMeal.BaseMass);
+            float survivalMealCapVolumeOfFeedstockRequired = ReplimatUtility.ConvertMassToFeedstockVolume(survivalMealCap * survivalMeal.BaseMass);
 
             if (!CanDispenseNow)
             {
@@ -174,7 +174,7 @@ namespace Replimat
 
             Dialog_Slider window = new Dialog_Slider(textGetter, 1, survivalMealCap, delegate (int x)
             {
-                ConfirmAction(x, ReplimatUtility.convertMassToFeedstockVolume(survivalMeal.BaseMass));
+                ConfirmAction(x, ReplimatUtility.ConvertMassToFeedstockVolume(survivalMeal.BaseMass));
             }, 1);
             Find.WindowStack.Add(window);
         }

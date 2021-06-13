@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using UnityEngine;
 using Verse;
 using Verse.Sound;
-using RimWorld;
-using UnityEngine;
-using System;
-using System.Text;
 
 namespace Replimat
 {
@@ -21,7 +21,23 @@ namespace Replimat
 
         public static int DematerializeDuration = GenTicks.SecondsToTicks(2f);
 
-        private int dematerializingCycleInt;
+        private static Map[] maps = new Map[20];
+        private static bool[][] grid = new bool[20][];
+
+        public static bool IsHopperInCell(IntVec3 cell, Map map)
+        {
+            var mapIndex = map.Index;
+            if (maps[mapIndex] != map)
+            {
+                maps[mapIndex] = map;
+                grid[mapIndex] = new bool[map.cellIndices.NumGridCells];
+                return false;
+            }
+            var index = map.cellIndices.CellToIndex(cell);
+            return grid[mapIndex][index];
+        }
+
+        public int dematerializingCycleInt;
 
         private Sustainer wickSustainer;
 
@@ -34,7 +50,7 @@ namespace Replimat
             stateDependentPowerComp = GetComp<CompStateDependentPowerUse>();
         }
 
-        public float freezerTemp
+        public float FreezerTemp
         {
             get
             {
@@ -102,7 +118,7 @@ namespace Replimat
 
             if (food != null)
             {
-                float stockvol = ReplimatUtility.convertMassToFeedstockVolume(food.def.BaseMass);
+                float stockvol = ReplimatUtility.ConvertMassToFeedstockVolume(food.def.BaseMass);
                 float FreeSpace = tanks.Sum(x => x.AmountCanAccept);
 
                 if (this.IsHashIntervalTick(60) && FreeSpace >= stockvol)
@@ -114,7 +130,7 @@ namespace Replimat
                 {
                     float buffy = stockvol;
 
-                    food.stackCount = food.stackCount - 1;
+                    food.stackCount--;
 
                     if (food.stackCount == 0)
                     {

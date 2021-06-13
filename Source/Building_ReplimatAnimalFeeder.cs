@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Verse;
-using RimWorld;
 using UnityEngine;
+using Verse;
 using Verse.Sound;
-using System;
 
 namespace Replimat
 {
@@ -19,7 +19,7 @@ namespace Replimat
 
         public int ReplicatingTicks = 0;
 
-        public float volumePerKibble = ReplimatUtility.convertMassToFeedstockVolume(ThingDefOf.Kibble.BaseMass);
+        public float volumePerKibble = ReplimatUtility.ConvertMassToFeedstockVolume(ThingDefOf.Kibble.BaseMass);
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -56,7 +56,7 @@ namespace Replimat
         public bool HasEnoughFeedstockInHoppers()
         {
             float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
-            float stockNeeded = ReplimatUtility.convertMassToFeedstockVolume(1f);
+            float stockNeeded = ReplimatUtility.ConvertMassToFeedstockVolume(1f);
             return totalAvailableFeedstock >= stockNeeded;
         }
 

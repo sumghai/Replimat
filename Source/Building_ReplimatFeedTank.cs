@@ -1,30 +1,28 @@
-﻿using System.Text;
-using Verse;
-using RimWorld;
+﻿using RimWorld;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
-using System.Linq;
+using Verse;
 
 namespace Replimat
 {
     public class Building_ReplimatFeedTank : Building
     {
-        public virtual float storedFeedstockMax => 250f; // 250L capacity for an *insulated* 0.5m diameter and 1.5m high liquid tank
+        public virtual float StoredFeedstockMax => 250f; // 250L capacity for an *insulated* 0.5m diameter and 1.5m high liquid tank
                                                          // Originally 8000L capacity for a 2m diameter and 2m high liquid tank
 
         public float storedFeedstock;
 
-        public float AmountCanAccept => this.IsBrokenDown() ? 0f : (storedFeedstockMax - storedFeedstock);
+        public float AmountCanAccept => this.IsBrokenDown() ? 0f : (StoredFeedstockMax - storedFeedstock);
 
         public float StoredFeedstock => storedFeedstock;
         
-        public float StoredFeedstockPct => storedFeedstock / storedFeedstockMax;
+        public float StoredFeedstockPct => storedFeedstock / StoredFeedstockMax;
 
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look(ref storedFeedstock, "storedFeedstock", 0f, false);
-
         }
 
         public void AddFeedstock(float amount)
@@ -52,14 +50,14 @@ namespace Replimat
         public void SetStoredFeedstockPct(float pct)
         {
             pct = Mathf.Clamp01(pct);
-            storedFeedstock = storedFeedstockMax * pct;
+            storedFeedstock = StoredFeedstockMax * pct;
         }
 
         public override string GetInspectString()
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine(base.GetInspectString());
-            stringBuilder.Append("FeedstockStored".Translate(storedFeedstock.ToString("0.00"), storedFeedstockMax.ToString("0.00")));
+            stringBuilder.Append("FeedstockStored".Translate(storedFeedstock.ToString("0.00"), StoredFeedstockMax.ToString("0.00")));
 
             if (ParentHolder != null && !(ParentHolder is Map))
             {
