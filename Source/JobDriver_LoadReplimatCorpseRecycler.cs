@@ -13,9 +13,9 @@ namespace Replimat
 
         private const int Duration = 200;
 
-        protected Building_ReplimatCorpseRecycler CorpseRecycler => (Building_ReplimatCorpseRecycler)job.GetTarget(TargetIndex.A).Thing;
+        protected Building_ReplimatCorpseRecycler CorpseRecycler => (Building_ReplimatCorpseRecycler)job.GetTarget(CorpseRecyclerInd).Thing;
 
-        protected Corpse Corpse => (Corpse)job.GetTarget(TargetIndex.B).Thing;
+        protected Corpse Corpse => (Corpse)job.GetTarget(CorpseInd).Thing;
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
@@ -28,8 +28,8 @@ namespace Replimat
 
         public override IEnumerable<Toil> MakeNewToils()
         {
-            this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-            this.FailOnBurningImmobile(TargetIndex.A);
+            this.FailOnDespawnedNullOrForbidden(CorpseRecyclerInd);
+            this.FailOnBurningImmobile(CorpseRecyclerInd);
             this.FailOn(delegate 
             {
                 // Fail if corpse recycler has no power, or its current storage settings does not allow the chosen corpse
@@ -40,12 +40,12 @@ namespace Replimat
             {
                 job.count = 1;
             });
-            Toil reserveCorpse = Toils_Reserve.Reserve(TargetIndex.B);
+            Toil reserveCorpse = Toils_Reserve.Reserve(CorpseInd);
             yield return reserveCorpse;
-            yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
-            yield return Toils_Haul.StartCarryThing(TargetIndex.B, putRemainderInQueue: false, subtractNumTakenFromJobCount: true).FailOnDestroyedNullOrForbidden(TargetIndex.B);
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
-            yield return Toils_General.Wait(200).FailOnDestroyedNullOrForbidden(TargetIndex.B).FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch).WithProgressBarToilDelay(TargetIndex.A);
+            yield return Toils_Goto.GotoThing(CorpseInd, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(CorpseInd).FailOnSomeonePhysicallyInteracting(CorpseInd);
+            yield return Toils_Haul.StartCarryThing(CorpseInd, putRemainderInQueue: false, subtractNumTakenFromJobCount: true).FailOnDestroyedNullOrForbidden(CorpseInd);
+            yield return Toils_Goto.GotoThing(CorpseRecyclerInd, PathEndMode.Touch);
+            yield return Toils_General.Wait(Duration).FailOnDestroyedNullOrForbidden(CorpseInd).FailOnDestroyedNullOrForbidden(CorpseRecyclerInd).FailOnCannotTouch(CorpseRecyclerInd, PathEndMode.Touch).WithProgressBarToilDelay(CorpseRecyclerInd);
             Toil toil = new Toil();
             toil.initAction = delegate
             {
