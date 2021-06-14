@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- EN: recycled corpse into feedstock -->
+	<Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.label>我把屍體液化回收了</Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.label>
+
+	<!-- EN: I recycled a dead person into nutrient feedstock. This is disturbing. -->
+	<Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.description>我把一具屍體回收成液態營養原料了，真令人不安。</Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.description>
+
+	<!-- EN: recycled colonist into feedstock -->
+	<Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.label>我把殖民者屍體液化回收了</Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.label>
+
+	<!-- EN: I recycled one of our own dead into nutrient feedstock. Are we so desperate that we can't even afford to give them a proper burial? -->
+	<Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.description>我把一具殖民者的屍體回收成液態營養原料了，難到我們連自己的往生者都不能好好安葬嗎?</Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.description>
+
+	<!-- EN: recycled corpse into feedstock -->
+	<Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.label>我把屍體液化回收了</Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.label>
+
+	<!-- EN: Waste not, want not. -->
+	<Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.description>人死了，屍體不可浪費。</Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.description>
+
+	<!-- EN: we recycled corpse into feedstock -->
+	<Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.label>我們把屍體液化回收了</Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.label>
+
+	<!-- EN: We recycled a dead person into nutrient feedstock. This is disturbing. -->
+	<Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.description>我們把一具屍體回收成液態營養原料了，真令人不安。</Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.description>
+
+	<!-- EN: we recycled colonist into feedstock -->
+	<Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.label>我們把殖民者屍體液化回收了</Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.label>
+
+	<!-- EN: We recycled one of our own dead into nutrient feedstock. Are we so desperate that we can't even afford to give them a proper burial? -->
+	<Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.description>我們把一具殖民者的屍體回收成液態營養原料了，難到我們連自己的往生者都不能好好安葬嗎?</Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.description>
+
+	<!-- EN: recycled corpse into feedstock -->
+	<Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.label>我們把屍體液化回收了</Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.label>
+
+	<!-- EN: Waste not, want not. -->
+	<Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.description>人死了，屍體不可浪費。</Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.description>
+</LanguageData>

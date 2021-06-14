@@ -1,4 +1,4 @@
-﻿using System;
+﻿using RimWorld;
 using System.Collections.Generic;
 using Verse;
 using Verse.AI;
@@ -49,6 +49,23 @@ namespace Replimat
             Toil toil = new Toil();
             toil.initAction = delegate
             {
+                if (pawn.needs?.mood?.thoughts != null)
+                {
+                    ThoughtDef loaderPawnThought = pawn.story.traits.HasTrait(TraitDefOf.Psychopath) ? ReplimatDef.Thought_RecycledCorpseInReplimatPsychopath : Corpse.InnerPawn.IsColonist ? ReplimatDef.Thought_RecycledColonistCorpseInReplimat : ReplimatDef.Thought_RecycledStrangerCorpseInReplimat;
+
+                    pawn.needs.mood.thoughts.memories.TryGainMemory(loaderPawnThought);
+                }
+
+                foreach (Pawn otherPawn in pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction))
+                {
+                    if (otherPawn != pawn && otherPawn.needs?.mood?.thoughts != null)
+                    { 
+                        ThoughtDef otherPawnThought = otherPawn.story.traits.HasTrait(TraitDefOf.Psychopath) ? ReplimatDef.Thought_KnowRecycledCorpseInReplimatPsychopath : Corpse.InnerPawn.IsColonist ? ReplimatDef.Thought_KnowRecycledColonistCorpseInReplimat : ReplimatDef.Thought_KnowRecycledStrangerCorpseInReplimat;
+
+                        otherPawn.needs.mood.thoughts.memories.TryGainMemory(otherPawnThought);
+                    }
+                }
+
                 CorpseRecycler.LoadCorpse(Corpse);
             };
             toil.defaultCompleteMode = ToilCompleteMode.Instant;
