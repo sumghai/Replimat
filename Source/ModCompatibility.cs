@@ -15,8 +15,16 @@ namespace Replimat
 
         public static bool AlienCorpseHasOrganicFlesh(ThingDef def)
         {
-            ThingDef_AlienRace corpseAlienRace = ThingDef.Named(def.ToString().Substring("Corpse_".Length)) as ThingDef_AlienRace;
-            return !corpseAlienRace.alienRace.compatibility.IsFlesh;
+            ThingDef corpseAlienRace = ThingDef.Named(def.ToString().Substring("Corpse_".Length));
+
+            if (corpseAlienRace.race.Humanlike)
+            {
+                ThingDef_AlienRace test = corpseAlienRace as ThingDef_AlienRace;
+                
+                return test.alienRace.compatibility.IsFlesh;
+            }
+
+            return false;
         }
     }
 }

@@ -105,7 +105,7 @@ namespace Replimat
             // Remove non-fleshy corpses from filter if Humanoid Alien Races mod is active
             if (ModCompatibility.AlienRacesIsActive)
             {
-                foobar.filter.allowedDefs.RemoveWhere(def => ModCompatibility.AlienCorpseHasOrganicFlesh(def));
+                foobar.filter.allowedDefs.RemoveWhere(def => !ModCompatibility.AlienCorpseHasOrganicFlesh(def));
             }
 
             return foobar;
