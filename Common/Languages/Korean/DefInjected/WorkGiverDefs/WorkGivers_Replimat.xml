@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- EN: haul corpses to Replimat Cadaver Processor -->
+	<LoadReplimatCorpseRecycler.label>시체를 시체 재활용 기계 운반</LoadReplimatCorpseRecycler.label>
+
+	<!-- EN: hauling to -->
+	<LoadReplimatCorpseRecycler.gerund>운반</LoadReplimatCorpseRecycler.gerund>
+
+	<!-- EN: haul to -->
+	<LoadReplimatCorpseRecycler.verb>운반</LoadReplimatCorpseRecycler.verb>
+</LanguageData>

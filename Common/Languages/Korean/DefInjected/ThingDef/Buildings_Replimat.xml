@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- EN: Replimat Terminal -->
+	<ReplimatTerminal.label>레프리 매트 단말</ReplimatTerminal.label>
+	
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatTerminal.description>분자 재구성으로 식사와 음료를 합성합니다. 레프리 매트 원료 탱크 및 복제본 매트 컴퓨터를 전력선에 연결해야합니다.</ReplimatTerminal.description>
+	
+	<!-- EN: Replimat Terminal (blueprint)-->
+	<Blueprint_ReplimatTerminal.label>레프리 매트 단말 (설계도)</Blueprint_ReplimatTerminal.label>
+	
+	<!-- EN: Replimat Terminal (blueprint)-->
+	<Blueprint_Install_ReplimatTerminal.label>레프리 매트 단말 (설계도)</Blueprint_Install_ReplimatTerminal.label>
+	
+	<!-- EN: Replimat Terminal (building)-->
+	<Frame_ReplimatTerminal.label>레프리 매트 단말 (건설 중)</Frame_ReplimatTerminal.label>
+	
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<Frame_ReplimatTerminal.description>분자 재구성으로 식사와 음료를 합성합니다. 레프리 매트 원료 탱크 및 복제본 매트 컴퓨터를 전력선에 연결해야합니다.</Frame_ReplimatTerminal.description>
+	
+	<!-- EN: Replimat Animal Feeder -->
+	<ReplimatAnimalFeeder.label>레프리 매트 먹이 그릇</ReplimatAnimalFeeder.label>
+	
+	<!-- EN: Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatAnimalFeeder.description>분자 재구성하여 애완 동물 및 기타 콜로니 동물 용 사료를 합성합니다. 레프리 매트 원료 탱크 및 복제본 매트 컴퓨터를 전력선에 연결해야합니다.</ReplimatAnimalFeeder.description>
+	
+	<!-- EN: Replimat Animal Feeder (blueprint)-->
+	<Blueprint_ReplimatAnimalFeeder.label>레프리 매트 먹이 그릇 (설계도)</Blueprint_ReplimatAnimalFeeder.label>
+	
+	<!-- EN: Replimat Animal Feeder (blueprint)-->
+	<Blueprint_Install_ReplimatAnimalFeeder.label>레프리 매트 먹이 그릇 (설계도)</Blueprint_Install_ReplimatAnimalFeeder.label>
+	
+	<!-- EN: Replimat Animal Feeder (building)-->
+	<Frame_ReplimatAnimalFeeder.label>레프리 매트 먹이 그릇 (건설 중)</Frame_ReplimatAnimalFeeder.label>
+	
+	<!-- EN: Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<Frame_ReplimatAnimalFeeder.description>분자 재구성하여 애완 동물 및 기타 콜로니 동물 용 사료를 합성합니다. 레프리 매트 원료 탱크 및 복제본 매트 컴퓨터를 전력선에 연결해야합니다.</Frame_ReplimatAnimalFeeder.description>
+	
+	<!-- EN: Replimat Feedstock Tank -->
+	<ReplimatFeedTank.label>레프리 매트 원료 탱크</ReplimatFeedTank.label>
+	
+	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<ReplimatFeedTank.description>레프리 매트 단말기에서 사용하는 유기 미립자 현탁액을 보관하고 있습니다. 원료는 레프리 매트 호퍼에서 반입합니다.</ReplimatFeedTank.description>
+	
+	<!-- EN: Replimat Feedstock Tank (blueprint)-->
+	<Blueprint_ReplimatFeedTank.label>레프리 매트 원료 탱크 (설계도)</Blueprint_ReplimatFeedTank.label>
+	
+	<!-- EN: Replimat Feedstock Tank (blueprint)-->
+	<Blueprint_Install_ReplimatFeedTank.label>레프리 매트 원료 탱크 (설계도)</Blueprint_Install_ReplimatFeedTank.label>
+	
+	<!-- EN: Replimat Feedstock Tank (building)-->
+	<Frame_ReplimatFeedTank.label>레프리 매트 원료 탱크 (건설 중)</Frame_ReplimatFeedTank.label>
+	
+	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<Frame_ReplimatFeedTank.description>레프리 매트 단말기에서 사용하는 유기 미립자 현탁액을 보관하고 있습니다. 원료는 레프리 매트 호퍼에서 반입합니다.</Frame_ReplimatFeedTank.description>
+	
+	<!-- EN: Replimat Hopper -->
+	<ReplimatHopper.label>레프리 매트 호퍼</ReplimatHopper.label>
+	
+	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->	
+	<ReplimatHopper.description>재료를 냉동 상태로 유지하고 복제본 매트 시스템에 공급하기 위해 분자 수준에서 유기 미립자 현탁액에 분해합니다.</ReplimatHopper.description>
+	
+	<!-- EN: Replimat Hopper (blueprint)-->
+	<Blueprint_ReplimatHopper.label>레프리 매트 호퍼 (설계도)</Blueprint_ReplimatHopper.label>
+	
+	<!-- EN: Replimat Hopper (blueprint)-->
+	<Blueprint_Install_ReplimatHopper.label>레프리 매트 호퍼 (설계도)</Blueprint_Install_ReplimatHopper.label>
+	
+	<!-- EN: Replimat Hopper (building)-->
+	<Frame_ReplimatHopper.label>레프리 매트 호퍼 (건설 중)</Frame_ReplimatHopper.label>
+	
+	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->	
+	<Frame_ReplimatHopper.description>재료를 냉동 상태로 유지하고 복제본 매트 시스템에 공급하기 위해 분자 수준에서 유기 미립자 현탁액에 분해합니다.</Frame_ReplimatHopper.description>
+	
+	<!-- EN: Replimat Cadaver Processor -->
+	<ReplimatCorpseRecycler.label>레프리 매트 시체 재활용 기계</ReplimatCorpseRecycler.label>
+
+	<!-- EN: Recycles humanoid corpses in a dignified manner into organic particulate suspension for supplying Replimat systems. -->
+	<ReplimatCorpseRecycler.description>시체를 당당히 재활용, 레프리 매트 시스템에 공급하기 위해 분자 수준에서 유기 미립자 현탁액에 분해합니다.</ReplimatCorpseRecycler.description>
+
+	<!-- EN: Replimat Cadaver Processor (blueprint)-->
+	<Blueprint_ReplimatCorpseRecycler.label>레프리 매트 시체 재활용 기계 (설계도)</Blueprint_ReplimatCorpseRecycler.label>
+
+	<!-- EN: Replimat Cadaver Processor (blueprint)-->
+	<Blueprint_Install_ReplimatCorpseRecycler.label>레프리 매트 시체 재활용 기계 (설계도)</Blueprint_Install_ReplimatCorpseRecycler.label>
+
+	<!-- EN: Replimat Cadaver Processor (building)-->
+	<Frame_ReplimatCorpseRecycler.label>레프리 매트 시체 재활용 기계 (건설 중)</Frame_ReplimatCorpseRecycler.label>
+
+	<!-- EN: Recycles humanoid corpses in a dignified manner into organic particulate suspension for supplying Replimat systems. -->	
+	<Frame_ReplimatCorpseRecycler.description>시체를 당당히 재활용, 레프리 매트 시스템에 공급하기 위해 분자 수준에서 유기 미립자 현탁액에 분해합니다.</Frame_ReplimatCorpseRecycler.description>
+	
+	<!-- EN: Replimat Computer -->
+	<ReplimatComputer.label>레프리 매트 컴퓨터</ReplimatComputer.label>
+	
+	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
+	<ReplimatComputer.description>모든 복제본 매트 단말기에 다양한 식사와 음료 조리법을 제공합니다.</ReplimatComputer.description>
+	
+	<!-- EN: Replimat Computer (blueprint)-->
+	<Blueprint_ReplimatComputer.label>레프리 매트 컴퓨터 (설계도)</Blueprint_ReplimatComputer.label>
+	
+	<!-- EN: Replimat Computer (blueprint)-->
+	<Blueprint_Install_ReplimatComputer.label>레프리 매트 컴퓨터 (설계도)</Blueprint_Install_ReplimatComputer.label>
+	
+	<!-- EN: Replimat Computer (building)-->
+	<Frame_ReplimatComputer.label>레프리 매트 컴퓨터 (건설 중)</Frame_ReplimatComputer.label>
+	
+	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
+	<Frame_ReplimatComputer.description>모든 복제본 매트 단말기에 다양한 식사와 음료 조리법을 제공합니다.</Frame_ReplimatComputer.description>
+</LanguageData>

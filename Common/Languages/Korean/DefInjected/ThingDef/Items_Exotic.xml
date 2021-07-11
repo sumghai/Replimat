@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- EN: Isolinear Computing Module -->
+	<IsolinearModule.label>등 선형 계산 모듈</IsolinearModule.label>
+	
+	<!-- EN: A high-density optical data storage and processing module preprogrammed with a library of meal and beverage recipes. The key component of a Replimat Computer. -->
+	<IsolinearModule.description>고밀도 광학 데이터 저장 및 식사와 음료 조리법 라이브러리가 미리 프로그램 된 가공 모듈 복제본 매트 컴퓨터의 주요 부품입니다.</IsolinearModule.description>
+</LanguageData>
