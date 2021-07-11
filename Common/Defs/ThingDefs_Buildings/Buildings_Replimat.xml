@@ -2,6 +2,7 @@
 <Defs>
 
 	<ThingDef Name="ReplimatBase" ParentName="FurnitureBase" Abstract="True">
+		<drawerType>MapMeshAndRealTime</drawerType>
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<constructEffect>ConstructMetal</constructEffect>		
 		<tickerType>Normal</tickerType>
