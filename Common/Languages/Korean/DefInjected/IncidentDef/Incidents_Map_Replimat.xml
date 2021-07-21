@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 	<!-- EN: Replimat Spill -->
-	<ReplimatSpill.label>복제본 매트 누출</ReplimatSpill.label>
+	<ReplimatSpill.label>레플리매트 누출</ReplimatSpill.label>
 
 	<!-- EN: Replimat Spill -->
-	<ReplimatSpill.letterLabel>복제본 매트 누출</ReplimatSpill.letterLabel>
+	<ReplimatSpill.letterLabel>레플리매트 누출</ReplimatSpill.letterLabel>
 
 	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere -->
-	<ReplimatSpill.letterText>{0} 고장 도처에 저장되어 있던 영양이 샐 수 있습니다.</ReplimatSpill.letterText>
+	<ReplimatSpill.letterText>{0}이 고장나 영양 원료를 여기저기 누출하고 있습니다.</ReplimatSpill.letterText>
 
 	<!-- EN: Replimat Spill -->
-	<ReplimatMalfunctionKibble.label>복제본 매트 오동작</ReplimatMalfunctionKibble.label>
+	<ReplimatMalfunctionKibble.label>레플리매트 오작동</ReplimatMalfunctionKibble.label>
 
 	<!-- EN: Replimat Spill -->
-	<ReplimatMalfunctionKibble.letterLabel>복제본 매트 오동작</ReplimatMalfunctionKibble.letterLabel>
+	<ReplimatMalfunctionKibble.letterLabel>레플리매트 오작동</ReplimatMalfunctionKibble.letterLabel>
 
 	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere -->
-	<ReplimatMalfunctionKibble.letterText>{0} 장애가 발생하여 대량의 애완 동물 먹이가 작성되었습니다.</ReplimatMalfunctionKibble.letterText>
+	<ReplimatMalfunctionKibble.letterText>{0}이 오작동해 대량의 동물 먹이를 생산하고 있습니다.</ReplimatMalfunctionKibble.letterText>
 </LanguageData>

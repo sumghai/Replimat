@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 	<!-- EN: Replimat -->
-	<Replimat_Replimat.label>복제본 매트</Replimat_Replimat.label>
+	<Replimat_Replimat.label>레플리매트</Replimat_Replimat.label>
 
-	<!-- EN: omponents to build a food service replicator system. -->
-	<Replimat_Replimat.description>음식 복제 공급 시스템을 구축하는 구성 요소.</Replimat_Replimat.description>
+	<!-- EN: Components to build a food service replicator system. -->
+	<Replimat_Replimat.description>음식 복제 시스템 건설에 필요한 재료</Replimat_Replimat.description>
 </LanguageData>
