@@ -38,7 +38,7 @@
 	<CorpseRecyclerNotEmpty>비어 있지 않음</CorpseRecyclerNotEmpty>
 
 	<!-- EN: Need non-dessicated humanoid corpse -->
-	<CorpseRecyclerNeedValidCorpse>탈수하지 않은 인간형의 시체가 필요합니다.</CorpseRecyclerNeedValidCorpse>
+	<CorpseRecyclerNeedValidCorpse>백골화하지 않은 인간형의 시체가 필요합니다.</CorpseRecyclerNeedValidCorpse>
 
 	<!-- EN: Corpses -->
 	<TabCorpseFilters>시체</TabCorpseFilters>
