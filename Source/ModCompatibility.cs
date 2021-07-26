@@ -1,11 +1,12 @@
 ﻿using AlienRace;
+using System.Linq;
 using Verse;
 
 namespace Replimat
 {
     public class ModCompatibility
     {
-        public static bool AlienRacesIsActive => ModLister.HasActiveModWithName("Humanoid Alien Races 2.0");
+        public static bool AlienRacesIsActive => ModLister.AllInstalledMods.Where(x => x.Active && x.PackageId == "erdelf.HumanoidAlienRaces".ToLower()).Any();
 
         public static bool AlienRaceHasOrganicFlesh(Pawn pawn)
         {

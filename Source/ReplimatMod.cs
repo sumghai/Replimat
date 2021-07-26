@@ -23,7 +23,7 @@ namespace Replimat
 
             if (ModCompatibility.AlienRacesIsActive)
             {
-                Log.Message("Replimat :: Humanoid Alien Races 2.0 detected!");
+                Log.Message("Replimat :: Humanoid Alien Races detected!");
             }
 
             MP_Util.Bootup(harmony);
