@@ -8,6 +8,8 @@ namespace Replimat
     {
         public static bool AlienRacesIsActive => ModLister.AllInstalledMods.Where(x => x.Active && x.PackageId == "erdelf.HumanoidAlienRaces".ToLower()).Any();
 
+        public static bool SaveOurShip2IsActive => ModLister.AllInstalledMods.Where(x => x.Active && x.PackageId == "kentington.saveourship2".ToLower()).Any();
+
         public static bool AlienRaceHasOrganicFlesh(Pawn pawn)
         {
             ThingDef_AlienRace raceDef = pawn.def as ThingDef_AlienRace;

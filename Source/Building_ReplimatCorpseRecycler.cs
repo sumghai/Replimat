@@ -102,6 +102,12 @@ namespace Replimat
         {
             StorageSettings foobar = def.building.fixedStorageSettings;
 
+            // Remove Hologram corpses from filter if Save Our Ship 2 mod is active
+            if (ModCompatibility.SaveOurShip2IsActive)
+            {
+                foobar.filter.allowedDefs.RemoveWhere(def => def == ThingDef.Named("Corpse_SoSHologramRace"));
+            }
+
             // Remove non-fleshy corpses from filter if Humanoid Alien Races mod is active
             if (ModCompatibility.AlienRacesIsActive)
             {
