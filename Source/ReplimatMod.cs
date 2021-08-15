@@ -21,6 +21,11 @@ namespace Replimat
             var harmony = new Harmony("com.Replimat.patches");
             harmony.PatchAll();
 
+            if (ModCompatibility.SaveOurShip2IsActive)
+            {
+                Log.Message("Replimat :: Save Our Ship 2 detected!");
+            }
+
             if (ModCompatibility.AlienRacesIsActive)
             {
                 Log.Message("Replimat :: Humanoid Alien Races detected!");
