@@ -21,22 +21,6 @@ namespace Replimat
 
         public static int DematerializeDuration = GenTicks.SecondsToTicks(2f);
 
-        private static Map[] maps = new Map[20];
-        private static bool[][] grid = new bool[20][];
-
-        public static bool IsHopperInCell(IntVec3 cell, Map map)
-        {
-            var mapIndex = map.Index;
-            if (maps[mapIndex] != map)
-            {
-                maps[mapIndex] = map;
-                grid[mapIndex] = new bool[map.cellIndices.NumGridCells];
-                return false;
-            }
-            var index = map.cellIndices.CellToIndex(cell);
-            return grid[mapIndex][index];
-        }
-
         public int dematerializingCycleInt;
 
         private Sustainer wickSustainer;
