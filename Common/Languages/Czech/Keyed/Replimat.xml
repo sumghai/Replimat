@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<ReplicatedMeal>Replicated Meal</ReplicatedMeal>
+	
+	<FeedstockStored>Feedstock stored {0} / {1} L</FeedstockStored>
+	<TotalFeedstockStored>Total feedstock stored {0} / {1} L</TotalFeedstockStored>
+	
+	<LetterLabelReplimatSpill>Replimat Spill</LetterLabelReplimatSpill>
+	<LetterTextReplimatSpill>A {0} has malfunctioned, spilling nutrient feedstock everywhere.</LetterTextReplimatSpill>
+	
+	<LetterLabelReplimatMalfunctionKibble>Replimat Malfunction</LetterLabelReplimatMalfunctionKibble>
+	<LetterTextReplimatMalfunctionKibble>A {0} has malfunctioned, producing large quantities of animal feed.</LetterTextReplimatMalfunctionKibble>
+	
+	<NotConnectedToComputer>Requires connection to Replimat Computer</NotConnectedToComputer>
+	<NotEnoughFeedstock>Insufficient Feedstock</NotEnoughFeedstock>
+	
+	<CorpseRecyclerEmpty>Empty</CorpseRecyclerEmpty>
+	<CorpseRecyclerMassRemaining>Remaining mass: {0} / {1} kg</CorpseRecyclerMassRemaining>
+	<CorpseRecyclerNotEmpty>Not empty</CorpseRecyclerNotEmpty>
+	<CorpseRecyclerNeedValidCorpse>Need non-dessicated humanoid corpse</CorpseRecyclerNeedValidCorpse>
+	
+	<TabCorpseFilters>Corpses</TabCorpseFilters>
+	
+	<BatchMakeSurvivalMeals>Batch Survival Meals</BatchMakeSurvivalMeals>
+	<BatchMakeSurvivalMeals_Desc>Replicate a batch of Packaged Survival Meals for use in caravans or emergencies.</BatchMakeSurvivalMeals_Desc>
+	
+	<MessageCannotBatchMakeSurvivalMeals>Cannot batch replicate survival meals: Terminal has insufficient feedstock, or is not connected to Computer and Feedstock tanks.</MessageCannotBatchMakeSurvivalMeals>
+	
+	<SetSurvivalMealBatchSize>Make {0} Packaged Survival Meals\n(Max allowed: {1})</SetSurvivalMealBatchSize>
+	
+	<Replimat_SettingsCategory_Heading>Replimat</Replimat_SettingsCategory_Heading>
+	
+	<Replimat_Settings_HeaderGeneral>General</Replimat_Settings_HeaderGeneral>
+	<Replimat_Settings_HeaderIncidents>Incidents</Replimat_Settings_HeaderIncidents>
+	
+	<Replimat_Settings_PrioritizeFoodQuality_Title>Prioritize food quality</Replimat_Settings_PrioritizeFoodQuality_Title>
+	<Replimat_Settings_PrioritizeFoodQuality_Desc>By default, pawns will replicate meals at the highest quality allowed by their current food restriction policy.\n\nDisabling this allows pawns to replicate any random meal within their food restriction policy irrespective of quality.</Replimat_Settings_PrioritizeFoodQuality_Desc>
+	
+	<Replimat_Settings_HopperRefillThresholdPercent_Title>Replimat Hopper refill threshold</Replimat_Settings_HopperRefillThresholdPercent_Title>
+	<Replimat_Settings_HopperRefillThresholdPercent_Desc>Sets the threshold at which the Replimat Hopper will be restocked with raw food.</Replimat_Settings_HopperRefillThresholdPercent_Desc>
+	
+	<Replimat_Settings_EnableIncidentSpill_Title>Enable Spills</Replimat_Settings_EnableIncidentSpill_Title>
+	<Replimat_Settings_EnableIncidentSpill_Desc>Allows any Terminal or Animal Feeder to have a small chance of malfunctioning and spilling feedstock.</Replimat_Settings_EnableIncidentSpill_Desc>
+	
+	<Replimat_Settings_EnableIncidentKibble_Title>Enable Kibble Malfunctions</Replimat_Settings_EnableIncidentKibble_Title>
+	<Replimat_Settings_EnableIncidentKibble_Desc>Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. </Replimat_Settings_EnableIncidentKibble_Desc>
+	
+	<Replimat_Stat_ActiveModePowerConsumption_Label>Power consumption (Active)</Replimat_Stat_ActiveModePowerConsumption_Label>
+	<Replimat_Stat_ActiveModePowerConsumption_Desc>The amount of power this building will draw from the power grid while actively running.</Replimat_Stat_ActiveModePowerConsumption_Desc>
+	
+</LanguageData>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<ReplimatSpill.label>Vyteklý Replimat</ReplimatSpill.label>
+
+	<ReplimatSpill.letterlabel>Vyteklý Replimat</ReplimatSpill.letterlabel>
+
+	<ReplimatSpill.lettertext>Přístroj {0} se porouchal a všude rozlil roztok živin.</ReplimatSpill.lettertext>
+
+	<ReplimatMalfunctionKibble.label>Porucha replimatu</ReplimatMalfunctionKibble.label>
+
+	<ReplimatMalfunctionKibble.letterlabel>Porucha replimatu\n(Kibble)</ReplimatMalfunctionKibble.letterlabel>
+
+	<ReplimatMalfunctionKibble.lettertext>Přístroj {0} se porouchal a vytvořil velké množství krmiva pro zvířata.</ReplimatMalfunctionKibble.lettertext>
+
+</LanguageData>

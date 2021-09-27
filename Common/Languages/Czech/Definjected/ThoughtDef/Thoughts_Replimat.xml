@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<Thought_RecycledStrangerCorpseInReplimat.stages.0.label>{PAWN_gender ? Zrecykloval : Zrecyklovala} mrtvolu na živný roztok</Thought_RecycledStrangerCorpseInReplimat.stages.0.label>
+
+	<Thought_RecycledStrangerCorpseInReplimat.stages.0.description>{PAWN_gender ? Zrecykloval : Zrecyklovala} jsem mrtvolu na živný roztok. To je nechutné.</Thought_RecycledStrangerCorpseInReplimat.stages.0.description>
+
+	<Thought_RecycledColonistCorpseInReplimat.stages.0.label>{PAWN_gender ? Zrecykloval : Zrecyklovala} kolonistu na živný roztok</Thought_RecycledColonistCorpseInReplimat.stages.0.label>
+
+	<Thought_RecycledColonistCorpseInReplimat.stages.0.description>{PAWN_gender ? Zrecykloval : Zrecyklovala} jsem jednoho z našich na živný roztok. To jsme fakticky tak zoufalí, že si nemůžeme dovolit jim poskytnout ani pořádný pohřeb?</Thought_RecycledColonistCorpseInReplimat.stages.0.description>
+
+	<Thought_RecycledCorpseInReplimatPsychopath.stages.0.label>{PAWN_gender ? Zrecykloval : Zrecyklovala} mrtvolu na živný roztok</Thought_RecycledCorpseInReplimatPsychopath.stages.0.label>
+
+	<Thought_RecycledCorpseInReplimatPsychopath.stages.0.description>Kdo šetří, má za tři.</Thought_RecycledCorpseInReplimatPsychopath.stages.0.description>
+
+	<Thought_KnowRecycledStrangerCorpseInReplimat.stages.0.label>Zrecyklovali jsme mrtvolu na živný roztok</Thought_KnowRecycledStrangerCorpseInReplimat.stages.0.label>
+
+	<Thought_KnowRecycledStrangerCorpseInReplimat.stages.0.description>Zrecyklovali jsme mrtvého člověka na živný roztok. To je dost znepokojivé.</Thought_KnowRecycledStrangerCorpseInReplimat.stages.0.description>
+
+	<Thought_KnowRecycledColonistCorpseInReplimat.stages.0.label>Zrecyklovali jsme kolonistu na živný roztok</Thought_KnowRecycledColonistCorpseInReplimat.stages.0.label>
+
+	<Thought_KnowRecycledColonistCorpseInReplimat.stages.0.description>Zrecyklovali jsme jednoho z našich na živný roztok. To jsme fakticky tak zoufalí, že si nemůžeme dovolit jim poskytnout ani pořádný pohřeb?</Thought_KnowRecycledColonistCorpseInReplimat.stages.0.description>
+
+	<Thought_KnowRecycledCorpseInReplimatPsychopath.stages.0.label>Zrecyklovali jsme mrtvolu na živný roztok</Thought_KnowRecycledCorpseInReplimatPsychopath.stages.0.label>
+
+	<Thought_KnowRecycledCorpseInReplimatPsychopath.stages.0.description>Kdo šetří, má za tři.</Thought_KnowRecycledCorpseInReplimatPsychopath.stages.0.description>
+
+</LanguageData>
