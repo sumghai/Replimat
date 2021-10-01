@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-	<ReplicatedMeal>Replikovanı pokrm</ReplicatedMeal>
-	
-	<FeedstockStored>Uskladnìná smìs ivin {0} / {1} L</FeedstockStored>
-	<TotalFeedstockStored>Celková uskladnìná smìs ivin {0} / {1} L</TotalFeedstockStored>
-	
+	<ReplicatedMeal>ReplikovanÃ½ pokrm</ReplicatedMeal>
+
+	<FeedstockStored>UskladnÃ¬nÃ¡ smÃ¬s Å¾ivin {0} / {1} L</FeedstockStored>
+	<TotalFeedstockStored>CelkovÃ¡ uskladnÃ¬nÃ¡ smÃ¬s Å¾ivin {0} / {1} L</TotalFeedstockStored>
+
 	<LetterLabelReplimatSpill>Nehoda v Replimatu</LetterLabelReplimatSpill>
-	<LetterTextReplimatSpill>Pøístroj {0} se porouchal a všude rozlil smìs ivin.</LetterTextReplimatSpill>
-	
+	<LetterTextReplimatSpill>PÃ¸Ã­stroj {0} se porouchal a vÅ¡ude rozlil smÃ¬s Å¾ivin.</LetterTextReplimatSpill>
+
 	<LetterLabelReplimatMalfunctionKibble>Porucha Replimatu</LetterLabelReplimatMalfunctionKibble>
-	<LetterTextReplimatMalfunctionKibble>{0} se porouchal a vyrobil velké mnoství krmiva pro zvíøata.</LetterTextReplimatMalfunctionKibble>
-	
-	<NotConnectedToComputer>Vyaduje pøipojení k poèítaèi Replimatu.</NotConnectedToComputer>
-	<NotEnoughFeedstock>Nedostatek smìsi ivin</NotEnoughFeedstock>
-	
-	<CorpseRecyclerEmpty>Prázdnı</CorpseRecyclerEmpty>
-	<CorpseRecyclerMassRemaining>Zbıvající hmotnost: {0} / {1} kg</CorpseRecyclerMassRemaining>
-	<CorpseRecyclerNotEmpty>Není prázdnı</CorpseRecyclerNotEmpty>
-	<CorpseRecyclerNeedValidCorpse>Vyaduje nevysušenou mrtvolu</CorpseRecyclerNeedValidCorpse>
-	
+	<LetterTextReplimatMalfunctionKibble>{0} se porouchal a vyrobil velkÃ© mnoÅ¾stvÃ­ krmiva pro zvÃ­Ã¸ata.</LetterTextReplimatMalfunctionKibble>
+
+	<NotConnectedToComputer>VyÅ¾aduje pÃ¸ipojenÃ­ k poÃ¨Ã­taÃ¨i Replimatu.</NotConnectedToComputer>
+	<NotEnoughFeedstock>Nedostatek smÃ¬si Å¾ivin</NotEnoughFeedstock>
+
+	<CorpseRecyclerEmpty>PrÃ¡zdnÃ½</CorpseRecyclerEmpty>
+	<CorpseRecyclerMassRemaining>ZbÃ½vajÃ­cÃ­ hmotnost: {0} / {1} kg</CorpseRecyclerMassRemaining>
+	<CorpseRecyclerNotEmpty>NenÃ­ prÃ¡zdnÃ½</CorpseRecyclerNotEmpty>
+	<CorpseRecyclerNeedValidCorpse>VyÅ¾aduje nevysuÅ¡enou mrtvolu</CorpseRecyclerNeedValidCorpse>
+
 	<TabCorpseFilters>Mrtvoly</TabCorpseFilters>
-	
-	<BatchMakeSurvivalMeals>Zreplikovat nouzové potravinové balíèky</BatchMakeSurvivalMeals>
-	<BatchMakeSurvivalMeals_Desc>Zreplikovat nìkolik nouzovıch potravinovıch balíèkù pro vyuití v karavanách èi pøípadech nouze.</BatchMakeSurvivalMeals_Desc>
-	
-	<MessageCannotBatchMakeSurvivalMeals>Nelze zreplikovat nouzové potravinové balíèky: Terminál nemá dostatek roztoku ivin, nebo není pøipojen k poèítaèi èi zásobním nádrím.C</MessageCannotBatchMakeSurvivalMeals>
-	
-	<SetSurvivalMealBatchSize>Vyrobit balík {0} nouzovıch potravinovıch balíèkù \n(Maximálnì: {1})</SetSurvivalMealBatchSize>
-	
+
+	<BatchMakeSurvivalMeals>Zreplikovat nouzovÃ© potravinovÃ© balÃ­Ã¨ky</BatchMakeSurvivalMeals>
+	<BatchMakeSurvivalMeals_Desc>Zreplikovat nÃ¬kolik nouzovÃ½ch potravinovÃ½ch balÃ­Ã¨kÃ¹ pro vyuÅ¾itÃ­ v karavanÃ¡ch Ã¨i pÃ¸Ã­padech nouze.</BatchMakeSurvivalMeals_Desc>
+
+	<MessageCannotBatchMakeSurvivalMeals>Nelze zreplikovat nouzovÃ© potravinovÃ© balÃ­Ã¨ky: TerminÃ¡l nemÃ¡ dostatek roztoku Å¾ivin, nebo nenÃ­ pÃ¸ipojen k poÃ¨Ã­taÃ¨i Ã¨i zÃ¡sobnÃ­m nÃ¡drÅ¾Ã­m.C</MessageCannotBatchMakeSurvivalMeals>
+
+	<SetSurvivalMealBatchSize>Vyrobit balÃ­k {0} nouzovÃ½ch potravinovÃ½ch balÃ­Ã¨kÃ¹ \n(MaximÃ¡lnÃ¬: {1})</SetSurvivalMealBatchSize>
+
 	<Replimat_SettingsCategory_Heading>Replimat</Replimat_SettingsCategory_Heading>
-	
-	<Replimat_Settings_HeaderGeneral>Obecné</Replimat_Settings_HeaderGeneral>
+
+	<Replimat_Settings_HeaderGeneral>ObecnÃ©</Replimat_Settings_HeaderGeneral>
 	<Replimat_Settings_HeaderIncidents>Nehody</Replimat_Settings_HeaderIncidents>
-	
-	<Replimat_Settings_PrioritizeFoodQuality_Title>Prioritizovat kvalitu jídla</Replimat_Settings_PrioritizeFoodQuality_Title>
-	<Replimat_Settings_PrioritizeFoodQuality_Desc>Kolonisté budou replikovat pokrmy nejvyšší kvality, které jim povoluje jejich potravinové omezení.\n\nPokud toto nastavení vypneš, budou moci replikovat jakékoliv náhodné pokrmy v rámci potravinového omezení bez ohledu na kvalitu.</Replimat_Settings_PrioritizeFoodQuality_Desc>
-	
-	<Replimat_Settings_HopperRefillThresholdPercent_Title>Mez pro doplnìní zásobníkù.</Replimat_Settings_HopperRefillThresholdPercent_Title>
-	<Replimat_Settings_HopperRefillThresholdPercent_Desc>Nastaví mez, pøi které budou zásobníky Replimatu doplnìny syrovım jídlem.</Replimat_Settings_HopperRefillThresholdPercent_Desc>
-	
-	<Replimat_Settings_EnableIncidentSpill_Title>Povolit úniky z replimatù</Replimat_Settings_EnableIncidentSpill_Title>
-	<Replimat_Settings_EnableIncidentSpill_Desc>Umoní, aby se terminály èi krmítka pro zvíøata obèas porouchaly a všude rozlily roztok ivin.</Replimat_Settings_EnableIncidentSpill_Desc>
-	
-	<Replimat_Settings_EnableIncidentKibble_Title>Povolit krmivové poruchy</Replimat_Settings_EnableIncidentKibble_Title>
-	<Replimat_Settings_EnableIncidentKibble_Desc>Umoní, aby se terminály mohly obèas porouchat a vyrobit velké mnoství krmiva pro zvíøata.</Replimat_Settings_EnableIncidentKibble_Desc>
-	
-	<Replimat_Stat_ActiveModePowerConsumption_Label>Spotøeba elektøiny (Aktivní)</Replimat_Stat_ActiveModePowerConsumption_Label>
-	<Replimat_Stat_ActiveModePowerConsumption_Desc>Pøíkon, kterı bude tato budova bìhem aktivního provozu vyadovat.</Replimat_Stat_ActiveModePowerConsumption_Desc>
-	
+
+	<Replimat_Settings_PrioritizeFoodQuality_Title>Prioritizovat kvalitu jÃ­dla</Replimat_Settings_PrioritizeFoodQuality_Title>
+	<Replimat_Settings_PrioritizeFoodQuality_Desc>KolonistÃ© budou replikovat pokrmy nejvyÅ¡Å¡Ã­ kvality, kterÃ© jim povoluje jejich potravinovÃ© omezenÃ­.\n\nPokud toto nastavenÃ­ vypneÅ¡, budou moci replikovat jakÃ©koliv nÃ¡hodnÃ© pokrmy v rÃ¡mci potravinovÃ©ho omezenÃ­ bez ohledu na kvalitu.</Replimat_Settings_PrioritizeFoodQuality_Desc>
+
+	<Replimat_Settings_HopperRefillThresholdPercent_Title>Mez pro doplnÃ¬nÃ­ zÃ¡sobnÃ­kÃ¹.</Replimat_Settings_HopperRefillThresholdPercent_Title>
+	<Replimat_Settings_HopperRefillThresholdPercent_Desc>NastavÃ­ mez, pÃ¸i kterÃ© budou zÃ¡sobnÃ­ky Replimatu doplnÃ¬ny syrovÃ½m jÃ­dlem.</Replimat_Settings_HopperRefillThresholdPercent_Desc>
+
+	<Replimat_Settings_EnableIncidentSpill_Title>Povolit Ãºniky z replimatÃ¹</Replimat_Settings_EnableIncidentSpill_Title>
+	<Replimat_Settings_EnableIncidentSpill_Desc>UmoÅ¾nÃ­, aby se terminÃ¡ly Ã¨i krmÃ­tka pro zvÃ­Ã¸ata obÃ¨as porouchaly a vÅ¡ude rozlily roztok Å¾ivin.</Replimat_Settings_EnableIncidentSpill_Desc>
+
+	<Replimat_Settings_EnableIncidentKibble_Title>Povolit krmivovÃ© poruchy</Replimat_Settings_EnableIncidentKibble_Title>
+	<Replimat_Settings_EnableIncidentKibble_Desc>UmoÅ¾nÃ­, aby se terminÃ¡ly mohly obÃ¨as porouchat a vyrobit velkÃ© mnoÅ¾stvÃ­ krmiva pro zvÃ­Ã¸ata.</Replimat_Settings_EnableIncidentKibble_Desc>
+
+	<Replimat_Stat_ActiveModePowerConsumption_Label>SpotÃ¸eba elektÃ¸iny (AktivnÃ­)</Replimat_Stat_ActiveModePowerConsumption_Label>
+	<Replimat_Stat_ActiveModePowerConsumption_Desc>PÃ¸Ã­kon, kterÃ½ bude tato budova bÃ¬hem aktivnÃ­ho provozu vyÅ¾adovat.</Replimat_Stat_ActiveModePowerConsumption_Desc>
+
 </LanguageData>
