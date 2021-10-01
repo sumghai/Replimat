@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<ReplimatHopper.label>Násypka Replimatu</ReplimatHopper.label>
+
+	<ReplimatHopper.description>Chladí a skladuje syrové potraviny a rozkládá je na molekulární úrovni do organické suspenze, kterou jsou poté zásobovány Replimaty.</ReplimatHopper.description>
+
+	<ReplimatAnimalFeeder.label>Krmítko pro zvířata Replimat</ReplimatAnimalFeeder.label>
+
+	<ReplimatAnimalFeeder.description>Pomocí molekulárního resekvenování syntetizuje krmivo pro domácí i hospodářská zvířata. Vyžaduje spojení s nádrží s živným roztokem pomocí elektrických kabelů.</ReplimatAnimalFeeder.description>
+
+	<ReplimatFeedTank.label>Nádrž na živný roztok</ReplimatFeedTank.label>
+
+	<ReplimatFeedTank.description>Skladuje organickou suspenzi, kterou využívají terminály Replimatu.</ReplimatFeedTank.description>
+
+	<ReplimatComputer.label>Řídící systém Replimatu</ReplimatComputer.label>
+
+	<ReplimatComputer.description>Poskytuje velký výběr receptů na pokrmy i nápoje všem terminálům Replimatu.</ReplimatComputer.description>
+
+	<ReplimatCorpseRecycler.label>Zpracovávač mrtvol</ReplimatCorpseRecycler.label>
+
+	<ReplimatCorpseRecycler.description>Důstojně recykluje lidské mrtvoly na organickou suspenzi využitelnou v systému Replimat.</ReplimatCorpseRecycler.description>
+
+	<ReplimatTerminal.label>Terminál Replimatu</ReplimatTerminal.label>
+
+	<ReplimatTerminal.description>Pomocí molekulárního resekvenování syntetizuje pokrmy a nápoje. Vyžaduje připojení k nádrži na živný roztok a řídícímu systému replimatu přes elektrické kabely.</ReplimatTerminal.description>
+
+</LanguageData>

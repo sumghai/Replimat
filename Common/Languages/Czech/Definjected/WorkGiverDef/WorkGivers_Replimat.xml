@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<LoadReplimatCorpseRecycler.label>Odnést mrtvoly do zpracovávače mrtvol Replimat</LoadReplimatCorpseRecycler.label>
+
+	<LoadReplimatCorpseRecycler.verb>Odnést do:</LoadReplimatCorpseRecycler.verb>
+
+	<LoadReplimatCorpseRecycler.gerund>Přenáší do:</LoadReplimatCorpseRecycler.gerund>
+
+</LanguageData>

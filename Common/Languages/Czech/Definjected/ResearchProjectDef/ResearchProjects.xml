@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<MolecularNutrientResequencing.label>Resekvenování molekul živin</MolecularNutrientResequencing.label>
+
+	<MolecularNutrientResequencing.description>Umožní postavit systém Replimat, pokročilou verzi dávkovače nutriční pasty, která z organických surovin vytváří velký výběr vysoce kvalitních pokrmů. Také automaticky vytvoří potrubí na živiny na existujících elektrických kabelech.</MolecularNutrientResequencing.description>
+
+</LanguageData>
