@@ -11,7 +11,7 @@ namespace Replimat
 {
     class Building_ReplimatAnimalFeeder : Building_Storage
     {
-        public static int KibbleReplicateDuration = GenTicks.SecondsToTicks(2f);
+        public static int AnimalFeedReplicateDuration = GenTicks.SecondsToTicks(2f);
 
         public CompPowerTrader powerComp;
 
@@ -19,13 +19,20 @@ namespace Replimat
 
         public int ReplicatingTicks = 0;
 
-        public float volumePerKibble = ReplimatUtility.ConvertMassToFeedstockVolume(ThingDefOf.Kibble.BaseMass);
+        public List<ThingDef> AllowedAnimalFeedDefs;
+
+        public ThingDef CurrentAnimalFeedDef;
+
+        public float volumePerAnimalFeed;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
             powerComp = GetComp<CompPowerTrader>();
             stateDependentPowerComp = GetComp<CompStateDependentPowerUse>();
+            AllowedAnimalFeedDefs = def.building.fixedStorageSettings.filter.allowedDefs.ToList();
+            CurrentAnimalFeedDef = AllowedAnimalFeedDefs.ElementAt(1);
+            volumePerAnimalFeed = ReplimatUtility.ConvertMassToFeedstockVolume(CurrentAnimalFeedDef.BaseMass);
         }
 
         public override IEnumerable<IntVec3> AllSlotCells()
@@ -43,6 +50,7 @@ namespace Replimat
         {
             string copyStr = "CommandCopyZoneSettingsLabel".Translate();
             string pasteStr = "CommandPasteZoneSettingsLabel".Translate();
+
             foreach (Gizmo g in base.GetGizmos())
             {
                 if (g is Command_Action act && (act.defaultLabel == copyStr || act.defaultLabel == pasteStr))
@@ -51,6 +59,21 @@ namespace Replimat
                 }
                 yield return g;
             }
+
+            yield return new Command_Action
+            {
+                defaultLabel = "CommandGizmoSwitchAnimalFeed_Label".Translate(),
+                defaultDesc = "CommandGizmoSwitchAnimalFeed_Desc".Translate(CurrentAnimalFeedDef.LabelCap),
+                action = ToggleAnimalFeedDef,
+                icon = CurrentAnimalFeedDef.uiIcon
+            };
+        }
+
+        public void ToggleAnimalFeedDef()
+        {
+            int currentAnimalFeedDefNum = AllowedAnimalFeedDefs.IndexOf(CurrentAnimalFeedDef);
+            currentAnimalFeedDefNum = (currentAnimalFeedDefNum + 1) % AllowedAnimalFeedDefs.Count;
+            CurrentAnimalFeedDef = AllowedAnimalFeedDefs.ElementAt(currentAnimalFeedDefNum);
         }
 
         public bool HasEnoughFeedstockInHoppers()
@@ -67,14 +90,14 @@ namespace Replimat
             if (ReplicatingTicks > 0)
             {
                 float alpha;
-                float quart = KibbleReplicateDuration * 0.25f;
+                float quart = AnimalFeedReplicateDuration * 0.25f;
                 if (ReplicatingTicks < quart)
                 {
                     alpha = Mathf.InverseLerp(0, quart, ReplicatingTicks);
                 }
                 else if (ReplicatingTicks > quart * 3f)
                 {
-                    alpha = Mathf.InverseLerp(KibbleReplicateDuration, quart * 3f, ReplicatingTicks);
+                    alpha = Mathf.InverseLerp(AnimalFeedReplicateDuration, quart * 3f, ReplicatingTicks);
                 }
                 else
                 {
@@ -104,32 +127,32 @@ namespace Replimat
 
                 if (foodInFeeder == null)
                 {
-                    int maxKib = Mathf.FloorToInt(powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock) / volumePerKibble);
-                    maxKib = Mathf.Min(maxKib, 75);
+                    int maxAnimFeed = Mathf.FloorToInt(powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock) / volumePerAnimalFeed);
+                    maxAnimFeed = Mathf.Min(maxAnimFeed, CurrentAnimalFeedDef.stackLimit);
 
-                    if (maxKib > 0 && powerComp.PowerNet.TryConsumeFeedstock(volumePerKibble * maxKib))
+                    if (maxAnimFeed > 0 && powerComp.PowerNet.TryConsumeFeedstock(volumePerAnimalFeed * maxAnimFeed))
                     {
                         ReplicatingTicks = GenTicks.SecondsToTicks(2f);
                         def.building.soundDispense.PlayOneShot(new TargetInfo(Position, Map, false));
 
-                        Thing t = ThingMaker.MakeThing(ThingDefOf.Kibble, null);
-                        t.stackCount = maxKib;
+                        Thing t = ThingMaker.MakeThing(CurrentAnimalFeedDef, null);
+                        t.stackCount = maxAnimFeed;
                         GenPlace.TryPlaceThing(t, Position, Map, ThingPlaceMode.Direct);
                     }
 
                 }
-                else if (foodInFeeder.def == ThingDefOf.Kibble && foodInFeeder.stackCount < 20)
+                else if (foodInFeeder.def == CurrentAnimalFeedDef && foodInFeeder.stackCount < (CurrentAnimalFeedDef.stackLimit * 0.25))
                 {
-                    int refill = Mathf.Min(foodInFeeder.def.stackLimit - foodInFeeder.stackCount, 75);
-                    int maxKib = Mathf.FloorToInt(powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock) / volumePerKibble);
-                    maxKib = Mathf.Min(maxKib, refill);
+                    int refill = Mathf.Min(foodInFeeder.def.stackLimit - foodInFeeder.stackCount, foodInFeeder.def.stackLimit);
+                    int maxAnimFeed = Mathf.FloorToInt(powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock) / volumePerAnimalFeed);
+                    maxAnimFeed = Mathf.Min(maxAnimFeed, refill);
 
-                    if (maxKib > 0 && powerComp.PowerNet.TryConsumeFeedstock(volumePerKibble * maxKib))
+                    if (maxAnimFeed > 0 && powerComp.PowerNet.TryConsumeFeedstock(volumePerAnimalFeed * maxAnimFeed))
                     {
                         ReplicatingTicks = GenTicks.SecondsToTicks(2f);
                         def.building.soundDispense.PlayOneShot(new TargetInfo(Position, Map, false));
 
-                        foodInFeeder.stackCount += maxKib;
+                        foodInFeeder.stackCount += maxAnimFeed;
                     }
                 }
             }

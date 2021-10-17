@@ -54,6 +54,12 @@
 
 	<!-- EN: Make {0} Packaged Survival Meals\n(Max allowed: {1}) -->	
 	<SetSurvivalMealBatchSize>将生存食品包复制数量为{0}\n(最大复制数量: {1})</SetSurvivalMealBatchSize>
+	
+	<!-- EN: Switch animal feed -->
+	<CommandGizmoSwitchAnimalFeed_Label>切换饲料</CommandGizmoSwitchAnimalFeed_Label>
+	
+	<!-- EN: Select what type of animal feed to replicate.\n\nCurrent: {0} -->
+	<CommandGizmoSwitchAnimalFeed_Desc>切换本合成器所复制的饲料。\n\n当前饲料: {0}</CommandGizmoSwitchAnimalFeed_Desc>
 
 	<!-- EN: Replimat -->
 	<Replimat_SettingsCategory_Heading>食品合成系统</Replimat_SettingsCategory_Heading>

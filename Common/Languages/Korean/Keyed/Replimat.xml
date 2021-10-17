@@ -54,6 +54,12 @@
 
 	<!-- EN: Make {0} Packaged Survival Meals\n(Max allowed : {1}) -->
 	<SetSurvivalMealBatchSize>{0}개의 보존 식량을 생산\n(최대: {1})</SetSurvivalMealBatchSize>
+	
+	<!-- EN: Switch animal feed -->
+	<CommandGizmoSwitchAnimalFeed_Label>동물 사료를  전환</CommandGizmoSwitchAnimalFeed_Label>
+	
+	<!-- EN: Select what type of animal feed to replicate.\n\nCurrent: {0} -->
+	<CommandGizmoSwitchAnimalFeed_Desc>복제할 동물 사료의 유형을 선택합니다.\n\n현재 동물 사료를: {0}</CommandGizmoSwitchAnimalFeed_Desc>
 
 	<!-- EN: Replimat -->
 	<Replimat_SettingsCategory_Heading>레플리매트</Replimat_SettingsCategory_Heading>

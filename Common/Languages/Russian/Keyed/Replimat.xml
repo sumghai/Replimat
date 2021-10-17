@@ -54,6 +54,12 @@
 
 	<!-- EN: Make {0} Packaged Survival Meals\n(Max allowed: {1}) -->	
 	<SetSurvivalMealBatchSize>Сделать {0} сухпайков\n(максимально допустимое: {1})</SetSurvivalMealBatchSize>
+	
+	<!-- EN: Switch animal feed -->
+	<CommandGizmoSwitchAnimalFeed_Label>Сменить Корм для животных</CommandGizmoSwitchAnimalFeed_Label>
+	
+	<!-- EN: Select what type of animal feed to replicate.\n\nCurrent: {0} -->
+	<CommandGizmoSwitchAnimalFeed_Desc>Выберите, какой тип корма для животных воспроизвести.\n\nТекущая Корм для животных: {0}</CommandGizmoSwitchAnimalFeed_Desc>
 
 	<!-- EN: Replimat -->
 	<Replimat_SettingsCategory_Heading>Реплимат</Replimat_SettingsCategory_Heading>

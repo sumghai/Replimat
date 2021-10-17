@@ -54,6 +54,12 @@
 	
 	<!-- EN: Make {0} Packaged Survival Meals\n(Max allowed: {1}) -->	
 	<SetSurvivalMealBatchSize>{0}個の非常用食品を合成中\n(最大:{1})</SetSurvivalMealBatchSize>
+	
+	<!-- EN: Switch animal feed -->
+	<CommandGizmoSwitchAnimalFeed_Label>飼料の切り替え</CommandGizmoSwitchAnimalFeed_Label>
+	
+	<!-- EN: Select what type of animal feed to replicate.\n\nCurrent: {0} -->
+	<CommandGizmoSwitchAnimalFeed_Desc>複製する動物飼料の種類を選択します。\n\n現在の飼料: {0}</CommandGizmoSwitchAnimalFeed_Desc>
 
 	<!-- EN: Replimat -->
 	<Replimat_SettingsCategory_Heading>レプリマット</Replimat_SettingsCategory_Heading>

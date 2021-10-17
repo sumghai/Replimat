@@ -29,6 +29,9 @@
 	
 	<SetSurvivalMealBatchSize>Make {0} Packaged Survival Meals\n(Max allowed: {1})</SetSurvivalMealBatchSize>
 	
+	<CommandGizmoSwitchAnimalFeed_Label>Switch animal feed</CommandGizmoSwitchAnimalFeed_Label>
+	<CommandGizmoSwitchAnimalFeed_Desc>Select what type of animal feed to replicate.\n\nCurrent: {0}</CommandGizmoSwitchAnimalFeed_Desc>
+	
 	<Replimat_SettingsCategory_Heading>Replimat</Replimat_SettingsCategory_Heading>
 	
 	<Replimat_Settings_HeaderGeneral>General</Replimat_Settings_HeaderGeneral>

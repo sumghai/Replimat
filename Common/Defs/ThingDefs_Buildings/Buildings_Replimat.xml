@@ -125,6 +125,7 @@
 				<priority>Important</priority>
 				<filter>
 					<thingDefs>
+						<li>Hay</li>
 						<li>Kibble</li>
 					</thingDefs>
 				</filter>
@@ -133,6 +134,7 @@
 				<priority>Important</priority>
 				<filter>
 					<thingDefs>
+						<li>Hay</li>
 						<li>Kibble</li>
 					</thingDefs>
 				</filter>
