@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+	<!-- EN: ate synthmeat -->
+	<Thought_AteSynthmeat.stages.ate_synthmeat.label>съедено синтетическое мясо</Thought_AteSynthmeat.stages.ate_synthmeat.label>
+	
+	<!-- EN: I had to eat synthmeat intended for feeding animals. It's like I don't get to be human any more. -->
+	<Thought_AteSynthmeat.stages.ate_synthmeat.description>Пришлось есть синтетическое мясо, предназначенное для кормления животных. Словно я уже не считаюсь за человека.</Thought_AteSynthmeat.stages.ate_synthmeat.description>
+
 	<!-- EN: recycled corpse into feedstock -->
 	<Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.label>переработал труп в сырье</Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.label>
 

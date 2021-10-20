@@ -2,6 +2,20 @@
 <Defs>
 
 	<ThoughtDef>
+		<defName>Thought_AteSynthmeat</defName>
+		<showBubble>true</showBubble>
+		<icon>Things/Mote/ThoughtSymbol/Food</icon>
+		<durationDays>1</durationDays>
+		<stages>
+			<li>
+				<label>ate synthmeat</label>
+				<description>I had to eat synthmeat intended for feeding animals. It's like I don't get to be human any more.</description>
+				<baseMoodEffect>-12</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
 		<defName>Thought_RecycledStrangerCorpseInReplimat</defName>
 		<showBubble>true</showBubble>
 		<icon>Things/Mote/ThoughtSymbol/Skull</icon>
@@ -70,7 +84,7 @@
 			</li>
 		</stages>
 	</ThoughtDef>
-	
+
 	<ThoughtDef>
 		<defName>Thought_KnowRecycledCorpseInReplimatPsychopath</defName>
 		<showBubble>true</showBubble>

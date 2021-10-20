@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+	<!-- EN: ate synthmeat -->
+	<Thought_AteSynthmeat.stages.ate_synthmeat.label>pozření syntetické masa</Thought_AteSynthmeat.stages.ate_synthmeat.label>
+	
+	<!-- EN: I had to eat synthmeat intended for feeding animals. It's like I don't get to be human any more. -->
+	<Thought_AteSynthmeat.stages.ate_synthmeat.description>{PAWN_gender ? Musel : Musela} jsem jíst syntetické masa. Je to jako bych už ani {PAWN_gender ? nebyl : nebyla} člověk.</Thought_AteSynthmeat.stages.ate_synthmeat.description>
 
 	<Thought_RecycledStrangerCorpseInReplimat.stages.0.label>{PAWN_gender ? Zrecykloval : Zrecyklovala} mrtvolu na živný roztok</Thought_RecycledStrangerCorpseInReplimat.stages.0.label>
 

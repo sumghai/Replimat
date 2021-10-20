@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+	<!-- EN: ate synthmeat -->
+	<Thought_AteSynthmeat.stages.ate_synthmeat.label>シンセミートを食べた</Thought_AteSynthmeat.stages.ate_synthmeat.label>
+	
+	<!-- EN: I had to eat synthmeat intended for feeding animals. It's like I don't get to be human any more. -->
+	<Thought_AteSynthmeat.stages.ate_synthmeat.description>動物向けのシンセミートを食べるしかなかった.人として,これ以上食べたくないよ.</Thought_AteSynthmeat.stages.ate_synthmeat.description>
+
 	<!-- EN: recycled corpse into feedstock -->
 	<Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.label>私は死体をリサイクルした</Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.label>
 

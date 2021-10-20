@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--=============== Synthmeat ====================-->
+
+	<ThingDef ParentName="OrganicProductBase">
+		<defName>Replimat_Synthmeat</defName>
+		<label>synthmeat</label>
+		<description>Synthetic meat fortified with micronutrients, optimized for consumption by carnivorous pet and livestock animals. Humans can eat it, but they really, really don't like it.</description>
+		<thingCategories>
+			<li>MeatRaw</li>
+		</thingCategories>
+		<graphicData>
+			<texPath>Things/Item/Synthmeat</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<statBases>
+			<MarketValue>0.5</MarketValue>
+			<Mass>0.03</Mass>
+			<Nutrition>0.075</Nutrition>
+			<FoodPoisonChanceFixedHuman>0.005</FoodPoisonChanceFixedHuman>
+		</statBases>
+		<ingestible>
+			<foodType>Meat</foodType>
+			<preferability>RawBad</preferability>
+			<tasteThought>Thought_AteSynthmeat</tasteThought>
+			<optimalityOffsetHumanlikes>-30</optimalityOffsetHumanlikes>
+			<optimalityOffsetFeedingAnimals>15</optimalityOffsetFeedingAnimals>
+			<ingestEffect>EatMeat</ingestEffect>
+			<ingestSound>RawMeat_Eat</ingestSound>
+		</ingestible>
+	</ThingDef>
+
+</Defs>
