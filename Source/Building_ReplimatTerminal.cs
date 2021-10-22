@@ -148,15 +148,12 @@ namespace Replimat
         public void TryBatchMakingSurvivalMeals()
         {
             // Determine the maximum number of survival meals that can be replicated, based on available feedstock
-            // (Cap this at 30 meals so that players don't accidentally use up all their feedstock on survival meals)
             ThingDef survivalMeal = ThingDefOf.MealSurvivalPack;
-            int maxSurvivalMeals = 30;
             float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
             float totalAvailableFeedstockMass = ReplimatUtility.ConvertFeedstockVolumeToMass(totalAvailableFeedstock);
             int maxPossibleSurvivalMeals = (int)Math.Floor(totalAvailableFeedstockMass / survivalMeal.BaseMass);
-            int survivalMealCap = (maxPossibleSurvivalMeals < maxSurvivalMeals) ? maxPossibleSurvivalMeals : maxSurvivalMeals;
 
-            float survivalMealCapVolumeOfFeedstockRequired = ReplimatUtility.ConvertMassToFeedstockVolume(survivalMealCap * survivalMeal.BaseMass);
+            float survivalMealCapVolumeOfFeedstockRequired = ReplimatUtility.ConvertMassToFeedstockVolume(maxPossibleSurvivalMeals * survivalMeal.BaseMass);
 
             if (!CanDispenseNow)
             {
@@ -170,9 +167,9 @@ namespace Replimat
             }
 
             Func<int, string> textGetter;
-            textGetter = ((int x) => "SetSurvivalMealBatchSize".Translate(x, survivalMealCap));
+            textGetter = ((int x) => "SetSurvivalMealBatchSize".Translate(x, maxPossibleSurvivalMeals));
 
-            Dialog_Slider window = new Dialog_Slider(textGetter, 1, survivalMealCap, delegate (int x)
+            Dialog_Slider window = new Dialog_Slider(textGetter, 1, maxPossibleSurvivalMeals, delegate (int x)
             {
                 ConfirmAction(x, ReplimatUtility.ConvertMassToFeedstockVolume(survivalMeal.BaseMass));
             }, 1);
