@@ -52,8 +52,8 @@
 	<!-- EN: Cannot batch replicate survival meals: Terminal has insufficient feedstock, or is not connected to Computer and Feedstock tanks-->
 	<MessageCannotBatchMakeSurvivalMeals>非常用食品を合成できません: 原料が足りないかターミナルがコンピューターと原料タンクに接続されていません.</MessageCannotBatchMakeSurvivalMeals>
 	
-	<!-- EN: Make {0} Packaged Survival Meals\n(Max allowed: {1}) -->	
-	<SetSurvivalMealBatchSize>{0}個の非常用食品を合成中\n(最大:{1})</SetSurvivalMealBatchSize>
+	<!-- EN: Make Packaged Survival Meals\n(Max allowed: {0}) -->	
+	<SetSurvivalMealBatchSize>非常用食品を合成中\n(最大:{0})</SetSurvivalMealBatchSize>
 	
 	<!-- EN: Switch animal feed -->
 	<CommandGizmoSwitchAnimalFeed_Label>飼料の切り替え</CommandGizmoSwitchAnimalFeed_Label>

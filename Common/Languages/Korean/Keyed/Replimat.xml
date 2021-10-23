@@ -52,8 +52,8 @@
 	<!-- EN: Can not batch replicate survival meals : Terminal has insufficient feedstock, or is not connected to Computer and Feedstock tanks -->
 	<MessageCannotBatchMakeSurvivalMeals>보존 식량을 복제할 수 없습니다: 재료가 부족하거나 터미널이 컴퓨터와 재료 탱크에 연결되어 있지 않습니다.</MessageCannotBatchMakeSurvivalMeals>
 
-	<!-- EN: Make {0} Packaged Survival Meals\n(Max allowed : {1}) -->
-	<SetSurvivalMealBatchSize>{0}개의 보존 식량을 생산\n(최대: {1})</SetSurvivalMealBatchSize>
+	<!-- EN: Make Packaged Survival Meals\n(Max allowed: {0}) -->
+	<SetSurvivalMealBatchSize>포장된 생존 식사 만들기\n(최대: {0})</SetSurvivalMealBatchSize>
 	
 	<!-- EN: Switch animal feed -->
 	<CommandGizmoSwitchAnimalFeed_Label>동물 사료를  전환</CommandGizmoSwitchAnimalFeed_Label>

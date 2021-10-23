@@ -27,7 +27,7 @@
 	
 	<MessageCannotBatchMakeSurvivalMeals>Cannot batch replicate survival meals: Terminal has insufficient feedstock, or is not connected to Computer and Feedstock tanks.</MessageCannotBatchMakeSurvivalMeals>
 	
-	<SetSurvivalMealBatchSize>Make {0} Packaged Survival Meals\n(Max allowed: {1})</SetSurvivalMealBatchSize>
+	<SetSurvivalMealBatchSize>Make Packaged Survival Meals\n(Max allowed: {0})</SetSurvivalMealBatchSize>
 	
 	<CommandGizmoSwitchAnimalFeed_Label>Switch animal feed</CommandGizmoSwitchAnimalFeed_Label>
 	<CommandGizmoSwitchAnimalFeed_Desc>Select what type of animal feed to replicate.\n\nCurrent: {0}</CommandGizmoSwitchAnimalFeed_Desc>

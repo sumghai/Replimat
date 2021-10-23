@@ -27,7 +27,7 @@
 
 	<MessageCannotBatchMakeSurvivalMeals>Nelze zreplikovat nouzové potravinové balíèky: Terminál nemá dostatek roztoku živin, nebo není pøipojen k poèítaèi èi zásobním nádržím.C</MessageCannotBatchMakeSurvivalMeals>
 
-	<SetSurvivalMealBatchSize>Vyrobit balík {0} nouzových potravinových balíèkù \n(Maximálnì: {1})</SetSurvivalMealBatchSize>
+	<SetSurvivalMealBatchSize>Vyrobit nouzových potravinových balíèkù\n(Maximálnì: {0})</SetSurvivalMealBatchSize>
 	
 	<CommandGizmoSwitchAnimalFeed_Label>Přepnout krmivo pro zvířata</CommandGizmoSwitchAnimalFeed_Label>
 	<CommandGizmoSwitchAnimalFeed_Desc>Vyberte, jaký typ krmiva pro zvířata chcete replikovat.\n\Současný: {0}</CommandGizmoSwitchAnimalFeed_Desc>

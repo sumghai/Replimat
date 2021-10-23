@@ -52,8 +52,8 @@
 	<!-- EN: Cannot batch replicate survival meals: Terminal has insufficient feedstock, or is not connected to Computer and Feedstock tanks-->
 	<MessageCannotBatchMakeSurvivalMeals>無法複製生存食品包: 營養原料不足，或合成器未連結到系統主電腦和原料儲存桶。</MessageCannotBatchMakeSurvivalMeals>
 
-	<!-- EN: Make {0} Packaged Survival Meals\n(Max allowed: {1}) -->	
-	<SetSurvivalMealBatchSize>將生存食品包複製數量為{0}\n(最大複製數量: {1})</SetSurvivalMealBatchSize>
+	<!-- EN: Make Packaged Survival Meals\n(Max allowed: {0}) -->	
+	<SetSurvivalMealBatchSize>複製生存食品包\n(最大數量: {0})</SetSurvivalMealBatchSize>
 	
 	<!-- EN: Switch animal feed -->
 	<CommandGizmoSwitchAnimalFeed_Label>切換飼料</CommandGizmoSwitchAnimalFeed_Label>

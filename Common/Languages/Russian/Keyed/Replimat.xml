@@ -52,8 +52,8 @@
 	<!-- EN: Cannot batch replicate survival meals: Terminal has insufficient feedstock, or is not connected to Computer and Feedstock tanks-->
 	<MessageCannotBatchMakeSurvivalMeals>Невозможно создать пищу для выживания: в терминале недостаточно сырья или он не подключен к резервуарам компьютера и сырья.</MessageCannotBatchMakeSurvivalMeals>
 
-	<!-- EN: Make {0} Packaged Survival Meals\n(Max allowed: {1}) -->	
-	<SetSurvivalMealBatchSize>Сделать {0} сухпайков\n(максимально допустимое: {1})</SetSurvivalMealBatchSize>
+	<!-- EN: Make Packaged Survival Meals\n(Max allowed: {0}) -->	
+	<SetSurvivalMealBatchSize>Сделать сухпайков\n(максимально допустимое: {0})</SetSurvivalMealBatchSize>
 	
 	<!-- EN: Switch animal feed -->
 	<CommandGizmoSwitchAnimalFeed_Label>Сменить Корм для животных</CommandGizmoSwitchAnimalFeed_Label>

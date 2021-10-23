@@ -166,10 +166,9 @@ namespace Replimat
                 return;
             }
 
-            Func<int, string> textGetter;
-            textGetter = ((int x) => "SetSurvivalMealBatchSize".Translate(x, maxPossibleSurvivalMeals));
+            string dialogTitle = "SetSurvivalMealBatchSize".Translate(maxPossibleSurvivalMeals);
 
-            Dialog_Slider window = new Dialog_Slider(textGetter, 1, maxPossibleSurvivalMeals, delegate (int x)
+            Dialog_BatchMakeSurvivalMeals window = new Dialog_BatchMakeSurvivalMeals(dialogTitle, 1, maxPossibleSurvivalMeals, delegate (int x)
             {
                 ConfirmAction(x, ReplimatUtility.ConvertMassToFeedstockVolume(survivalMeal.BaseMass));
             }, 1);
