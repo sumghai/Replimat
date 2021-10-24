@@ -122,7 +122,7 @@
 		<surfaceType>Item</surfaceType>
 		<building>
 			<fixedStorageSettings>
-				<priority>Important</priority>
+				<priority>Critical</priority>
 				<filter>
 					<thingDefs>
 						<li>Hay</li>
@@ -132,7 +132,7 @@
 				</filter>
 			</fixedStorageSettings>
 			<defaultStorageSettings>
-				<priority>Important</priority>
+				<priority>Critical</priority>
 				<filter>
 					<thingDefs>
 						<li>Hay</li>
