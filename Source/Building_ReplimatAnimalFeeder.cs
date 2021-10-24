@@ -21,7 +21,7 @@ namespace Replimat
 
         public List<ThingDef> AllowedAnimalFeedDefs;
 
-        public ThingDef CurrentAnimalFeedDef;
+        public ThingDef CurrentAnimalFeedDef = ThingDefOf.Kibble; // Default is Kibble
 
         public float volumePerAnimalFeed;
 
@@ -31,7 +31,6 @@ namespace Replimat
             powerComp = GetComp<CompPowerTrader>();
             stateDependentPowerComp = GetComp<CompStateDependentPowerUse>();
             AllowedAnimalFeedDefs = def.building.fixedStorageSettings.filter.allowedDefs.ToList();
-            CurrentAnimalFeedDef = AllowedAnimalFeedDefs.ElementAt(1);
             volumePerAnimalFeed = ReplimatUtility.ConvertMassToFeedstockVolume(CurrentAnimalFeedDef.BaseMass);
         }
 
@@ -69,8 +68,14 @@ namespace Replimat
             };
         }
 
-        public void ToggleAnimalFeedDef()
+        public override void ExposeData()
         {
+            base.ExposeData();
+            Scribe_Defs.Look<ThingDef>(ref CurrentAnimalFeedDef, "currentAnimalFeedDef");
+        }
+
+        public void ToggleAnimalFeedDef()
+        {           
             int currentAnimalFeedDefNum = AllowedAnimalFeedDefs.IndexOf(CurrentAnimalFeedDef);
             currentAnimalFeedDefNum = (currentAnimalFeedDefNum + 1) % AllowedAnimalFeedDefs.Count;
             CurrentAnimalFeedDef = AllowedAnimalFeedDefs.ElementAt(currentAnimalFeedDefNum);
