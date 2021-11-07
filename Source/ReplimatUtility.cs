@@ -79,6 +79,9 @@ namespace Replimat
                 // (Survival Meals are reserved for caravans, as per custom gizmo)
                 allowedMeals.Remove(ThingDefOf.MealSurvivalPack);
 
+                // Remove meals from a blacklist (stored in the Replimat Computer)
+                // TODO
+
                 if (allowedMeals.NullOrEmpty())
                 {
                     return null;
@@ -105,6 +108,90 @@ namespace Replimat
             }
 
             return SelectedMeal;
+        }
+
+        public static void GenerateIngredients(Thing meal, Ideo ideo)
+        {
+            Log.Error("Checking " + meal.def);
+            
+            CompIngredients compIngredients = meal.TryGetComp<CompIngredients>();
+
+            if (compIngredients != null) 
+            {
+                // Stage 1: Generate random ingredients according to recipe
+
+                // 1.1: Find recipe
+                Func<RecipeDef, bool> validator = delegate (RecipeDef r)
+                {                    
+                    bool directMatch = r.ProducedThingDef == meal.def;
+
+                    // Add compatibility for VCE Soups and Stews, whose original recipes only makes uncooked versions
+                    bool indirectMatch = (r.ProducedThingDef != null) ? (r.ProducedThingDef.ToString().Replace("Uncooked", "Cooked") == meal.def.ToString()) : false;
+
+                    return directMatch || indirectMatch;
+                };
+
+                RecipeDef mealRecipe = DefDatabase<RecipeDef>.AllDefsListForReading.First(validator);
+
+                if (mealRecipe != null)
+                {
+                    // 1.2: Generate ingredients from recipe
+                    Log.Warning(meal + " using recipe " + mealRecipe);
+
+                    List<string> ingredientCategoryOptions = new List<string>();
+
+                    List<ThingDef> ingredientThingDefs = new List<ThingDef>();
+                    
+                    // 1.3: Find ingredient categories and/or fixed thingDefs
+                    foreach (IngredientCount currIngredientCount in mealRecipe.ingredients)
+                    {
+                        if (currIngredientCount.filter.categories != null)
+                        {
+                            // Limit to 3 instances of an ingredient category
+                            int ingredientCatInstances = Math.Min((int)Math.Ceiling(currIngredientCount.count / 0.5f), 3);
+
+                            for (int i = 0; i < ingredientCatInstances; i++)
+                            {
+                                ingredientCategoryOptions.Add(currIngredientCount.filter.categories.RandomElement());
+                            }
+                        }
+                        if (currIngredientCount.filter.thingDefs != null)
+                        {
+                            ingredientThingDefs.AddRange(currIngredientCount.filter.thingDefs);
+                        }
+                    }
+
+                    // 1.4: Generate random ingredient thingDefs based on categories, and add them to the existing list of fixed thingDefs
+                    foreach (string currentIngredientCatOption in ingredientCategoryOptions)
+                    {
+                        ThingDef ingredient = new ThingDef();
+                        
+                        switch (currentIngredientCatOption)
+                        {
+                            case "FoodRaw":
+                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.IsNutritionGivingIngestible && d.ingestible.HumanEdible && (d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw) || d.thingCategories.Contains(ThingCategoryDefOf.PlantFoodRaw) || d.thingCategories.Contains(ThingCategoryDef.Named("AnimalProductRaw")) || d.thingCategories.Contains(ThingCategoryDefOf.EggsUnfertilized))).RandomElement();
+                                break;
+                            case "VCE_Condiments":
+                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.thingCategories != null && d.thingCategories.Contains(ThingCategoryDef.Named(currentIngredientCatOption))).RandomElement();
+                                break;
+                            default:
+                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.IsNutritionGivingIngestible && d.ingestible.HumanEdible && d.thingCategories.Contains(ThingCategoryDef.Named(currentIngredientCatOption))).RandomElement();
+                                break;
+                        }
+
+                        ingredientThingDefs.Add(ingredient);
+                    }
+
+                    Log.Warning(meal + " should contain ingredient thingDefs " + string.Join(",", ingredientThingDefs));
+
+                    // Stage 2: Ideo replacements
+
+                    // TODO
+
+                    // Stage 3: Assign final ingredients to meal
+                    compIngredients.ingredients.AddRange(ingredientThingDefs);
+                }
+            }
         }
 
         public static bool TryConsumeFeedstock(this PowerNet net, float feedstockNeeded)

@@ -89,6 +89,8 @@ namespace Replimat
 
             Thing dispensedMeal = ThingMaker.MakeThing(meal, null);
 
+            ReplimatUtility.GenerateIngredients(dispensedMeal, eater.Ideo);
+
             float dispensedMealMass = dispensedMeal.def.BaseMass;
 
             powerComp.PowerNet.TryConsumeFeedstock(ReplimatUtility.ConvertMassToFeedstockVolume(dispensedMealMass));
