@@ -181,7 +181,11 @@ namespace Replimat
                                 break;
                         }
 
-                        ingredientThingDefs.Add(ingredient);
+                        // Avoid duplicates
+                        if (!ingredientThingDefs.Contains(ingredient))
+                        {
+                            ingredientThingDefs.Add(ingredient);
+                        }
                     }
 
                     Log.Warning(meal + " should contain ingredient thingDefs " + string.Join(",", ingredientThingDefs));
