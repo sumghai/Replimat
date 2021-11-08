@@ -164,6 +164,7 @@ namespace Replimat
                     }
 
                     // 1.4: Generate random ingredient thingDefs based on categories, and add them to the existing list of fixed thingDefs
+                    // (Ignoring disallowed ingredients as well as humanlike and insect meats by default)
                     foreach (string currentIngredientCatOption in ingredientCategoryOptions)
                     {
                         ThingDef ingredient = new ThingDef();
@@ -171,13 +172,13 @@ namespace Replimat
                         switch (currentIngredientCatOption)
                         {
                             case "FoodRaw":
-                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.IsNutritionGivingIngestible && d.ingestible.HumanEdible && (d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw) || d.thingCategories.Contains(ThingCategoryDefOf.PlantFoodRaw) || d.thingCategories.Contains(ThingCategoryDef.Named("AnimalProductRaw")) || d.thingCategories.Contains(ThingCategoryDefOf.EggsUnfertilized)) && !replimatRestrictions.disallowedIngredients.Contains(d)).RandomElement();
+                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.IsNutritionGivingIngestible && d.ingestible.HumanEdible && (d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw) || d.thingCategories.Contains(ThingCategoryDefOf.PlantFoodRaw) || d.thingCategories.Contains(ThingCategoryDef.Named("AnimalProductRaw")) || d.thingCategories.Contains(ThingCategoryDefOf.EggsUnfertilized)) && !replimatRestrictions.disallowedIngredients.Contains(d) && FoodUtility.GetMeatSourceCategory(d) != MeatSourceCategory.Humanlike && FoodUtility.GetMeatSourceCategory(d) != MeatSourceCategory.Insect).RandomElement();
                                 break;
                             case "VCE_Condiments":
                                 ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.thingCategories != null && d.thingCategories.Contains(ThingCategoryDef.Named(currentIngredientCatOption)) && !replimatRestrictions.disallowedIngredients.Contains(d)).RandomElement();
                                 break;
                             default:
-                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.IsNutritionGivingIngestible && d.ingestible.HumanEdible && d.thingCategories.Contains(ThingCategoryDef.Named(currentIngredientCatOption)) && !replimatRestrictions.disallowedIngredients.Contains(d)).RandomElement();
+                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.IsNutritionGivingIngestible && d.ingestible.HumanEdible && d.thingCategories.Contains(ThingCategoryDef.Named(currentIngredientCatOption)) && !replimatRestrictions.disallowedIngredients.Contains(d) && FoodUtility.GetMeatSourceCategory(d) != MeatSourceCategory.Humanlike && FoodUtility.GetMeatSourceCategory(d) != MeatSourceCategory.Insect).RandomElement();
                                 break;
                         }
 
