@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Cooking Expanded</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+			
+				<!-- Blacklist ruined grills, as they have no recipes and aren't possible to replicate in the first place anyway -->
+			
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]/disallowedMeals</xpath>
+					<value>
+						<li>VCE_RuinedSimpleGrill</li>
+						<li>VCE_RuinedFineGrill</li>
+						<li>VCE_RuinedLavishGrill</li>
+						<li>VCE_RuinedGourmetGrill</li>
+					</value>
+				</li>
+				
+				<!-- Blacklist canned ingredients and "cheaty" condiments -->
+			
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]/disallowedIngredients</xpath>
+					<value>
+						<li>VCE_CannedMeat</li>
+						<li>VCE_CannedProduce</li>
+						<li>VCE_CannedFruit</li>
+						<li>VCE_CannedAP</li>
+						<li>VCE_CannedFish</li>
+						<li>VCE_DigestibleResurrectorNanites</li>
+					</value>
+				</li>
+				
+			</operations>
+		</match>
+	</Operation>
+</Patch>

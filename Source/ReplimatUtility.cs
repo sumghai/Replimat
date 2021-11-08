@@ -16,6 +16,8 @@ namespace Replimat
 
         public static float ConvertFeedstockVolumeToMass(float volume) => volume * nutrientFeedStockDensity;
 
+        public static CompProperties_ReplimatRestrictions replimatRestrictions = ReplimatDef.ReplimatComputer.GetCompProperties<CompProperties_ReplimatRestrictions>();
+
         public static bool CanFindComputer(Building building)
         {
             var computer = building.Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputer).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == building.PowerComp.PowerNet && x.Working);
@@ -80,7 +82,7 @@ namespace Replimat
                 allowedMeals.Remove(ThingDefOf.MealSurvivalPack);
 
                 // Remove meals from a blacklist (stored in the Replimat Computer)
-                // TODO
+                allowedMeals.RemoveAll((ThingDef d) => replimatRestrictions.disallowedMeals.Contains(d));
 
                 if (allowedMeals.NullOrEmpty())
                 {
@@ -169,13 +171,13 @@ namespace Replimat
                         switch (currentIngredientCatOption)
                         {
                             case "FoodRaw":
-                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.IsNutritionGivingIngestible && d.ingestible.HumanEdible && (d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw) || d.thingCategories.Contains(ThingCategoryDefOf.PlantFoodRaw) || d.thingCategories.Contains(ThingCategoryDef.Named("AnimalProductRaw")) || d.thingCategories.Contains(ThingCategoryDefOf.EggsUnfertilized))).RandomElement();
+                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.IsNutritionGivingIngestible && d.ingestible.HumanEdible && (d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw) || d.thingCategories.Contains(ThingCategoryDefOf.PlantFoodRaw) || d.thingCategories.Contains(ThingCategoryDef.Named("AnimalProductRaw")) || d.thingCategories.Contains(ThingCategoryDefOf.EggsUnfertilized)) && !replimatRestrictions.disallowedIngredients.Contains(d)).RandomElement();
                                 break;
                             case "VCE_Condiments":
-                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.thingCategories != null && d.thingCategories.Contains(ThingCategoryDef.Named(currentIngredientCatOption))).RandomElement();
+                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.thingCategories != null && d.thingCategories.Contains(ThingCategoryDef.Named(currentIngredientCatOption)) && !replimatRestrictions.disallowedIngredients.Contains(d)).RandomElement();
                                 break;
                             default:
-                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.IsNutritionGivingIngestible && d.ingestible.HumanEdible && d.thingCategories.Contains(ThingCategoryDef.Named(currentIngredientCatOption))).RandomElement();
+                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.IsNutritionGivingIngestible && d.ingestible.HumanEdible && d.thingCategories.Contains(ThingCategoryDef.Named(currentIngredientCatOption)) && !replimatRestrictions.disallowedIngredients.Contains(d)).RandomElement();
                                 break;
                         }
 

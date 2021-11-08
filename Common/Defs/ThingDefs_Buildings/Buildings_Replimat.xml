@@ -426,6 +426,12 @@
 				<basePowerConsumption>1000</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Flickable"/>
+			<li Class="Replimat.CompProperties_ReplimatRestrictions">
+				<!-- Meals that the Replimat system should never replicate -->
+				<disallowedMeals />
+				<!-- Ingredients that the Replimat system should normally never use in meals (ideology precepts may potentially ignore these) -->
+				<disallowedIngredients />
+			</li>
 		</comps>
 	</ThingDef>
 
