@@ -189,14 +189,58 @@ namespace Replimat
                         }
                     }
 
-                    Log.Warning(meal + " should contain ingredient thingDefs " + string.Join(",", ingredientThingDefs));
-
                     // Stage 2: Ideo replacements
 
-                    // TODO
+                    // 2.1 Human cannibalism for meals containing meat
+                    if (ideo.HasHumanMeatEatingRequiredPrecept())
+                    {
+                        List<ThingDef> existingMeats = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw));
+
+                        // Replace existing meats with a single instance of human meat
+                        if (existingMeats.Count > 0)
+                        {
+                            ingredientThingDefs = ingredientThingDefs.Except(existingMeats).ToList();
+
+                            ingredientThingDefs.Add(ThingDefOf.Meat_Human);
+                        }
+                    }
+                    // 2.2 Insect meat loved for meals containing meat
+                    else if (ideo.HasPrecept(ReplimatDef.InsectMeatEating_Loved))
+                    {
+                        List<ThingDef> existingMeats = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw));
+
+                        // Replace existing meats with a single instance of insect meat
+                        if (existingMeats.Count > 0)
+                        {
+                            ingredientThingDefs = ingredientThingDefs.Except(existingMeats).ToList();
+
+                            ingredientThingDefs.Add(ReplimatDef.Meat_Megaspider);
+                        }
+                    }
+                    // 2.3 Fungus preferred for meals containing raw plant food
+                    else if (ideo.HasPrecept(ReplimatDef.FungusEating_Preferred))
+                    {
+                        List<ThingDef> existingPlantFoodRaws = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.PlantFoodRaw) || d.ingestible.foodType == FoodTypeFlags.VegetableOrFruit);
+                        // todo - fix
+
+                        // Replace existing raw plant food with a single instance of fungus
+                        if (existingPlantFoodRaws.Count > 0)
+                        {
+                            ingredientThingDefs = ingredientThingDefs.Except(existingPlantFoodRaws).ToList();
+
+                            ingredientThingDefs.Add(ReplimatDef.RawFungus);
+                        }
+                    }
+                    // 2.4 Fungus despised for meals containing raw plant food
+                    else if (ideo.HasPrecept(ReplimatDef.FungusEating_Despised))
+                    {
+                        ingredientThingDefs.Remove(ReplimatDef.RawFungus);
+                    }
 
                     // Stage 3: Assign final ingredients to meal
                     compIngredients.ingredients.AddRange(ingredientThingDefs);
+
+                    Log.Warning(meal + " should contain ingredient thingDefs " + string.Join(",", ingredientThingDefs));
                 }
             }
         }
