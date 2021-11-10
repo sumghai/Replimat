@@ -204,8 +204,9 @@ namespace Replimat
                             ingredientThingDefs.Add(ThingDefOf.Meat_Human);
                         }
                     }
+
                     // 2.2 Insect meat loved for meals containing meat
-                    else if (ideo.HasPrecept(ReplimatDef.InsectMeatEating_Loved))
+                    if (ideo.HasPrecept(ReplimatDef.InsectMeatEating_Loved))
                     {
                         List<ThingDef> existingMeats = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw));
 
@@ -217,8 +218,9 @@ namespace Replimat
                             ingredientThingDefs.Add(ReplimatDef.Meat_Megaspider);
                         }
                     }
+
                     // 2.3 Fungus preferred for meals containing raw plant food
-                    else if (ideo.HasPrecept(ReplimatDef.FungusEating_Preferred))
+                    if (ideo.HasPrecept(ReplimatDef.FungusEating_Preferred))
                     {
                         List<ThingDef> existingPlantFoodRaws = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.PlantFoodRaw) || d.ingestible.foodType == FoodTypeFlags.VegetableOrFruit);
                         // todo - fix
@@ -231,8 +233,9 @@ namespace Replimat
                             ingredientThingDefs.Add(ReplimatDef.RawFungus);
                         }
                     }
+
                     // 2.4 Fungus despised for meals containing raw plant food
-                    else if (ideo.HasPrecept(ReplimatDef.FungusEating_Despised))
+                    if (ideo.HasPrecept(ReplimatDef.FungusEating_Despised))
                     {
                         ingredientThingDefs.Remove(ReplimatDef.RawFungus);
                     }
