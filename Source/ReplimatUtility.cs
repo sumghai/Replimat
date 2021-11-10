@@ -113,9 +113,7 @@ namespace Replimat
         }
 
         public static void GenerateIngredients(Thing meal, Ideo ideo)
-        {
-            Log.Error("Checking " + meal.def);
-            
+        {            
             CompIngredients compIngredients = meal.TryGetComp<CompIngredients>();
 
             if (compIngredients != null) 
@@ -138,8 +136,6 @@ namespace Replimat
                 if (mealRecipe != null)
                 {
                     // 1.2: Generate ingredients from recipe
-                    Log.Warning(meal + " using recipe " + mealRecipe);
-
                     List<string> ingredientCategoryOptions = new List<string>();
 
                     List<ThingDef> ingredientThingDefs = new List<ThingDef>();
@@ -242,8 +238,6 @@ namespace Replimat
 
                     // Stage 3: Assign final ingredients to meal
                     compIngredients.ingredients.AddRange(ingredientThingDefs);
-
-                    Log.Warning(meal + " should contain ingredient thingDefs " + string.Join(",", ingredientThingDefs));
                 }
             }
         }
