@@ -166,9 +166,6 @@ namespace Replimat
                         }
                     }
 
-                    Log.Warning("Ingredient categories: " + string.Join(", ", ingredientCategoryOptions));
-                    Log.Warning("Fixed ingredients: " + string.Join(", ", ingredientThingDefs));
-
                     // 1.4: Generate random ingredient thingDefs based on categories, and add them to the existing list of fixed thingDefs
                     // (Ignoring disallowed ingredients as well as humanlike and insect meats by default)
                     foreach (string currentIngredientCatOption in ingredientCategoryOptions)
