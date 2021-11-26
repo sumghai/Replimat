@@ -150,7 +150,14 @@ namespace Replimat
 
                             for (int i = 0; i < ingredientCatInstances; i++)
                             {
-                                ingredientCategoryOptions.Add(currIngredientCount.filter.categories.RandomElement());
+                                // Max limit of one condiment from Vanilla Cooking Expanded
+                                if (currIngredientCount.filter.categories.Contains("VCE_Condiments") && ingredientCategoryOptions.Contains("VCE_Condiments"))
+                                {
+                                    continue;
+                                } else
+                                {
+                                    ingredientCategoryOptions.Add(currIngredientCount.filter.categories.RandomElement());
+                                }
                             }
                         }
                         if (currIngredientCount.filter.thingDefs != null)
@@ -158,6 +165,9 @@ namespace Replimat
                             ingredientThingDefs.AddRange(currIngredientCount.filter.thingDefs);
                         }
                     }
+
+                    Log.Warning("Ingredient categories: " + string.Join(", ", ingredientCategoryOptions));
+                    Log.Warning("Fixed ingredients: " + string.Join(", ", ingredientThingDefs));
 
                     // 1.4: Generate random ingredient thingDefs based on categories, and add them to the existing list of fixed thingDefs
                     // (Ignoring disallowed ingredients as well as humanlike and insect meats by default)
