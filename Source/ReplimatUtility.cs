@@ -195,7 +195,7 @@ namespace Replimat
                     // Stage 2: Ideo replacements
 
                     // 2.1 Human cannibalism for meals containing meat
-                    if (ideo.HasHumanMeatEatingRequiredPrecept())
+                    if (ideo?.HasHumanMeatEatingRequiredPrecept() == true)
                     {
                         List<ThingDef> existingMeats = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw));
 
@@ -209,7 +209,7 @@ namespace Replimat
                     }
 
                     // 2.2 Insect meat loved for meals containing meat
-                    if (ideo.HasPrecept(ReplimatDef.InsectMeatEating_Loved))
+                    if (ideo?.HasPrecept(ReplimatDef.InsectMeatEating_Loved) == true)
                     {
                         List<ThingDef> existingMeats = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw));
 
@@ -223,7 +223,7 @@ namespace Replimat
                     }
 
                     // 2.3 Fungus preferred for meals containing raw plant food
-                    if (ideo.HasPrecept(ReplimatDef.FungusEating_Preferred))
+                    if (ideo?.HasPrecept(ReplimatDef.FungusEating_Preferred) == true)
                     {
                         List<ThingDef> existingPlantFoodRaws = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.PlantFoodRaw) || d.ingestible.foodType == FoodTypeFlags.VegetableOrFruit);
                         // todo - fix
@@ -238,7 +238,7 @@ namespace Replimat
                     }
 
                     // 2.4 Fungus despised for meals containing raw plant food
-                    if (ideo.HasPrecept(ReplimatDef.FungusEating_Despised))
+                    if (ideo?.HasPrecept(ReplimatDef.FungusEating_Despised) == true)
                     {
                         ingredientThingDefs.Remove(ReplimatDef.RawFungus);
                     }
