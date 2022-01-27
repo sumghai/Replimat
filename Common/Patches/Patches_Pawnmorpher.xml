@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Pawnmorpher</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+			
+				<!-- Backwards compatibility wrapper for RimWorld 1.2, which do not have the meal and ingredient blacklists introduced in Replimat v1.2.11 -->
+			
+				<li Class="PatchOperationConditional">
+					<xpath>Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]</xpath>
+					<match Class="PatchOperationSequence">
+						<operations>
+				
+							<!-- Blacklist mutagenic ingredients -->
+			
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]/disallowedIngredients</xpath>
+								<value>
+									<li>Chaobulb</li>
+									<li>Glowvine</li>
+									<li>TFEgg</li>
+									<li>TFMilk</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			
+			</operations>
+		</match>
+	</Operation>
+</Patch>
