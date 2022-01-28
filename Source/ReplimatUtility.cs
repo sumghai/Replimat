@@ -297,5 +297,19 @@ namespace Replimat
             }
             return false;
         }
+
+        public static void UpdateRepHopperGrid(CompPowerTrader thing)
+        {
+            Map map = thing?.parent.Map;
+            if (map?.info != null)
+            {
+                CellRect cells = GenAdj.OccupiedRect(thing.parent.positionInt, thing.parent.rotationInt, thing.parent.def.size);
+                foreach (var cell in cells)
+                {
+                    ReplimatMod.repHopperGrid[map][cell.z * map.info.sizeInt.x + cell.x] = thing.powerOnInt;
+                }
+            }
+        }
+
     }
 }

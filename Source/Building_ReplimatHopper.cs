@@ -34,18 +34,6 @@ namespace Replimat
             stateDependentPowerComp = GetComp<CompStateDependentPowerUse>();
         }
 
-        public float FreezerTemp
-        {
-            get
-            {
-                if (powerComp.PowerOn)
-                {
-                    return -2f;
-                }
-                return AmbientTemperature;
-            }
-        }
-
         public void StartWickSustainer()
         {
             SoundInfo info = SoundInfo.InMap(this, MaintenanceType.PerTick);
@@ -172,20 +160,11 @@ namespace Replimat
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(base.GetInspectString());
-
-            if (ParentHolder != null && !(ParentHolder is Map))
+            if ((ParentHolder == null || ParentHolder is Map) && !ReplimatUtility.CanFindComputer(this))
             {
-                // If minified, don't show computer and feedstock check Inspector messages
+                stringBuilder.AppendLine();
+                stringBuilder.Append(Translator.Translate("NotConnectedToComputer"));
             }
-            else
-            {
-                if (!ReplimatUtility.CanFindComputer(this))
-                {
-                    stringBuilder.AppendLine();
-                    stringBuilder.Append("NotConnectedToComputer".Translate());
-                }
-            }
-
             return stringBuilder.ToString();
         }
     }

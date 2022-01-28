@@ -1,4 +1,6 @@
 ﻿using HarmonyLib;
+using RimWorld;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
@@ -14,6 +16,8 @@ namespace Replimat
         public static Pawn eater;
         public static bool allowSociallyImproper;
         public static bool BestFoodSourceOnMap;
+        public static Dictionary<ThingWithComps, CompPowerTrader> repHopperCache = new Dictionary<ThingWithComps, CompPowerTrader>();
+        public static Dictionary<Map, bool[]> repHopperGrid = new Dictionary<Map, bool[]>();
 
         public ReplimatMod(ModContentPack content) : base(content)
         {
