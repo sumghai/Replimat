@@ -30,6 +30,7 @@
 			<ingestEffect>EatMeat</ingestEffect>
 			<ingestSound>RawMeat_Eat</ingestSound>
 		</ingestible>
+		<tradeability>Sellable</tradeability>
 	</ThingDef>
 
 </Defs>
