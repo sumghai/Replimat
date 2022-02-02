@@ -86,12 +86,13 @@ namespace Replimat
 
             if (this.IsHashIntervalTick(15)) {
 
-                List<Building_ReplimatFeedTank> tanks = GetTanks;
                 List<Thing> list = Map.thingGrid.ThingsListAtFast(Position);
                 Thing food = list.FirstOrDefault(x => settings.AllowedToAccept(x));
 
                 if (food != null)
                 {
+                    List<Building_ReplimatFeedTank> tanks = GetTanks;
+
                     float stockvol = ReplimatUtility.ConvertMassToFeedstockVolume(food.def.BaseMass);
                     float FreeSpace = tanks.Sum(x => x.AmountCanAccept);
 
