@@ -8,6 +8,20 @@ namespace Replimat
 {
     public class Building_ReplimatFeedTank : Building
     {
+        private CompPower myCompPower = null;
+
+        public CompPower GetPowerComp
+        {
+            get
+            {
+                if (myCompPower is null)
+                {
+                    myCompPower = PowerComp; // Calls the Verse.Building.CompPower property
+                }
+                return myCompPower;
+            }
+        }
+
         public virtual float StoredFeedstockMax => 250f; // 250L capacity for an *insulated* 0.5m diameter and 1.5m high liquid tank
                                                          // Originally 8000L capacity for a 2m diameter and 2m high liquid tank
 
@@ -65,7 +79,7 @@ namespace Replimat
             }
             else
             {
-                if (!ReplimatUtility.CanFindComputer(this))
+                if (!ReplimatUtility.CanFindComputer(this, PowerComp.PowerNet))
                 {
                     stringBuilder.AppendLine();
                     stringBuilder.Append("NotConnectedToComputer".Translate());

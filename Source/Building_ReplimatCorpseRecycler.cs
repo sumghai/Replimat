@@ -76,7 +76,7 @@ namespace Replimat
             }
             else
             {
-                if (!ReplimatUtility.CanFindComputer(this))
+                if (!ReplimatUtility.CanFindComputer(this, PowerComp.PowerNet))
                 {
                     stringBuilder.AppendLine("NotConnectedToComputer".Translate());
                 }

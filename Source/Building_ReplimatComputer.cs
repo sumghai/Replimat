@@ -13,6 +13,20 @@ namespace Replimat
 
         public CompPowerTrader powerComp;
 
+        private CompPower myCompPower = null;
+
+        public CompPower GetPowerComp
+        {
+            get
+            {
+                if (myCompPower is null)
+                {
+                    myCompPower = PowerComp; // Calls the Verse.Building.CompPower property
+                }
+                return myCompPower;
+            }
+        }
+
         public static readonly Vector2 BarSize = new Vector2(1.3f, 0.2f);
 
         public static readonly Material BatteryBarFilledMat = SolidColorMaterials.SimpleSolidColorMaterial(Color.green);
@@ -21,7 +35,7 @@ namespace Replimat
 
         public static readonly Material BatteryBarNoPowerMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.5f, 0.5f, 0.5f));
 
-        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).OfType<Building_ReplimatFeedTank>().Where(x => x.PowerComp.PowerNet == PowerComp.PowerNet).ToList();
+        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).OfType<Building_ReplimatFeedTank>().Where(x => x.GetPowerComp.PowerNet == PowerComp.PowerNet).ToList();
 
         public float GetFeedstockPercent()
         {

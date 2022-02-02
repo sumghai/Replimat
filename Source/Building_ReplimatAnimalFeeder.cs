@@ -120,7 +120,7 @@ namespace Replimat
         {
             base.Tick();
 
-            if (!powerComp.PowerOn || !ReplimatUtility.CanFindComputer(this))
+            if (!powerComp.PowerOn || !ReplimatUtility.CanFindComputer(this, PowerComp.PowerNet))
             {
                 return;
             }
@@ -182,7 +182,7 @@ namespace Replimat
             }
             else
             {
-                if (!ReplimatUtility.CanFindComputer(this))
+                if (!ReplimatUtility.CanFindComputer(this, PowerComp.PowerNet))
                 {
                     stringBuilder.AppendLine();
                     stringBuilder.Append("NotConnectedToComputer".Translate());

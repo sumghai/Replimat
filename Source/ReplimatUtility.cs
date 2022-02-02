@@ -18,16 +18,14 @@ namespace Replimat
 
         public static CompProperties_ReplimatRestrictions replimatRestrictions = ReplimatDef.ReplimatComputer.GetCompProperties<CompProperties_ReplimatRestrictions>();
 
-        public static bool CanFindComputer(Building building)
+        public static bool CanFindComputer(Building building, PowerNet net)
         {
-            var computer = building.Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputer).OfType<Building_ReplimatComputer>().Any(x => x.PowerComp.PowerNet == building.PowerComp.PowerNet && x.Working);
-            return computer;
+            return building.Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatComputer).OfType<Building_ReplimatComputer>().Any(x => x.GetPowerComp.PowerNet == net && x.Working);
         }
 
         public static List<Building_ReplimatFeedTank> GetTanks(this PowerNet net)
         {
-            var tanks = net.Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).OfType<Building_ReplimatFeedTank>().Where(x => x.PowerComp.PowerNet == net && CanFindComputer(x)).ToList();
-            return tanks;
+            return net.Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).OfType<Building_ReplimatFeedTank>().Where(x => x.GetPowerComp.PowerNet == net && CanFindComputer(x, net)).ToList();
         }
 
         public static bool RepMatWillEat(Pawn p, ThingDef food, Pawn getter = null)

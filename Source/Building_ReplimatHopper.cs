@@ -84,41 +84,45 @@ namespace Replimat
 
             powerComp.PowerOutput = -powerComp.Props.basePowerConsumption;
 
-            List<Building_ReplimatFeedTank> tanks = GetTanks;
-            List<Thing> list = Map.thingGrid.ThingsListAtFast(Position);
-            Thing food = list.FirstOrDefault(x => settings.AllowedToAccept(x));
+            if (this.IsHashIntervalTick(15)) {
 
-            if (food != null)
-            {
-                float stockvol = ReplimatUtility.ConvertMassToFeedstockVolume(food.def.BaseMass);
-                float FreeSpace = tanks.Sum(x => x.AmountCanAccept);
+                List<Building_ReplimatFeedTank> tanks = GetTanks;
+                List<Thing> list = Map.thingGrid.ThingsListAtFast(Position);
+                Thing food = list.FirstOrDefault(x => settings.AllowedToAccept(x));
 
-                if (this.IsHashIntervalTick(60) && FreeSpace >= stockvol)
+                if (food != null)
                 {
-                    DematerializingTicks = GenTicks.SecondsToTicks(2f);
-                }
+                    float stockvol = ReplimatUtility.ConvertMassToFeedstockVolume(food.def.BaseMass);
+                    float FreeSpace = tanks.Sum(x => x.AmountCanAccept);
 
-                if (this.IsHashIntervalTick(5) && FreeSpace >= stockvol)
-                {
-                    float buffy = stockvol;
-
-                    food.stackCount--;
-
-                    if (food.stackCount == 0)
+                    if (this.IsHashIntervalTick(60) && FreeSpace >= stockvol)
                     {
-                        food.Destroy();
+                        DematerializingTicks = GenTicks.SecondsToTicks(2f);
                     }
 
-                    foreach (var tank in tanks.InRandomOrder())
+                    if (this.IsHashIntervalTick(5) && FreeSpace >= stockvol)
                     {
-                        if (buffy > 0f)
+                        float buffy = stockvol;
+
+                        food.stackCount--;
+
+                        if (food.stackCount == 0)
                         {
-                            float sent = Mathf.Min(buffy, tank.AmountCanAccept);
-                            buffy -= sent;
-                            tank.AddFeedstock(sent);
+                            food.Destroy();
+                        }
+
+                        foreach (var tank in tanks.InRandomOrder())
+                        {
+                            if (buffy > 0f)
+                            {
+                                float sent = Mathf.Min(buffy, tank.AmountCanAccept);
+                                buffy -= sent;
+                                tank.AddFeedstock(sent);
+                            }
                         }
                     }
                 }
+
             }
 
             if (DematerializingTicks > 0)
@@ -160,7 +164,7 @@ namespace Replimat
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(base.GetInspectString());
-            if ((ParentHolder == null || ParentHolder is Map) && !ReplimatUtility.CanFindComputer(this))
+            if ((ParentHolder == null || ParentHolder is Map) && !ReplimatUtility.CanFindComputer(this, PowerComp.PowerNet))
             {
                 stringBuilder.AppendLine();
                 stringBuilder.Append(Translator.Translate("NotConnectedToComputer"));
