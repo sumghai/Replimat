@@ -89,7 +89,7 @@ namespace Replimat
 
             Thing dispensedMeal = ThingMaker.MakeThing(meal, null);
 
-            ReplimatUtility.GenerateIngredients(dispensedMeal, eater.Ideo);
+            ReplimatUtility.GenerateIngredients(dispensedMeal, eater);
 
             float dispensedMealMass = dispensedMeal.def.BaseMass;
 

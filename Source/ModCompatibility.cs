@@ -10,6 +10,8 @@ namespace Replimat
 
         public static bool SaveOurShip2IsActive => ModLister.AllInstalledMods.Where(x => x.Active && x.PackageId == "kentington.saveourship2".ToLower()).Any();
 
+        public static bool VanillaCookingExpandedIsActive => ModLister.AllInstalledMods.Where(x => x.Active && x.PackageId == "VanillaExpanded.VCookE".ToLower()).Any();
+
         public static bool AlienRaceHasOrganicFlesh(Pawn pawn)
         {
             ThingDef_AlienRace raceDef = pawn.def as ThingDef_AlienRace;

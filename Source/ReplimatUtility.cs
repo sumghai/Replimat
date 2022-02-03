@@ -110,17 +110,17 @@ namespace Replimat
             return SelectedMeal;
         }
 
-        public static void GenerateIngredients(Thing meal, Ideo ideo)
+        public static void GenerateIngredients(Thing meal, Pawn eater)
         {            
             CompIngredients compIngredients = meal.TryGetComp<CompIngredients>();
 
-            if (compIngredients != null) 
+            if (compIngredients != null)
             {
                 // Stage 1: Generate random ingredients according to recipe
 
                 // 1.1: Find recipe
                 Func<RecipeDef, bool> validator = delegate (RecipeDef r)
-                {                    
+                {
                     bool directMatch = r.ProducedThingDef == meal.def;
 
                     // Add compatibility for VCE Soups and Stews, whose original recipes only makes uncooked versions
@@ -137,7 +137,7 @@ namespace Replimat
                     List<string> ingredientCategoryOptions = new List<string>();
 
                     List<ThingDef> ingredientThingDefs = new List<ThingDef>();
-                    
+
                     // 1.3: Find ingredient categories and/or fixed thingDefs
                     foreach (IngredientCount currIngredientCount in mealRecipe.ingredients)
                     {
@@ -165,32 +165,46 @@ namespace Replimat
                     }
 
                     // 1.4: Generate random ingredient thingDefs based on categories, and add them to the existing list of fixed thingDefs
-                    // (Ignoring disallowed ingredients as well as humanlike and insect meats by default)
+                    //
+                    // By default, we ignore ingredients that are:
+                    // - Permanently disallowed by the Computer
+                    // - Disallowed specifically by the pawn's food restriction policy
+                    // - Humanlike and insect meats
+                    // - Fertilized eggs
+
+                    List<ThingDef> allowedIngredients = ThingCategoryDef.Named("FoodRaw").DescendantThingDefs.Where(x =>
+                        !replimatRestrictions.disallowedIngredients.Contains(x) && 
+                        eater.foodRestriction.CurrentFoodRestriction.Allows(x) && 
+                        FoodUtility.GetMeatSourceCategory(x) != MeatSourceCategory.Humanlike && 
+                        FoodUtility.GetMeatSourceCategory(x) != MeatSourceCategory.Insect &&
+                        !x.thingCategories.Contains(ThingCategoryDefOf.EggsFertilized)
+                    ).ToList();
+
+                    // Also check allowed condiments if Vanilla Cooking Expanded mod is active
+                    if (ModCompatibility.VanillaCookingExpandedIsActive)
+                    {
+                        allowedIngredients.AddRange(ThingCategoryDef.Named("VCE_Condiments").DescendantThingDefs.Where(x => 
+                            !replimatRestrictions.disallowedIngredients.Contains(x) &&
+                            eater.foodRestriction.CurrentFoodRestriction.Allows(x)
+                        ));
+                    }
+
                     foreach (string currentIngredientCatOption in ingredientCategoryOptions)
                     {
-                        ThingDef ingredient = new ThingDef();
-                        
-                        switch (currentIngredientCatOption)
-                        {
-                            case "FoodRaw":
-                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.IsNutritionGivingIngestible && d.ingestible.HumanEdible && (d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw) || d.thingCategories.Contains(ThingCategoryDefOf.PlantFoodRaw) || d.thingCategories.Contains(ThingCategoryDef.Named("AnimalProductRaw")) || d.thingCategories.Contains(ThingCategoryDefOf.EggsUnfertilized)) && !replimatRestrictions.disallowedIngredients.Contains(d) && FoodUtility.GetMeatSourceCategory(d) != MeatSourceCategory.Humanlike && FoodUtility.GetMeatSourceCategory(d) != MeatSourceCategory.Insect).RandomElement();
-                                break;
-                            case "VCE_Condiments":
-                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.thingCategories != null && d.thingCategories.Contains(ThingCategoryDef.Named(currentIngredientCatOption)) && !replimatRestrictions.disallowedIngredients.Contains(d)).RandomElement();
-                                break;
-                            default:
-                                ingredient = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef d) => d.IsNutritionGivingIngestible && d.ingestible.HumanEdible && d.thingCategories.Contains(ThingCategoryDef.Named(currentIngredientCatOption)) && !replimatRestrictions.disallowedIngredients.Contains(d) && FoodUtility.GetMeatSourceCategory(d) != MeatSourceCategory.Humanlike && FoodUtility.GetMeatSourceCategory(d) != MeatSourceCategory.Insect).RandomElement();
-                                break;
-                        }
+                        List<ThingDef> ingredients = ThingCategoryDef.Named(currentIngredientCatOption).DescendantThingDefs.Where((ThingDef d) => allowedIngredients.Contains(d)).ToList();
 
-                        // Avoid duplicates
-                        if (!ingredientThingDefs.Contains(ingredient))
+                        ThingDef ingredient = (ingredients.Count > 0) ? ingredients.RandomElement() : null;
+
+                        // Avoid empty or duplicate ingredients 
+                        if (ingredient != null && !ingredientThingDefs.Contains(ingredient))
                         {
                             ingredientThingDefs.Add(ingredient);
                         }
                     }
 
                     // Stage 2: Ideo replacements
+
+                    Ideo ideo = eater.Ideo;
 
                     // 2.1 Human cannibalism for meals containing meat
                     if (ideo?.HasHumanMeatEatingRequiredPrecept() == true)

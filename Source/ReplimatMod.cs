@@ -25,14 +25,19 @@ namespace Replimat
             var harmony = new Harmony("com.Replimat.patches");
             harmony.PatchAll();
 
+            if (ModCompatibility.AlienRacesIsActive)
+            {
+                Log.Message("Replimat :: Humanoid Alien Races detected!");
+            }
+
             if (ModCompatibility.SaveOurShip2IsActive)
             {
                 Log.Message("Replimat :: Save Our Ship 2 detected!");
             }
 
-            if (ModCompatibility.AlienRacesIsActive)
+            if (ModCompatibility.VanillaCookingExpandedIsActive)
             {
-                Log.Message("Replimat :: Humanoid Alien Races detected!");
+                Log.Message("Replimat :: Vanilla Cooking Expanded detected!");
             }
 
             MP_Util.Bootup(harmony);
