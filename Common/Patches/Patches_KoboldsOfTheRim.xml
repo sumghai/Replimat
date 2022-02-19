@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Kobolds of the Rim</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<!-- Move Bones item/resource to Raw Resources category, for compatibility with the Replimat Cadaver Reprocessor -->
+
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="Kobold_Bone"]/thingCategories/li[contains(text(),'CorpsesHumanlike')]</xpath>
+					<value>
+						<li>ResourcesRaw</li>
+					</value>
+				</li>
+							
+			</operations>
+		</match>
+	</Operation>
+</Patch>
