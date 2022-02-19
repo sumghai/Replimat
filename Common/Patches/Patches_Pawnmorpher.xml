@@ -8,41 +8,30 @@
 		<match Class="PatchOperationSequence">
 			<operations>
 
-				<!-- Backwards compatibility wrapper for RimWorld 1.2, which do not have the meal and ingredient blacklists introduced in Replimat v1.2.11 -->
+				<!-- Blacklist mutagenic ingredients from core Pawnmorpher mod -->
 
-				<li Class="PatchOperationConditional">
-					<xpath>Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]</xpath>
-					<match Class="PatchOperationSequence">
-						<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]/disallowedIngredients</xpath>
+					<value>
+						<li>Chaobulb</li>
+						<li>Glowvine</li>
+						<li>TFEgg</li>
+						<li>TFMilk</li>
+					</value>
+				</li>
 
-							<!-- Blacklist mutagenic ingredients from core Pawnmorpher mod -->
+				<!-- Blacklist mutagenic ingredients from Pawnmorpher integration with Vanilla Cooking Expanded -->
 
-							<li Class="PatchOperationAdd">
-								<xpath>Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]/disallowedIngredients</xpath>
-								<value>
-									<li>Chaobulb</li>
-									<li>Glowvine</li>
-									<li>TFEgg</li>
-									<li>TFMilk</li>
-								</value>
-							</li>
-
-							<!-- Blacklist mutagenic ingredients from Pawnmorpher integration with Vanilla Cooking Expanded -->
-
-							<li Class="PatchOperationFindMod">
-								<mods>
-									<li>Vanilla Cooking Expanded</li>
-								</mods>
-								<match Class="PatchOperationAdd">
-									<xpath>Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]/disallowedIngredients</xpath>
-									<value>
-										<li>Mutasalt</li>
-										<li>Mutacheese</li>
-									</value>
-								</match>
-							</li>
-
-						</operations>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Vanilla Cooking Expanded</li>
+					</mods>
+					<match Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]/disallowedIngredients</xpath>
+						<value>
+							<li>Mutasalt</li>
+							<li>Mutacheese</li>
+						</value>
 					</match>
 				</li>
 
