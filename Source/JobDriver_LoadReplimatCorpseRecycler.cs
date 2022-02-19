@@ -51,7 +51,7 @@ namespace Replimat
             {
                 if (pawn.needs?.mood?.thoughts != null)
                 {
-                    ThoughtDef loaderPawnThought = pawn.story.traits.HasTrait(TraitDefOf.Psychopath) ? ReplimatDef.Thought_RecycledCorpseInReplimatPsychopath : Corpse.InnerPawn.IsColonist ? ReplimatDef.Thought_RecycledColonistCorpseInReplimat : ReplimatDef.Thought_RecycledStrangerCorpseInReplimat;
+                    ThoughtDef loaderPawnThought = (pawn.story.traits.HasTrait(TraitDefOf.Psychopath) || pawn.story.traits.HasTrait(TraitDefOf.Cannibal) || pawn.Ideo?.HasHumanMeatEatingRequiredPrecept() == true) ? ReplimatDef.Thought_RecycledCorpseInReplimatPsychopath : Corpse.InnerPawn.IsColonist ? ReplimatDef.Thought_RecycledColonistCorpseInReplimat : ReplimatDef.Thought_RecycledStrangerCorpseInReplimat;
 
                     pawn.needs.mood.thoughts.memories.TryGainMemory(loaderPawnThought);
                 }
@@ -60,7 +60,7 @@ namespace Replimat
                 {
                     if (otherPawn != pawn && otherPawn.needs?.mood?.thoughts != null)
                     { 
-                        ThoughtDef otherPawnThought = otherPawn.story.traits.HasTrait(TraitDefOf.Psychopath) ? ReplimatDef.Thought_KnowRecycledCorpseInReplimatPsychopath : Corpse.InnerPawn.IsColonist ? ReplimatDef.Thought_KnowRecycledColonistCorpseInReplimat : ReplimatDef.Thought_KnowRecycledStrangerCorpseInReplimat;
+                        ThoughtDef otherPawnThought = (otherPawn.story.traits.HasTrait(TraitDefOf.Psychopath) || otherPawn.story.traits.HasTrait(TraitDefOf.Cannibal) || otherPawn.Ideo?.HasHumanMeatEatingRequiredPrecept() == true) ? ReplimatDef.Thought_KnowRecycledCorpseInReplimatPsychopath : Corpse.InnerPawn.IsColonist ? ReplimatDef.Thought_KnowRecycledColonistCorpseInReplimat : ReplimatDef.Thought_KnowRecycledStrangerCorpseInReplimat;
 
                         otherPawn.needs.mood.thoughts.memories.TryGainMemory(otherPawnThought);
                     }
