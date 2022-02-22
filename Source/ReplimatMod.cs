@@ -40,6 +40,11 @@ namespace Replimat
                 Log.Message("Replimat :: Vanilla Cooking Expanded detected!");
             }
 
+            if (ModCompatibility.DbhIsActive)
+            {
+                Log.Message("Replimat :: Dubs Bad Hygiene detected!");
+            }
+
             MP_Util.Bootup(harmony);
         }
 

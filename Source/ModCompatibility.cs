@@ -1,16 +1,20 @@
 ﻿using AlienRace;
 using System.Linq;
+using UnityEngine;
 using Verse;
 
 namespace Replimat
 {
+    [StaticConstructorOnStartup]
     public class ModCompatibility
     {
-        public static bool AlienRacesIsActive => ModLister.AllInstalledMods.Where(x => x.Active && x.PackageId == "erdelf.HumanoidAlienRaces".ToLower()).Any();
+        public static bool AlienRacesIsActive => ModsConfig.IsActive("erdelf.HumanoidAlienRaces");
 
-        public static bool SaveOurShip2IsActive => ModLister.AllInstalledMods.Where(x => x.Active && x.PackageId == "kentington.saveourship2".ToLower()).Any();
+        public static bool SaveOurShip2IsActive => ModsConfig.IsActive("kentington.saveourship2");
 
-        public static bool VanillaCookingExpandedIsActive => ModLister.AllInstalledMods.Where(x => x.Active && x.PackageId == "VanillaExpanded.VCookE".ToLower()).Any();
+        public static bool VanillaCookingExpandedIsActive => ModsConfig.IsActive("VanillaExpanded.VCookE");
+
+        public static bool DbhIsActive => ModsConfig.IsActive("Dubwise.DubsBadHygiene");
 
         public static bool AlienRaceHasOrganicFlesh(Pawn pawn)
         {
@@ -30,6 +34,33 @@ namespace Replimat
             }
 
             return false;
+        }
+
+        public static float DbhGetAvailableSewage(ThingComp pipeComp)
+        {
+            float total = 0;
+
+            foreach (var sewer in ((DubsBadHygiene.CompPipe)pipeComp).pipeNet.Sewers)
+            {
+                total += sewer.sewageBuffer;
+            }
+
+            return total;
+        }
+
+        public static void DbhConsumeSewage(ThingComp pipeComp, float volume)
+        {
+            var sewageTanks = ((DubsBadHygiene.CompPipe)pipeComp).pipeNet.Sewers;
+
+            if (sewageTanks?.Count() > 0)
+            {
+                float sewageToConsumePerTank = volume / sewageTanks.Count();
+
+                foreach (DubsBadHygiene.CompSewageHandler currSewageTank in sewageTanks)
+                {
+                    currSewageTank.sewageBuffer = Mathf.Max(currSewageTank.sewageBuffer - sewageToConsumePerTank, 0);
+                }
+            }
         }
     }
 }
