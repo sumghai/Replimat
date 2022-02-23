@@ -20,6 +20,12 @@ namespace Replimat
 
         public bool running;
 
+        private readonly float rawSewageDensity = 0.72f; // 0.72 kg/L
+
+        private readonly float sewageSludgeSolidsPct = 0.15f; // 15%
+
+        private readonly float minSewageVolumeForProcessing = 10f; // 10 L
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
@@ -45,32 +51,40 @@ namespace Replimat
 
                 float repFeedstockTanksFreeSpace = 0;
 
-                // If we have at least 1 litre of sewage available
-                if (sewageAvailable > 1)
+                // If we have at least a minimum amount of sewage available
+                if (sewageAvailable > minSewageVolumeForProcessing)
                 {                    
                     List<Building_ReplimatFeedTank> repFeedstockTanks = GetTanks;
                     repFeedstockTanksFreeSpace = repFeedstockTanks.Sum(x => x.AmountCanAccept);
 
                     List<DubsBadHygiene.CompWaterStorage> dbhWaterStorage = ((DubsBadHygiene.CompPipe)pipeComp).pipeNet.WaterTowers;
 
-                    // If we have at least 150 mL of volume available in the feedstock tanks
-                    if (repFeedstockTanksFreeSpace > 0.15)
-                    {
-                        // Withdraw a total of 1 litre of sewage from all sewage tanks
-                        ModCompatibility.DbhConsumeSewage((DubsBadHygiene.CompPipe)pipeComp, 1);
+                    float recoveredSludgeMass = rawSewageDensity * sewageSludgeSolidsPct * minSewageVolumeForProcessing;
+                    float recoveredSludgeToFeedstockVol = ReplimatUtility.ConvertMassToFeedstockVolume(recoveredSludgeMass);
 
-                        // Add 150 mL of feedstock to feedstock tanks
-                        // TODO - do proper density/volume conversions
+                    // If we have enough free volume in the feedstock tanks
+                    if (repFeedstockTanksFreeSpace > recoveredSludgeToFeedstockVol)
+                    {                      
+                        // Withdraw a set amount of sewage from all sewage tanks
+                        ModCompatibility.DbhConsumeSewage((DubsBadHygiene.CompPipe)pipeComp, minSewageVolumeForProcessing);
+
+                        // Add the (converted) sewage solids fraction to feedstock tanks
+                        float buffer = recoveredSludgeToFeedstockVol;
+
                         foreach (var tank in repFeedstockTanks.InRandomOrder())
                         {
-                            float sent = Mathf.Min(0.15f, tank.AmountCanAccept);
-                            tank.AddFeedstock(sent);
+                            if (buffer > 0f)
+                            {
+                                float sent = Mathf.Min(buffer, tank.AmountCanAccept);
+                                buffer -= sent;
+                                tank.AddFeedstock(sent);
+                            }
                         }
 
-                        // Add 850 mL of water to all water tanks
+                        // Add the remaining liquid fraction to all water tanks
                         if (!dbhWaterStorage.NullOrEmpty())
                         {
-                            ((DubsBadHygiene.CompPipe)pipeComp).pipeNet.PushWater(0.85f);
+                            ((DubsBadHygiene.CompPipe)pipeComp).pipeNet.PushWater((1 - sewageSludgeSolidsPct) * minSewageVolumeForProcessing);
                         }
                     }
                 }
