@@ -3,7 +3,9 @@
 
 	<!--====================== Replimat Sewage Recycler ======================-->
 	
-	<ThingDef ParentName="ReplimatBase">
+	<!-- Note: Not available in Lite Mode -->
+	
+	<ThingDef ParentName="ReplimatBase" DBHLite="true">
 		<defName>ReplimatSewageRecycler</defName>
 		<label>Replimat Sewage Recycler</label>
 		<description>Recycles sludge from sewage into organic particulate suspension for supplying Replimat systems, as well as clean water for plumbing.</description>
