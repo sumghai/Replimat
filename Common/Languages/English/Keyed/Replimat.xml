@@ -22,6 +22,9 @@
 	
 	<TabCorpseFilters>Corpses</TabCorpseFilters>
 	
+	<SewageRecyclerRunning>Running</SewageRecyclerRunning>
+	<SewageRecyclerIdle>Idle</SewageRecyclerIdle>
+	
 	<BatchMakeSurvivalMeals>Batch Survival Meals</BatchMakeSurvivalMeals>
 	<BatchMakeSurvivalMeals_Desc>Replicate a batch of Packaged Survival Meals for use in caravans or emergencies.</BatchMakeSurvivalMeals_Desc>
 	

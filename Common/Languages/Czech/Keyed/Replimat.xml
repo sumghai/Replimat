@@ -21,6 +21,12 @@
 	<CorpseRecyclerNeedValidCorpse>Vyžaduje nevysušenou mrtvolu</CorpseRecyclerNeedValidCorpse>
 
 	<TabCorpseFilters>Mrtvoly</TabCorpseFilters>
+	
+	<!-- EN: Running -->
+	<SewageRecyclerRunning>Běží</SewageRecyclerRunning>
+	
+	<!-- EN: Idle -->
+	<SewageRecyclerIdle>Nečinný</SewageRecyclerIdle>
 
 	<BatchMakeSurvivalMeals>Zreplikovat nouzové potravinové balíèky</BatchMakeSurvivalMeals>
 	<BatchMakeSurvivalMeals_Desc>Zreplikovat nìkolik nouzových potravinových balíèkù pro využití v karavanách èi pøípadech nouze.</BatchMakeSurvivalMeals_Desc>

@@ -42,6 +42,12 @@
 	
 	<!-- EN: Corpses -->
 	<TabCorpseFilters>屍體</TabCorpseFilters>
+	
+	<!-- EN: Running -->
+	<SewageRecyclerRunning>運行中</SewageRecyclerRunning>
+	
+	<!-- EN: Idle -->
+	<SewageRecyclerIdle>空閒</SewageRecyclerIdle>
 
 	<!-- EN: Batch Survival Meals -->
 	<BatchMakeSurvivalMeals>複製生存食品包</BatchMakeSurvivalMeals>

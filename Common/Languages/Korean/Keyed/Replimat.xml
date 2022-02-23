@@ -42,6 +42,12 @@
 
 	<!-- EN: Corpses -->
 	<TabCorpseFilters>시체</TabCorpseFilters>
+	
+	<!-- EN: Running -->
+	<SewageRecyclerRunning>운전중의</SewageRecyclerRunning>
+	
+	<!-- EN: Idle -->
+	<SewageRecyclerIdle>유휴</SewageRecyclerIdle>
 
 	<!-- EN: Batch Survival Meals -->
 	<BatchMakeSurvivalMeals>보존 식량 복제</BatchMakeSurvivalMeals>

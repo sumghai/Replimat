@@ -43,6 +43,12 @@
 	<!-- EN: Corpses -->
 	<TabCorpseFilters>死骸</TabCorpseFilters>
 	
+	<!-- EN: Running -->
+	<SewageRecyclerRunning>稼働中</SewageRecyclerRunning>
+	
+	<!-- EN: Idle -->
+	<SewageRecyclerIdle>アイドル状態</SewageRecyclerIdle>
+	
 	<!-- EN: Batch Survival Meals -->
 	<BatchMakeSurvivalMeals>非常用食品を１セット合成</BatchMakeSurvivalMeals>
 	

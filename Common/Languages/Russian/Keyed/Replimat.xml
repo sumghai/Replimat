@@ -42,6 +42,12 @@
 	
 	<!-- EN: Corpses -->
 	<TabCorpseFilters>трупы</TabCorpseFilters>
+	
+	<!-- EN: Running -->
+	<SewageRecyclerRunning>работает</SewageRecyclerRunning>
+	
+	<!-- EN: Idle -->
+	<SewageRecyclerIdle>простаивает</SewageRecyclerIdle>
 
 	<!-- EN: Batch Survival Meals -->
 	<BatchMakeSurvivalMeals>Получить сухпаёк</BatchMakeSurvivalMeals>
