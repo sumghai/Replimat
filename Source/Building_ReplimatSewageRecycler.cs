@@ -51,6 +51,9 @@ namespace Replimat
 
                 float repFeedstockTanksFreeSpace = 0;
 
+                float recoveredSludgeMass = rawSewageDensity * sewageSludgeSolidsPct * minSewageVolumeForProcessing;
+                float recoveredSludgeToFeedstockVol = ReplimatUtility.ConvertMassToFeedstockVolume(recoveredSludgeMass);
+
                 // If we have at least a minimum amount of sewage available
                 if (sewageAvailable > minSewageVolumeForProcessing)
                 {                    
@@ -58,9 +61,6 @@ namespace Replimat
                     repFeedstockTanksFreeSpace = repFeedstockTanks.Sum(x => x.AmountCanAccept);
 
                     List<DubsBadHygiene.CompWaterStorage> dbhWaterStorage = ((DubsBadHygiene.CompPipe)pipeComp).pipeNet.WaterTowers;
-
-                    float recoveredSludgeMass = rawSewageDensity * sewageSludgeSolidsPct * minSewageVolumeForProcessing;
-                    float recoveredSludgeToFeedstockVol = ReplimatUtility.ConvertMassToFeedstockVolume(recoveredSludgeMass);
 
                     // If we have enough free volume in the feedstock tanks
                     if (repFeedstockTanksFreeSpace > recoveredSludgeToFeedstockVol)
@@ -89,7 +89,7 @@ namespace Replimat
                     }
                 }
 
-                running = sewageAvailable > 1 && repFeedstockTanksFreeSpace > 0.15;
+                running = sewageAvailable > minSewageVolumeForProcessing && repFeedstockTanksFreeSpace > recoveredSludgeToFeedstockVol;
             }
         }
 
