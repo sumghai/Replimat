@@ -24,7 +24,7 @@ namespace Replimat
 
         private readonly float sewageSludgeSolidsPct = 0.15f; // 15%
 
-        private readonly float minSewageVolumeForProcessing = 10f; // 10 L
+        private readonly float minSewageVolumeForProcessing = 0.5f; // 0.5 L
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -45,7 +45,7 @@ namespace Replimat
 
             powerComp.PowerOutput = running ? -Math.Max(stateDependentPowerComp.ActiveModePowerConsumption, powerComp.Props.basePowerConsumption) : -powerComp.Props.basePowerConsumption;
 
-            if (this.IsHashIntervalTick(15))
+            if (this.IsHashIntervalTick(30))
             {               
                 float sewageAvailable = ModCompatibility.DbhGetAvailableSewage((DubsBadHygiene.CompPipe)pipeComp);
 
