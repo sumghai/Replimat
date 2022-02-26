@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- EN: haul corpses to Replimat Cadaver Processor -->
+	<LoadReplimatCorpseRecycler.label>Trage Leiche zum Replikator-Leichenprozessor</LoadReplimatCorpseRecycler.label>
+	
+	<!-- EN: hauling to -->
+	<LoadReplimatCorpseRecycler.gerund>trage zu</LoadReplimatCorpseRecycler.gerund>
+
+	<!-- EN: haul to -->
+	<LoadReplimatCorpseRecycler.verb>trage zu</LoadReplimatCorpseRecycler.verb>
+</LanguageData>

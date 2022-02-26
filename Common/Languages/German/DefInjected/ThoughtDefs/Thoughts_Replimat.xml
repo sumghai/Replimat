@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- EN: ate synthmeat -->
+	<Thought_AteSynthmeat.stages.ate_synthmeat.label>Aß Synthetikfleisch</Thought_AteSynthmeat.stages.ate_synthmeat.label>
+	
+	<!-- EN: I had to eat synthmeat intended for feeding animals. It's like I don't get to be human any more. -->
+	<Thought_AteSynthmeat.stages.ate_synthmeat.description>Ich musste Synthetikfleisch essen, das eigentlich für Tiere gedacht ist. Es fühlt sich an, als wäre ich kein Mensch mehr.</Thought_AteSynthmeat.stages.ate_synthmeat.description>
+
+	<!-- EN: recycled corpse into feedstock -->
+	<Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.label>Leiche in Rohnahrung recycled</Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.label>
+
+	<!-- EN: I recycled a dead person into nutrient feedstock. This is disturbing. -->
+	<Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.description>Ich habe einen toten Mensch in die Rohnahrung recycled. Das ist verstörend. </Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.description>
+
+	<!-- EN: recycled colonist into feedstock -->
+	<Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.label>Kolonist in Rohnarung recycled</Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.label>
+
+	<!-- EN: I recycled one of our own dead into nutrient feedstock. Are we so desperate that we can't even afford to give them a proper burial? -->
+	<Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.description>Ich habe einen unserer Verstorbenen in Rohnahrung recycled. Ist die Lage wirklich so verzweifelt, dass wir sie nicht vernünftig beerdigen können?</Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.description>
+
+	<!-- EN: recycled corpse into feedstock -->
+	<Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.label>Leiche in Rohnahrung recycled</Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.label>
+
+	<!-- EN: Waste not, want not. -->
+	<Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.description>Es wird nichts verschwendet.</Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.description>
+
+	<!-- EN: we recycled corpse into feedstock -->
+	<Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.label>Wir haben einen Menschen recycled</Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.label>
+
+	<!-- EN: We recycled a dead person into nutrient feedstock. This is disturbing. -->
+	<Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.description>Wir haben einen toten Mensch in die Rohnahrung recycled. Das ist verstörend.</Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.description>
+
+	<!-- EN: we recycled colonist into feedstock -->
+	<Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.label>Wir haben einen Kolonisten recycled</Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.label>
+
+	<!-- EN: We recycled one of our own dead into nutrient feedstock. Are we so desperate that we can't even afford to give them a proper burial? -->
+	<Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.description>Wir haben einen unserer Verstorbenen in Rohnahrung recycled. Ist unsere Lage wirklich so verzweifelt, dass wir sie nicht vernünftig beerdigen können?</Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.description>
+
+	<!-- EN: recycled corpse into feedstock -->
+	<Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.label>Leiche in Rohnahrung recycled</Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.label>
+
+	<!-- EN: Waste not, want not. -->
+	<Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.description>Es wird nichts verschwendet.</Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.description>
+</LanguageData>

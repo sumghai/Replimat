@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- EN: Replimat Spill -->
+	<ReplimatSpill.label>Replikator leckt</ReplimatSpill.label>
+	
+	<!-- EN: Replimat Spill -->
+	<ReplimatSpill.letterLabel>Replikator leckt</ReplimatSpill.letterLabel>
+	
+	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<ReplimatSpill.letterText>Ein Replikator-Terminal hat eine Fehlfunktion, Rohnahrung wurde überall verschüttet.</ReplimatSpill.letterText>
+	
+	<!-- EN: Replimat Spill -->
+	<ReplimatMalfunctionKibble.label>Replikator leckt</ReplimatMalfunctionKibble.label>
+	
+	<!-- EN: Replimat Spill -->
+	<ReplimatMalfunctionKibble.letterLabel>Replikator leckt</ReplimatMalfunctionKibble.letterLabel>
+	
+	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<ReplimatMalfunctionKibble.letterText>Ein Replikator-Terminal hat eine Fehlfunktion, Rohnahrung wurde überall verschüttet.</ReplimatMalfunctionKibble.letterText>
+</LanguageData>

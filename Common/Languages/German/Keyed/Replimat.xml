@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!-- EN: Replicated Meal -->
+	<ReplicatedMeal>Replizierte Mahlzeit</ReplicatedMeal>
+
+	<!-- EN: Feedstock stored {0} / {1} L -->
+	<FeedstockStored>Gespeicherte Rohnahrung  {0} / {1} L</FeedstockStored>
+
+	<!-- EN: Total feedstock stored {0} / {1} L -->
+	<TotalFeedstockStored>Gesamte gespeicherte Rohnahrung {0} / {1} L</TotalFeedstockStored>
+
+	<!-- EN: Replimat Spill -->
+	<LetterLabelReplimatSpill>Replikator leckt</LetterLabelReplimatSpill>
+
+	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<LetterTextReplimatSpill>Ein {0} hat eine Fehlfunktion, Rohnahrung wurde überall verschüttet</LetterTextReplimatSpill>
+
+	<!-- EN: Replimat Malfunction -->
+	<LetterLabelReplimatMalfunctionKibble>Replikator Fehlfunktion</LetterLabelReplimatMalfunctionKibble>
+
+	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
+	<LetterTextReplimatMalfunctionKibble>Ein  {0} hat eine Fehlfunktion, große Mengen Tierfutter wurden produziert</LetterTextReplimatMalfunctionKibble>
+
+	<!-- EN: Requires connection to Replimat Computer -->	
+	<NotConnectedToComputer>Benötigt eine Verbindung zum Replikator-Computer</NotConnectedToComputer>
+
+	<!-- EN: Insufficient Feedstock -->
+	<NotEnoughFeedstock>Nicht genügend Rohnahrung</NotEnoughFeedstock>
+	
+	<!-- EN: Empty -->
+	<CorpseRecyclerEmpty>Leer</CorpseRecyclerEmpty>
+	
+	<!-- EN: Remaining mass: {0} / {1} kg -->
+	<CorpseRecyclerMassRemaining>Verbleibende Masse: {0} / {1} kg</CorpseRecyclerMassRemaining>
+	
+	<!-- EN: Not empty -->
+	<CorpseRecyclerNotEmpty>Nicht leer</CorpseRecyclerNotEmpty>
+	
+	<!-- EN: Need non-dessicated humanoid corpse -->
+	<CorpseRecyclerNeedValidCorpse>Benötigt nicht-verrottete menschliche Leiche</CorpseRecyclerNeedValidCorpse>
+	
+	<!-- EN: Corpses -->
+	<TabCorpseFilters>Leichen</TabCorpseFilters>
+	
+	<!-- EN: Running -->
+	<SewageRecyclerRunning>Läuft</SewageRecyclerRunning>
+	
+	<!-- EN: Idle -->
+	<SewageRecyclerIdle>Steht</SewageRecyclerIdle>
+
+	<!-- EN: Batch Survival Meals -->
+	<BatchMakeSurvivalMeals>Ladung Überlebensrationen</BatchMakeSurvivalMeals>
+
+	<!-- EN: Replicate a batch of Packaged Survival Meals for use in caravans or emergencies. -->
+	<BatchMakeSurvivalMeals_Desc>Repliziere eine größere Menge Überlebensrationen für Karawanen oder Notfälle</BatchMakeSurvivalMeals_Desc>
+
+	<!-- EN: Cannot batch replicate survival meals: Terminal has insufficient feedstock, or is not connected to Computer and Feedstock tanks-->
+	<MessageCannotBatchMakeSurvivalMeals>Kann keine größeren Mengen Überlebensrationen replizieren: zu wenig Rohnahrung verfügbar oder keine Verbindung zum Rohnahrungs-Tank</MessageCannotBatchMakeSurvivalMeals>
+
+	<!-- EN: Make Packaged Survival Meals\n(Max allowed: {0}) -->	
+	<SetSurvivalMealBatchSize>Überlebensrationen herstellen\n(Maximal erlaubte: {0})</SetSurvivalMealBatchSize>
+	
+	<!-- EN: Switch animal feed -->
+	<CommandGizmoSwitchAnimalFeed_Label>Tierfutter wechseln</CommandGizmoSwitchAnimalFeed_Label>
+	
+	<!-- EN: Select what type of animal feed to replicate.\n\nCurrent: {0} -->
+	<CommandGizmoSwitchAnimalFeed_Desc>Entscheide, welches Tierfutter repliziert wird\n\nAktuell: {0}</CommandGizmoSwitchAnimalFeed_Desc>
+
+	<!-- EN: Replimat -->
+	<Replimat_SettingsCategory_Heading>Replikator</Replimat_SettingsCategory_Heading>
+
+	<!-- EN: General -->
+	<Replimat_Settings_HeaderGeneral>Allgemein</Replimat_Settings_HeaderGeneral>
+
+	<!-- EN: Incidents -->
+	<Replimat_Settings_HeaderIncidents>Ereignisse</Replimat_Settings_HeaderIncidents>
+
+	<!-- EN: Prioritize food quality -->
+	<Replimat_Settings_PrioritizeFoodQuality_Title>Bevorzugte Nahrungsqualität</Replimat_Settings_PrioritizeFoodQuality_Title>
+
+	<!-- EN: By default, pawns will replicate meals at the highest quality allowed by their current food restriction policy.\n\nDisabling this allows pawns to replicate any random meal within their food restriction policy irrespective of quality. -->
+	<Replimat_Settings_PrioritizeFoodQuality_Desc>Kolonisten werden standardmäßig die hochwertigste Nahrung replizieren, die ihr Ernährungsplan vorsieht</Replimat_Settings_PrioritizeFoodQuality_Desc>
+	
+	<!-- EN: Replimat Hopper refill threshold -->
+	<Replimat_Settings_HopperRefillThresholdPercent_Title>Mindestmenge Rohnahrung</Replimat_Settings_HopperRefillThresholdPercent_Title>
+	
+	<!-- EN: Sets the threshold at which the Replimat Hopper will be restocked with raw food. -->
+	<Replimat_Settings_HopperRefillThresholdPercent_Desc>Bestimmt die Mindestmenge, zu welcher der Replikator-Trichter aufgefüllt wird</Replimat_Settings_HopperRefillThresholdPercent_Desc>
+
+	<!-- EN: Enable Spills -->
+	<Replimat_Settings_EnableIncidentSpill_Title>Replikator-Lecks zulassen</Replimat_Settings_EnableIncidentSpill_Title>
+
+	<!-- EN: Allows any Terminal or Animal Feeder to have a small chance of malfunctioning and spilling feedstock. -->
+	<Replimat_Settings_EnableIncidentSpill_Desc>Erlaubt jedem Replikator-Terminal oder Futtertrog die geringe Chance einer Fehlfunktion und eines Verschüttens von Rohnahrung</Replimat_Settings_EnableIncidentSpill_Desc>
+
+	<!-- EN: Enable Kibble Malfunctions -->
+	<Replimat_Settings_EnableIncidentKibble_Title>Tierfutter-Fehlfunktion zulassen</Replimat_Settings_EnableIncidentKibble_Title>
+
+	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. -->
+	<Replimat_Settings_EnableIncidentKibble_Desc>Erlaubt jedem Replikator-Terminal die geringe Chance der Fehlfunktion, selbstständig eine größere Menge Tierfutter zu replizieren</Replimat_Settings_EnableIncidentKibble_Desc>
+
+	<!-- EN: Power consumption (Active) -->
+	<Replimat_Stat_ActiveModePowerConsumption_Label>Energiebedarf （aktiv)</Replimat_Stat_ActiveModePowerConsumption_Label>
+	
+	<!-- EN: The amount of power this building will draw from the power grid while actively running. -->
+	<Replimat_Stat_ActiveModePowerConsumption_Desc>Die Energiemenge, die diese Konstruktion im aktiven Betrieb benötigt</Replimat_Stat_ActiveModePowerConsumption_Desc>
+	
+</LanguageData>

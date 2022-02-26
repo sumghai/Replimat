@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- EN: Molecular Nutrient Resequencing -->
+	<MolecularNutrientResequencing.label>Molekulare Nährstoff-Resequenzierung</MolecularNutrientResequencing.label>
+	
+	<!-- EN: Allows the construction of Replimat systems, advanced versions of nutrient paste dispensers that convert raw nutritive feedstock into a wider variety of high quality meals. Also automatically lays nutrient feedstock pipelines along existing power conduit networks. -->
+	<MolecularNutrientResequencing.description>Ermöglicht die Kontruktion von Replikator-Systemen, fortschrittlichen Versionen des Nähstoffpastenspenders, die rohe Nahrung in eine große Auswahl an hochqualitativer Mahlzeiten umwandeln. Legt automatisch Rohnahrungsleitungen entlang bestehender Stromnetze.</MolecularNutrientResequencing.description>
+	
+	<!-- EN: About: Building a Replimat system -->
+	<MolecularNutrientResequencing.discoveredLetterTitle>Über: Ein Replikator-System bauen</MolecularNutrientResequencing.discoveredLetterTitle>
+
+	<!-- EN: You now have the technology to build a Replimat system.\n\nA typical Replimat setup requires:\n\n  -One Replimat Computer, to control the entire system\n  -One (or more) Replimat Hoppers(s), to convert raw food into nutrient feedstock\n  -One (or more) Replimat Feedstock Tanks(s), to store the nutrient feedstock\n  -One (or more) Replimat Terminal(s), to serve meals to your colonists\n\nHowever, each Replimat Computer requires a special Isolinear Computing Module component. You can collect Isolinear Computing Modules via the following ways:\n\n  -Orbital or caravan exotic goods traders sell Isolinear Computing Modules. Invite or wait for them.\n  -Some quests are rewarded with Isolinear Computing Modules.\n\nOnce you have built a Replimat Computer, you can connect it to multiple Hoppers, Tanks and Terminals via the same power grid to build a comprehensive Replimat system.-->
+	<MolecularNutrientResequencing.discoveredLetterText>Du verfügst nun über die Technologie, ein Replikator-System zu errichten.\n\nEin typischen Replikator-System benötigt:\n\n-Einen Replikator-Computer, der das ganze System überwacht\n-Einen (oder mehrere) Replikator-Trichter, der rohe Lebensmittel in Rohnahrung umwandelt\n-Einen (oder mehrere) Replikator-Tank (s), um die erzeugte Rohnahrung zu lagern.\n-Ein (oder mehrere) Replikator-Terminal (s), das deinen Kolonisten fertige Mahlzeiten serviert.\n\nWie auch immer, jeder Replikator-Computer benötigt eine spezielle Isolineares Steuereinheit. Isolineare Steuereinheiten können auf verschiedene Art erworben werden:\n\n-Exotische Orbitalhändler oder Karawanen verkaufen Isolineare Steuereinheiten. Warte, bis eine Karawane zu dir kommt oder lade sie ein.\n -Einige Quests belohnen dich mit Isolinearen Steuereinheiten\n\nSobald du einen Replikator_Computer konstruiert hast, kannst du mehrere Trichter, Tanks und Terminals über das gleiche Stromnetz daran anschließen, um ein vollständiges Replikator-System zu errichten.</MolecularNutrientResequencing.discoveredLetterText>
+	
+</LanguageData>
