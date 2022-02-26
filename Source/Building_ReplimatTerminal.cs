@@ -105,7 +105,7 @@ namespace Replimat
             if (powerComp.PowerOn && (Rotation == Rot4.North))
             {
                 Vector3 replimatTerminalScreenGlowDrawPos = DrawPos;
-                replimatTerminalScreenGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
+                replimatTerminalScreenGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
                 Graphics.DrawMesh(GraphicsLoader.replimatTerminalScreenGlow.MeshAt(Rotation), replimatTerminalScreenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatTerminalScreenGlow.MatAt(Rotation, null), 1), 0);
             }
@@ -128,7 +128,7 @@ namespace Replimat
                 }
 
                 Vector3 replimatTerminalGlowDrawPos = DrawPos;
-                replimatTerminalGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
+                replimatTerminalGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
                 Graphics.DrawMesh(GraphicsLoader.replimatTerminalGlow.MeshAt(Rotation), replimatTerminalGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatTerminalGlow.MatAt(Rotation, null), alpha), 0);
             }

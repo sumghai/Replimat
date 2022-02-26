@@ -110,7 +110,7 @@ namespace Replimat
                 }
 
                 Vector3 replimatAnimalFeederGlowDrawPos = DrawPos;
-                replimatAnimalFeederGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
+                replimatAnimalFeederGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
                 Graphics.DrawMesh(GraphicsLoader.replimatAnimalFeederGlow.MeshAt(Rotation), replimatAnimalFeederGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatAnimalFeederGlow.MatAt(Rotation, null), alpha), 0);
             }

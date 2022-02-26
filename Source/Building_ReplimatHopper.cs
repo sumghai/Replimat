@@ -47,7 +47,7 @@ namespace Replimat
             if (powerComp.PowerOn)
             {
                 Vector3 replimatHopperScreenGlowDrawPos = DrawPos;
-                replimatHopperScreenGlowDrawPos.y = AltitudeLayer.ItemImportant.AltitudeFor() + 0.03f;
+                replimatHopperScreenGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
                 Graphics.DrawMesh(GraphicsLoader.replimatHopperScreenGlow.MeshAt(Rotation), replimatHopperScreenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatHopperScreenGlow.MatAt(Rotation, null), 1), 0);
             }

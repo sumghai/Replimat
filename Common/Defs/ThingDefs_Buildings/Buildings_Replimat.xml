@@ -6,7 +6,7 @@
 		<designationCategory>Replimat_Replimat</designationCategory>
 		<constructEffect>ConstructMetal</constructEffect>		
 		<tickerType>Normal</tickerType>
-		<altitudeLayer>Building</altitudeLayer>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
 		<useHitPoints>true</useHitPoints>
 		<passability>PassThroughOnly</passability>
 		<castEdgeShadows>false</castEdgeShadows>

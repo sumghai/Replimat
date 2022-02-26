@@ -154,7 +154,7 @@ namespace Replimat
             base.Draw();
 
             Vector3 replimatCorpseRecyclerGlowDrawPos = DrawPos;
-            replimatCorpseRecyclerGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
+            replimatCorpseRecyclerGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
             if (Running)
             {

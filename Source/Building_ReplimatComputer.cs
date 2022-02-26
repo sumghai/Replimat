@@ -69,7 +69,7 @@ namespace Replimat
             if (powerComp.PowerOn && (Rotation == Rot4.North || Rotation == Rot4.South))
             {
                 Vector3 replimatComputerScreenGlowDrawPos = DrawPos;
-                replimatComputerScreenGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
+                replimatComputerScreenGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
                 Graphics.DrawMesh(GraphicsLoader.replimatComputerScreenGlow.MeshAt(Rotation), replimatComputerScreenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatComputerScreenGlow.MatAt(Rotation, null), 1), 0);
             }
