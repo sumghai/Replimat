@@ -11,7 +11,7 @@
 		<description>Recycles sludge from sewage into organic particulate suspension for supplying Replimat systems, as well as clean water for plumbing.</description>
 		<thingClass>Replimat.Building_ReplimatSewageRecycler</thingClass>
 		<graphicData>
-			<texPath>Things/Building/replimatCorpseRecycler</texPath>
+			<texPath>Things/Building/replimatSewageRecycler</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
 			<damageData>
@@ -21,7 +21,7 @@
 				<cornerBR>Damage/Corner</cornerBR>
 			</damageData>
 		</graphicData>
-		<uiIconPath>UI/replimatCorpseRecycler</uiIconPath>
+		<uiIconPath>UI/replimatSewageRecycler</uiIconPath>
 		<costList>
 			<Steel>100</Steel>
 			<ComponentIndustrial>10</ComponentIndustrial>
@@ -37,7 +37,7 @@
 			<Beauty>1</Beauty>
 			<Mass>250</Mass>
 		</statBases>
-		<size>(1,3)</size>
+		<size>(1,2)</size>
 		<pathCost>150</pathCost>
 		<building>
 			<ai_chillDestination>false</ai_chillDestination>
