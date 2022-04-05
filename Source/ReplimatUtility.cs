@@ -174,7 +174,7 @@ namespace Replimat
 
                     List<ThingDef> allowedIngredients = ThingCategoryDef.Named("FoodRaw").DescendantThingDefs.Where(x =>
                         !replimatRestrictions.disallowedIngredients.Contains(x) && 
-                        eater.foodRestriction.CurrentFoodRestriction.Allows(x) && 
+                        (eater.foodRestriction?.CurrentFoodRestriction.Allows(x) ?? true) && 
                         FoodUtility.GetMeatSourceCategory(x) != MeatSourceCategory.Humanlike && 
                         FoodUtility.GetMeatSourceCategory(x) != MeatSourceCategory.Insect &&
                         !x.thingCategories.Contains(ThingCategoryDefOf.EggsFertilized)
@@ -185,7 +185,7 @@ namespace Replimat
                     {
                         allowedIngredients.AddRange(ThingCategoryDef.Named("VCE_Condiments").DescendantThingDefs.Where(x => 
                             !replimatRestrictions.disallowedIngredients.Contains(x) &&
-                            eater.foodRestriction.CurrentFoodRestriction.Allows(x)
+                            (eater.foodRestriction?.CurrentFoodRestriction.Allows(x) ?? true)
                         ));
                     }
 
