@@ -8,11 +8,26 @@
 		<match Class="PatchOperationSequence">
 			<operations>
 
-				<!-- Blacklist ruined grills, as they have no recipes and aren't possible to replicate in the first place anyway -->
+				<!-- Blacklist the following meals:
+				
+				 - Canned ingredients and Raw prunes, as Replimat systems are designed to serve "fresh" meals
+				 
+				 - Cheese, as that should be considered an ingredient instead
+				 
+				 - Ruined grills, as they have no recipes and aren't possible to replicate in the first place anyway
+				 
+				 -->
 
 				<li Class="PatchOperationAdd">
 					<xpath>Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]/disallowedMeals</xpath>
 					<value>
+						<li>VCE_CannedAP</li>
+						<li>VCE_CannedFish</li>
+						<li>VCE_CannedFruit</li>
+						<li>VCE_CannedMeat</li>
+						<li>VCE_CannedProduce</li>
+						<li>VCE_Cheese</li>
+						<li>VCE_RawPrunes</li>
 						<li>VCE_RuinedSimpleGrill</li>
 						<li>VCE_RuinedFineGrill</li>
 						<li>VCE_RuinedLavishGrill</li>
@@ -25,11 +40,11 @@
 				<li Class="PatchOperationAdd">
 					<xpath>Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]/disallowedIngredients</xpath>
 					<value>
-						<li>VCE_CannedMeat</li>
-						<li>VCE_CannedProduce</li>
-						<li>VCE_CannedFruit</li>
 						<li>VCE_CannedAP</li>
 						<li>VCE_CannedFish</li>
+						<li>VCE_CannedFruit</li>
+						<li>VCE_CannedMeat</li>
+						<li>VCE_CannedProduce</li>
 						<li>VCE_DigestibleResurrectorNanites</li>
 					</value>
 				</li>
