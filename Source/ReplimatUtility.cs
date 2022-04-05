@@ -82,8 +82,6 @@ namespace Replimat
                 // Remove meals from a blacklist (stored in the Replimat Computer)
                 allowedMeals.RemoveAll((ThingDef d) => replimatRestrictions.disallowedMeals.Contains(d));
 
-                Log.Warning("Replimat :: Allowed meals:\n" + String.Join("\n", allowedMeals));
-
                 if (allowedMeals.NullOrEmpty())
                 {
                     return null;
