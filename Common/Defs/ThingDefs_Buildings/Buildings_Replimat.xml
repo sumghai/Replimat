@@ -246,8 +246,7 @@
 				<priority>Important</priority>
 				<filter>
 					<categories>
-						<li>FoodMeals</li>
-						<li>FoodRaw</li>
+						<li>Foods</li>
 						<li>PlantMatter</li>
 					</categories>
 					<thingDefs>
@@ -259,8 +258,7 @@
 				<priority>Important</priority>
 				<filter>
 					<categories>
-						<li>FoodMeals</li>
-						<li>FoodRaw</li>
+						<li>Foods</li>
 						<li>PlantMatter</li>
 					</categories>
 					<thingDefs>
