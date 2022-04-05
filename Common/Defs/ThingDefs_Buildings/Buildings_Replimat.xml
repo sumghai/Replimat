@@ -426,7 +426,10 @@
 			<li Class="CompProperties_Flickable"/>
 			<li Class="Replimat.CompProperties_ReplimatRestrictions">
 				<!-- Meals that the Replimat system should never replicate -->
-				<disallowedMeals />
+				<disallowedMeals>
+					<li>MealNutrientPaste</li>
+					<li>Pemmican</li>
+				</disallowedMeals>
 				<!-- Ingredients that the Replimat system should normally never use in meals (ideology precepts may potentially ignore these) -->
 				<disallowedIngredients />
 			</li>

@@ -70,10 +70,10 @@ namespace Replimat
 
             if (eater != null)
             {
-                // Compile list of allowed meals for current pawn, limited to at least 40% nutrition with preferability above awful
-                // This eliminates stuff like chocolate, nutrient paste meals and corpses
-                // Joy-based consumption will require more patches, and is outside the scope of this mod
-                List<ThingDef> allowedMeals = ThingCategoryDefOf.Foods.DescendantThingDefs.Where(x => x.GetStatValueAbstract(StatDefOf.Nutrition) > 0.4f && x.ingestible.preferability > FoodPreferability.MealAwful && RepMatWillEat(eater, x, getter)).ToList();
+                // Compile list of allowed meals for current pawn
+                FoodTypeFlags allowedFoodTypes = FoodTypeFlags.Meal | FoodTypeFlags.Processed;
+
+                List<ThingDef> allowedMeals = ThingCategoryDefOf.Foods.DescendantThingDefs.Where(x => x.ingestible.preferability >= FoodPreferability.DesperateOnly && ((x.ingestible.foodType & allowedFoodTypes) != FoodTypeFlags.None) && RepMatWillEat(eater, x, getter)).ToList();
 
                 // Manually remove Packaged Survival Meals, as pawns should only be getting "fresh" food to meet their immediate food needs
                 // (Survival Meals are reserved for caravans, as per custom gizmo)
@@ -81,6 +81,8 @@ namespace Replimat
 
                 // Remove meals from a blacklist (stored in the Replimat Computer)
                 allowedMeals.RemoveAll((ThingDef d) => replimatRestrictions.disallowedMeals.Contains(d));
+
+                Log.Warning("Replimat :: Allowed meals:\n" + String.Join("\n", allowedMeals));
 
                 if (allowedMeals.NullOrEmpty())
                 {
