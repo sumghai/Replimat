@@ -1,4 +1,5 @@
 ﻿using AlienRace;
+using RimWorld;
 using System.Linq;
 using UnityEngine;
 using Verse;
@@ -26,11 +27,9 @@ namespace Replimat
         {
             ThingDef corpseAlienRace = ThingDef.Named(def.ToString().Substring("Corpse_".Length));
 
-            if (corpseAlienRace.race.Humanlike)
-            {
-                ThingDef_AlienRace test = corpseAlienRace as ThingDef_AlienRace;
-                
-                return test.alienRace.compatibility.IsFlesh;
+            if (corpseAlienRace.race.Humanlike && corpseAlienRace is ThingDef_AlienRace raceDef)
+            {                
+                return raceDef?.alienRace.compatibility.IsFlesh ?? true;
             }
 
             return false;
