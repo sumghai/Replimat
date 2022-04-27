@@ -89,7 +89,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="AlienRace">
-      <HintPath>..\..\AlienRaces\1.2\Assemblies\AlienRace.dll</HintPath>
+      <HintPath>..\..\AlienRaces\1.3\Assemblies\AlienRace.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp_public">
