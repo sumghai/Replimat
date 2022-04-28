@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Misc. MAI</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<!-- Set flesh type of MAI robots to mechanoid, for compatibility with the Replimat Cadaver Reprocessor -->
+
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[@Name="BaseAIPawn_MiscMAI"]/race/fleshType</xpath>
+					<value>
+						<fleshType>Mechanoid</fleshType>
+					</value>
+				</li>
+							
+			</operations>
+		</match>
+	</Operation>
+</Patch>
