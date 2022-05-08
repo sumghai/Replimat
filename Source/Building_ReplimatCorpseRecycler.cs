@@ -102,20 +102,14 @@ namespace Replimat
         {
             StorageSettings recyclerAllowedCorpses = def.building.fixedStorageSettings;
 
-            // Remove Hologram corpses from filter if Save Our Ship 2 mod is active
-            if (ModCompatibility.SaveOurShip2IsActive)
-            {
-                recyclerAllowedCorpses.filter.allowedDefs.RemoveWhere(def => def == ThingDef.Named("Corpse_SoSHologramRace"));
-            }
-
             // Remove non-fleshy corpses from filter if Humanoid Alien Races mod is active
             if (ModCompatibility.AlienRacesIsActive)
             {
                 recyclerAllowedCorpses.filter.allowedDefs.RemoveWhere(def => !ModCompatibility.AlienCorpseHasOrganicFlesh(def));
             }
 
-            // Remove non-fleshy corpses from filter for non-HAR humanoid robot races
-            recyclerAllowedCorpses.filter.allowedDefs.RemoveWhere(def => ThingDef.Named(def.ToString().Substring("Corpse_".Length)).race.FleshType != FleshTypeDefOf.Normal);
+            // Remove non-fleshy corpses from filter for non-HAR humanoid robot or hologram races
+            recyclerAllowedCorpses.filter.allowedDefs.RemoveWhere(def => ThingDef.Named(def.ToString().Substring("Corpse_".Length)).GetStatValueAbstract(StatDefOf.MeatAmount) == 0);
 
             return recyclerAllowedCorpses;
         }

@@ -11,8 +11,6 @@ namespace Replimat
     {
         public static bool AlienRacesIsActive => ModsConfig.IsActive("erdelf.HumanoidAlienRaces");
 
-        public static bool SaveOurShip2IsActive => ModsConfig.IsActive("kentington.saveourship2");
-
         public static bool VanillaCookingExpandedIsActive => ModsConfig.IsActive("VanillaExpanded.VCookE");
 
         public static bool DbhIsActive => ModsConfig.IsActive("Dubwise.DubsBadHygiene");
