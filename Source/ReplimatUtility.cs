@@ -170,6 +170,7 @@ namespace Replimat
                     // - Permanently disallowed by the Computer
                     // - Disallowed specifically by the pawn's food restriction policy
                     // - Humanlike and insect meats
+                    // - Meats from venerated animals (Ideo DLC)
                     // - Fertilized eggs
 
                     List<ThingDef> allowedIngredients = ThingCategoryDef.Named("FoodRaw").DescendantThingDefs.Where(x =>
@@ -177,6 +178,7 @@ namespace Replimat
                         (eater.foodRestriction?.CurrentFoodRestriction.Allows(x) ?? true) && 
                         FoodUtility.GetMeatSourceCategory(x) != MeatSourceCategory.Humanlike && 
                         FoodUtility.GetMeatSourceCategory(x) != MeatSourceCategory.Insect &&
+                        !FoodUtility.IsVeneratedAnimalMeatOrCorpse(x, eater) &&
                         !x.thingCategories.Contains(ThingCategoryDefOf.EggsFertilized)
                     ).ToList();
 
@@ -202,7 +204,7 @@ namespace Replimat
                         }
                     }
 
-                    // Stage 2: Ideo replacements
+                    // Stage 2: Ideo DLC replacements
 
                     Ideo ideo = eater.Ideo;
 
