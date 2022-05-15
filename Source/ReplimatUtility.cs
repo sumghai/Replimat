@@ -94,10 +94,10 @@ namespace Replimat
                 }
                 else
                 {
-                    // If set to random then attempt to replicate any meal with preferability above awful
-                    if (allowedMeals.Any(x => x.ingestible.preferability > FoodPreferability.MealAwful))
+                    // If set to random then attempt to replicate any meal with preferability above DesperateOnly
+                    if (allowedMeals.Any(x => x.ingestible.preferability > FoodPreferability.DesperateOnly))
                     {
-                        SelectedMeal = allowedMeals.Where(x => x.ingestible.preferability > FoodPreferability.MealAwful).RandomElement();
+                        SelectedMeal = allowedMeals.Where(x => x.ingestible.preferability > FoodPreferability.DesperateOnly).RandomElement();
                     }
                     else
                     {
