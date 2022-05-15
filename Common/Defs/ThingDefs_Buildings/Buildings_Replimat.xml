@@ -432,6 +432,10 @@
 				</disallowedMeals>
 				<!-- Ingredients that the Replimat system should normally never use in meals (ideology precepts may potentially ignore these) -->
 				<disallowedIngredients />
+				<!-- Allowed options for batch survival meal gizmo -->
+				<batchReplicableSurvivalMeals>
+					<li>MealSurvivalPack</li>
+				</batchReplicableSurvivalMeals>
 			</li>
 		</comps>
 	</ThingDef>

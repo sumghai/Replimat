@@ -325,5 +325,9 @@ namespace Replimat
             }
         }
 
+        public static List<ThingDef> GetSurvivalMealChoices()
+        {
+            return replimatRestrictions.batchReplicableSurvivalMeals.Distinct().ToList();
+        }
     }
 }

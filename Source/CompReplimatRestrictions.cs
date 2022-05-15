@@ -28,5 +28,13 @@ namespace Replimat
                 return Props.disallowedIngredients;
             }
         }
+
+        public List<ThingDef> BatchReplicableSurvivalMeals
+        {
+            get
+            {
+                return Props.batchReplicableSurvivalMeals;
+            }
+        }
     }
 }

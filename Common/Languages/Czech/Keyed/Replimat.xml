@@ -35,6 +35,9 @@
 
 	<SetSurvivalMealBatchSize>Vyrobit nouzových potravinových balíèkù\n(Maximálnì: {0})</SetSurvivalMealBatchSize>
 	
+	<!-- EN: Type: {0} -->	
+	<SetSurvivalMealType>Typ: {0}</SetSurvivalMealType>
+	
 	<CommandGizmoSwitchAnimalFeed_Label>Přepnout krmivo pro zvířata</CommandGizmoSwitchAnimalFeed_Label>
 	<CommandGizmoSwitchAnimalFeed_Desc>Vyberte, jaký typ krmiva pro zvířata chcete replikovat.\n\Současný: {0}</CommandGizmoSwitchAnimalFeed_Desc>
 

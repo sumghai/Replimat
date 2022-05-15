@@ -49,7 +49,7 @@
 	<!-- EN: Idle -->
 	<SewageRecyclerIdle>空闲</SewageRecyclerIdle>
 
-	<!-- EN: Batch Survival Meals -->
+	<!-- EN: Batch survival meals -->
 	<BatchMakeSurvivalMeals>复制生存食品包</BatchMakeSurvivalMeals>
 
 	<!-- EN: Replicate a batch of Packaged Survival Meals for use in caravans or emergencies. -->
@@ -58,8 +58,11 @@
 	<!-- EN: Cannot batch replicate survival meals: Terminal has insufficient feedstock, or is not connected to Computer and Feedstock tanks-->
 	<MessageCannotBatchMakeSurvivalMeals>无法复制生存食品包: 营养原料不足，或合成器未连结到系统主计算机和原料储存桶。</MessageCannotBatchMakeSurvivalMeals>
 
-	<!-- EN: Make Packaged Survival Meals\n(Max allowed: {0}) -->	
+	<!-- EN: Batch replicate survival meals\n(Max allowed: {0}) -->	
 	<SetSurvivalMealBatchSize>复制生存食品包\n(最大数量: {0})</SetSurvivalMealBatchSize>
+	
+	<!-- EN: Type: {0} -->	
+	<SetSurvivalMealType>类型: {0}</SetSurvivalMealType>
 	
 	<!-- EN: Switch animal feed -->
 	<CommandGizmoSwitchAnimalFeed_Label>切换饲料</CommandGizmoSwitchAnimalFeed_Label>

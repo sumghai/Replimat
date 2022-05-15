@@ -20,6 +20,8 @@ namespace Replimat
 
         public int ReplicatingTicks = 0;
 
+        public ThingDef CurrentSurvivalMealDef = ThingDefOf.MealSurvivalPack; // Default for batch production is packaged survival meal
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
@@ -148,14 +150,13 @@ namespace Replimat
         }
 
         public void TryBatchMakingSurvivalMeals()
-        {
+        {          
             // Determine the maximum number of survival meals that can be replicated, based on available feedstock
-            ThingDef survivalMeal = ThingDefOf.MealSurvivalPack;
             float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
             float totalAvailableFeedstockMass = ReplimatUtility.ConvertFeedstockVolumeToMass(totalAvailableFeedstock);
-            int maxPossibleSurvivalMeals = (int)Math.Floor(totalAvailableFeedstockMass / survivalMeal.BaseMass);
+            int maxPossibleSurvivalMeals = (int)Math.Floor(totalAvailableFeedstockMass / CurrentSurvivalMealDef.BaseMass);
 
-            float survivalMealCapVolumeOfFeedstockRequired = ReplimatUtility.ConvertMassToFeedstockVolume(maxPossibleSurvivalMeals * survivalMeal.BaseMass);
+            float survivalMealCapVolumeOfFeedstockRequired = ReplimatUtility.ConvertMassToFeedstockVolume(maxPossibleSurvivalMeals * CurrentSurvivalMealDef.BaseMass);
 
             if (!CanDispenseNow)
             {
@@ -168,23 +169,22 @@ namespace Replimat
                 return;
             }
 
-            string dialogTitle = "SetSurvivalMealBatchSize".Translate(maxPossibleSurvivalMeals);
-
-            Dialog_BatchMakeSurvivalMeals window = new Dialog_BatchMakeSurvivalMeals(dialogTitle, 1, maxPossibleSurvivalMeals, delegate (int x)
+            Dialog_BatchMakeSurvivalMeals window = new Dialog_BatchMakeSurvivalMeals(totalAvailableFeedstock, CurrentSurvivalMealDef, delegate (int x, ThingDef thingDef)
             {
-                ConfirmAction(x, ReplimatUtility.ConvertMassToFeedstockVolume(survivalMeal.BaseMass));
+                ConfirmAction(x, thingDef, ReplimatUtility.ConvertMassToFeedstockVolume(CurrentSurvivalMealDef.BaseMass));
+                CurrentSurvivalMealDef = thingDef;
             }, 1);
             Find.WindowStack.Add(window);
         }
 
         [MP]
-        public void ConfirmAction(int x, float volumeOfFeedstockRequired)
+        public void ConfirmAction(int x, ThingDef survivalMealDef, float volumeOfFeedstockRequired)
         {
             ReplicatingTicks = GenTicks.SecondsToTicks(2f);
             def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
 
             powerComp.PowerNet.TryConsumeFeedstock(x * volumeOfFeedstockRequired);
-            Thing t = ThingMaker.MakeThing(ThingDefOf.MealSurvivalPack, null);
+            Thing t = ThingMaker.MakeThing(survivalMealDef, null);
             t.stackCount = x;
             GenPlace.TryPlaceThing(t, InteractionCell, Map, ThingPlaceMode.Near);
         }
@@ -206,6 +206,20 @@ namespace Replimat
                 },
                 icon = ContentFinder<Texture2D>.Get("UI/Buttons/BatchMakeSurvivalMeals", true)
             };
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Defs.Look<ThingDef>(ref CurrentSurvivalMealDef, "currentSurvivalMealDef");
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                // If no saved survival meal type is defined, or the one defined no longer exists, reset the default type
+                if (CurrentSurvivalMealDef == null || !ReplimatUtility.GetSurvivalMealChoices().Contains(CurrentSurvivalMealDef))
+                {
+                    CurrentSurvivalMealDef = ThingDefOf.MealSurvivalPack;
+                }
+            }
         }
 
         public override string GetInspectString()

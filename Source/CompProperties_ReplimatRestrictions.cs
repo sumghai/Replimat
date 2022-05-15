@@ -9,6 +9,8 @@ namespace Replimat
 
         public List<ThingDef> disallowedIngredients = null;
 
+        public List<ThingDef> batchReplicableSurvivalMeals = null;
+
         public CompProperties_ReplimatRestrictions()
         {
             compClass = typeof(CompReplimatRestrictions);
