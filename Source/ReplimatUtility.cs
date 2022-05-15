@@ -75,9 +75,9 @@ namespace Replimat
 
                 List<ThingDef> allowedMeals = ThingCategoryDefOf.Foods.DescendantThingDefs.Where(x => x.ingestible.preferability >= FoodPreferability.DesperateOnly && ((x.ingestible.foodType & allowedFoodTypes) != FoodTypeFlags.None) && RepMatWillEat(eater, x, getter)).ToList();
 
-                // Manually remove Packaged Survival Meals, as pawns should only be getting "fresh" food to meet their immediate food needs
-                // (Survival Meals are reserved for caravans, as per custom gizmo)
-                allowedMeals.Remove(ThingDefOf.MealSurvivalPack);
+                // Manually remove any survival meals, as pawns should only be getting "fresh" food to meet their immediate food needs
+                // (Survival meals are reserved for caravans, as per custom gizmo)
+                allowedMeals.RemoveAll((ThingDef d) => GetSurvivalMealChoices().Contains(d));
 
                 // Remove meals from a blacklist (stored in the Replimat Computer)
                 allowedMeals.RemoveAll((ThingDef d) => replimatRestrictions.disallowedMeals.Contains(d));
