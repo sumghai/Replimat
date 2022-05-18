@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-
+	<!-- EN: Isolinear Computing Module -->
 	<IsolinearModule.label>Izolineární výpočetní modul</IsolinearModule.label>
 
+	<!-- EN: A high-density optical data storage and processing module preprogrammed with a library of meal and beverage recipes. The key component of a Replimat Computer. -->
 	<IsolinearModule.description>Výpočetní a paměťová optická jednotka s předprogramovaným výběrem pokrmů a nápojů. Klíčová součást řídící jednotky Replimatu.</IsolinearModule.description>
-
 </LanguageData>

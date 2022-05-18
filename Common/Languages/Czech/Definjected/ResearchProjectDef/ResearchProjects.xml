@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
+	<!-- EN: Molecular Nutrient Resequencing -->
 	<MolecularNutrientResequencing.label>Resekvenování molekul živin</MolecularNutrientResequencing.label>
 
+	<!-- EN: Allows the construction of Replimat systems, advanced versions of nutrient paste dispensers that convert raw nutritive feedstock into a wider variety of high quality meals. Also automatically lays nutrient feedstock pipelines along existing power conduit networks. -->
 	<MolecularNutrientResequencing.description>Umožní postavit systém Replimat, pokročilou verzi dávkovače nutriční pasty, která z organických surovin vytváří velký výběr vysoce kvalitních pokrmů. Také automaticky vytvoří potrubí na živiny na existujících elektrických kabelech.</MolecularNutrientResequencing.description>
 
 </LanguageData>

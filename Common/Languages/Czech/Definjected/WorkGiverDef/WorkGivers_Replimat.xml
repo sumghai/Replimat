@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-
+	<!-- EN: haul corpses to Replimat Cadaver Processor -->
 	<LoadReplimatCorpseRecycler.label>Odnést mrtvoly do zpracovávače mrtvol Replimat</LoadReplimatCorpseRecycler.label>
 
+	<!-- EN: hauling to -->
 	<LoadReplimatCorpseRecycler.verb>Odnést do:</LoadReplimatCorpseRecycler.verb>
 
+	<!-- EN: haul to -->
 	<LoadReplimatCorpseRecycler.gerund>Přenáší do:</LoadReplimatCorpseRecycler.gerund>
 
 </LanguageData>

@@ -6,28 +6,40 @@
 	<!-- EN: I had to eat synthmeat intended for feeding animals. It's like I don't get to be human any more. -->
 	<Thought_AteSynthmeat.stages.ate_synthmeat.description>{PAWN_gender ? Musel : Musela} jsem jíst syntetické masa. Je to jako bych už ani {PAWN_gender ? nebyl : nebyla} člověk.</Thought_AteSynthmeat.stages.ate_synthmeat.description>
 
+	<!-- EN: recycled corpse into feedstock -->
 	<Thought_RecycledStrangerCorpseInReplimat.stages.0.label>{PAWN_gender ? Zrecykloval : Zrecyklovala} mrtvolu na živný roztok</Thought_RecycledStrangerCorpseInReplimat.stages.0.label>
 
+	<!-- EN: I recycled a dead person into nutrient feedstock. This is disturbing. -->
 	<Thought_RecycledStrangerCorpseInReplimat.stages.0.description>{PAWN_gender ? Zrecykloval : Zrecyklovala} jsem mrtvolu na živný roztok. To je nechutné.</Thought_RecycledStrangerCorpseInReplimat.stages.0.description>
 
+	<!-- EN: recycled colonist into feedstock -->
 	<Thought_RecycledColonistCorpseInReplimat.stages.0.label>{PAWN_gender ? Zrecykloval : Zrecyklovala} kolonistu na živný roztok</Thought_RecycledColonistCorpseInReplimat.stages.0.label>
 
+	<!-- EN: I recycled one of our own dead into nutrient feedstock. Are we so desperate that we can't even afford to give them a proper burial? -->
 	<Thought_RecycledColonistCorpseInReplimat.stages.0.description>{PAWN_gender ? Zrecykloval : Zrecyklovala} jsem jednoho z našich na živný roztok. To jsme fakticky tak zoufalí, že si nemůžeme dovolit jim poskytnout ani pořádný pohřeb?</Thought_RecycledColonistCorpseInReplimat.stages.0.description>
 
+	<!-- EN: recycled corpse into feedstock -->
 	<Thought_RecycledCorpseInReplimatPsychopath.stages.0.label>{PAWN_gender ? Zrecykloval : Zrecyklovala} mrtvolu na živný roztok</Thought_RecycledCorpseInReplimatPsychopath.stages.0.label>
 
+	<!-- EN: Waste not, want not. -->
 	<Thought_RecycledCorpseInReplimatPsychopath.stages.0.description>Kdo šetří, má za tři.</Thought_RecycledCorpseInReplimatPsychopath.stages.0.description>
 
+	<!-- EN: we recycled corpse into feedstock -->
 	<Thought_KnowRecycledStrangerCorpseInReplimat.stages.0.label>Zrecyklovali jsme mrtvolu na živný roztok</Thought_KnowRecycledStrangerCorpseInReplimat.stages.0.label>
-
+	
+	<!-- EN: We recycled a dead person into nutrient feedstock. This is disturbing. -->
 	<Thought_KnowRecycledStrangerCorpseInReplimat.stages.0.description>Zrecyklovali jsme mrtvého člověka na živný roztok. To je dost znepokojivé.</Thought_KnowRecycledStrangerCorpseInReplimat.stages.0.description>
 
+	<!-- EN: we recycled colonist into feedstock -->
 	<Thought_KnowRecycledColonistCorpseInReplimat.stages.0.label>Zrecyklovali jsme kolonistu na živný roztok</Thought_KnowRecycledColonistCorpseInReplimat.stages.0.label>
 
+	<!-- EN: We recycled one of our own dead into nutrient feedstock. Are we so desperate that we can't even afford to give them a proper burial? -->
 	<Thought_KnowRecycledColonistCorpseInReplimat.stages.0.description>Zrecyklovali jsme jednoho z našich na živný roztok. To jsme fakticky tak zoufalí, že si nemůžeme dovolit jim poskytnout ani pořádný pohřeb?</Thought_KnowRecycledColonistCorpseInReplimat.stages.0.description>
 
+	<!-- EN: recycled corpse into feedstock -->
 	<Thought_KnowRecycledCorpseInReplimatPsychopath.stages.0.label>Zrecyklovali jsme mrtvolu na živný roztok</Thought_KnowRecycledCorpseInReplimatPsychopath.stages.0.label>
 
+	<!-- EN: Waste not, want not. -->
 	<Thought_KnowRecycledCorpseInReplimatPsychopath.stages.0.description>Kdo šetří, má za tři.</Thought_KnowRecycledCorpseInReplimatPsychopath.stages.0.description>
 
 </LanguageData>
