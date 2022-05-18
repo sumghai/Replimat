@@ -39,6 +39,7 @@ namespace Replimat
             {
                 return false;
             }
+
             if (p.foodRestriction != null)
             {
                 if (!p.foodRestriction.Configurable)
@@ -56,6 +57,7 @@ namespace Replimat
                     return false;
                 }
             }
+
             return true;
         }
 
@@ -65,15 +67,22 @@ namespace Replimat
             {
                 getter = eater;
             }
+
             // Default to null
             ThingDef SelectedMeal = null;
 
             if (eater != null)
             {
-                // Compile list of allowed meals for current pawn
                 FoodTypeFlags allowedFoodTypes = FoodTypeFlags.Meal | FoodTypeFlags.Processed;
 
-                List<ThingDef> allowedMeals = ThingCategoryDefOf.Foods.DescendantThingDefs.Where(x => x.ingestible.preferability >= FoodPreferability.DesperateOnly && ((x.ingestible.foodType & allowedFoodTypes) != FoodTypeFlags.None) && RepMatWillEat(eater, x, getter)).ToList();
+                // Compile list of allowed meals for current pawn
+                List<ThingDef> allowedMeals = ThingCategoryDefOf.Foods.DescendantThingDefs.Where(x => RepMatWillEat(eater, x, getter)).ToList();
+
+                // Remove meals that are worse than DesperateOnly 
+                allowedMeals.RemoveAll(x => x.ingestible.preferability < FoodPreferability.DesperateOnly);
+
+                // Remove anything that is not a meal or processed food product
+                allowedMeals.RemoveAll(x => (x.ingestible.foodType & allowedFoodTypes) == FoodTypeFlags.None);
 
                 // Manually remove any survival meals, as pawns should only be getting "fresh" food to meet their immediate food needs
                 // (Survival meals are reserved for caravans, as per custom gizmo)
