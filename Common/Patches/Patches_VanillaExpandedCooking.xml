@@ -10,7 +10,7 @@
 
 				<!-- Blacklist the following meals:
 				
-				 - Canned ingredients and Raw prunes, as Replimat systems are designed to serve "fresh" meals
+				 - Canned ingredients, as Replimat systems are designed to serve "fresh" meals
 				 
 				 - Cheese, as that should be considered an ingredient instead
 				 
@@ -27,7 +27,6 @@
 						<li>VCE_CannedMeat</li>
 						<li>VCE_CannedProduce</li>
 						<li>VCE_Cheese</li>
-						<li>VCE_RawPrunes</li>
 						<li>VCE_RuinedSimpleGrill</li>
 						<li>VCE_RuinedFineGrill</li>
 						<li>VCE_RuinedLavishGrill</li>

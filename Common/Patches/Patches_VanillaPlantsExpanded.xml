@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Plants Expanded</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<!-- Blacklist raw prunes, as Replimat systems are designed to serve "fresh" meals -->
+
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]/disallowedMeals</xpath>
+					<value>
+						<li>VCE_RawPrunes</li>
+					</value>
+				</li>
+
+			</operations>
+		</match>
+	</Operation>
+</Patch>
