@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!-- EN: Replimat Sewage Recycler -->
+	<ReplimatSewageRecycler.label>Recyklátor odpadních vod Replimatu</ReplimatSewageRecycler.label>
+
+	<!-- EN: Recycles sludge from sewage into organic particulate suspension for supplying Replimat systems, as well as clean water for plumbing. -->
+	<ReplimatSewageRecycler.description>Recykluje kal z odpadních vod na suspenzi organických částic pro zásobování systémů Replimatu a také čistou vodu pro instalatérské práce.</ReplimatSewageRecycler.description>
+
+</LanguageData>

@@ -30,12 +30,6 @@
 
 	<!-- EN: Recycles humanoid corpses in a dignified manner into organic particulate suspension for supplying Replimat systems. -->
 	<ReplimatCorpseRecycler.description>尊嚴地回收與分解人形屍體，並轉換成食品合成器需要用的液體形式營養原料。</ReplimatCorpseRecycler.description>
-	
-	<!-- EN: Replimat Sewage Recycler -->
-	<ReplimatSewageRecycler.label>食品合成系統污水回收機</ReplimatSewageRecycler.label>
-	
-	<!-- EN: Recycles sludge from sewage into organic particulate suspension for supplying Replimat systems, as well as clean water for plumbing. -->
-	<ReplimatSewageRecycler.description>将污水回收成食品合成器需要用的液體形式營養原料，和衛生設備管道用的净水。</ReplimatSewageRecycler.description>
 
 	<!-- EN: Replimat Computer -->
 	<ReplimatComputer.label>食品合成系統主電腦</ReplimatComputer.label>

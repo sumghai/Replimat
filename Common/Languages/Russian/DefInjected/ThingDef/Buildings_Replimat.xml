@@ -31,12 +31,6 @@
 	<!-- EN: Recycles humanoid corpses in a dignified manner into organic particulate suspension for supplying Replimat systems. -->
 	<ReplimatCorpseRecycler.description>достойно перерабатывает трупы и разбирает их на молекулярном уровне в суспензию органических частиц для питания систем Реплимат.</ReplimatCorpseRecycler.description>
 	
-	<!-- EN: Replimat Sewage Recycler -->
-	<ReplimatSewageRecycler.label>Реплимат Переработчик сточных вод</ReplimatSewageRecycler.label>
-	
-	<!-- EN: Recycles sludge from sewage into organic particulate suspension for supplying Replimat systems, as well as clean water for plumbing. -->
-	<ReplimatSewageRecycler.description>Перерабатывает осадок из сточных вод в суспензию органических частиц для снабжения систем Реплимат, а также чистую воду для сантехники.</ReplimatSewageRecycler.description>
-	
 	<!-- EN: Replimat Computer -->
 	<ReplimatComputer.label>Компьютер Реплимат</ReplimatComputer.label>
 	

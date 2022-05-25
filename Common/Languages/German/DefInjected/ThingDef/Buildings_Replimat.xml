@@ -31,12 +31,6 @@
 	<!-- EN: Recycles humanoid corpses in a dignified manner into organic particulate suspension for supplying Replimat systems. -->
 	<ReplimatCorpseRecycler.description>Verwertet menschliche Leichen würdevoll in organische Partikel und speist sie in das Replikator-System ein.</ReplimatCorpseRecycler.description>
 	
-	<!-- EN: Replimat Sewage Recycler -->
-	<ReplimatSewageRecycler.label>Replikator-Abwasserrecycler</ReplimatSewageRecycler.label>
-	
-	<!-- EN: Recycles sludge from sewage into organic particulate suspension for supplying Replimat systems, as well as clean water for plumbing. -->
-	<ReplimatSewageRecycler.description>Recycelt Schlamm aus Abwasser in organische Partikelsuspension zur Versorgung von Replikator-Systemen sowie sauberes Wasser für Sanitärinstallationen.</ReplimatSewageRecycler.description>
-	
 	<!-- EN: Replimat Computer -->
 	<ReplimatComputer.label>Replikator-Computer</ReplimatComputer.label>
 	

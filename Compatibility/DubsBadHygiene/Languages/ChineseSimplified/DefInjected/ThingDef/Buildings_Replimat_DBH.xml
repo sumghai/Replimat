@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- EN: Replimat Sewage Recycler -->
+	<ReplimatSewageRecycler.label>食品合成系统污水回收机</ReplimatSewageRecycler.label>
+
+	<!-- EN: Recycles sludge from sewage into organic particulate suspension for supplying Replimat systems, as well as clean water for plumbing. -->
+	<ReplimatSewageRecycler.description>将污水回收成食品合成器需要用的液体形式营养原料，和卫生设备管道用的净水。</ReplimatSewageRecycler.description>
+
+</LanguageData>

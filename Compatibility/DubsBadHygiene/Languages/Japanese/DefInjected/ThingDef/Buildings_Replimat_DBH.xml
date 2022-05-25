@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!-- EN: Replimat Sewage Recycler -->
+	<ReplimatSewageRecycler.label>レプリマット汚水リサイクル機</ReplimatSewageRecycler.label>
+
+	<!-- EN: Recycles sludge from sewage into organic particulate suspension for supplying Replimat systems, as well as clean water for plumbing. -->
+	<ReplimatSewageRecycler.description>汚泥を下水から有機粒子懸濁液にリサイクルして、レプリマットシステムに供給し、配管用の清浄水を供給します.</ReplimatSewageRecycler.description>
+	
+</LanguageData>

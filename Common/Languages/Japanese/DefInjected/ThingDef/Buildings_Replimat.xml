@@ -31,12 +31,6 @@
 	<!-- EN: Recycles humanoid corpses in a dignified manner into organic particulate suspension for supplying Replimat systems. -->
 	<ReplimatCorpseRecycler.description>死体を堂々とリサイクル,レプリマットシステムに供給するため分子レベルで有機微粒子懸濁液に分解します.</ReplimatCorpseRecycler.description>
 	
-	<!-- EN: Replimat Sewage Recycler -->
-	<ReplimatSewageRecycler.label>レプリマット汚水リサイクル機</ReplimatSewageRecycler.label>
-	
-	<!-- EN: Recycles sludge from sewage into organic particulate suspension for supplying Replimat systems, as well as clean water for plumbing. -->
-	<ReplimatSewageRecycler.description>汚泥を下水から有機粒子懸濁液にリサイクルして、レプリマットシステムに供給し、配管用の清浄水を供給します.</ReplimatSewageRecycler.description>
-	
 	<!-- EN: Replimat Computer -->
 	<ReplimatComputer.label>レプリマットコンピューター</ReplimatComputer.label>
 	
