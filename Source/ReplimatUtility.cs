@@ -218,7 +218,7 @@ namespace Replimat
                     Ideo ideo = eater.Ideo;
 
                     // 2.1 Human cannibalism for meals containing meat
-                    if (ideo?.HasHumanMeatEatingRequiredPrecept() == true || eater.story.traits.HasTrait(TraitDefOf.Cannibal))
+                    if (ideo?.HasHumanMeatEatingRequiredPrecept() == true || (eater.story?.traits.HasTrait(TraitDefOf.Cannibal) ?? false))
                     {
                         List<ThingDef> existingMeats = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw));
 
