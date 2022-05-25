@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+
 	<!-- EN: Replimat Terminal -->
 	<ReplimatTerminal.label>Replikator-Terminal</ReplimatTerminal.label>
 	
 	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
 	<ReplimatTerminal.description>Sythentisiert Mahlzeiten und Getränke durch molekulare Resequenzierung. Benötigt eine Verbindung zu einem Rohnahrungs-Tank und einem Replikator-Computer über ein gemeinsames Stromnetz.</ReplimatTerminal.description>
-	
-	<!-- EN: Replimat Terminal (blueprint)-->
-	<Blueprint_ReplimatTerminal.label>Replikator-Terminal</Blueprint_ReplimatTerminal.label>
-	
-	<!-- EN: Replimat Terminal (blueprint)-->
-	<Blueprint_Install_ReplimatTerminal.label>Replikator-Terminal</Blueprint_Install_ReplimatTerminal.label>
-	
-	<!-- EN: Replimat Terminal (building)-->
-	<Frame_ReplimatTerminal.label>Replikator-Terminal</Frame_ReplimatTerminal.label>
-	
-	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
-	<Frame_ReplimatTerminal.description>Sythentisiert Mahlzeiten und Getränke durch molekulare Resequenzierung. Benötigt eine Verbindung zu einem Rohnahrungs-Tank und einem Replikator-Computer über ein gemeinsames Stromnetz.</Frame_ReplimatTerminal.description>
 	
 	<!-- EN: Replimat Animal Feeder -->
 	<ReplimatAnimalFeeder.label>Replikator-Futtertrog</ReplimatAnimalFeeder.label>
@@ -24,35 +13,11 @@
 	<!-- EN: Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
 	<ReplimatAnimalFeeder.description>Synthetisiert Tierfutter für Haus- und Nutztiere durch molekulare Resequenzierung. Benötigt eine Verbindung zu einem Rohnahrungs-Tank und einem Replikator-Computer über ein gemeinsames Stromnetz.</ReplimatAnimalFeeder.description>
 	
-	<!-- EN: Replimat Animal Feeder (blueprint)-->
-	<Blueprint_ReplimatAnimalFeeder.label>Replikator Futtertrog</Blueprint_ReplimatAnimalFeeder.label>
-	
-	<!-- EN: Replimat Animal Feeder (blueprint)-->
-	<Blueprint_Install_ReplimatAnimalFeeder.label>Replikator Futtertrog</Blueprint_Install_ReplimatAnimalFeeder.label>
-	
-	<!-- EN: Replimat Animal Feeder (building)-->
-	<Frame_ReplimatAnimalFeeder.label>Replikator Futtertrog</Frame_ReplimatAnimalFeeder.label>
-	
-	<!-- EN: Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
-	<Frame_ReplimatAnimalFeeder.description>Synthetisiert Tierfutter für Haus- und Nutztiere durch molekulare Resequenzierung. Benötigt eine Verbindung zu einem Rohnahrungs-Tank und einem Replikator-Computer über ein gemeinsames Stromnetz.</Frame_ReplimatAnimalFeeder.description>
-	
 	<!-- EN: Replimat Feedstock Tank -->
 	<ReplimatFeedTank.label>Rohnahrungs-Tank</ReplimatFeedTank.label>
 	
 	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
 	<ReplimatFeedTank.description>Lagert aufgelöste organische Partikel für Replikator-Terminals. Wird versorgt durch Replikator-Trichter.</ReplimatFeedTank.description>
-	
-	<!-- EN: Replimat Feedstock Tank (blueprint)-->
-	<Blueprint_ReplimatFeedTank.label>Rohnahrungs-Tank</Blueprint_ReplimatFeedTank.label>
-	
-	<!-- EN: Replimat Feedstock Tank (blueprint)-->
-	<Blueprint_Install_ReplimatFeedTank.label>Rohnahrungs-Tank</Blueprint_Install_ReplimatFeedTank.label>
-	
-	<!-- EN: Replimat Feedstock Tank (building)-->
-	<Frame_ReplimatFeedTank.label>Rohnahrungs-Tank</Frame_ReplimatFeedTank.label>
-	
-	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
-	<Frame_ReplimatFeedTank.description>Lagert aufgelöste organische Partikel für Replikator-Terminals. Wird versorgt durch Replikator-Trichter.</Frame_ReplimatFeedTank.description>
 	
 	<!-- EN: Replimat Hopper -->
 	<ReplimatHopper.label>Replikator-Trichter</ReplimatHopper.label>
@@ -60,35 +25,11 @@
 	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->	
 	<ReplimatHopper.description>Enthält gekühlte rohe Lebensmittel und löst sie auf molekularer Ebene in organische Partikel auf und speist sie ins Replikator-System ein.</ReplimatHopper.description>
 	
-	<!-- EN: Replimat Hopper (blueprint)-->
-	<Blueprint_ReplimatHopper.label>Replikator-Trichter</Blueprint_ReplimatHopper.label>
-	
-	<!-- EN: Replimat Hopper (blueprint)-->
-	<Blueprint_Install_ReplimatHopper.label>Replikator-Trichter</Blueprint_Install_ReplimatHopper.label>
-	
-	<!-- EN: Replimat Hopper (building)-->
-	<Frame_ReplimatHopper.label>Replikator-Trichter</Frame_ReplimatHopper.label>
-	
-	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->	
-	<Frame_ReplimatHopper.description>Enthält gekühlte rohe Lebensmittel und löst sie auf molekularer Ebene in organische Partikel auf und speist sie ins Replikator-System ein.</Frame_ReplimatHopper.description>
-	
 	<!-- EN: Replimat Cadaver Processor -->
 	<ReplimatCorpseRecycler.label>Replikator Leichenprozessor</ReplimatCorpseRecycler.label>
 
 	<!-- EN: Recycles humanoid corpses in a dignified manner into organic particulate suspension for supplying Replimat systems. -->
 	<ReplimatCorpseRecycler.description>Verwertet menschliche Leichen würdevoll in organische Partikel und speist sie in das Replikator-System ein.</ReplimatCorpseRecycler.description>
-
-	<!-- EN: Replimat Cadaver Processor (blueprint)-->
-	<Blueprint_ReplimatCorpseRecycler.label>Replikator Leichenprozessor</Blueprint_ReplimatCorpseRecycler.label>
-
-	<!-- EN: Replimat Cadaver Processor (blueprint)-->
-	<Blueprint_Install_ReplimatCorpseRecycler.label>Replikator-Leichenprozessor</Blueprint_Install_ReplimatCorpseRecycler.label>
-
-	<!-- EN: Replimat Cadaver Processor (building)-->
-	<Frame_ReplimatCorpseRecycler.label>Replikator Leichenprozessor</Frame_ReplimatCorpseRecycler.label>
-
-	<!-- EN: Recycles humanoid corpses in a dignified manner into organic particulate suspension for supplying Replimat systems. -->	
-	<Frame_ReplimatCorpseRecycler.description>достойно перерабатывает трупы и разбирает их на молекулярном уровне в суспензию органических частиц для питания систем Реплимат.</Frame_ReplimatCorpseRecycler.description>
 	
 	<!-- EN: Replimat Sewage Recycler -->
 	<ReplimatSewageRecycler.label>Replikator-Abwasserrecycler</ReplimatSewageRecycler.label>
@@ -96,33 +37,10 @@
 	<!-- EN: Recycles sludge from sewage into organic particulate suspension for supplying Replimat systems, as well as clean water for plumbing. -->
 	<ReplimatSewageRecycler.description>Recycelt Schlamm aus Abwasser in organische Partikelsuspension zur Versorgung von Replikator-Systemen sowie sauberes Wasser für Sanitärinstallationen.</ReplimatSewageRecycler.description>
 	
-	<!-- EN: Replimat Sewage Recycler (blueprint) -->
-	<Blueprint_ReplimatSewageRecycler.label>Replikator-Abwasserrecycler</Blueprint_ReplimatSewageRecycler.label>
-	
-	<!-- EN: Replimat Sewage Recycler (blueprint) -->
-	<Blueprint_Install_ReplimatSewageRecycler.label>Replikator-Abwasserrecycler</Blueprint_Install_ReplimatSewageRecycler.label>
-	
-	<!-- EN: Replimat Sewage Recycler (building) -->
-	<Frame_ReplimatSewageRecycler.label>Replikator-Abwasserrecycler</Frame_ReplimatSewageRecycler.label>
-	
-	<!-- EN: Recycles sludge from sewage into organic particulate suspension for supplying Replimat systems, as well as clean water for plumbing. -->
-	<Frame_ReplimatSewageRecycler.description>Recycelt Schlamm aus Abwasser in organische Partikelsuspension zur Versorgung von Replikator-Systemen sowie sauberes Wasser für Sanitärinstallationen.</Frame_ReplimatSewageRecycler.description>
-	
 	<!-- EN: Replimat Computer -->
 	<ReplimatComputer.label>Replikator-Computer</ReplimatComputer.label>
 	
 	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
 	<ReplimatComputer.description>Stellt den Replikator-Terminals eine große Auswahl an Rezepten für Speis und Trank zur Verfügung.</ReplimatComputer.description>
 	
-	<!-- EN: Replimat Computer (blueprint)-->
-	<Blueprint_ReplimatComputer.label>Replikator-Computer</Blueprint_ReplimatComputer.label>
-	
-	<!-- EN: Replimat Computer (blueprint)-->
-	<Blueprint_Install_ReplimatComputer.label>Replikator-Computer</Blueprint_Install_ReplimatComputer.label>
-	
-	<!-- EN: Replimat Computer (building)-->
-	<Frame_ReplimatComputer.label>Replikator-Computer</Frame_ReplimatComputer.label>
-	
-	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
-	<Frame_ReplimatComputer.description>SStellt den Replikator-Terminals eine große Auswahl an Rezepten für Speis und Trank zur Verfügung.</Frame_ReplimatComputer.description>
 </LanguageData>

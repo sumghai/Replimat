@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+
 	<!-- EN: Replimat Terminal -->
 	<ReplimatTerminal.label>Terminál Replimatu</ReplimatTerminal.label>
 	
@@ -41,4 +42,5 @@
 	
 	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
 	<ReplimatComputer.description>Poskytuje velký výběr receptů na pokrmy i nápoje všem terminálům Replimatu.</ReplimatComputer.description>
+	
 </LanguageData>
