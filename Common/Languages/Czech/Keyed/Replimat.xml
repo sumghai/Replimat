@@ -1,111 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-	
+
 	<!-- EN: Replicated Meal -->
 	<ReplicatedMeal>Replikovaný pokrm</ReplicatedMeal>
 
 	<!-- EN: Feedstock stored {0} / {1} L -->
 	<FeedstockStored>Uskladnìná smìs živin {0} / {1} L</FeedstockStored>
-	
+
 	<!-- EN: Total feedstock stored {0} / {1} L -->
 	<TotalFeedstockStored>Celková uskladnìná smìs živin {0} / {1} L</TotalFeedstockStored>
 
 	<!-- EN: Replimat Spill -->
 	<LetterLabelReplimatSpill>Nehoda v Replimatu</LetterLabelReplimatSpill>
-	
+
 	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
 	<LetterTextReplimatSpill>Pøístroj {0} se porouchal a všude rozlil smìs živin.</LetterTextReplimatSpill>
 
 	<!-- EN: Replimat Malfunction -->
 	<LetterLabelReplimatMalfunctionKibble>Porucha Replimatu</LetterLabelReplimatMalfunctionKibble>
-	
+
 	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
 	<LetterTextReplimatMalfunctionKibble>{0} se porouchal a vyrobil velké množství krmiva pro zvíøata.</LetterTextReplimatMalfunctionKibble>
 
-	<!-- EN: Requires connection to Replimat Computer -->	
+	<!-- EN: Requires connection to Replimat Computer -->
 	<NotConnectedToComputer>Vyžaduje pøipojení k poèítaèi Replimatu.</NotConnectedToComputer>
-	
+
 	<!-- EN: Insufficient Feedstock -->
 	<NotEnoughFeedstock>Nedostatek smìsi živin</NotEnoughFeedstock>
 
 	<!-- EN: Empty -->
 	<CorpseRecyclerEmpty>Prázdný</CorpseRecyclerEmpty>
-	
+
 	<!-- EN: Remaining mass: {0} / {1} kg -->
 	<CorpseRecyclerMassRemaining>Zbývající hmotnost: {0} / {1} kg</CorpseRecyclerMassRemaining>
-	
+
 	<!-- EN: Not empty -->
 	<CorpseRecyclerNotEmpty>Není prázdný</CorpseRecyclerNotEmpty>
-	
+
 	<!-- EN: Need non-dessicated humanoid corpse -->
 	<CorpseRecyclerNeedValidCorpse>Vyžaduje nevysušenou mrtvolu</CorpseRecyclerNeedValidCorpse>
 
 	<!-- EN: Corpses -->
 	<TabCorpseFilters>Mrtvoly</TabCorpseFilters>
-	
+
 	<!-- EN: Running -->
 	<SewageRecyclerRunning>Běží</SewageRecyclerRunning>
-	
+
 	<!-- EN: Idle -->
 	<SewageRecyclerIdle>Nečinný</SewageRecyclerIdle>
 
 	<!-- EN: Batch survival meals -->
 	<BatchMakeSurvivalMeals>Zreplikovat nouzové potravinové balíèky</BatchMakeSurvivalMeals>
-	
+
 	<!-- EN: Replicate a batch of Packaged Survival Meals for use in caravans or emergencies. -->
 	<BatchMakeSurvivalMeals_Desc>Zreplikovat nìkolik nouzových potravinových balíèkù pro využití v karavanách èi pøípadech nouze.</BatchMakeSurvivalMeals_Desc>
 
 	<!-- EN: Cannot batch replicate survival meals: Terminal has insufficient feedstock, or is not connected to Computer and Feedstock tanks -->
 	<MessageCannotBatchMakeSurvivalMeals>Nelze zreplikovat nouzové potravinové balíèky: Terminál nemá dostatek roztoku živin, nebo není pøipojen k poèítaèi èi zásobním nádržím.C</MessageCannotBatchMakeSurvivalMeals>
 
-	<!-- EN: Batch replicate survival meals\n(Max allowed: {0}) -->	
+	<!-- EN: Batch replicate survival meals\n(Max allowed: {0}) -->
 	<SetSurvivalMealBatchSize>Vyrobit nouzových potravinových balíèkù\n(Maximálnì: {0})</SetSurvivalMealBatchSize>
-	
-	<!-- EN: Type: {0} -->	
+
+	<!-- EN: Type: {0} -->
 	<SetSurvivalMealType>Typ: {0}</SetSurvivalMealType>
-	
+
 	<!-- EN: Switch animal feed -->
 	<CommandGizmoSwitchAnimalFeed_Label>Přepnout krmivo pro zvířata</CommandGizmoSwitchAnimalFeed_Label>
-	
+
 	<!-- EN: Select what type of animal feed to replicate.\n\nCurrent: {0} -->
 	<CommandGizmoSwitchAnimalFeed_Desc>Vyberte, jaký typ krmiva pro zvířata chcete replikovat.\n\Současný: {0}</CommandGizmoSwitchAnimalFeed_Desc>
 
 	<!-- EN: Replimat -->
-	<Replimat_SettingsCategory_Heading>Replimat</Replimat_SettingsCategory_Heading>
+	<Replimat_SettingsCategory_Heading>Replimatu</Replimat_SettingsCategory_Heading>
 
 	<!-- EN: General -->
 	<Replimat_Settings_HeaderGeneral>Obecné</Replimat_Settings_HeaderGeneral>
-	
+
 	<!-- EN: Incidents -->
 	<Replimat_Settings_HeaderIncidents>Nehody</Replimat_Settings_HeaderIncidents>
 
 	<!-- EN: Prioritize food quality -->
 	<Replimat_Settings_PrioritizeFoodQuality_Title>Prioritizovat kvalitu jídla</Replimat_Settings_PrioritizeFoodQuality_Title>
-	
+
 	<!-- EN: By default, pawns will replicate meals at the highest quality allowed by their current food restriction policy.\n\nDisabling this allows pawns to replicate any random meal within their food restriction policy irrespective of quality. -->
 	<Replimat_Settings_PrioritizeFoodQuality_Desc>Kolonisté budou replikovat pokrmy nejvyšší kvality, které jim povoluje jejich potravinové omezení.\n\nPokud toto nastavení vypneš, budou moci replikovat jakékoliv náhodné pokrmy v rámci potravinového omezení bez ohledu na kvalitu.</Replimat_Settings_PrioritizeFoodQuality_Desc>
 
 	<!-- EN: Replimat Hopper refill threshold -->
 	<Replimat_Settings_HopperRefillThresholdPercent_Title>Mez pro doplnìní zásobníkù.</Replimat_Settings_HopperRefillThresholdPercent_Title>
-	
+
 	<!-- EN: Sets the threshold at which the Replimat Hopper will be restocked with raw food. -->
 	<Replimat_Settings_HopperRefillThresholdPercent_Desc>Nastaví mez, pøi které budou zásobníky Replimatu doplnìny syrovým jídlem.</Replimat_Settings_HopperRefillThresholdPercent_Desc>
 
 	<!-- EN: Enable Spills -->
 	<Replimat_Settings_EnableIncidentSpill_Title>Povolit úniky z replimatù</Replimat_Settings_EnableIncidentSpill_Title>
-	
+
 	<!-- EN: Allows any Terminal or Animal Feeder to have a small chance of malfunctioning and spilling feedstock. -->
 	<Replimat_Settings_EnableIncidentSpill_Desc>Umožní, aby se terminály èi krmítka pro zvíøata obèas porouchaly a všude rozlily roztok živin.</Replimat_Settings_EnableIncidentSpill_Desc>
 
 	<!-- EN: Enable Kibble Malfunctions -->
 	<Replimat_Settings_EnableIncidentKibble_Title>Povolit krmivové poruchy</Replimat_Settings_EnableIncidentKibble_Title>
-	
+
 	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. -->
 	<Replimat_Settings_EnableIncidentKibble_Desc>Umožní, aby se terminály mohly obèas porouchat a vyrobit velké množství krmiva pro zvíøata.</Replimat_Settings_EnableIncidentKibble_Desc>
 
 	<!-- EN: Power consumption (Active) -->
 	<Replimat_Stat_ActiveModePowerConsumption_Label>Spotøeba elektøiny (Aktivní)</Replimat_Stat_ActiveModePowerConsumption_Label>
-	
+
 	<!-- EN: The amount of power this building will draw from the power grid while actively running. -->
 	<Replimat_Stat_ActiveModePowerConsumption_Desc>Pøíkon, který bude tato budova bìhem aktivního provozu vyžadovat.</Replimat_Stat_ActiveModePowerConsumption_Desc>
 

@@ -4,17 +4,17 @@
 	<ReplimatSpill.label>Vyteklý Replimat</ReplimatSpill.label>
 
 	<!-- EN: Replimat Spill -->
-	<ReplimatSpill.letterlabel>Vyteklý Replimat</ReplimatSpill.letterlabel>
+	<ReplimatSpill.letterLabel>Vyteklý Replimat</ReplimatSpill.letterLabel>
 
 	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
-	<ReplimatSpill.lettertext>Přístroj {0} se porouchal a všude rozlil roztok živin.</ReplimatSpill.lettertext>
+	<ReplimatSpill.letterText>Přístroj {0} se porouchal a všude rozlil roztok živin.</ReplimatSpill.letterText>
 
 	<!-- EN: Replimat Spill -->
 	<ReplimatMalfunctionKibble.label>Porucha replimatu</ReplimatMalfunctionKibble.label>
 	
 	<!-- EN: Replimat Spill -->
-	<ReplimatMalfunctionKibble.letterlabel>Porucha replimatu\n(Kibble)</ReplimatMalfunctionKibble.letterlabel>
+	<ReplimatMalfunctionKibble.letterLabel>Porucha replimatu\n(Kibble)</ReplimatMalfunctionKibble.letterLabel>
 	
 	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
-	<ReplimatMalfunctionKibble.lettertext>Přístroj {0} se porouchal a vytvořil velké množství krmiva pro zvířata.</ReplimatMalfunctionKibble.lettertext>
+	<ReplimatMalfunctionKibble.letterText>Přístroj {0} se porouchal a vytvořil velké množství krmiva pro zvířata.</ReplimatMalfunctionKibble.letterText>
 </LanguageData>
