@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+
 	<!-- EN: synthmeat -->
 	<Replimat_Synthmeat.label>Syntetické maso</Replimat_Synthmeat.label>
 
 	<!-- EN: Synthetic meat fortified with micronutrients, optimized for consumption by carnivorous pet and livestock animals. Humans can eat it, but they really, really don't like it. -->
 	<Replimat_Synthmeat.description>Syntetické maso obsahující mikroživiny pro krmení masožravých domácích a hospodářských zvířat. Lidé je mohou jíst, ale opravdu se jim to nebude líbit.</Replimat_Synthmeat.description>
+	
 </LanguageData>

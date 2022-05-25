@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+
 	<!-- EN: synthmeat -->
 	<Replimat_Synthmeat.label>合成肉</Replimat_Synthmeat.label>
 	
 	<!-- EN: Synthetic meat fortified with micronutrients, optimized for consumption by carnivorous pet and livestock animals. Humans can eat it, but they really, really don't like it. -->
 	<Replimat_Synthmeat.description>充滿微量營養素的合成肉，用於餵養肉食性寵物和家畜。 人們也可以吃，但他們真的～真的不喜歡。</Replimat_Synthmeat.description>
+	
 </LanguageData>
