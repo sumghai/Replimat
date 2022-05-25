@@ -11,13 +11,13 @@
 	<TotalFeedstockStored>营养原料总存量 {0} / {1} L</TotalFeedstockStored>
 
 	<!-- EN: Replimat Spill -->
-	<LetterLabelReplimatSpill>食品合成器原料泄漏 </LetterLabelReplimatSpill>
+	<LetterLabelReplimatSpill>食品合成器原料泄漏</LetterLabelReplimatSpill>
 
 	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
 	<LetterTextReplimatSpill>你的一台{0}发生故障，并泄漏了营养原料。</LetterTextReplimatSpill>
 
 	<!-- EN: Replimat Malfunction -->
-	<LetterLabelReplimatMalfunctionKibble>食品合成器故障 </LetterLabelReplimatMalfunctionKibble>
+	<LetterLabelReplimatMalfunctionKibble>食品合成器故障</LetterLabelReplimatMalfunctionKibble>
 
 	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
 	<LetterTextReplimatMalfunctionKibble>你的一台{0}发生故障，并复制了大量的饲料。</LetterTextReplimatMalfunctionKibble>

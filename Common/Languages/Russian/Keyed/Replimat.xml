@@ -101,7 +101,7 @@
 	<Replimat_Settings_EnableIncidentKibble_Title>Разрешить неисправности дробления</Replimat_Settings_EnableIncidentKibble_Title>
 
 	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. -->
-	<Replimat_Settings_EnableIncidentKibble_Desc>Позволяет любому терминалу иметь небольшую вероятность сбоя и репликации большого количества дробления по собственному желанию. </Replimat_Settings_EnableIncidentKibble_Desc>
+	<Replimat_Settings_EnableIncidentKibble_Desc>Позволяет любому терминалу иметь небольшую вероятность сбоя и репликации большого количества дробления по собственному желанию.</Replimat_Settings_EnableIncidentKibble_Desc>
 	
 	<!-- EN: Power consumption (Active) -->
 	<Replimat_Stat_ActiveModePowerConsumption_Label>Энергопотребление (активная)</Replimat_Stat_ActiveModePowerConsumption_Label>

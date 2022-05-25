@@ -32,7 +32,7 @@
 	<ReplimatCorpseRecycler.description>尊严地回收与分解人形尸体，并转换成食品合成器需要用的液体形式营养原料。</ReplimatCorpseRecycler.description>
 	
 	<!-- EN: Replimat Computer -->
-	<ReplimatComputer.label>食品合成系统主计算机 </ReplimatComputer.label>
+	<ReplimatComputer.label>食品合成系统主计算机</ReplimatComputer.label>
 	
 	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
 	<ReplimatComputer.description>为食品合成器提供菜单食谱。</ReplimatComputer.description>
