@@ -138,7 +138,7 @@ namespace Replimat
                     return directMatch || indirectMatch;
                 };
 
-                RecipeDef mealRecipe = DefDatabase<RecipeDef>.AllDefsListForReading.First(validator);
+                RecipeDef mealRecipe = DefDatabase<RecipeDef>.AllDefsListForReading.FirstOrDefault(validator);
 
                 if (mealRecipe != null)
                 {
