@@ -121,6 +121,8 @@
 		<pathCost>40</pathCost>
 		<surfaceType>Item</surfaceType>
 		<building>
+			<preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+			<ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
 			<fixedStorageSettings>
 				<priority>Critical</priority>
 				<filter>
@@ -242,6 +244,8 @@
 		<size>(3,1)</size>
 		<pathCost>150</pathCost>
 		<building>
+			<preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+			<ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
 			<fixedStorageSettings>
 				<priority>Important</priority>
 				<filter>
