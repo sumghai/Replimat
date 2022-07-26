@@ -25,10 +25,6 @@
 			<li>Manufactured</li>
 		</thingCategories>
 		<drawGUIOverlay>false</drawGUIOverlay>
-		<tradeTags>
-			<li>Exotic</li>
-			<li>Replimat_Items</li>
-		</tradeTags>
 		<thingSetMakerTags>
 			<li>RewardStandardMidFreq</li>
 		</thingSetMakerTags>
