@@ -12,10 +12,7 @@
 				<value>
 					<li Class="StockGenerator_SingleDef">
 						<thingDef>IsolinearModule</thingDef>
-						<countRange>
-							<min>1</min>
-							<max>1</max>
-						</countRange>
+						<countRange>0~1</countRange>
 					</li>
 				</value>
 			</li>
