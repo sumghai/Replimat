@@ -4,8 +4,8 @@
 	<!-- EN: Molecular Nutrient Resequencing -->
 	<MolecularNutrientResequencing.label>栄養分子再構成</MolecularNutrientResequencing.label>
 	
-	<!-- EN: Allows the construction of Replimat systems, advanced versions of nutrient paste dispensers that convert raw nutritive feedstock into a wider variety of high quality meals. Also automatically lays nutrient feedstock pipelines along existing power conduit networks. -->
-	<MolecularNutrientResequencing.description>未加工の栄養素をより多種類の高品質の食事に変換する発展型栄養ペーストディスペンサーの構築を可能にします。既存の電力線ネットワークに沿って栄養供給パイプラインも自動的に敷設します.</MolecularNutrientResequencing.description>
+	<!-- EN: Construct Replimat systems, advanced versions of nutrient paste dispensers that convert raw nutritive feedstock into a wider variety of high quality meals. Also automatically lays nutrient feedstock pipelines along existing power conduit networks. -->
+	<MolecularNutrientResequencing.description>未加工の栄養素をより多種類の高品質の食事に変換する発展型栄養ペーストディスペンサーの構築を製造できるようになります。既存の電力線ネットワークに沿って栄養供給パイプラインも自動的に敷設します.</MolecularNutrientResequencing.description>
 	
 	<!-- EN: About: Building a Replimat system -->
 	<MolecularNutrientResequencing.discoveredLetterTitle>レプリマットシステムの構築について</MolecularNutrientResequencing.discoveredLetterTitle>

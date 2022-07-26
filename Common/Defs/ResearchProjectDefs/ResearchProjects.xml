@@ -6,7 +6,7 @@
 	<ResearchProjectDef>
 		<defName>MolecularNutrientResequencing</defName>
 		<label>Molecular Nutrient Resequencing</label>
-		<description>Allows the construction of Replimat systems, advanced versions of nutrient paste dispensers that convert raw nutritive feedstock into a wider variety of high quality meals. Also automatically lays nutrient feedstock pipelines along existing power conduit networks.</description>
+		<description>Construct Replimat systems, advanced versions of nutrient paste dispensers that convert raw nutritive feedstock into a wider variety of high quality meals. Also automatically lays nutrient feedstock pipelines along existing power conduit networks.</description>
 		<baseCost>6000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>

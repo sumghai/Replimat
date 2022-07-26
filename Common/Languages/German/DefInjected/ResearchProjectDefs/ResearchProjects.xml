@@ -4,8 +4,8 @@
 	<!-- EN: Molecular Nutrient Resequencing -->
 	<MolecularNutrientResequencing.label>Molekulare Nährstoff-Resequenzierung</MolecularNutrientResequencing.label>
 	
-	<!-- EN: Allows the construction of Replimat systems, advanced versions of nutrient paste dispensers that convert raw nutritive feedstock into a wider variety of high quality meals. Also automatically lays nutrient feedstock pipelines along existing power conduit networks. -->
-	<MolecularNutrientResequencing.description>Ermöglicht die Kontruktion von Replikator-Systemen, fortschrittlichen Versionen des Nähstoffpastenspenders, die rohe Nahrung in eine große Auswahl an hochqualitativer Mahlzeiten umwandeln. Legt automatisch Rohnahrungsleitungen entlang bestehender Stromnetze.</MolecularNutrientResequencing.description>
+	<!-- EN: Construct Replimat systems, advanced versions of nutrient paste dispensers that convert raw nutritive feedstock into a wider variety of high quality meals. Also automatically lays nutrient feedstock pipelines along existing power conduit networks. -->
+	<MolecularNutrientResequencing.description>Baue Replikator-Systemen, fortschrittlichen Versionen des Nähstoffpastenspenders, die rohe Nahrung in eine große Auswahl an hochqualitativer Mahlzeiten umwandeln. Legt automatisch Rohnahrungsleitungen entlang bestehender Stromnetze.</MolecularNutrientResequencing.description>
 	
 	<!-- EN: About: Building a Replimat system -->
 	<MolecularNutrientResequencing.discoveredLetterTitle>Über: Ein Replikator-System bauen</MolecularNutrientResequencing.discoveredLetterTitle>

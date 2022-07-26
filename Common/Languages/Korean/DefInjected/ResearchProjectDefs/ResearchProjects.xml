@@ -4,7 +4,7 @@
 	<!-- EN: Molecular Nutrient Resequencing -->
 	<MolecularNutrientResequencing.label>분자 영양소 재배열</MolecularNutrientResequencing.label>
 	
-	<!-- EN: Allows the construction of Replimat systems, advanced versions of nutrient paste dispensers that convert raw nutritive feedstock into a wider variety of high quality meals. Also automatically lays nutrient feedstock pipelines along existing power conduit networks. -->
+	<!-- EN: Construct Replimat systems, advanced versions of nutrient paste dispensers that convert raw nutritive feedstock into a wider variety of high quality meals. Also automatically lays nutrient feedstock pipelines along existing power conduit networks. -->
 	<MolecularNutrientResequencing.description>영양 원료를 많은 종류의 질 좋은 식사로 변환하는, 영양죽 배급기의 발전형인 레플리매트 시스템 건설을 건설할 수 있습니다. 또한 기존 전력망을 따라 영양 공급 파이프 라인을 자동적으로 설치합니다.</MolecularNutrientResequencing.description>
 	
 	<!-- EN: About: Building a Replimat system -->

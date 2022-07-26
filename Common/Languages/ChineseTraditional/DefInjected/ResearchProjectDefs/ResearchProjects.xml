@@ -4,8 +4,8 @@
 	<!-- EN: Molecular Nutrient Resequencing -->
 	<MolecularNutrientResequencing.label>分子營養素重測序</MolecularNutrientResequencing.label>
 	
-	<!-- EN: Allows the construction of Replimat systems, advanced versions of nutrient paste dispensers that convert raw nutritive feedstock into a wider variety of high quality meals. Also automatically lays nutrient feedstock pipelines along existing power conduit networks. -->
-	<MolecularNutrientResequencing.description>讓你可以建造食品合成系統，使儲存的營養原料轉換成各樣的美味食品，同時在現有的電網旁自動鋪設營養原料輸送管道。</MolecularNutrientResequencing.description>
+	<!-- EN: Construct Replimat systems, advanced versions of nutrient paste dispensers that convert raw nutritive feedstock into a wider variety of high quality meals. Also automatically lays nutrient feedstock pipelines along existing power conduit networks. -->
+	<MolecularNutrientResequencing.description>建造食品合成系統，使儲存的營養原料轉換成各樣的美味食品，同時在現有的電網旁自動鋪設營養原料輸送管道。</MolecularNutrientResequencing.description>
 	
 	<!-- EN: About: Building a Replimat system -->
 	<MolecularNutrientResequencing.discoveredLetterTitle>關於：建造食品合成系統</MolecularNutrientResequencing.discoveredLetterTitle>
