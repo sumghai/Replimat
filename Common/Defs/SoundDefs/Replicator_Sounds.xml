@@ -1,34 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+
 	<SoundDef>
 		<defName>Replicate</defName>
-		<eventNames />
 		<maxSimultaneous>3</maxSimultaneous>
 		<context>MapOnly</context>
 		<subSounds>
 			<li>
-				<muteWhenPaused>True</muteWhenPaused>
 				<grains>
-					<li Class="AudioGrain_Folder">
-						<clipFolderPath>replicator</clipFolderPath>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Replimat/TerminalDispense</clipPath>
 					</li>
 				</grains>
-				<volumeRange>
-					<min>200</min>
-					<max>200</max>
-				</volumeRange>
-				<distRange>
-					<min>10</min>
-					<max>20</max>
-				</distRange>
+				<volumeRange>50</volumeRange>
 			</li>
 		</subSounds>
 	</SoundDef>
+	
 	<SoundDef>
 		<defName>HopperDematerialize</defName>
 		<sustain>True</sustain>
 		<sustainFadeoutTime>1</sustainFadeoutTime>
-		<eventNames />
 		<maxSimultaneous>3</maxSimultaneous>
 		<context>MapOnly</context>
 		<priorityMode>PrioritizeNearest</priorityMode>
@@ -36,20 +28,13 @@
 			<li>
 				<muteWhenPaused>True</muteWhenPaused>
 				<grains>
-					<li Class="AudioGrain_Folder">
-						<clipFolderPath>hopper</clipFolderPath>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Replimat/HopperDematerialize</clipPath>
 					</li>
 				</grains>
-				<volumeRange>
-					<min>200</min>
-					<max>200</max>
-				</volumeRange>
-				<distRange>
-					<min>0</min>
-					<max>20</max>
-				</distRange>
+				<volumeRange>50</volumeRange>
 			</li>
 		</subSounds>
 	</SoundDef>
-
+	
 </Defs>
