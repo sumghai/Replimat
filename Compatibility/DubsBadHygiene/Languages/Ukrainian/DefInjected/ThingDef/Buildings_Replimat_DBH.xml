@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!-- EN: Replimat Sewage Recycler -->
+	<ReplimatSewageRecycler.label>Реплімат Переробник стічних вод</ReplimatSewageRecycler.label>
+
+	<!-- EN: Recycles sludge from sewage into organic particulate suspension for supplying Replimat systems, as well as clean water for plumbing. -->
+	<ReplimatSewageRecycler.description>Переробляє осад зі стічних вод у суспензію органічних частинок для постачання систем Реплімат, а також чисту воду для сантехніки.</ReplimatSewageRecycler.description>
+
+</LanguageData>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- EN: ate synthmeat -->
+	<Thought_AteSynthmeat.stages.ate_synthmeat.label>з'їдено синтетичне м'ясо</Thought_AteSynthmeat.stages.ate_synthmeat.label>
+	
+	<!-- EN: I had to eat synthmeat intended for feeding animals. It's like I don't get to be human any more. -->
+	<Thought_AteSynthmeat.stages.ate_synthmeat.description>Довелося їсти синтетичне м'ясо, призначене для годування тварин. Немов я вже не вважаюся за людину.</Thought_AteSynthmeat.stages.ate_synthmeat.description>
+
+	<!-- EN: recycled corpse into feedstock -->
+	<Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.label>переробив труп на сировину</Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.label>
+
+	<!-- EN: I recycled a dead person into nutrient feedstock. This is disturbing. -->
+	<Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.description>я переробив труп у рідкі поживні речовини. це тривожно.</Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.description>
+
+	<!-- EN: recycled colonist into feedstock -->
+	<Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.label>перероблений труп колоніста на сировину</Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.label>
+
+	<!-- EN: I recycled one of our own dead into nutrient feedstock. Are we so desperate that we can't even afford to give them a proper burial? -->
+	<Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.description>я переробив труп поселенця на рідкі поживні речовини. Невже ми настільки зневірилися, що не можемо шанобливо ховати наших мерців?</Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.description>
+
+	<!-- EN: recycled corpse into feedstock -->
+	<Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.label>переробив труп на сировину</Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.label>
+
+	<!-- EN: Waste not, want not. -->
+	<Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.description>трупи не слід витрачати даремно.</Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.description>
+
+	<!-- EN: we recycled corpse into feedstock -->
+	<Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.label>ми переробили труп на сировину</Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.label>
+
+	<!-- EN: We recycled a dead person into nutrient feedstock. This is disturbing. -->
+	<Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.description>ми переробили труп у рідкі поживні речовини. це тривожно.</Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.description>
+
+	<!-- EN: we recycled colonist into feedstock -->
+	<Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.label>ми переробили труп поселенця на сировину</Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.label>
+
+	<!-- EN: We recycled one of our own dead into nutrient feedstock. Are we so desperate that we can't even afford to give them a proper burial? -->
+	<Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.description>ми переробили поселенець труп у рідкі поживні речовини. Невже ми настільки зневірилися, що не можемо шанобливо ховати наших мерців?</Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.description>
+
+	<!-- EN: we recycled corpse into feedstock -->
+	<Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.label>ми переробили труп на сировину</Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.label>
+
+	<!-- EN: Waste not, want not. -->
+	<Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.description>трупи не слід витрачати даремно.</Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.description>
+</LanguageData>

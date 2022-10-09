@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!-- EN: Replicated Meal -->
+	<ReplicatedMeal>Створювана їжа</ReplicatedMeal>
+
+	<!-- EN: Feedstock stored {0} / {1} L -->
+	<FeedstockStored>сировина що зберігається {0} / {1} L</FeedstockStored>
+
+	<!-- EN: Total feedstock stored {0} / {1} L -->
+	<TotalFeedstockStored>загальна кількість сировини що зберігається {0} / {1} L</TotalFeedstockStored>
+
+	<!-- EN: Replimat Spill -->
+	<LetterLabelReplimatSpill>розлив репімату</LetterLabelReplimatSpill>
+
+	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<LetterTextReplimatSpill>Один {0} розбився, розливши поживні речовини на всі боки.</LetterTextReplimatSpill>
+
+	<!-- EN: Replimat Malfunction -->
+	<LetterLabelReplimatMalfunctionKibble>несправність реплімату</LetterLabelReplimatMalfunctionKibble>
+
+	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
+	<LetterTextReplimatMalfunctionKibble>Один {0} вийшов з ладу, виробляючи велику кількість кормів для тварин.</LetterTextReplimatMalfunctionKibble>
+
+	<!-- EN: Requires connection to Replimat Computer -->	
+	<NotConnectedToComputer>Потребує підключення до комп'ютера реплікатора</NotConnectedToComputer>
+
+	<!-- EN: Insufficient Feedstock -->
+	<NotEnoughFeedstock>недостатня кількість сировини</NotEnoughFeedstock>
+	
+	<!-- EN: Empty -->
+	<CorpseRecyclerEmpty>порожній</CorpseRecyclerEmpty>
+	
+	<!-- EN: Remaining mass: {0} / {1} kg -->
+	<CorpseRecyclerMassRemaining>залишкова маса: {0} / {1} kg</CorpseRecyclerMassRemaining>
+	
+	<!-- EN: Not empty -->
+	<CorpseRecyclerNotEmpty>не порожній</CorpseRecyclerNotEmpty>
+	
+	<!-- EN: Need non-dessicated humanoid corpse -->
+	<CorpseRecyclerNeedValidCorpse>потрібен невисушений людський труп</CorpseRecyclerNeedValidCorpse>
+	
+	<!-- EN: Corpses -->
+	<TabCorpseFilters>труп</TabCorpseFilters>
+	
+	<!-- EN: Running -->
+	<SewageRecyclerRunning>операційний</SewageRecyclerRunning>
+	
+	<!-- EN: Idle -->
+	<SewageRecyclerIdle>бездіяльний</SewageRecyclerIdle>
+
+	<!-- EN: Batch survival meals -->
+	<BatchMakeSurvivalMeals>Зробити сухий пайок</BatchMakeSurvivalMeals>
+
+	<!-- EN: Replicate a batch of Packaged Survival Meals for use in caravans or emergencies. -->
+	<BatchMakeSurvivalMeals_Desc>Розмножити партію сухих пайків для використання в караванах або в надзвичайних ситуаціях.</BatchMakeSurvivalMeals_Desc>
+
+	<!-- EN: Cannot batch replicate survival meals: Terminal has insufficient feedstock, or is not connected to Computer and Feedstock tanks-->
+	<MessageCannotBatchMakeSurvivalMeals>Неможливо повторити партію їжі для виживання: Термінал не має достатньої кількості сировини або не підключений до комп'ютера та резервуарів для сировини.</MessageCannotBatchMakeSurvivalMeals>
+
+	<!-- EN: Batch replicate survival meals\n(Max allowed: {0}) -->	
+	<SetSurvivalMealBatchSize>Зробити сухий пайок\n(максимально допустимий: {0})</SetSurvivalMealBatchSize>
+	
+	<!-- EN: Type: {0} -->	
+	<SetSurvivalMealType>тип: {0}</SetSurvivalMealType>
+	
+	<!-- EN: Switch animal feed -->
+	<CommandGizmoSwitchAnimalFeed_Label>змінити корм для тварин</CommandGizmoSwitchAnimalFeed_Label>
+	
+	<!-- EN: Select what type of animal feed to replicate.\n\nCurrent: {0} -->
+	<CommandGizmoSwitchAnimalFeed_Desc>Виберіть, який вид корму для тварин виготовити.\n\nпоточний тип: {0}</CommandGizmoSwitchAnimalFeed_Desc>
+
+	<!-- EN: Replimat -->
+	<Replimat_SettingsCategory_Heading>реплімат</Replimat_SettingsCategory_Heading>
+
+	<!-- EN: General -->
+	<Replimat_Settings_HeaderGeneral>загальний</Replimat_Settings_HeaderGeneral>
+
+	<!-- EN: Incidents -->
+	<Replimat_Settings_HeaderIncidents>інциденти</Replimat_Settings_HeaderIncidents>
+
+	<!-- EN: Prioritize food quality -->
+	<Replimat_Settings_PrioritizeFoodQuality_Title>надавати пріоритет якості харчових продуктів</Replimat_Settings_PrioritizeFoodQuality_Title>
+
+	<!-- EN: By default, pawns will replicate meals at the highest quality allowed by their current food restriction policy.\n\nDisabling this allows pawns to replicate any random meal within their food restriction policy irrespective of quality. -->
+	<Replimat_Settings_PrioritizeFoodQuality_Desc>За замовчуванням пішаки будуть відтворювати їжу найвищої якості, дозволеної їх поточною політикою обмеження їжі.\n\nВідключення цієї функції дозволяє пішакам відтворювати будь-яку випадкову їжу в рамках їх політики обмеження їжі, незалежно від якості.</Replimat_Settings_PrioritizeFoodQuality_Desc>
+
+	<!-- EN: Replimat Hopper refill threshold -->
+	<Replimat_Settings_HopperRefillThresholdPercent_Title>Реплімат бункер поріг поповнення</Replimat_Settings_HopperRefillThresholdPercent_Title>
+
+	<!-- EN: Sets the threshold at which the Replimat Hopper will be restocked with raw food. -->
+	<Replimat_Settings_HopperRefillThresholdPercent_Desc>Встановлює поріг, при досягненні якого бункер Реплімат буде поповнюватися сирим кормом.</Replimat_Settings_HopperRefillThresholdPercent_Desc>
+
+	<!-- EN: Enable Spills -->
+	<Replimat_Settings_EnableIncidentSpill_Title>Дозволити розливи</Replimat_Settings_EnableIncidentSpill_Title>
+
+	<!-- EN: Allows any Terminal or Animal Feeder to have a small chance of malfunctioning and spilling feedstock. -->
+	<Replimat_Settings_EnableIncidentSpill_Desc>Дозволити будь-якому терміналу або годівниці мати невелику ймовірність неправильної роботи і розливу сировини.</Replimat_Settings_EnableIncidentSpill_Desc>
+
+	<!-- EN: Enable Kibble Malfunctions -->
+	<Replimat_Settings_EnableIncidentKibble_Title>включити несправність корму для домашніх тварин</Replimat_Settings_EnableIncidentKibble_Title>
+
+	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. -->
+	<Replimat_Settings_EnableIncidentKibble_Desc>Дозволяє будь-якому терміналу мати низьку ймовірність виходу з ладу і тиражувати велику кількість корму для домашніх тварин за бажанням.</Replimat_Settings_EnableIncidentKibble_Desc>
+	
+	<!-- EN: Power consumption (Active) -->
+	<Replimat_Stat_ActiveModePowerConsumption_Label>енергоспоживання (активне)</Replimat_Stat_ActiveModePowerConsumption_Label>
+	
+	<!-- EN: The amount of power this building will draw from the power grid while actively running. -->
+	<Replimat_Stat_ActiveModePowerConsumption_Desc>Потужність, споживана цією структурою з електромережі під час активної роботи.</Replimat_Stat_ActiveModePowerConsumption_Desc>
+
+</LanguageData>

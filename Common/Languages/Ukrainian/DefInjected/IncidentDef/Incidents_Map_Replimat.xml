@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- EN: Replimat Spill -->
+	<ReplimatSpill.label>розлив сировини</ReplimatSpill.label>
+	
+	<!-- EN: Replimat Spill -->
+	<ReplimatSpill.letterLabel>розлив сировини</ReplimatSpill.letterLabel>
+	
+	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<ReplimatSpill.letterText>{0} вийшла з ладу, в результаті чого поживна сировина була розлита повсюди.</ReplimatSpill.letterText>
+	
+	<!-- EN: Replimat Malfunction -->
+	<ReplimatMalfunctionKibble.label>Поток сырья</ReplimatMalfunctionKibble.label>
+	
+	<!-- EN: Replimat Malfunction -->
+	<ReplimatMalfunctionKibble.letterLabel>Поток сырья</ReplimatMalfunctionKibble.letterLabel>
+	
+	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
+	<ReplimatMalfunctionKibble.letterText>{0} вийшов з ладу, в результаті чого несподівано було вироблено велику партію корму для домашніх тварин.</ReplimatMalfunctionKibble.letterText>
+</LanguageData>

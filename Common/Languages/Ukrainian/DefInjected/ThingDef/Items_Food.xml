@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- EN: synthmeat -->
+	<Replimat_Synthmeat.label>синтетичне м'ясо</Replimat_Synthmeat.label>
+
+	<!-- EN: Synthetic meat fortified with micronutrients, optimized for consumption by carnivorous pet and livestock animals. Humans can eat it, but they really, really don't like it. -->
+	<Replimat_Synthmeat.description>синтетичне м'ясо, що містить мікроелементи, для годівлі хижих домашніх і сільськогосподарських тварин. Може бути з'їдений і людиною, але, повірте, це їй не сподобається.</Replimat_Synthmeat.description>
+	
+</LanguageData>
