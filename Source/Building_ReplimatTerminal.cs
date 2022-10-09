@@ -193,6 +193,11 @@ namespace Replimat
         {
             foreach (Gizmo c in base.GetGizmos())
             {
+                // Hide the hopper build gizmo
+                if (c == BuildCopyCommandUtility.FindAllowedDesignator(ThingDefOf.Hopper))
+                {
+                    continue;
+                }
                 yield return c;
             }
 
