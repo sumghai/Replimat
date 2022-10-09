@@ -114,6 +114,10 @@ namespace Replimat
             return recyclerAllowedCorpses;
         }
 
+        public void Notify_SettingsChanged()
+        { 
+        }
+        
         public override void PostMake()
         {
             base.PostMake();
