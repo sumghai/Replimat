@@ -123,6 +123,7 @@
 		<building>
 			<preventDeteriorationOnTop>true</preventDeteriorationOnTop>
 			<ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+			<storageGroupTag>ReplimatAnimalFeeder</storageGroupTag>
 			<fixedStorageSettings>
 				<priority>Critical</priority>
 				<filter>
@@ -246,6 +247,7 @@
 		<building>
 			<preventDeteriorationOnTop>true</preventDeteriorationOnTop>
 			<ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+			<storageGroupTag>ReplimatHopper</storageGroupTag>
 			<fixedStorageSettings>
 				<priority>Important</priority>
 				<filter>
