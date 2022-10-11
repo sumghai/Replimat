@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		
+			<!-- Remove storage group tag settings introduced in RW 1.4 -->
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/ThingDef[
+					defName="ReplimatAnimalFeeder" or
+					defName="ReplimatHopper"
+				]/building/storageGroupTag</xpath>
+			</li>
+			
+		</operations>
+	</Operation>
+
+</Patch>
