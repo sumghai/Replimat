@@ -9,7 +9,7 @@ using Verse.Sound;
 
 namespace Replimat
 {
-    class Building_ReplimatAnimalFeeder : Building_Storage, IStorageGroupMember
+    class Building_ReplimatAnimalFeeder : Building_Storage
     {
         public static int AnimalFeedReplicateDuration = GenTicks.SecondsToTicks(2f);
 
@@ -24,25 +24,6 @@ namespace Replimat
         public ThingDef CurrentAnimalFeedDef = ThingDefOf.Kibble; // Default is Kibble
 
         public float volumePerAnimalFeed;
-
-        void IStorageGroupMember.SetStorageGroup(StorageGroup group)
-        {
-            if (storageGroup != null)
-            {
-                StorageSettings storeSettings = storageGroup.GetStoreSettings();
-                storageGroup.RemoveMember(this);
-                storageGroup = null;
-                settings.CopyFrom(storeSettings);
-            }
-            if (group != null)
-            {
-                storageGroup = group;
-                storageGroup.members.Add(this);
-                // Synchronize the animal feed type with that of the first Feeder in the storage group
-                Building_ReplimatAnimalFeeder leader = storageGroup.members[0] as Building_ReplimatAnimalFeeder;
-                CurrentAnimalFeedDef = leader.CurrentAnimalFeedDef;
-            }
-        }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
