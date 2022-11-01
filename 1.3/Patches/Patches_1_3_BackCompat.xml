@@ -13,6 +13,11 @@
 				]/building/storageGroupTag</xpath>
 			</li>
 			
+			<!-- Remove researchPrerequisites node for DesignationCategoryDef introduced in RW 1.4 -->
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/DesignationCategoryDef[defName="Replimat_Replimat"]/researchPrerequisites</xpath>
+			</li>
+			
 		</operations>
 	</Operation>
 
