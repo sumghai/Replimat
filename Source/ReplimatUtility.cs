@@ -12,6 +12,8 @@ namespace Replimat
     {
         private const float nutrientFeedStockDensity = 1.07f; // 1.07 kg/L (equivalent to Abbott's Ensure Nutritional Shake)
 
+        private const string replicatedFoodTag = "Replimat_ReplicatedFood";
+
         public static float ConvertMassToFeedstockVolume(float mass) => mass / nutrientFeedStockDensity;
 
         public static float ConvertFeedstockVolumeToMass(float volume) => volume * nutrientFeedStockDensity;
@@ -270,6 +272,16 @@ namespace Replimat
                     compIngredients.ingredients.AddRange(ingredientThingDefs);
                 }
             }
+        }
+
+        public static void TagFoodAsReplicated(Thing meal)
+        {
+            QuestUtility.AddQuestTag(meal, replicatedFoodTag);
+        }
+        
+        public static bool IsReplicatedFood(Thing meal)
+        {
+            return !meal.questTags.NullOrEmpty() && meal.questTags.Contains(replicatedFoodTag);
         }
 
         public static bool TryConsumeFeedstock(this PowerNet net, float feedstockNeeded)

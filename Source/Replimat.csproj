@@ -53,6 +53,7 @@
     <Compile Include="CompStateDependentPowerUse.cs" />
     <Compile Include="GraphicsLoader.cs" />
     <Compile Include="Patches\Harmony_CompPowerTrader_PostSpawnSetup.cs" />
+    <Compile Include="Patches\Harmony_FoodUtility_AddFoodPoisoningHediff.cs" />
     <Compile Include="Patches\Harmony_FoodUtility_BestFoodSourceOnMap.cs" />
     <Compile Include="Patches\Harmony_FoodUtility_FoodOptimality.cs" />
     <Compile Include="Patches\Harmony_FoodUtility_GetFinalIngestibleDef.cs" />

@@ -97,6 +97,8 @@ namespace Replimat
 
             powerComp.PowerNet.TryConsumeFeedstock(ReplimatUtility.ConvertMassToFeedstockVolume(dispensedMealMass));
 
+            ReplimatUtility.TagFoodAsReplicated(dispensedMeal);
+
             return dispensedMeal;
         }
 

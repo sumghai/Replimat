@@ -150,6 +150,7 @@ namespace Replimat
 
                         Thing t = ThingMaker.MakeThing(CurrentAnimalFeedDef, null);
                         t.stackCount = maxAnimFeed;
+                        ReplimatUtility.TagFoodAsReplicated(t);
                         GenPlace.TryPlaceThing(t, Position, Map, ThingPlaceMode.Direct);
                     }
 
