@@ -38,10 +38,10 @@ namespace Replimat
             }
         }
 
-        public bool HasStockFor(ThingDef def)
+        public bool HasStockFor(ThingDef def, int mealCount = 1)
         {
             float totalAvailableFeedstock = powerComp.PowerNet.GetTanks().Sum(x => x.storedFeedstock);
-            float stockNeeded = ReplimatUtility.ConvertMassToFeedstockVolume(def.BaseMass);
+            float stockNeeded = ReplimatUtility.ConvertMassToFeedstockVolume(def.BaseMass * mealCount);
             return totalAvailableFeedstock >= stockNeeded;
         }
 
@@ -64,7 +64,7 @@ namespace Replimat
             return null;
         }
 
-        public Thing TryDispenseFood(Pawn eater, Pawn getter)
+        public Thing TryDispenseFood(Pawn eater, Pawn getter, ThingDef specifiedMeal = null, int mealCount = 1)
         {
             if (getter == null)
             {
@@ -75,13 +75,13 @@ namespace Replimat
                 return null;
             }
 
-            ThingDef meal = ReplimatUtility.PickMeal(eater, getter);
+            ThingDef meal = specifiedMeal != null ? specifiedMeal : ReplimatUtility.PickMeal(eater, getter);
             if (meal == null)
             {
                 return null;
             }
 
-            if (!HasStockFor(meal))
+            if (!HasStockFor(meal, mealCount))
             {
                 return null;
             }
@@ -90,12 +90,13 @@ namespace Replimat
             def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
 
             Thing dispensedMeal = ThingMaker.MakeThing(meal, null);
+            dispensedMeal.stackCount = mealCount;
 
             ReplimatUtility.GenerateIngredients(dispensedMeal, eater);
 
-            float dispensedMealMass = dispensedMeal.def.BaseMass;
+            float dispensedMealMass = dispensedMeal.def.BaseMass * mealCount;
 
-            powerComp.PowerNet.TryConsumeFeedstock(ReplimatUtility.ConvertMassToFeedstockVolume(dispensedMealMass));
+            powerComp.PowerNet.TryConsumeFeedstock(ReplimatUtility.ConvertMassToFeedstockVolume(dispensedMealMass * mealCount));
 
             ReplimatUtility.TagFoodAsReplicated(dispensedMeal);
 
