@@ -90,6 +90,13 @@ namespace Replimat
                 // (Survival meals are reserved for caravans, as per custom gizmo)
                 allowedMeals.RemoveAll((ThingDef d) => GetSurvivalMealChoices().Contains(d));
 
+                // Manually remove baby food if current pawn is not a baby
+				// (XPATH patching disallowedMeals in CompProperties_ReplimatRestrictions would prevent babies getting baby food)
+                if (ModsConfig.BiotechActive && !eater.DevelopmentalStage.Baby())
+                {
+                    allowedMeals.Remove(ThingDefOf.BabyFood);
+                }
+
                 // Remove meals from a blacklist (stored in the Replimat Computer)
                 allowedMeals.RemoveAll((ThingDef d) => replimatRestrictions.disallowedMeals.Contains(d));
 
