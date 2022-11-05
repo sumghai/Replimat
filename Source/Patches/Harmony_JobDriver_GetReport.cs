@@ -12,7 +12,7 @@ namespace Replimat.Patches
         {
             Job job = ___pawn.CurJob;
             
-            if (job.def.reportString == JobDefOf.BottleFeedBaby.reportString && job.targetB.Thing is Building_ReplimatTerminal)
+            if (job.def.reportString == JobDefOf.BottleFeedBaby?.reportString && job.targetB.Thing is Building_ReplimatTerminal)
             {
                 __result = job.def.reportString.Replace("TargetA", job.targetA.Thing.LabelShort).Replace("TargetB", "ReplicatedFoodPrefix".Translate() + ThingDefOf.BabyFood.label);
             }
