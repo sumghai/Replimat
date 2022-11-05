@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using Verse;
 
-namespace Replimat.Patches
+namespace Replimat
 {
     // Change the temperature of cells occupied by Replimat Hoppers (as needed)
 	[HarmonyPatch(typeof(GenTemperature), nameof(GenTemperature.GetTemperatureForCell))]

@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using RimWorld;
 
-namespace Replimat.Patches
+namespace Replimat
 {
 	// Register newly-spawned Replimat Hoppers to the cache
 	[HarmonyPatch(typeof(CompPowerTrader), nameof(CompPowerTrader.PostSpawnSetup))]

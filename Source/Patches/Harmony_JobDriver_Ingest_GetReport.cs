@@ -3,7 +3,7 @@ using RimWorld;
 using Verse;
 using Verse.AI;
 
-namespace Replimat.Patches
+namespace Replimat
 {
     [HarmonyPatch(typeof(JobDriver_Ingest), nameof(JobDriver_Ingest.GetReport))]
     public static class Harmony_JobDriver_Ingest_GetReport

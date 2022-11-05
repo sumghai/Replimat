@@ -2,7 +2,7 @@
 using RimWorld;
 using Verse;
 
-namespace Replimat.Patches
+namespace Replimat
 {
     // Remove Replimat Hoppers from the cache when they are despawned
     [HarmonyPatch(typeof(ThingWithComps), nameof(ThingWithComps.DeSpawn))]

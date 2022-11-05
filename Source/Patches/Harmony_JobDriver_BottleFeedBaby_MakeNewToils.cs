@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Verse;
 using Verse.AI;
 
-namespace Replimat.Patches
+namespace Replimat
 {
     [HarmonyPatch(typeof(JobDriver_BottleFeedBaby), nameof(JobDriver_BottleFeedBaby.MakeNewToils))]
     public static class Harmony_JobDriver_BottleFeedBaby_MakeNewToils

@@ -2,7 +2,7 @@
 using RimWorld;
 using Verse;
 
-namespace Replimat.Patches
+namespace Replimat
 {
     public static class Harmony_StoreUtility_NoStorageBlockersIn
     {

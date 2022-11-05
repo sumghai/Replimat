@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using Verse;
 
-namespace Replimat.Patches
+namespace Replimat
 {
     
     // Setup Replimat Hopper cache for each game map

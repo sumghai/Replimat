@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using Verse;
 
-namespace Replimat.Patches
+namespace Replimat
 {
     [HarmonyPatch(typeof(ThingListGroupHelper), nameof(ThingListGroupHelper.Includes))]
     public static class Harmony_ThingListGroupHelper_Includes

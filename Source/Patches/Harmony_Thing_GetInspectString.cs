@@ -2,7 +2,7 @@
 using System.Text;
 using Verse;
 
-namespace Replimat.Patches
+namespace Replimat
 {
     [HarmonyPatch(typeof(ThingWithComps), nameof(ThingWithComps.GetInspectString))]
     public static class Harmony_Thing_GetInspectString

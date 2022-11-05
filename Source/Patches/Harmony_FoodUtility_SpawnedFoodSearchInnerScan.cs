@@ -4,7 +4,7 @@ using System;
 using Verse;
 using Verse.AI;
 
-namespace Replimat.Patches
+namespace Replimat
 {
     [HarmonyPatch(typeof(FoodUtility), nameof(FoodUtility.SpawnedFoodSearchInnerScan))]
     public static class Harmony_FoodUtility_SpawnedFoodSearchInnerScan

@@ -36,21 +36,21 @@
     <RootNamespace>Replimat</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Building_ReplimatAnimalFeeder.cs" />
-    <Compile Include="Building_ReplimatCorpseRecycler.cs" />
-    <Compile Include="Building_ReplimatFeedTank.cs" />
-    <Compile Include="Building_ReplimatComputer.cs" />
-    <Compile Include="Building_ReplimatHopper.cs" />
-    <Compile Include="Building_ReplimatSewageRecycler.cs" />
-    <Compile Include="Building_ReplimatTerminal.cs" />
-    <Compile Include="CompProperties_ReplimatRestrictions.cs" />
-    <Compile Include="CompReplimatRestrictions.cs" />
+    <Compile Include="Buildings\Building_ReplimatAnimalFeeder.cs" />
+    <Compile Include="Buildings\Building_ReplimatCorpseRecycler.cs" />
+    <Compile Include="Buildings\Building_ReplimatFeedTank.cs" />
+    <Compile Include="Buildings\Building_ReplimatComputer.cs" />
+    <Compile Include="Buildings\Building_ReplimatHopper.cs" />
+    <Compile Include="Buildings\Building_ReplimatSewageRecycler.cs" />
+    <Compile Include="Buildings\Building_ReplimatTerminal.cs" />
+    <Compile Include="Comps\CompProperties_ReplimatRestrictions.cs" />
+    <Compile Include="Comps\CompReplimatRestrictions.cs" />
     <Compile Include="Dialog_BatchMakeSurvivalMeals.cs" />
     <Compile Include="ModCompatibility.cs" />
-    <Compile Include="CompProperties_SecondLayer.cs" />
-    <Compile Include="CompProperties_StateDependentPowerUse.cs" />
-    <Compile Include="CompSecondLayer.cs" />
-    <Compile Include="CompStateDependentPowerUse.cs" />
+    <Compile Include="Comps\CompProperties_SecondLayer.cs" />
+    <Compile Include="Comps\CompProperties_StateDependentPowerUse.cs" />
+    <Compile Include="Comps\CompSecondLayer.cs" />
+    <Compile Include="Comps\CompStateDependentPowerUse.cs" />
     <Compile Include="GraphicsLoader.cs" />
     <Compile Include="Patches\Harmony_CompPowerTrader_PostSpawnSetup.cs" />
     <Compile Include="Patches\Harmony_FoodUtility_AddFoodPoisoningHediff.cs" />
@@ -75,10 +75,10 @@
     <Compile Include="Patches\Harmony_Thing_GetInspectString.cs" />
     <Compile Include="Patches\Harmony_Toils_Ingest_TakeMealFromDispenser.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="IncidentWorker_ReplimatMalfunctionKibble.cs" />
-    <Compile Include="IncidentWorker_ReplimatSpill.cs" />
+    <Compile Include="Incidents\IncidentWorker_ReplimatMalfunctionKibble.cs" />
+    <Compile Include="Incidents\IncidentWorker_ReplimatSpill.cs" />
     <Compile Include="ITab_CorpseFilters.cs" />
-    <Compile Include="JobDriver_LoadReplimatCorpseRecycler.cs" />
+    <Compile Include="Jobs\JobDriver_LoadReplimatCorpseRecycler.cs" />
     <Compile Include="Multiplayer.cs" />
     <Compile Include="ReplimatMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,7 +86,7 @@
     <Compile Include="ReplimatUtility.cs" />
     <Compile Include="SymbolResolver_LoadCorpseIntoReplimatCorpseRecycler.cs" />
     <Compile Include="ReplimatWidgets.cs" />
-    <Compile Include="WorkGiver_LoadReplimatCorpseRecycler.cs" />
+    <Compile Include="Jobs\WorkGiver_LoadReplimatCorpseRecycler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.2.2.0, Culture=neutral, processorArchitecture=MSIL">

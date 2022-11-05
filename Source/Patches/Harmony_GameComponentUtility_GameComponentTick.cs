@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using Verse;
 
-namespace Replimat.Patches
+namespace Replimat
 {
 	// Update the Replimat Hopper grid periodically for power state changes
 	[HarmonyPatch(typeof(GameComponentUtility), nameof(GameComponentUtility.GameComponentTick))]

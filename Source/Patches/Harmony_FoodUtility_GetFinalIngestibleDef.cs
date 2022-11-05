@@ -2,7 +2,7 @@
 using RimWorld;
 using Verse;
 
-namespace Replimat.Patches
+namespace Replimat
 {
     [HarmonyPatch(typeof(FoodUtility), nameof(FoodUtility.GetFinalIngestibleDef))]
     public static class Harmony_FoodUtility_GetFinalIngestibleDef

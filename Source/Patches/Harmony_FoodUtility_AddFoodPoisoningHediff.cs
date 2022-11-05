@@ -2,7 +2,7 @@
 using RimWorld;
 using Verse;
 
-namespace Replimat.Patches
+namespace Replimat
 {
     // Skip adding food poisoning hediff for replicated food
     [HarmonyPatch(typeof(FoodUtility), nameof(FoodUtility.AddFoodPoisoningHediff))]

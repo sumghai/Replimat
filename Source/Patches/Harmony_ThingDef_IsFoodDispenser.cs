@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using Verse;
 
-namespace Replimat.Patches
+namespace Replimat
 {
     [HarmonyPatch(typeof(ThingDef), nameof(ThingDef.IsFoodDispenser), MethodType.Getter)]
     public static class Harmony_ThingDef_IsFoodDispenser

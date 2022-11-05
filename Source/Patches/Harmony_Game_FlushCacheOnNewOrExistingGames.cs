@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using Verse;
 
-namespace Replimat.Patches
+namespace Replimat
 {
     // Flush the Replimat Hopper caches when loading new or existing games
     [HarmonyPatch(typeof(Game), nameof(Game.LoadGame))]
