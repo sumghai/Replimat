@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
+	<!-- EN: replicated -->
+	<ReplicatedFoodPrefix>レプリマット合成な</ReplicatedFoodPrefix>
+
 	<!-- EN: replicated meal -->
 	<ReplicatedMeal>レプリマット合成な食事</ReplicatedMeal>
 	

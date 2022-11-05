@@ -64,6 +64,7 @@
     <Compile Include="Patches\Harmony_JobDriver_BottleFeedBaby_MakeNewToils.cs" />
     <Compile Include="Patches\Harmony_JobDriver_FoodDeliver_GetReport.cs" />
     <Compile Include="Patches\Harmony_JobDriver_FoodFeedPatient_GetReport.cs" />
+    <Compile Include="Patches\Harmony_JobDriver_GetReport.cs" />
     <Compile Include="Patches\Harmony_JobDriver_Ingest_GetReport.cs" />
     <Compile Include="Patches\Harmony_Map_ConstructComponents.cs" />
     <Compile Include="Patches\Harmony_StorageGroupUtility_SetStorageGroup.cs" />

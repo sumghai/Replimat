@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
+	<!-- EN: replicated -->
+	<ReplicatedFoodPrefix>복제한 </ReplicatedFoodPrefix>
+
 	<!-- EN: replicated meal -->
 	<ReplicatedMeal>복제한 식사</ReplicatedMeal>
 
