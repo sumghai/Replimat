@@ -189,7 +189,10 @@ namespace Replimat
             powerComp.PowerNet.TryConsumeFeedstock(x * volumeOfFeedstockRequired);
             Thing t = ThingMaker.MakeThing(survivalMealDef, null);
             t.stackCount = x;
-            GenPlace.TryPlaceThing(t, InteractionCell, Map, ThingPlaceMode.Near);
+            GenPlace.TryPlaceThing(t, InteractionCell, Map, ThingPlaceMode.Near, delegate(Thing t, int i)
+            {
+                ReplimatUtility.TagFoodAsReplicated(t);
+            });
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
