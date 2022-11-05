@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-	<!-- EN: Replicated Meal -->
-	<ReplicatedMeal>Створювана їжа</ReplicatedMeal>
+	<!-- EN: replicated meal -->
+	<ReplicatedMeal>cтворювана їжа</ReplicatedMeal>
 
 	<!-- EN: Feedstock stored {0} / {1} L -->
 	<FeedstockStored>сировина що зберігається {0} / {1} L</FeedstockStored>
