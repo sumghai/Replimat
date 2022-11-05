@@ -2,10 +2,10 @@
 <LanguageData>
 
 	<!-- EN: replicated -->
-	<ReplicatedFoodPrefix>cтворювана </ReplicatedFoodPrefix>
+	<ReplicatedFoodPrefix>тиражовану </ReplicatedFoodPrefix>
 
 	<!-- EN: replicated meal -->
-	<ReplicatedMeal>cтворювана їжа</ReplicatedMeal>
+	<ReplicatedMeal>тиражовану їжа</ReplicatedMeal>
 
 	<!-- EN: Feedstock stored {0} / {1} L -->
 	<FeedstockStored>сировина що зберігається {0} / {1} L</FeedstockStored>
