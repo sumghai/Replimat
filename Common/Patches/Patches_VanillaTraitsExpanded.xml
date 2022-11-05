@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Traits Expanded</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<!-- Mark selected VTE traits as capable of triggering the "ate replicated food" thought -->
+				
+				<li Class="PatchOperationConditional">
+					<!-- Check that sensitiveTasterTraits node actually exists (RW 1.4 and above) -->
+					<xpath>Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]/sensitiveTasterTraits</xpath>
+					<match Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]/sensitiveTasterTraits</xpath>
+						<value>
+							<li>VTE_Gastronomist</li>
+							<li>VTE_RefinedPalate</li>
+						</value>
+					</match>
+				</li>
+
+			</operations>
+		</match>
+	</Operation>
+</Patch>
