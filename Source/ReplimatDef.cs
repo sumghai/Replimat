@@ -22,6 +22,7 @@ namespace Replimat
         public static ThingDef RawFungus;
         public static ThingDef Meat_Megaspider;
 
+        public static ThoughtDef Thought_AteReplicatedFood;
         public static ThoughtDef Thought_RecycledStrangerCorpseInReplimat;
         public static ThoughtDef Thought_RecycledColonistCorpseInReplimat;
         public static ThoughtDef Thought_RecycledCorpseInReplimatPsychopath;

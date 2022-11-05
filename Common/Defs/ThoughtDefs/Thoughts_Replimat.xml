@@ -2,6 +2,22 @@
 <Defs>
 
 	<ThoughtDef>
+		<defName>Thought_AteReplicatedFood</defName>
+		<showBubble>true</showBubble>
+		<icon>Things/Mote/ThoughtSymbol/Food</icon>
+		<durationDays>0.5</durationDays>
+		<stackedEffectMultiplier>1</stackedEffectMultiplier>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>ate replicated food</label>
+				<description>For some reason, this meal tastes a bit...off.</description>
+				<baseMoodEffect>-1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
 		<defName>Thought_AteSynthmeat</defName>
 		<showBubble>true</showBubble>
 		<icon>Things/Mote/ThoughtSymbol/Food</icon>

@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+
+	<!-- EN: ate replicated food -->
+	<Thought_AteReplicatedFood.stages.ate_replicated_food.label>Aß replizierte lebensmittel</Thought_AteReplicatedFood.stages.ate_replicated_food.label>
+	
+	<!-- EN: For some reason, this meal tastes a bit...off. -->
+	<Thought_AteReplicatedFood.stages.ate_replicated_food.description>Aus irgendeinem Grund schmeckt es ein wenig...daneben.</Thought_AteReplicatedFood.stages.ate_replicated_food.description>
+	
 	<!-- EN: ate synthmeat -->
 	<Thought_AteSynthmeat.stages.ate_synthmeat.label>Aß Synthetikfleisch</Thought_AteSynthmeat.stages.ate_synthmeat.label>
 	

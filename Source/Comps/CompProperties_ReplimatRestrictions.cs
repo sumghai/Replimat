@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System.Collections.Generic;
 using Verse;
 
 namespace Replimat
@@ -10,6 +11,8 @@ namespace Replimat
         public List<ThingDef> disallowedIngredients = null;
 
         public List<ThingDef> batchReplicableSurvivalMeals = null;
+
+        public List<TraitDef> sensitiveTasterTraits = null;
 
         public CompProperties_ReplimatRestrictions()
         {

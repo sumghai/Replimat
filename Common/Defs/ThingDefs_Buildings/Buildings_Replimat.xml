@@ -442,6 +442,10 @@
 				<batchReplicableSurvivalMeals>
 					<li>MealSurvivalPack</li>
 				</batchReplicableSurvivalMeals>
+				<!-- Pawn traits that would trigger a mood debuff from eating replicated meals -->
+				<sensitiveTasterTraits>
+					<li>Gourmand</li>
+				</sensitiveTasterTraits>
 			</li>
 		</comps>
 	</ThingDef>

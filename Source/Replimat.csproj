@@ -58,6 +58,7 @@
     <Compile Include="Patches\Harmony_FoodUtility_FoodOptimality.cs" />
     <Compile Include="Patches\Harmony_FoodUtility_GetFinalIngestibleDef.cs" />
     <Compile Include="Patches\Harmony_FoodUtility_SpawnedFoodSearchInnerScan.cs" />
+    <Compile Include="Patches\Harmony_FoodUtility_ThoughtsFromIngesting.cs" />
     <Compile Include="Patches\Harmony_GameComponentUtility_GameComponentTick.cs" />
     <Compile Include="Patches\Harmony_Game_FlushCacheOnNewOrExistingGames.cs" />
     <Compile Include="Patches\Harmony_GenTemperature_GetTemperatureForCell.cs" />
