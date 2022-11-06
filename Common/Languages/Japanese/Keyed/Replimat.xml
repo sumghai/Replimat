@@ -72,6 +72,9 @@
 	
 	<!-- EN: Select what type of animal feed to replicate.\n\nCurrent: {0} -->
 	<CommandGizmoSwitchAnimalFeed_Desc>複製する動物飼料の種類を選択します。\n\n現在の飼料: {0}</CommandGizmoSwitchAnimalFeed_Desc>
+	
+	<!-- EN: {PAWN_possessive} palate is also sensitive enough to distinguish between replicated and real food, and {PAWN_pronoun} prefers the genuine article. -->
+	<AteReplicatedMealTraitDescAppendix>{PAWN_possessive}味覚も、レプリマット合成と本物の食べ物を区別できるほど敏感で、{PAWN_pronoun}は本物を好みます。</AteReplicatedMealTraitDescAppendix>
 
 	<!-- EN: Replimat -->
 	<Replimat_SettingsCategory_Heading>レプリマット</Replimat_SettingsCategory_Heading>

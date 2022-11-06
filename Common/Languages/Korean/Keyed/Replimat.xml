@@ -72,6 +72,9 @@
 	
 	<!-- EN: Select what type of animal feed to replicate.\n\nCurrent: {0} -->
 	<CommandGizmoSwitchAnimalFeed_Desc>복제할 동물 사료의 유형을 선택합니다.\n\n현재 동물 사료를: {0}</CommandGizmoSwitchAnimalFeed_Desc>
+	
+	<!-- EN: {PAWN_possessive} palate is also sensitive enough to distinguish between replicated and real food, and {PAWN_pronoun} prefers the genuine article. -->
+	<AteReplicatedMealTraitDescAppendix>{PAWN_possessive} 미각도 복제 식품과 실제 식품을 구분할 만큼 민감하며 {PAWN_pronoun}은 정품을 선호합니다.</AteReplicatedMealTraitDescAppendix>
 
 	<!-- EN: Replimat -->
 	<Replimat_SettingsCategory_Heading>레플리매트</Replimat_SettingsCategory_Heading>

@@ -72,6 +72,9 @@
 	
 	<!-- EN: Select what type of animal feed to replicate.\n\nCurrent: {0} -->
 	<CommandGizmoSwitchAnimalFeed_Desc>Entscheide, welches Tierfutter repliziert wird\n\nAktuell: {0}</CommandGizmoSwitchAnimalFeed_Desc>
+	
+	<!-- EN: {PAWN_possessive} palate is also sensitive enough to distinguish between replicated and real food, and {PAWN_pronoun} prefers the genuine article. -->
+	<AteReplicatedMealTraitDescAppendix>{PAWN_possessive} gaumen ist auch empfindlich genug, um zwischen replizierte und echten Lebensmitteln zu unterscheiden, und {PAWN_pronoun} bevorzugt den echten artikel.</AteReplicatedMealTraitDescAppendix>
 
 	<!-- EN: Replimat -->
 	<Replimat_SettingsCategory_Heading>Replikator</Replimat_SettingsCategory_Heading>

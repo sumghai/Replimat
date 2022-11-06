@@ -72,6 +72,9 @@
 
 	<!-- EN: Select what type of animal feed to replicate.\n\nCurrent: {0} -->
 	<CommandGizmoSwitchAnimalFeed_Desc>Vyberte, jaký typ krmiva pro zvířata chcete replikovat.\n\Současný: {0}</CommandGizmoSwitchAnimalFeed_Desc>
+	
+	<!-- EN: {PAWN_possessive} palate is also sensitive enough to distinguish between replicated and real food, and {PAWN_pronoun} prefers the genuine article. -->
+	<AteReplicatedMealTraitDescAppendix>{PAWN_possessive} chuťové buňky jsou také dostatečně citlivé na to, aby rozlišily mezi replikovaným a skutečným jídlem, a {PAWN_pronoun} dává přednost pravému zboží.</AteReplicatedMealTraitDescAppendix>
 
 	<!-- EN: Replimat -->
 	<Replimat_SettingsCategory_Heading>Replimatu</Replimat_SettingsCategory_Heading>

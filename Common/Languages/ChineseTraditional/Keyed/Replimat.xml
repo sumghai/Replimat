@@ -72,6 +72,9 @@
 	
 	<!-- EN: Select what type of animal feed to replicate.\n\nCurrent: {0} -->
 	<CommandGizmoSwitchAnimalFeed_Desc>切換本合成器所複製的飼料。\n\n當前飼料: {0}</CommandGizmoSwitchAnimalFeed_Desc>
+	
+	<!-- EN: {PAWN_possessive} palate is also sensitive enough to distinguish between replicated and real food, and {PAWN_pronoun} prefers the genuine article. -->
+	<AteReplicatedMealTraitDescAppendix>{PAWN_possessive}味覺也夠敏感到可以區分複制的和真實的食物，所以{PAWN_pronoun}比較喜歡正品。</AteReplicatedMealTraitDescAppendix>
 
 	<!-- EN: Replimat -->
 	<Replimat_SettingsCategory_Heading>食品合成系統</Replimat_SettingsCategory_Heading>

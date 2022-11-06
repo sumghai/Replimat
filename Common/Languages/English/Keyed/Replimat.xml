@@ -37,6 +37,8 @@
 	<CommandGizmoSwitchAnimalFeed_Label>Switch animal feed</CommandGizmoSwitchAnimalFeed_Label>
 	<CommandGizmoSwitchAnimalFeed_Desc>Select what type of animal feed to replicate.\n\nCurrent: {0}</CommandGizmoSwitchAnimalFeed_Desc>
 	
+	<AteReplicatedMealTraitDescAppendix>{PAWN_possessive} palate is also sensitive enough to distinguish between replicated and real food, and {PAWN_pronoun} prefers the genuine article.</AteReplicatedMealTraitDescAppendix>
+	
 	<Replimat_SettingsCategory_Heading>Replimat</Replimat_SettingsCategory_Heading>
 	
 	<Replimat_Settings_HeaderGeneral>General</Replimat_Settings_HeaderGeneral>

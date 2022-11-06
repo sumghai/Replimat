@@ -75,6 +75,7 @@
     <Compile Include="Patches\Harmony_ThingWithComps_DeSpawn.cs" />
     <Compile Include="Patches\Harmony_Thing_GetInspectString.cs" />
     <Compile Include="Patches\Harmony_Toils_Ingest_TakeMealFromDispenser.cs" />
+    <Compile Include="Patches\Harmony_Trait_TipString.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Incidents\IncidentWorker_ReplimatMalfunctionKibble.cs" />
     <Compile Include="Incidents\IncidentWorker_ReplimatSpill.cs" />
