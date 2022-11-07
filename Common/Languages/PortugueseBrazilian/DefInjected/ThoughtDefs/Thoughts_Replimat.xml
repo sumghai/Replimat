@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!-- EN: ate replicated food -->
+	<Thought_AteReplicatedFood.stages.ate_replicated_food.label>comeu alimentos replicados</Thought_AteReplicatedFood.stages.ate_replicated_food.label>
+	
+	<!-- EN: For some reason, this meal tastes a bit...off. -->
+	<Thought_AteReplicatedFood.stages.ate_replicated_food.description>Por alguma razão, esta refeição tem um sabor um pouco...estranho.</Thought_AteReplicatedFood.stages.ate_replicated_food.description>
+	
+	<!-- EN: ate synthmeat -->
+	<Thought_AteSynthmeat.stages.ate_synthmeat.label>comeu sintécarne</Thought_AteSynthmeat.stages.ate_synthmeat.label>
+	
+	<!-- EN: I had to eat synthmeat intended for feeding animals. It's like I don't get to be human any more. -->
+	<Thought_AteSynthmeat.stages.ate_synthmeat.description>Eu tinha que comer carne sintética destinada à alimentação de animais. É como se eu não fosse mais ser humano.</Thought_AteSynthmeat.stages.ate_synthmeat.description>
+
+	<!-- EN: recycled corpse into feedstock -->
+	<Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.label>cadáver reciclado em matéria-prima</Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.label>
+
+	<!-- EN: I recycled a dead person into nutrient feedstock. This is disturbing. -->
+	<Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.description>Reciclei uma pessoa morta como matéria-prima de nutrientes. Isto é perturbador.</Thought_RecycledStrangerCorpseInReplimat.stages.recycled_corpse_into_feedstock.description>
+
+	<!-- EN: recycled colonist into feedstock -->
+	<Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.label>colonizador reciclado em matéria-prima</Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.label>
+
+	<!-- EN: I recycled one of our own dead into nutrient feedstock. Are we so desperate that we can't even afford to give them a proper burial? -->
+	<Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.description>Reciclei um de nossos próprios mortos em matéria-prima nutritiva. Estamos tão desesperados que não podemos sequer dar-lhes um enterro adequado?</Thought_RecycledColonistCorpseInReplimat.stages.recycled_colonist_into_feedstock.description>
+
+	<!-- EN: recycled corpse into feedstock -->
+	<Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.label>cadáver reciclado em matéria-prima</Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.label>
+
+	<!-- EN: Waste not, want not. -->
+	<Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.description>Euem guarda sempre tem.</Thought_RecycledCorpseInReplimatPsychopath.stages.recycled_corpse_into_feedstock.description>
+
+	<!-- EN: we recycled corpse into feedstock -->
+	<Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.label>reciclamos cadáveres em matéria prima</Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.label>
+
+	<!-- EN: We recycled a dead person into nutrient feedstock. This is disturbing. -->
+	<Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.description>Reciclamos uma pessoa morta em matéria prima nutritiva. Isto é perturbador.</Thought_KnowRecycledStrangerCorpseInReplimat.stages.we_recycled_corpse_into_feedstock.description>
+
+	<!-- EN: we recycled colonist into feedstock -->
+	<Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.label>reciclamos o colonizador em matéria-prima</Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.label>
+
+	<!-- EN: We recycled one of our own dead into nutrient feedstock. Are we so desperate that we can't even afford to give them a proper burial? -->
+	<Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.description>Reciclamos um de nossos próprios mortos em matéria-prima nutritiva. Estamos tão desesperados que não podemos sequer dar-lhes um enterro adequado?</Thought_KnowRecycledColonistCorpseInReplimat.stages.we_recycled_colonist_into_feedstock.description>
+
+	<!-- EN: recycled corpse into feedstock -->
+	<Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.label>cadáver reciclado em matéria-prima</Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.label>
+
+	<!-- EN: Waste not, want not. -->
+	<Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.description>Euem guarda sempre tem.</Thought_KnowRecycledCorpseInReplimatPsychopath.stages.we_recycled_corpse_into_feedstock.description>
+	
+</LanguageData>

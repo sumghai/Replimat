@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- EN: Molecular Nutrient Resequencing -->
+	<MolecularNutrientResequencing.label>Resequenciamento de Nutrientes Moleculares</MolecularNutrientResequencing.label>
+	
+	<!-- EN: Construct Replimat systems, advanced versions of nutrient paste dispensers that convert raw nutritive feedstock into a wider variety of high quality meals. Also automatically lays nutrient feedstock pipelines along existing power conduit networks. -->
+	<MolecularNutrientResequencing.description>Construir sistemas Replimat, versões avançadas de dispensadores de pasta de nutrientes que convertem matéria-prima nutritiva crua em uma variedade mais ampla de refeições de alta qualidade. Também estabelece automaticamente tubulações de matéria-prima nutritiva ao longo das redes de condutos de energia existentes.</MolecularNutrientResequencing.description>
+	
+	<!-- EN: About: Building a Replimat system -->
+	<MolecularNutrientResequencing.discoveredLetterTitle>Sobre: Construindo um sistema Replimat</MolecularNutrientResequencing.discoveredLetterTitle>
+
+	<!-- EN: You now have the technology to build a Replimat system.\n\nA typical Replimat setup requires:\n\n  -One Replimat Computer, to control the entire system\n  -One (or more) Replimat Hoppers(s), to convert raw food into nutrient feedstock\n  -One (or more) Replimat Feedstock Tanks(s), to store the nutrient feedstock\n  -One (or more) Replimat Terminal(s), to serve meals to your colonists\n\nHowever, each Replimat Computer requires a special Isolinear Computing Module component. You can collect Isolinear Computing Modules via the following ways:\n\n  -Orbital or caravan exotic goods traders sell Isolinear Computing Modules. Invite or wait for them.\n  -Some quests are rewarded with Isolinear Computing Modules.\n\nOnce you have built a Replimat Computer, you can connect it to multiple Hoppers, Tanks and Terminals via the same power grid to build a comprehensive Replimat system.-->
+	<MolecularNutrientResequencing.discoveredLetterText>Agora você tem a tecnologia para construir um sistema Replimat.\n\nUma configuração típica do Replimat requer:\n\n - Um Computador Replimat, para controlar todo o sistema\n\n - Um (ou mais) alimentador(es) Replimat, para converter alimentos crus em matéria-prima de nutrientes\n\n - Um (ou mais) alimentador(es) Replimat, para armazenar a matéria-prima de nutrientes\n\n - Um (ou mais) Terminal(es) Replimat, para servir refeições a seus colonos\n\nEntretanto, cada Computador Replimat requer um componente especial do Módulo de Computação Isolinear. Você pode coletar Módulos de Computação Isolinear através das seguintes formas:\n\n - Orbital ou caravana comerciantes de mercadorias exóticas vendem Módulos de Computação Isolinear. Convide-os ou espere por eles.\n\n - Algumas missões são recompensadas com Módulos de Computação Isolinear.\n\nUma vez construído um Computador Replimat, você pode conectá-lo a vários Hoppers, Tanques e Terminais através da mesma rede de energia para construir um sistema Replimat abrangente.</MolecularNutrientResequencing.discoveredLetterText>
+	
+</LanguageData>

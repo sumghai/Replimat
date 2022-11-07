@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- EN: Isolinear Computing Module -->
+	<IsolinearModule.label>Módulo de Computação Isolinear</IsolinearModule.label>
+	
+	<!-- EN: A high-density optical data storage and processing module preprogrammed with a library of meal and beverage recipes. The key component of a Replimat Computer. -->
+	<IsolinearModule.description>Um módulo de armazenamento e processamento de dados ópticos de alta densidade, pré-programado com uma biblioteca de receitas de refeições e bebidas. O componente chave de um Computador Replimat.</IsolinearModule.description>
+	
+</LanguageData>

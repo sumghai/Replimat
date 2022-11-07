@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!-- EN: replicated -->
+	<ReplicatedFoodPrefix>replicada </ReplicatedFoodPrefix>
+
+	<!-- EN: replicated meal -->
+	<ReplicatedMeal>refeição replicada</ReplicatedMeal>
+
+	<!-- EN: Feedstock stored {0} / {1} L -->
+	<FeedstockStored>Matéria-prima armazenada  {0} / {1} L</FeedstockStored>
+
+	<!-- EN: Total feedstock stored {0} / {1} L -->
+	<TotalFeedstockStored>Total de matéria-prima armazenada {0} / {1} L</TotalFeedstockStored>
+
+	<!-- EN: Replimat Spill -->
+	<LetterLabelReplimatSpill>Derramamento de Replimat</LetterLabelReplimatSpill>
+
+	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<LetterTextReplimatSpill>Um {0} tem um mau funcionamento, derramando matéria-prima nutriente em todos os lugares.</LetterTextReplimatSpill>
+
+	<!-- EN: Replimat Malfunction -->
+	<LetterLabelReplimatMalfunctionKibble>Mau funcionamento do Replimat</LetterLabelReplimatMalfunctionKibble>
+
+	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
+	<LetterTextReplimatMalfunctionKibble>Um {0} tem um mau funcionamento, produzindo grandes quantidades de ração animal. </LetterTextReplimatMalfunctionKibble>
+
+	<!-- EN: Requires connection to Replimat Computer -->	
+	<NotConnectedToComputer>Requer conexão com o Computador Replimat</NotConnectedToComputer>
+
+	<!-- EN: Insufficient Feedstock -->
+	<NotEnoughFeedstock>Matéria-prima insuficiente</NotEnoughFeedstock>
+	
+	<!-- EN: Empty -->
+	<CorpseRecyclerEmpty>Vazio</CorpseRecyclerEmpty>
+	
+	<!-- EN: Remaining mass: {0} / {1} kg -->
+	<CorpseRecyclerMassRemaining>Massa restante: {0} / {1} kg</CorpseRecyclerMassRemaining>
+	
+	<!-- EN: Not empty -->
+	<CorpseRecyclerNotEmpty>Não vazior</CorpseRecyclerNotEmpty>
+	
+	<!-- EN: Need non-dessicated humanoid corpse -->
+	<CorpseRecyclerNeedValidCorpse>Necessidade de cadáveres humanóides não-dessicados</CorpseRecyclerNeedValidCorpse>
+	
+	<!-- EN: Corpses -->
+	<TabCorpseFilters>Cadáveres</TabCorpseFilters>
+	
+	<!-- EN: Running -->
+	<SewageRecyclerRunning>Em funcionamento</SewageRecyclerRunning>
+	
+	<!-- EN: Idle -->
+	<SewageRecyclerIdle>Ocioso</SewageRecyclerIdle>
+
+	<!-- EN: Batch survival meals -->
+	<BatchMakeSurvivalMeals>Refeição de sobrevivência do lote</BatchMakeSurvivalMeals>
+
+	<!-- EN: Replicate a batch of Packaged Survival Meals for use in caravans or emergencies. -->
+	<BatchMakeSurvivalMeals_Desc>Replicar um lote de refeições de sobrevivência embaladas para uso em caravanas ou emergências.</BatchMakeSurvivalMeals_Desc>
+
+	<!-- EN: Cannot batch replicate survival meals: Terminal has insufficient feedstock, or is not connected to Computer and Feedstock tanks -->
+	<MessageCannotBatchMakeSurvivalMeals>Não é possível replicar refeições de sobrevivência em lote: O terminal não tem matéria-prima suficiente, ou não está conectado a tanques de computador e de matéria-prima</MessageCannotBatchMakeSurvivalMeals>
+
+	<!-- EN: Batch replicate survival meals\n(Max allowed: {0}) -->	
+	<SetSurvivalMealBatchSize>Refeições de sobrevivência em lote\n(Máx permitido: {0})</SetSurvivalMealBatchSize>
+	
+	<!-- EN: Type: {0} -->	
+	<SetSurvivalMealType>Tipo: {0}</SetSurvivalMealType>
+	
+	<!-- EN: Switch animal feed -->
+	<CommandGizmoSwitchAnimalFeed_Label>Mudar alimentação animal</CommandGizmoSwitchAnimalFeed_Label>
+	
+	<!-- EN: Select what type of animal feed to replicate.\n\nCurrent: {0} -->
+	<CommandGizmoSwitchAnimalFeed_Desc>Selecione o tipo de alimento animal a ser replicado\n\nAtual: {0}</CommandGizmoSwitchAnimalFeed_Desc>
+	
+	<!-- EN: {PAWN_possessive} palate is also sensitive enough to distinguish between replicated and real food, and {PAWN_pronoun} prefers the genuine article. -->
+	<AteReplicatedMealTraitDescAppendix>{PAWN_possessive} paladar também é sensível o suficiente para distinguir entre comida replicada e real, e {PAWN_pronoun} prefere o artigo genuíno.</AteReplicatedMealTraitDescAppendix>
+
+	<!-- EN: Replimat -->
+	<Replimat_SettingsCategory_Heading>Replimat</Replimat_SettingsCategory_Heading>
+
+	<!-- EN: General -->
+	<Replimat_Settings_HeaderGeneral>Geral</Replimat_Settings_HeaderGeneral>
+
+	<!-- EN: Incidents -->
+	<Replimat_Settings_HeaderIncidents>Incidentes</Replimat_Settings_HeaderIncidents>
+
+	<!-- EN: Prioritize food quality -->
+	<Replimat_Settings_PrioritizeFoodQuality_Title>Priorizar a qualidade dos alimentos</Replimat_Settings_PrioritizeFoodQuality_Title>
+
+	<!-- EN: By default, pawns will replicate meals at the highest quality allowed by their current food restriction policy.\n\nDisabling this allows pawns to replicate any random meal within their food restriction policy irrespective of quality. -->
+	<Replimat_Settings_PrioritizeFoodQuality_Desc>Por padrão, os colonos replicarão refeições com a mais alta qualidade permitida por sua atual política de restrição alimentar.\n\nDesabilitando isto, os colonos poderão replicar qualquer refeição aleatória dentro de sua política de restrição alimentar independentemente da qualidade.</Replimat_Settings_PrioritizeFoodQuality_Desc>
+	
+	<!-- EN: Replimat Hopper refill threshold -->
+	<Replimat_Settings_HopperRefillThresholdPercent_Title>Funil de Replimat limite de refil</Replimat_Settings_HopperRefillThresholdPercent_Title>
+	
+	<!-- EN: Sets the threshold at which the Replimat Hopper will be restocked with raw food. -->
+	<Replimat_Settings_HopperRefillThresholdPercent_Desc>Define o limite no qual o Funil de Replimat será reabastecido com alimentos crus.</Replimat_Settings_HopperRefillThresholdPercent_Desc>
+
+	<!-- EN: Enable Spills -->
+	<Replimat_Settings_EnableIncidentSpill_Title>Permitir derramamentos</Replimat_Settings_EnableIncidentSpill_Title>
+
+	<!-- EN: Allows any Terminal or Animal Feeder to have a small chance of malfunctioning and spilling feedstock. -->
+	<Replimat_Settings_EnableIncidentSpill_Desc>Permite que qualquer Terminal ou Alimentador de animais tenha uma pequena chance de mau funcionamento e derramamento da matéria-prima.</Replimat_Settings_EnableIncidentSpill_Desc>
+
+	<!-- EN: Enable Kibble Malfunctions -->
+	<Replimat_Settings_EnableIncidentKibble_Title>Permitir o mau funcionamento da ração</Replimat_Settings_EnableIncidentKibble_Title>
+
+	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. -->
+	<Replimat_Settings_EnableIncidentKibble_Desc>Permite que qualquer Terminal tenha uma pequena chance de mau funcionamento e reproduza grandes quantidades de ração por sua própria conta.</Replimat_Settings_EnableIncidentKibble_Desc>
+
+	<!-- EN: Power consumption (Active) -->
+	<Replimat_Stat_ActiveModePowerConsumption_Label>Consumo de energia （Ativa)</Replimat_Stat_ActiveModePowerConsumption_Label>
+	
+	<!-- EN: The amount of power this building will draw from the power grid while actively running. -->
+	<Replimat_Stat_ActiveModePowerConsumption_Desc>A quantidade de energia que este edifício irá retirar da rede elétrica enquanto estiver funcionando ativamente.</Replimat_Stat_ActiveModePowerConsumption_Desc>
+	
+</LanguageData>

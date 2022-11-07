@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- EN: Replimat -->
+	<Replimat_Replimat.label>Replimat</Replimat_Replimat.label>
+	
+	<!-- EN: Components to build a food service replicator system. -->
+	<Replimat_Replimat.description>Componentes para construir um sistema replicador de serviços alimentares.</Replimat_Replimat.description>
+	
+</LanguageData>

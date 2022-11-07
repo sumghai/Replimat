@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- EN: Replimat Spill -->
+	<ReplimatSpill.label>Derramamento Replimat</ReplimatSpill.label>
+	
+	<!-- EN: Replimat Spill -->
+	<ReplimatSpill.letterLabel>Derramamento Replimat</ReplimatSpill.letterLabel>
+	
+	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<ReplimatSpill.letterText>Um Terminal Replimat tem um mau funcionamento, derramando matéria-prima nutriente em todos os lugares.</ReplimatSpill.letterText>
+	
+	<!-- EN: Replimat Malfunction -->
+	<ReplimatMalfunctionKibble.label>Mau funcionamento do Replimat</ReplimatMalfunctionKibble.label>
+	
+	<!-- EN: Replimat Malfunction -->
+	<ReplimatMalfunctionKibble.letterLabel>Mau funcionamento do Replimat</ReplimatMalfunctionKibble.letterLabel>
+	
+	<!-- EN: A Replimat Terminal has malfunctioned, producing large quantities of animal feed. -->
+	<ReplimatMalfunctionKibble.letterText>Um Terminal Replimat tem um mau funcionamento, produzindo grandes quantidades de ração animal. </ReplimatMalfunctionKibble.letterText>
+	
+</LanguageData>

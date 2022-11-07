@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- EN: Replimat Terminal -->
+	<ReplimatTerminal.label>Terminal Replimat</ReplimatTerminal.label>
+	
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatTerminal.description>Sintetiza refeições e bebidas através de ressequenciação molecular. Requer uma conexão com um Tanque Replimat Feedstock e um Computador Replimat via conduítes.</ReplimatTerminal.description>
+	
+	<!-- EN: Replimat Animal Feeder -->
+	<ReplimatAnimalFeeder.label>Alimentador de animais Replimat</ReplimatAnimalFeeder.label>
+	
+	<!-- EN: Synthesizes animal feed for pets and other colony animals through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
+	<ReplimatAnimalFeeder.description>Sintetiza a alimentação animal para animais de estimação e outros animais da colônia através de ressequenciação molecular. Requer uma conexão com um Tanque Replimat Feedstock e um Computador Replimat através de conduítes.</ReplimatAnimalFeeder.description>
+	
+	<!-- EN: Replimat Feedstock Tank -->
+	<ReplimatFeedTank.label>Tanque Replimat Feedstock</ReplimatFeedTank.label>
+	
+	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<ReplimatFeedTank.description>Armazena uma suspensão de particulados orgânicos para uso pelos Terminais Replimat. Fornecido por Funil de Replimat.</ReplimatFeedTank.description>
+	
+	<!-- EN: Replimat Hopper -->
+	<ReplimatHopper.label>Funil de Replimat</ReplimatHopper.label>
+	
+	<!-- EN: Holds refrigerated raw food and disassembles it at a molecular level into an organic particulate suspension for supplying Replimat systems. -->	
+	<ReplimatHopper.description>Armazena alimentos crus refrigerados e os desmonta a nível molecular em uma suspensão de partículas orgânicas para fornecer sistemas Replimat.</ReplimatHopper.description>
+	
+	<!-- EN: Replimat Cadaver Processor -->
+	<ReplimatCorpseRecycler.label>Processador de Cadáveres Replimat</ReplimatCorpseRecycler.label>
+
+	<!-- EN: Recycles humanoid corpses in a dignified manner into organic particulate suspension for supplying Replimat systems. -->
+	<ReplimatCorpseRecycler.description>Recicla corpos humanóides de maneira digna em suspensão de partículas orgânicas para o fornecimento de sistemas Replimat.</ReplimatCorpseRecycler.description>
+	
+	<!-- EN: Replimat Computer -->
+	<ReplimatComputer.label>Computador Replimat</ReplimatComputer.label>
+	
+	<!-- EN: Provides a wide range of meal and beverage recipes to all Replimat Terminals. -->
+	<ReplimatComputer.description>Fornece uma ampla gama de receitas de refeições e bebidas para todos os Terminais Replimat.</ReplimatComputer.description>
+	
+</LanguageData>
