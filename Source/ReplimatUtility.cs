@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Verse;
 
 namespace Replimat
@@ -240,15 +241,15 @@ namespace Replimat
                         }
                     }
 
-                    // 2.2 Insect meat loved for meals containing meat
+                    // 2.2 Insect meat loved for meals containing meat or animal products (proteins)
                     if (ideo?.HasPrecept(ReplimatDef.InsectMeatEating_Loved) == true)
                     {
-                        List<ThingDef> existingMeats = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw));
+                        List<ThingDef> existingProteins = ingredientThingDefs.FindAll((ThingDef d) => Regex.IsMatch(d.FirstThingCategory.ToString(), @"^(AnimalProductRaw|Eggs|MeatRaw)", RegexOptions.IgnoreCase));
 
-                        // Replace existing meats with a single instance of insect meat
-                        if (existingMeats.Count > 0)
+                        // Replace existing proteins with a single instance of insect meat
+                        if (existingProteins.Count > 0)
                         {
-                            ingredientThingDefs = ingredientThingDefs.Except(existingMeats).ToList();
+                            ingredientThingDefs = ingredientThingDefs.Except(existingProteins).ToList();
 
                             ingredientThingDefs.Add(ReplimatDef.Meat_Megaspider);
                         }
@@ -258,7 +259,6 @@ namespace Replimat
                     if (ideo?.HasPrecept(ReplimatDef.FungusEating_Preferred) == true)
                     {
                         List<ThingDef> existingPlantFoodRaws = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.PlantFoodRaw) || d.ingestible.foodType == FoodTypeFlags.VegetableOrFruit);
-                        // todo - fix
 
                         // Replace existing raw plant food with a single instance of fungus
                         if (existingPlantFoodRaws.Count > 0)
