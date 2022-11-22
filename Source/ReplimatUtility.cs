@@ -34,7 +34,7 @@ namespace Replimat
         {
             if (!p.IsPrisoner)
             {
-                return p.WillEat(food, getter);
+                return p.WillEat_NewTemp(food, getter);
             }
 
             if (!p.RaceProps.CanEverEat(food))

@@ -4,7 +4,7 @@ using Verse;
 
 namespace Replimat
 {
-    [HarmonyPatch(typeof(FoodUtility), nameof(FoodUtility.BestFoodSourceOnMap))]
+    [HarmonyPatch(typeof(FoodUtility), nameof(FoodUtility.BestFoodSourceOnMap_NewTemp))]
     public static class Harmony_FoodUtility_BestFoodSourceOnMap
     {
         static void Prefix(ref Pawn getter, ref Pawn eater, ref bool allowDispenserFull,
