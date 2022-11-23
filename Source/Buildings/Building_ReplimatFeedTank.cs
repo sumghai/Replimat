@@ -94,7 +94,7 @@ namespace Replimat
             {
                 yield return c;
             }
-            if (Prefs.DevMode)
+            if (DebugSettings.godMode)
             {
                 yield return new Command_Action
                 {
