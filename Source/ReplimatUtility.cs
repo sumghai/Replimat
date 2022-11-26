@@ -33,6 +33,13 @@ namespace Replimat
 
         public static bool RepMatWillEat(Pawn p, ThingDef food, Pawn getter = null)
         {
+            // Skip food with no ingestible XML node
+            // Defensive patch against badly-coded food from third-party mods
+            if (food.ingestible == null)
+            {
+                return false;
+            }
+
             if (!p.IsPrisoner)
             {
                 return p.WillEat_NewTemp(food, getter);
