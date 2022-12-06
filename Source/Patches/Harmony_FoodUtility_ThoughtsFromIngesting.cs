@@ -10,10 +10,10 @@ namespace Replimat
     public static class Harmony_FoodUtility_ThoughtsFromIngesting
     {
         public static void Postfix(ref List<ThoughtFromIngesting> __result, Pawn ingester, Thing foodSource, ThingDef foodDef)
-        { 
+        {
             List<TraitDef> sensitiveTasterTraits = ReplimatDef.ReplimatComputer.GetCompProperties<CompProperties_ReplimatRestrictions>().sensitiveTasterTraits;
 
-            if ((bool)(ingester.story?.traits?.allTraits.Any(x => sensitiveTasterTraits.Any(y => y == x.def))) && ReplimatUtility.IsReplicatedFood(foodSource))
+            if (ingester.story != null && (ingester.story?.traits?.allTraits.Any(x => sensitiveTasterTraits.Any(y => y == x.def)) ?? false) && ReplimatUtility.IsReplicatedFood(foodSource))
             {
                 MeatSourceCategory meatSourceCategory = MeatSourceCategory.NotMeat;
                 meatSourceCategory = ((!foodSource.def.IsCorpse) ? GetMeatSourceCategory(foodDef) : GetMeatSourceCategoryFromCorpse(foodSource));
