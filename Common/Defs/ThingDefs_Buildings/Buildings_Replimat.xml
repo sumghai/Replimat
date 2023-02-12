@@ -54,7 +54,7 @@
 			<!-- Ensures market value is reflected in colony wealth calculations -->
 			<MarketValueIgnoreHp>250000</MarketValueIgnoreHp>
 			<MaxHitPoints>200</MaxHitPoints>
-			<WorkToBuild>5000</WorkToBuild>
+			<WorkToBuild>15000</WorkToBuild>
 			<Flammability>0.3</Flammability>
 			<Beauty>5</Beauty>
 			<Mass>75</Mass>
@@ -113,7 +113,7 @@
 			<!-- Ensures market value is reflected in colony wealth calculations -->
 			<MarketValueIgnoreHp>10000</MarketValueIgnoreHp>
 			<MaxHitPoints>20</MaxHitPoints>
-			<WorkToBuild>2000</WorkToBuild>
+			<WorkToBuild>6000</WorkToBuild>
 			<Flammability>0.3</Flammability>
 			<Beauty>5</Beauty>
 			<Mass>2</Mass>
@@ -192,7 +192,7 @@
 			<!-- Ensures market value is reflected in colony wealth calculations -->
 			<MarketValueIgnoreHp>50000</MarketValueIgnoreHp>
 			<MaxHitPoints>200</MaxHitPoints>
-			<WorkToBuild>3000</WorkToBuild>
+			<WorkToBuild>7500</WorkToBuild>
 			<Flammability>0.3</Flammability>
 			<Beauty>-3</Beauty>
 			<Mass>100</Mass>
@@ -245,7 +245,7 @@
 			<!-- Ensures market value is reflected in colony wealth calculations -->
 			<MarketValueIgnoreHp>400000</MarketValueIgnoreHp>
 			<MaxHitPoints>100</MaxHitPoints>
-			<WorkToBuild>7000</WorkToBuild>
+			<WorkToBuild>30000</WorkToBuild>
 			<Flammability>0.3</Flammability>
 			<Beauty>-2</Beauty>
 			<Mass>150</Mass>
@@ -341,7 +341,7 @@
 			<!-- Ensures market value is reflected in colony wealth calculations -->
 			<MarketValueIgnoreHp>400000</MarketValueIgnoreHp>
 			<MaxHitPoints>150</MaxHitPoints>
-			<WorkToBuild>8000</WorkToBuild>
+			<WorkToBuild>32000</WorkToBuild>
 			<Flammability>0.3</Flammability>
 			<Beauty>1</Beauty>
 			<Mass>250</Mass>
@@ -428,7 +428,7 @@
 			<!-- Ensures market value is reflected in colony wealth calculations -->
 			<MarketValueIgnoreHp>500000</MarketValueIgnoreHp>
 			<MaxHitPoints>400</MaxHitPoints>
-			<WorkToBuild>10000</WorkToBuild>
+			<WorkToBuild>40000</WorkToBuild>
 			<Flammability>0.3</Flammability>
 			<Beauty>-1</Beauty>
 			<Mass>100</Mass>

@@ -34,7 +34,7 @@
 			<!-- Ensures market value is reflected in colony wealth calculations -->
 			<MarketValueIgnoreHp>250000</MarketValueIgnoreHp>
 			<MaxHitPoints>100</MaxHitPoints>
-			<WorkToBuild>7000</WorkToBuild>
+			<WorkToBuild>30000</WorkToBuild>
 			<Flammability>0.3</Flammability>
 			<Beauty>1</Beauty>
 			<Mass>100</Mass>
