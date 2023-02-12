@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
-
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
 		<operations>
+		
+			<!-- Allow exotic traders to stock Isolinear Computing Modules -->
+			
 			<li Class="PatchOperationAdd">
 				<xpath>/Defs/TraderKindDef[
 					defName = "Caravan_Outlander_Exotic" or
@@ -16,7 +18,32 @@
 					</li>
 				</value>
 			</li>
+			
+			<!-- Prevent any traders from selling Replimat buildings -->
+			
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/TraderKindDef/stockGenerators/li[categoryDef="BuildingsFurniture"]/excludedThingDefs</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/TraderKindDef/stockGenerators/li[categoryDef="BuildingsFurniture"]</xpath>
+					<value>
+						<excludedThingDefs/>
+					</value>
+				</nomatch>
+			</li>
+			
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/TraderKindDef/stockGenerators/li[categoryDef="BuildingsFurniture"]/excludedThingDefs</xpath>
+				<value>
+					<li>ReplimatTerminal</li>
+					<li>ReplimatAnimalFeeder</li>
+					<li>ReplimatFeedTank</li>
+					<li>ReplimatHopper</li>
+					<li>ReplimatCorpseRecycler</li>
+					<li>ReplimatComputer</li>
+					<li MayRequire="Dubwise.DubsBadHygiene">ReplimatSewageRecycler</li>
+				</value>
+			</li>
+			
 		</operations>
 	</Operation>
-
 </Patch>
