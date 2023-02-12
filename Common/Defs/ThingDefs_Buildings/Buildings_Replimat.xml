@@ -50,7 +50,9 @@
 		</costList>
 		<fillPercent>1</fillPercent>
 		<statBases>
-			<MarketValue>20000</MarketValue>
+			<MarketValue>250000</MarketValue>
+			<!-- Ensures market value is reflected in colony wealth calculations -->
+			<MarketValueIgnoreHp>250000</MarketValueIgnoreHp>
 			<MaxHitPoints>200</MaxHitPoints>
 			<WorkToBuild>5000</WorkToBuild>
 			<Flammability>0.3</Flammability>
@@ -107,7 +109,9 @@
 		</costList>
 		<fillPercent>0.1</fillPercent>
 		<statBases>
-			<MarketValue>5000</MarketValue>
+			<MarketValue>10000</MarketValue>
+			<!-- Ensures market value is reflected in colony wealth calculations -->
+			<MarketValueIgnoreHp>10000</MarketValueIgnoreHp>
 			<MaxHitPoints>20</MaxHitPoints>
 			<WorkToBuild>2000</WorkToBuild>
 			<Flammability>0.3</Flammability>
@@ -184,7 +188,9 @@
 		</costList>
 		<fillPercent>1</fillPercent>
 		<statBases>
-			<MarketValue>1000</MarketValue>
+			<MarketValue>50000</MarketValue>
+			<!-- Ensures market value is reflected in colony wealth calculations -->
+			<MarketValueIgnoreHp>50000</MarketValueIgnoreHp>
 			<MaxHitPoints>200</MaxHitPoints>
 			<WorkToBuild>3000</WorkToBuild>
 			<Flammability>0.3</Flammability>
@@ -235,7 +241,9 @@
 		</costList>
 		<fillPercent>0.5</fillPercent>
 		<statBases>
-			<MarketValue>30000</MarketValue>
+			<MarketValue>400000</MarketValue>
+			<!-- Ensures market value is reflected in colony wealth calculations -->
+			<MarketValueIgnoreHp>400000</MarketValueIgnoreHp>
 			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>7000</WorkToBuild>
 			<Flammability>0.3</Flammability>
@@ -329,7 +337,9 @@
 		</costList>
 		<fillPercent>0.5</fillPercent>
 		<statBases>
-			<MarketValue>35000</MarketValue>
+			<MarketValue>400000</MarketValue>
+			<!-- Ensures market value is reflected in colony wealth calculations -->
+			<MarketValueIgnoreHp>400000</MarketValueIgnoreHp>
 			<MaxHitPoints>150</MaxHitPoints>
 			<WorkToBuild>8000</WorkToBuild>
 			<Flammability>0.3</Flammability>
@@ -414,7 +424,9 @@
 		</costList>
 		<fillPercent>1</fillPercent>
 		<statBases>
-			<MarketValue>40000</MarketValue>
+			<MarketValue>500000</MarketValue>
+			<!-- Ensures market value is reflected in colony wealth calculations -->
+			<MarketValueIgnoreHp>500000</MarketValueIgnoreHp>
 			<MaxHitPoints>400</MaxHitPoints>
 			<WorkToBuild>10000</WorkToBuild>
 			<Flammability>0.3</Flammability>
