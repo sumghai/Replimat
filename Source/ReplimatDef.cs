@@ -31,6 +31,9 @@ namespace Replimat
         public static ThoughtDef Thought_KnowRecycledCorpseInReplimatPsychopath;
 
         [MayRequireIdeology]
+        public static MemeDef Cannibal;
+
+        [MayRequireIdeology]
         public static PreceptDef InsectMeatEating_Loved;
         [MayRequireIdeology]
         public static PreceptDef FungusEating_Preferred;
