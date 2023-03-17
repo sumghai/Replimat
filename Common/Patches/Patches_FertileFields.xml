@@ -12,12 +12,16 @@
 					<xpath>Defs/ThingDef[defName="ReplimatHopper"]/building/fixedStorageSettings/filter/thingDefs</xpath>
 					<value>
 						<li>PlantScraps</li>
+						<li>RawCompost</li>
+						<li>RottedMush</li>
 					</value>
 				</li>
 				<li Class="PatchOperationAdd">
 					<xpath>Defs/ThingDef[defName="ReplimatHopper"]/building/defaultStorageSettings/filter/thingDefs</xpath>
 					<value>
 						<li>PlantScraps</li>
+						<li>RawCompost</li>
+						<li>RottedMush</li>
 					</value>
 				</li>
 			</operations>
