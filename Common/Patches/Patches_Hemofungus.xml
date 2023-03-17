@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Hemofungus</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<!-- Recategorize Hemogenic Meals as having the generic meal food type so that Replimat can replicate them -->
+
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[
+						@Name="HemogenicMealFineBase" or
+						@Name="HemogenicMealVegetarianFineBase" or
+						@Name="HemogenicMealLavishBase" or
+						@Name="HemogenicMealVegetarianLavishBase"
+					]/ingestible/foodType</xpath>
+					<value>
+						<foodType>Meal</foodType>
+					</value>
+				</li>
+
+			</operations>
+		</match>
+	</Operation>
+</Patch>
