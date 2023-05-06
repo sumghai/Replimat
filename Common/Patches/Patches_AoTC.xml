@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Ambition of the Cosmic</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<li Class="PatchOperationAdd">
+					<xpath>
+						Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]/disallowedMeals</xpath>
+					<value>
+						<li>SNS_Meal_Nutrient_GenI</li>
+						<li>SNS_Meal_Nutrient_GenII</li>
+						<li>SNS_Meal_Nutrient_GenIII</li>
+						<li>SNS_Meal_Normal_GenII</li>
+						<li>SNS_Meal_Normal_GenIII</li>
+					</value>
+				</li>
+
+				<li Class="PatchOperationAdd">
+					<xpath>
+						Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]/batchReplicableSurvivalMeals</xpath>
+					<value>
+						<li>SNS_Meal_Nutrient_GenI</li>
+						<li>SNS_Meal_Nutrient_GenII</li>
+						<li>SNS_Meal_Nutrient_GenIII</li>
+					</value>
+				</li>
+
+			</operations>
+		</match>
+	</Operation>
+</Patch>
