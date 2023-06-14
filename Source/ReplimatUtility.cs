@@ -239,13 +239,10 @@ namespace Replimat
                     {
                         List<ThingDef> existingMeats = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw));
 
-                        // Replace existing meats with a single instance of human meat
-                        if (existingMeats.Count > 0)
-                        {
-                            ingredientThingDefs = ingredientThingDefs.Except(existingMeats).ToList();
+                        // Replace any existing meats with a single instance of human meat
+                        ingredientThingDefs = ingredientThingDefs.Except(existingMeats).ToList();
 
-                            ingredientThingDefs.Add(ThingDefOf.Meat_Human);
-                        }
+                        ingredientThingDefs.Add(ThingDefOf.Meat_Human);
                     }
 
                     // 2.2 Insect meat loved for meals containing meat or animal products (proteins)
@@ -253,13 +250,10 @@ namespace Replimat
                     {
                         List<ThingDef> existingProteins = ingredientThingDefs.FindAll((ThingDef d) => Regex.IsMatch(d.FirstThingCategory.ToString(), @"^(AnimalProductRaw|Eggs|MeatRaw)", RegexOptions.IgnoreCase));
 
-                        // Replace existing proteins with a single instance of insect meat
-                        if (existingProteins.Count > 0)
-                        {
-                            ingredientThingDefs = ingredientThingDefs.Except(existingProteins).ToList();
+                        // Replace any existing proteins with a single instance of insect meat
+                        ingredientThingDefs = ingredientThingDefs.Except(existingProteins).ToList();
 
-                            ingredientThingDefs.Add(ReplimatDef.Meat_Megaspider);
-                        }
+                        ingredientThingDefs.Add(ReplimatDef.Meat_Megaspider);
                     }
 
                     // 2.3 Fungus preferred for meals containing raw plant food
@@ -267,13 +261,10 @@ namespace Replimat
                     {
                         List<ThingDef> existingPlantFoodRaws = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.PlantFoodRaw) || d.ingestible.foodType == FoodTypeFlags.VegetableOrFruit);
 
-                        // Replace existing raw plant food with a single instance of fungus
-                        if (existingPlantFoodRaws.Count > 0)
-                        {
-                            ingredientThingDefs = ingredientThingDefs.Except(existingPlantFoodRaws).ToList();
+                        // Replace any existing raw plant food with a single instance of fungus
+                        ingredientThingDefs = ingredientThingDefs.Except(existingPlantFoodRaws).ToList();
 
-                            ingredientThingDefs.Add(ReplimatDef.RawFungus);
-                        }
+                        ingredientThingDefs.Add(ReplimatDef.RawFungus);
                     }
 
                     // 2.4 Fungus despised for meals containing raw plant food
