@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Glittertech Rations</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="ReplimatComputer"]/comps/li[@Class="Replimat.CompProperties_ReplimatRestrictions"]/batchReplicableSurvivalMeals</xpath>
+                    <value>
+                        <li>GlitterMeal</li>
+                    </value>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+</Patch>
