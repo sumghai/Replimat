@@ -81,7 +81,7 @@ namespace Replimat
                 // (using <compatibility><isFlesh>false</isFlesh></compatibility> for ThingDef_AlienRace )
                 if (ModCompatibility.AlienRacesIsActive)
                 {
-                    IsOrganicFlesh = ModCompatibility.AlienRaceHasOrganicFlesh(corpse.InnerPawn);
+                    IsOrganicFlesh = AlienRacesCompatibility.RaceHasOrganicFlesh(corpse.InnerPawn);
                 }
                 // Otherwise, assume it is a vanilla RimWorld human, which should only have normal flesh
                 else

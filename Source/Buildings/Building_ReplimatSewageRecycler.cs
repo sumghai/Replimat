@@ -47,7 +47,7 @@ namespace Replimat
 
             if (this.IsHashIntervalTick(30))
             {               
-                float sewageAvailable = ModCompatibility.DbhGetAvailableSewage((DubsBadHygiene.CompPipe)pipeComp);
+                float sewageAvailable = DbhCompatibility.GetAvailableSewage((DubsBadHygiene.CompPipe)pipeComp);
 
                 float repFeedstockTanksFreeSpace = 0;
 
@@ -66,7 +66,7 @@ namespace Replimat
                     if (repFeedstockTanksFreeSpace > recoveredSludgeToFeedstockVol)
                     {                      
                         // Withdraw a set amount of sewage from all sewage tanks
-                        ModCompatibility.DbhConsumeSewage((DubsBadHygiene.CompPipe)pipeComp, minSewageVolumeForProcessing);
+                        DbhCompatibility.ConsumeSewage((DubsBadHygiene.CompPipe)pipeComp, minSewageVolumeForProcessing);
 
                         // Add the (converted) sewage solids fraction to feedstock tanks
                         float buffer = recoveredSludgeToFeedstockVol;

@@ -105,7 +105,7 @@ namespace Replimat
             // Remove non-fleshy corpses from filter if Humanoid Alien Races mod is active
             if (ModCompatibility.AlienRacesIsActive)
             {
-                recyclerAllowedCorpses.filter.allowedDefs.RemoveWhere(def => !ModCompatibility.AlienCorpseHasOrganicFlesh(def));
+                recyclerAllowedCorpses.filter.allowedDefs.RemoveWhere(def => !AlienRacesCompatibility.CorpseHasOrganicFlesh(def));
             }
 
             // Remove non-fleshy corpses from filter for non-HAR humanoid robot or hologram races
