@@ -69,6 +69,9 @@
 			<soundDispense>Replicate</soundDispense>
 			<wantsHopperAdjacent>false</wantsHopperAdjacent>
 			<nutritionCostPerDispense>0.3</nutritionCostPerDispense>
+			<buildingTags>
+				<li>VNPE_NoExtractGizmos</li>
+			</buildingTags>
 		</building>
 		<comps>
 			<li Class="CompProperties_Power">
