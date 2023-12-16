@@ -1,7 +1,7 @@
 # Replimat
 Distributed food replicator system for RimWorld
 
-**Author:** sumghai (sumdumghai@gmail.com) and Dubwise
+**Author:** sumghai and Dubwise
 
 **License:** [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](http://www.creativecommons.org/licenses/by-sa/4.0/)
 
