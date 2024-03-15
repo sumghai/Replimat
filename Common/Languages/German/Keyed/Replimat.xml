@@ -90,12 +90,6 @@
 
 	<!-- EN: By default, pawns will replicate meals at the highest quality allowed by their current food restriction policy.\n\nDisabling this allows pawns to replicate any random meal within their food restriction policy irrespective of quality. -->
 	<Replimat_Settings_PrioritizeFoodQuality_Desc>Kolonisten werden standardmäßig die hochwertigste Nahrung replizieren, die ihr Ernährungsplan vorsieht</Replimat_Settings_PrioritizeFoodQuality_Desc>
-	
-	<!-- EN: Replimat Hopper refill threshold -->
-	<Replimat_Settings_HopperRefillThresholdPercent_Title>Mindestmenge Rohnahrung</Replimat_Settings_HopperRefillThresholdPercent_Title>
-	
-	<!-- EN: Sets the threshold at which the Replimat Hopper will be restocked with raw food. -->
-	<Replimat_Settings_HopperRefillThresholdPercent_Desc>Bestimmt die Mindestmenge, zu welcher der Replikator-Trichter aufgefüllt wird</Replimat_Settings_HopperRefillThresholdPercent_Desc>
 
 	<!-- EN: Enable Spills -->
 	<Replimat_Settings_EnableIncidentSpill_Title>Replikator-Lecks zulassen</Replimat_Settings_EnableIncidentSpill_Title>

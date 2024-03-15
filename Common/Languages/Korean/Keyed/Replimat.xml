@@ -91,12 +91,6 @@
 	<!-- EN: By default, pawns will replicate meals at the highest quality allowed by their current food restriction policy\n\nDisabling this allows pawns to replicate any random meal within their food restriction policy irrespective of quality -->
 	<Replimat_Settings_PrioritizeFoodQuality_Desc>기본적으로, 폰들은 현재 식량 정책으로 허용한 최고 품질의 음식을 복제합니다.\n\n이를 해제하면 식량 정책에서 허용된 아무 음식이나 복제할 것입니다.</Replimat_Settings_PrioritizeFoodQuality_Desc>
 
-	<!-- EN: Replimat Hopper refill threshold -->
-	<Replimat_Settings_HopperRefillThresholdPercent_Title>레플리매트 호퍼 보충 임계치</Replimat_Settings_HopperRefillThresholdPercent_Title>
-
-	<!-- EN: Sets the threshold at which the Replimat Hopper will be restocked with raw food -->
-	<Replimat_Settings_HopperRefillThresholdPercent_Desc>레플리매트 호퍼에 재료를 보충할 임계치를 설정합니다.</Replimat_Settings_HopperRefillThresholdPercent_Desc>
-
 	<!-- EN: Enable Spills -->
 	<Replimat_Settings_EnableIncidentSpill_Title>누출 활성화</Replimat_Settings_EnableIncidentSpill_Title>
 

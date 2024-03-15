@@ -91,12 +91,6 @@
 	<!-- EN: By default, pawns will replicate meals at the highest quality allowed by their current food restriction policy.\n\nDisabling this allows pawns to replicate any random meal within their food restriction policy irrespective of quality. -->
 	<Replimat_Settings_PrioritizeFoodQuality_Desc>За замовчуванням пішаки будуть відтворювати їжу найвищої якості, дозволеної їх поточною політикою обмеження їжі.\n\nВідключення цієї функції дозволяє пішакам відтворювати будь-яку випадкову їжу в рамках їх політики обмеження їжі, незалежно від якості.</Replimat_Settings_PrioritizeFoodQuality_Desc>
 
-	<!-- EN: Replimat Hopper refill threshold -->
-	<Replimat_Settings_HopperRefillThresholdPercent_Title>Реплімат бункер поріг поповнення</Replimat_Settings_HopperRefillThresholdPercent_Title>
-
-	<!-- EN: Sets the threshold at which the Replimat Hopper will be restocked with raw food. -->
-	<Replimat_Settings_HopperRefillThresholdPercent_Desc>Встановлює поріг, при досягненні якого бункер Реплімат буде поповнюватися сирим кормом.</Replimat_Settings_HopperRefillThresholdPercent_Desc>
-
 	<!-- EN: Enable Spills -->
 	<Replimat_Settings_EnableIncidentSpill_Title>Дозволити розливи</Replimat_Settings_EnableIncidentSpill_Title>
 
