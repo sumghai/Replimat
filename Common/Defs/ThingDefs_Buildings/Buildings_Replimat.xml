@@ -48,7 +48,7 @@
 			<ComponentSpacer>5</ComponentSpacer>
 			<Plasteel>20</Plasteel>
 		</costList>
-		<fillPercent>1</fillPercent>
+		<fillPercent>0.99</fillPercent>
 		<statBases>
 			<MarketValue>250000</MarketValue>
 			<!-- Ensures market value is reflected in colony wealth calculations -->
@@ -178,6 +178,9 @@
 			<texPath>Things/Building/replimatFeedTank</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(3,3)</drawSize>
+			<shadowData>
+				<volume>(0.8, 1, 0.8)</volume>
+			</shadowData>
 			<damageData>
 				<rect>(0,0,1,1.47)</rect>
 			</damageData>
@@ -189,7 +192,7 @@
 			<ComponentSpacer>1</ComponentSpacer>
 			<Plasteel>75</Plasteel>
 		</costList>
-		<fillPercent>1</fillPercent>
+		<fillPercent>0.99</fillPercent>
 		<statBases>
 			<MarketValue>50000</MarketValue>
 			<!-- Ensures market value is reflected in colony wealth calculations -->
@@ -203,7 +206,6 @@
 		<size>(1,1)</size>
 		<rotatable>false</rotatable>
 		<pathCost>200</pathCost>
-		<staticSunShadowHeight>0.20</staticSunShadowHeight>
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
@@ -225,7 +227,7 @@
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
 			<shadowData>
-				<volume>(2.35,0.5,1.2)</volume>
+				<volume>(2.0,0.5,1.0)</volume>
 				<offset>(0,0,0)</offset>
 			</shadowData>
 			<damageData>
@@ -412,7 +414,7 @@
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
 			<shadowData>
-				<volume>(1.875,1,1)</volume>
+				<volume>(1.875,1,0.9)</volume>
 				<offset>(0,0,0)</offset>
 			</shadowData>
 			<damageData>
@@ -428,7 +430,7 @@
 			<Plasteel>60</Plasteel>
 			<IsolinearModule>1</IsolinearModule>
 		</costList>
-		<fillPercent>1</fillPercent>
+		<fillPercent>0.99</fillPercent>
 		<statBases>
 			<MarketValue>500000</MarketValue>
 			<!-- Ensures market value is reflected in colony wealth calculations -->
