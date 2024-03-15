@@ -281,6 +281,9 @@
 					<thingDefs>
 						<li>Hay</li>
 					</thingDefs>
+					<disallowedCategories>
+						<li>FoodMeals</li>
+					</disallowedCategories>
 				</filter>
 			</defaultStorageSettings>
 			<soundDispense>HopperDematerialize</soundDispense>
