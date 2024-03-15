@@ -40,13 +40,13 @@ namespace Replimat
             wickSustainer = def.building.soundDispense.TrySpawnSustainer(info);
         }
 
-        public override void Draw()
+        public override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
-            base.Draw();
+            base.DrawAt(drawLoc, flip);
 
             if (powerComp.PowerOn)
             {
-                Vector3 replimatHopperScreenGlowDrawPos = DrawPos;
+                Vector3 replimatHopperScreenGlowDrawPos = drawLoc;
                 replimatHopperScreenGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
                 Graphics.DrawMesh(GraphicsLoader.replimatHopperScreenGlow.MeshAt(Rotation), replimatHopperScreenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatHopperScreenGlow.MatAt(Rotation, null), 1), 0);
@@ -67,7 +67,7 @@ namespace Replimat
                 alpha = 1f;
             }
 
-            Vector3 replimatHopperGlowDrawPos = DrawPos;
+            Vector3 replimatHopperGlowDrawPos = drawLoc;
             replimatHopperGlowDrawPos.y = AltitudeLayer.MoteOverhead.AltitudeFor() + 0.03f;
 
             Graphics.DrawMesh(GraphicsLoader.replimatHopperGlow[dematerializingCycleInt].MeshAt(Rotation), replimatHopperGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatHopperGlow[dematerializingCycleInt].MatAt(Rotation, null), alpha), 0);

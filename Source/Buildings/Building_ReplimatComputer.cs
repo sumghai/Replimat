@@ -62,13 +62,13 @@ namespace Replimat
             }
         }
 
-        public override void Draw()
+        public override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
-            base.Draw();
+            base.DrawAt(drawLoc, flip);
 
             if (powerComp.PowerOn && (Rotation == Rot4.North || Rotation == Rot4.South))
             {
-                Vector3 replimatComputerScreenGlowDrawPos = DrawPos;
+                Vector3 replimatComputerScreenGlowDrawPos = drawLoc;
                 replimatComputerScreenGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
                 Graphics.DrawMesh(GraphicsLoader.replimatComputerScreenGlow.MeshAt(Rotation), replimatComputerScreenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatComputerScreenGlow.MatAt(Rotation, null), 1), 0);
@@ -76,7 +76,7 @@ namespace Replimat
 
             GenDraw.FillableBarRequest r = default;
 
-            Vector3 currPos = DrawPos;
+            Vector3 currPos = drawLoc;
 
             currPos.y += 0.1f;
             currPos.z += 0.3f;

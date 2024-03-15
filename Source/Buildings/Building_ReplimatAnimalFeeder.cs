@@ -96,9 +96,9 @@ namespace Replimat
             return totalAvailableFeedstock >= stockNeeded;
         }
 
-        public override void Draw()
+        public override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
-            base.Draw();
+            base.DrawAt(drawLoc, flip);
 
             if (ReplicatingTicks > 0)
             {
@@ -117,7 +117,7 @@ namespace Replimat
                     alpha = 1f;
                 }
 
-                Vector3 replimatAnimalFeederGlowDrawPos = DrawPos;
+                Vector3 replimatAnimalFeederGlowDrawPos = drawLoc;
                 replimatAnimalFeederGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
                 Graphics.DrawMesh(GraphicsLoader.replimatAnimalFeederGlow.MeshAt(Rotation), replimatAnimalFeederGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatAnimalFeederGlow.MatAt(Rotation, null), alpha), 0);

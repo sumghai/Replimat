@@ -150,11 +150,11 @@ namespace Replimat
             wickSustainer = def.building.soundDispense.TrySpawnSustainer(info);
         }
 
-        public override void Draw()
+        public override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
-            base.Draw();
+            base.DrawAt(drawLoc, flip);
 
-            Vector3 replimatCorpseRecyclerGlowDrawPos = DrawPos;
+            Vector3 replimatCorpseRecyclerGlowDrawPos = drawLoc;
             replimatCorpseRecyclerGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
             if (Running)
@@ -219,7 +219,7 @@ namespace Replimat
                         Running = false;
                     }
                 }
-                Map.mapDrawer.MapMeshDirty(Position, MapMeshFlag.Things | MapMeshFlag.Buildings);
+                Map.mapDrawer.MapMeshDirty(Position, MapMeshFlagDefOf.Things | MapMeshFlagDefOf.Buildings);
             }
 
             if (Running)

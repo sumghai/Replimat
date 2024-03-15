@@ -103,13 +103,13 @@ namespace Replimat
             return dispensedMeal;
         }
 
-        public override void Draw()
+        public override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
-            base.Draw();
+            base.DrawAt(drawLoc, flip);
 
             if (powerComp.PowerOn && (Rotation == Rot4.North))
             {
-                Vector3 replimatTerminalScreenGlowDrawPos = DrawPos;
+                Vector3 replimatTerminalScreenGlowDrawPos = drawLoc;
                 replimatTerminalScreenGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
                 Graphics.DrawMesh(GraphicsLoader.replimatTerminalScreenGlow.MeshAt(Rotation), replimatTerminalScreenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatTerminalScreenGlow.MatAt(Rotation, null), 1), 0);
@@ -132,7 +132,7 @@ namespace Replimat
                     alpha = 1f;
                 }
 
-                Vector3 replimatTerminalGlowDrawPos = DrawPos;
+                Vector3 replimatTerminalGlowDrawPos = drawLoc;
                 replimatTerminalGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
                 Graphics.DrawMesh(GraphicsLoader.replimatTerminalGlow.MeshAt(Rotation), replimatTerminalGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatTerminalGlow.MatAt(Rotation, null), alpha), 0);

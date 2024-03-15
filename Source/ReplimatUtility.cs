@@ -42,7 +42,7 @@ namespace Replimat
 
             if (!p.IsPrisoner)
             {
-                return p.WillEat_NewTemp(food, getter);
+                return p.WillEat(food, getter);
             }
 
             if (!p.RaceProps.CanEverEat(food))
@@ -60,7 +60,7 @@ namespace Replimat
                 {
                     return true;
                 }
-                var res = p.foodRestriction.CurrentFoodRestriction;
+                var res = p.foodRestriction.CurrentFoodPolicy;
 
                 if (res != null && !res.Allows(food) && (food.IsWithinCategory(ThingCategoryDefOf.Foods) || food.IsWithinCategory(ThingCategoryDefOf.Corpses)))
                 {
@@ -201,7 +201,7 @@ namespace Replimat
 
                     List<ThingDef> allowedIngredients = ThingCategoryDef.Named("FoodRaw").DescendantThingDefs.Where(x =>
                         !replimatRestrictions.disallowedIngredients.Contains(x) && 
-                        (eater.foodRestriction?.CurrentFoodRestriction.Allows(x) ?? true) && 
+                        (eater.foodRestriction?.CurrentFoodPolicy.Allows(x) ?? true) && 
                         FoodUtility.GetMeatSourceCategory(x) != MeatSourceCategory.Humanlike && 
                         FoodUtility.GetMeatSourceCategory(x) != MeatSourceCategory.Insect &&
                         !FoodUtility.IsVeneratedAnimalMeatOrCorpse(x, eater) &&
@@ -213,7 +213,7 @@ namespace Replimat
                     {
                         allowedIngredients.AddRange(ThingCategoryDef.Named("VCE_Condiments").DescendantThingDefs.Where(x => 
                             !replimatRestrictions.disallowedIngredients.Contains(x) &&
-                            (eater.foodRestriction?.CurrentFoodRestriction.Allows(x) ?? true)
+                            (eater.foodRestriction?.CurrentFoodPolicy.Allows(x) ?? true)
                         ));
                     }
 
@@ -235,7 +235,7 @@ namespace Replimat
                     Ideo ideo = eater.Ideo;
 
                     // 2.1 Human cannibalism for meals containing meat
-                    if (ideo?.HasHumanMeatEatingRequiredPrecept() == true || (eater.story?.traits.HasTrait(TraitDefOf.Cannibal) ?? false))
+                    if (ideo?.HasHumanMeatEatingRequiredPrecept() == true || (eater.story?.traits.HasTrait(ReplimatDef.Cannibal) ?? false))
                     {
                         List<ThingDef> existingMeats = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw));
 
