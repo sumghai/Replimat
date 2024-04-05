@@ -234,26 +234,27 @@ namespace Replimat
 
                     Ideo ideo = eater.Ideo;
 
-                    // 2.1 Human cannibalism for meals containing meat
-                    if (ideo?.HasHumanMeatEatingRequiredPrecept() == true || (eater.story?.traits.HasTrait(ReplimatDef.Cannibal) ?? false))
+                    // 2.1 Meat substitutions or additions to recipes that allow meat
+                    List<ThingDef> existingMeats = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw));
+
+                    if (existingMeats.Count > 0)
                     {
-                        List<ThingDef> existingMeats = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw));
+                        // 2.1 Human cannibalism (preferred and above)
+                        if (ideo?.HasHumanMeatEatingRequiredPrecept() == true || (eater.story?.traits.HasTrait(ReplimatDef.Cannibal) ?? false))
+                        {
+                            // Replace any meats with a single instance of human meat
+                            // (Precepts give mood debuff if no human meat is eaten after X days)
+                            ingredientThingDefs = ingredientThingDefs.Except(existingMeats).ToList();
+                            ingredientThingDefs.Add(ThingDefOf.Meat_Human);
+                        }
 
-                        // Replace any existing meats with a single instance of human meat
-                        ingredientThingDefs = ingredientThingDefs.Except(existingMeats).ToList();
-
-                        ingredientThingDefs.Add(ThingDefOf.Meat_Human);
-                    }
-
-                    // 2.2 Insect meat loved for meals containing meat or animal products (proteins)
-                    if (ideo?.HasPrecept(ReplimatDef.InsectMeatEating_Loved) == true)
-                    {
-                        List<ThingDef> existingProteins = ingredientThingDefs.FindAll((ThingDef d) => Regex.IsMatch(d.FirstThingCategory.ToString(), @"^(AnimalProductRaw|Eggs|MeatRaw)", RegexOptions.IgnoreCase));
-
-                        // Replace any existing proteins with a single instance of insect meat
-                        ingredientThingDefs = ingredientThingDefs.Except(existingProteins).ToList();
-
-                        ingredientThingDefs.Add(ReplimatDef.Meat_Megaspider);
+                        // 2.2 Insect meat loved
+                        if (ideo?.HasPrecept(ReplimatDef.InsectMeatEating_Loved) == true)
+                        {
+                            // Add a single instance of insect meat
+                            // (Precept gives no mood debuffs if no insect meat is eaten after X days)
+                            ingredientThingDefs.Add(ReplimatDef.Meat_Megaspider);
+                        }
                     }
 
                     // 2.3 Fungus preferred for meals containing raw plant food
