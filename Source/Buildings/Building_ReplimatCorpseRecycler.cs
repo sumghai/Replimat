@@ -109,7 +109,7 @@ namespace Replimat
             }
 
             // Remove non-fleshy corpses from filter for non-HAR humanoid robot or hologram races
-            recyclerAllowedCorpses.filter.allowedDefs.RemoveWhere(def => ThingDef.Named(def.ToString().Substring("Corpse_".Length)).GetStatValueAbstract(StatDefOf.MeatAmount) == 0);
+            recyclerAllowedCorpses.filter.allowedDefs.RemoveWhere(def => def.GetStatValueAbstract(StatDefOf.MeatAmount) == 0);
 
             return recyclerAllowedCorpses;
         }
