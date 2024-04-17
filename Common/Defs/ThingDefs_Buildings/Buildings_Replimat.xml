@@ -379,6 +379,7 @@
 					</categories>
 					<specialFiltersToDisallow>
 						<li>AllowCorpsesColonist</li>
+						<li MayRequire="Ludeon.RimWorld.Anomaly">AllowCorpsesUnnatural</li>
 					</specialFiltersToDisallow>
 				</filter>
 			</defaultStorageSettings>
