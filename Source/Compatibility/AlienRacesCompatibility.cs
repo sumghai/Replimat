@@ -13,14 +13,8 @@ namespace Replimat
 
         public static bool CorpseHasOrganicFlesh(ThingDef def)
         {
-            ThingDef corpseAlienRace = ThingDef.Named(def.ToString().Substring("Corpse_".Length));
-
-            if (corpseAlienRace.race.Humanlike && corpseAlienRace is ThingDef_AlienRace raceDef)
-            {
-                return raceDef?.alienRace.compatibility.IsFlesh ?? true;
-            }
-
-            return false;
+            ThingDef_AlienRace raceDef = CachedData.GetRaceFromRaceProps(def.race) as ThingDef_AlienRace;
+            return raceDef?.alienRace.compatibility.IsFlesh ?? true;
         }
 
     }
