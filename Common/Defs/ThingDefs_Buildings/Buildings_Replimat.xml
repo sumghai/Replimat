@@ -278,13 +278,13 @@
 				<filter>
 					<categories>
 						<li>Foods</li>
-						<li>PlantMatter</li>
 					</categories>
 					<thingDefs>
 						<li>Hay</li>
 					</thingDefs>
 					<disallowedCategories>
 						<li>FoodMeals</li>
+						<li>PlantMatter</li>
 					</disallowedCategories>
 				</filter>
 			</defaultStorageSettings>
