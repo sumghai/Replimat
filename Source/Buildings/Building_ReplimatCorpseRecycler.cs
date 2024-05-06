@@ -63,6 +63,15 @@ namespace Replimat
             base.SpawnSetup(map, respawningAfterLoad);
             powerComp = GetComp<CompPowerTrader>();
             stateDependentPowerComp = GetComp<CompStateDependentPowerUse>();
+
+            // Remove non-fleshy corpses from filter if Humanoid Alien Races mod is active
+            if (ModCompatibility.AlienRacesIsActive)
+            {
+                def.building.fixedStorageSettings.filter.allowedDefs.RemoveWhere(def => !AlienRacesCompatibility.CorpseHasOrganicFlesh(def));
+            }
+
+            // Remove non-fleshy corpses from filter for non-HAR humanoid robot or hologram races
+            def.building.fixedStorageSettings.filter.allowedDefs.RemoveWhere(def => def.GetStatValueAbstract(StatDefOf.MeatAmount) == 0);
         }
 
         public override string GetInspectString()
@@ -100,18 +109,7 @@ namespace Replimat
 
         public StorageSettings GetParentStoreSettings()
         {
-            StorageSettings recyclerAllowedCorpses = def.building.fixedStorageSettings;
-
-            // Remove non-fleshy corpses from filter if Humanoid Alien Races mod is active
-            if (ModCompatibility.AlienRacesIsActive)
-            {
-                recyclerAllowedCorpses.filter.allowedDefs.RemoveWhere(def => !AlienRacesCompatibility.CorpseHasOrganicFlesh(def));
-            }
-
-            // Remove non-fleshy corpses from filter for non-HAR humanoid robot or hologram races
-            recyclerAllowedCorpses.filter.allowedDefs.RemoveWhere(def => def.GetStatValueAbstract(StatDefOf.MeatAmount) == 0);
-
-            return recyclerAllowedCorpses;
+            return def.building.fixedStorageSettings;
         }
 
         public void Notify_SettingsChanged()
