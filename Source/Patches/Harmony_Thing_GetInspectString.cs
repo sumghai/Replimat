@@ -13,7 +13,7 @@ namespace Replimat
             {
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.Append(__result);
-                stringBuilder.AppendInNewLine("ReplicatedMeal".Translate().CapitalizeFirst());
+                stringBuilder.AppendLineIfNotEmpty().Append("ReplicatedMeal".Translate().CapitalizeFirst());
                 __result = stringBuilder.ToString();
             }
         }

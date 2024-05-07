@@ -217,6 +217,7 @@ namespace Replimat
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(base.GetInspectString());
+
             if (ParentHolder == null || ParentHolder is Map)
             {
                 if (!ReplimatUtility.CanFindComputer(this, PowerComp.PowerNet))
@@ -235,6 +236,7 @@ namespace Replimat
                     }
                 }
             }
+
             return stringBuilder.ToString();
         }
 

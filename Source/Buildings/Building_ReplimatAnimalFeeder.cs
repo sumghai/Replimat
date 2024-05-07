@@ -133,6 +133,8 @@ namespace Replimat
                 return;
             }
 
+            powerComp.PowerOutput = (ReplicatingTicks > 0) ? -Math.Max(stateDependentPowerComp.ActiveModePowerConsumption, powerComp.Props.basePowerConsumption) : -powerComp.Props.basePowerConsumption;
+
             if (this.IsHashIntervalTick(60))
             {
                 List<Thing> list = Map.thingGrid.ThingsListAtFast(Position);
@@ -171,12 +173,9 @@ namespace Replimat
                 }
             }
 
-            powerComp.PowerOutput = -powerComp.Props.basePowerConsumption;
-
             if (ReplicatingTicks > 0)
             {
                 ReplicatingTicks--;
-                powerComp.PowerOutput = -Math.Max(stateDependentPowerComp.ActiveModePowerConsumption, powerComp.Props.basePowerConsumption);
             }
         }
 
@@ -185,24 +184,16 @@ namespace Replimat
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(base.GetInspectString());
 
-            if (ParentHolder != null && !(ParentHolder is Map))
-            {
-                // If minified, don't show computer and feedstock check Inspector messages
-            }
-            else
+            if (ParentHolder == null || ParentHolder is Map)
             {
                 if (!ReplimatUtility.CanFindComputer(this, PowerComp.PowerNet))
                 {
-                    stringBuilder.AppendLine();
-                    stringBuilder.Append("NotConnectedToComputer".Translate());
+                    stringBuilder.AppendLineIfNotEmpty().Append("NotConnectedToComputer".Translate());
                 }
                 else if (!HasEnoughFeedstockInHoppers())
                 {
-                    stringBuilder.AppendLine();
-                    stringBuilder.Append("NotEnoughFeedstock".Translate());
+                    stringBuilder.AppendLineIfNotEmpty().Append("NotEnoughFeedstock".Translate());
                 }
-                else
-                { }
             }
 
             return stringBuilder.ToString();

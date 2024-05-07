@@ -237,18 +237,9 @@ namespace Replimat
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(base.GetInspectString());
-
-            if (ParentHolder != null && !(ParentHolder is Map))
-            {
-                // If minified, don't show computer and feedstock check Inspector messages
-            }
-            else
-            {
-                if (!ReplimatUtility.CanFindComputer(this, PowerComp.PowerNet))
-                {
-                    stringBuilder.AppendLine();
-                    stringBuilder.Append("NotConnectedToComputer".Translate());
-                }
+            if ((ParentHolder == null || ParentHolder is Map) && !ReplimatUtility.CanFindComputer(this, PowerComp.PowerNet))
+            { 
+                stringBuilder.AppendLineIfNotEmpty().Append("NotConnectedToComputer".Translate());
             }
 
             return stringBuilder.ToString();

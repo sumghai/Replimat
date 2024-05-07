@@ -82,7 +82,7 @@ namespace Replimat
                 return;
             }
 
-            powerComp.PowerOutput = -powerComp.Props.basePowerConsumption;
+            powerComp.PowerOutput = (DematerializingTicks > 0) ? -Math.Max(stateDependentPowerComp.ActiveModePowerConsumption, powerComp.Props.basePowerConsumption) : -powerComp.Props.basePowerConsumption;
 
             if (this.IsHashIntervalTick(15)) {
 
@@ -129,7 +129,6 @@ namespace Replimat
             if (DematerializingTicks > 0)
             {
                 DematerializingTicks--;
-                powerComp.PowerOutput = -Math.Max(stateDependentPowerComp.ActiveModePowerConsumption, powerComp.Props.basePowerConsumption);
 
                 if (wickSustainer == null)
                 {
@@ -165,11 +164,12 @@ namespace Replimat
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(base.GetInspectString());
+
             if ((ParentHolder == null || ParentHolder is Map) && !ReplimatUtility.CanFindComputer(this, PowerComp.PowerNet))
             {
-                stringBuilder.AppendLine();
-                stringBuilder.Append(Translator.Translate("NotConnectedToComputer"));
+                stringBuilder.AppendLineIfNotEmpty().Append("NotConnectedToComputer".Translate());
             }
+
             return stringBuilder.ToString();
         }
     }

@@ -106,23 +106,19 @@ namespace Replimat
         public override string GetInspectString()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine(base.GetInspectString());
-            
-            if (ParentHolder != null && !(ParentHolder is Map))
-            {
-                // If minified, don't show computer and feedstock check Inspector messages
-            }
-            else
+            stringBuilder.Append(base.GetInspectString());
+
+            if (ParentHolder == null || ParentHolder is Map)
             {
                 if (Working)
                 {
                     float totalAvailableFeedstock = GetTanks.Sum(x => x.storedFeedstock);
                     float totalSpace = GetTanks.Sum(x => x.StoredFeedstockMax);
-                    stringBuilder.Append("TotalFeedstockStored".Translate(totalAvailableFeedstock.ToString("0.00"), totalSpace.ToString("0.00")));
+                    stringBuilder.AppendLineIfNotEmpty().Append("TotalFeedstockStored".Translate(totalAvailableFeedstock.ToString("0.00"), totalSpace.ToString("0.00")));
                 }
             }
 
-            return stringBuilder.ToString().TrimEndNewlines();
+            return stringBuilder.ToString();
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Replimat
 
         public List<Building_ReplimatFeedTank> GetTanks => ReplimatUtility.GetTanks(powerComp.PowerNet);
 
-        public bool running;
+        public bool Running;
 
         private readonly float rawSewageDensity = 0.72f; // 0.72 kg/L
 
@@ -43,7 +43,7 @@ namespace Replimat
                 return;
             }
 
-            powerComp.PowerOutput = running ? -Math.Max(stateDependentPowerComp.ActiveModePowerConsumption, powerComp.Props.basePowerConsumption) : -powerComp.Props.basePowerConsumption;
+            powerComp.PowerOutput = Running ? -Math.Max(stateDependentPowerComp.ActiveModePowerConsumption, powerComp.Props.basePowerConsumption) : -powerComp.Props.basePowerConsumption;
 
             if (this.IsHashIntervalTick(30))
             {               
@@ -89,7 +89,7 @@ namespace Replimat
                     }
                 }
 
-                running = sewageAvailable > minSewageVolumeForProcessing && repFeedstockTanksFreeSpace > recoveredSludgeToFeedstockVol;
+                Running = sewageAvailable > minSewageVolumeForProcessing && repFeedstockTanksFreeSpace > recoveredSludgeToFeedstockVol;
             }
         }
 
@@ -100,20 +100,17 @@ namespace Replimat
 
             if ((ParentHolder == null || ParentHolder is Map) && !ReplimatUtility.CanFindComputer(this, PowerComp.PowerNet))
             {
-                stringBuilder.AppendLine();
-                stringBuilder.Append("NotConnectedToComputer".Translate());
+                stringBuilder.AppendLineIfNotEmpty().Append("NotConnectedToComputer".Translate());
             }
 
             if (((DubsBadHygiene.CompPipe)pipeComp).pipeNet.Sewers.NullOrEmpty())
             {
-                stringBuilder.AppendLine();
-                stringBuilder.Append("Nosewage".Translate());
+                stringBuilder.AppendLineIfNotEmpty().Append("Nosewage".Translate());
             }
 
             else
             {
-                stringBuilder.AppendLine();
-                stringBuilder.Append(running ? "SewageRecyclerRunning".Translate() : "SewageRecyclerIdle".Translate());
+                stringBuilder.AppendLineIfNotEmpty().Append(Running ? "SewageRecyclerRunning".Translate() : "SewageRecyclerIdle".Translate());
             }
 
             return stringBuilder.ToString();

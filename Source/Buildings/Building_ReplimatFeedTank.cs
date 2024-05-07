@@ -70,22 +70,14 @@ namespace Replimat
         public override string GetInspectString()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine(base.GetInspectString());
-            stringBuilder.Append("FeedstockStored".Translate(storedFeedstock.ToString("0.00"), StoredFeedstockMax.ToString("0.00")));
+            stringBuilder.Append(base.GetInspectString());
+            stringBuilder.AppendLineIfNotEmpty().Append("FeedstockStored".Translate(storedFeedstock.ToString("0.00"), StoredFeedstockMax.ToString("0.00")));
 
-            if (ParentHolder != null && !(ParentHolder is Map))
+            if ((ParentHolder == null || ParentHolder is Map) && !ReplimatUtility.CanFindComputer(this, PowerComp.PowerNet))
             {
-                // If minified, don't show computer and feedstock check Inspector messages
+                stringBuilder.AppendLineIfNotEmpty().Append("NotConnectedToComputer".Translate());
             }
-            else
-            {
-                if (!ReplimatUtility.CanFindComputer(this, PowerComp.PowerNet))
-                {
-                    stringBuilder.AppendLine();
-                    stringBuilder.Append("NotConnectedToComputer".Translate());
-                }
-            }
-            return stringBuilder.ToString().TrimEndNewlines();
+            return stringBuilder.ToString();
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
