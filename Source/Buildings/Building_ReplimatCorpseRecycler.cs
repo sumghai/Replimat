@@ -73,33 +73,27 @@ namespace Replimat
             // Remove non-fleshy corpses from filter for non-HAR humanoid robot or hologram races
             def.building.fixedStorageSettings.filter.allowedDefs.RemoveWhere(def => def.GetStatValueAbstract(StatDefOf.MeatAmount) == 0);
         }
-
-        public override string GetInspectString()
+        public void StartWickSustainer()
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine(base.GetInspectString());
+            SoundInfo info = SoundInfo.InMap(this, MaintenanceType.PerTick);
+            wickSustainer = def.building.soundDispense.TrySpawnSustainer(info);
+        }
+        public override void DrawAt(Vector3 drawLoc, bool flip = false)
+        {
+            base.DrawAt(drawLoc, flip);
 
-            if (ParentHolder != null && !(ParentHolder is Map))
-            {
-                // If minified, don't show computer and feedstock check Inspector messages
-            }
-            else
-            {
-                if (!ReplimatUtility.CanFindComputer(this, PowerComp.PowerNet))
-                {
-                    stringBuilder.AppendLine("NotConnectedToComputer".Translate());
-                }
+            Vector3 replimatCorpseRecyclerGlowDrawPos = drawLoc;
+            replimatCorpseRecyclerGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
-                if (Empty)
-                {
-                    stringBuilder.AppendLine("CorpseRecyclerEmpty".Translate());
-                }
-                else
-                {
-                    stringBuilder.AppendLine("CorpseRecyclerMassRemaining".Translate(corpseRemainingMass.ToString("0.00"), corpseInitialMass.ToString("0.00")));
-                }
+            if (Running && !Empty)
+            {
+                Graphics.DrawMesh(GraphicsLoader.replimatCorpseRecyclerGlow[dematerializingCycleInt].MeshAt(Rotation), replimatCorpseRecyclerGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatCorpseRecyclerGlow[dematerializingCycleInt].MatAt(Rotation, null), 1), 0);
             }
-            return stringBuilder.ToString().TrimEndNewlines();
+        }
+
+        public void RefreshBuildingGraphic()
+        {
+            Map.mapDrawer.MapMeshDirty(Position, MapMeshFlagDefOf.Things);
         }
 
         public StorageSettings GetStoreSettings()
@@ -140,25 +134,7 @@ namespace Replimat
             corpseInitialMass = corpse.InnerPawn.def.BaseMass * corpse.InnerPawn.health.hediffSet.GetCoverageOfNotMissingNaturalParts(corpse.InnerPawn.RaceProps.body.corePart);
             corpseRemainingMass = corpseInitialMass;            
             corpse.Destroy();
-        }
-
-        public void StartWickSustainer()
-        {
-            SoundInfo info = SoundInfo.InMap(this, MaintenanceType.PerTick);
-            wickSustainer = def.building.soundDispense.TrySpawnSustainer(info);
-        }
-
-        public override void DrawAt(Vector3 drawLoc, bool flip = false)
-        {
-            base.DrawAt(drawLoc, flip);
-
-            Vector3 replimatCorpseRecyclerGlowDrawPos = drawLoc;
-            replimatCorpseRecyclerGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
-
-            if (Running)
-            {
-                Graphics.DrawMesh(GraphicsLoader.replimatCorpseRecyclerGlow[dematerializingCycleInt].MeshAt(Rotation), replimatCorpseRecyclerGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatCorpseRecyclerGlow[dematerializingCycleInt].MatAt(Rotation, null), 1), 0);
-            }
+            RefreshBuildingGraphic();
         }
 
         public override void Tick()
@@ -170,19 +146,19 @@ namespace Replimat
                 return;
             }
 
-            powerComp.PowerOutput = -powerComp.Props.basePowerConsumption;
+            powerComp.PowerOutput = Running ? powerComp.PowerOutput = -Math.Max(stateDependentPowerComp.ActiveModePowerConsumption, powerComp.Props.basePowerConsumption) : -powerComp.Props.basePowerConsumption;
 
-            List<Building_ReplimatFeedTank> tanks = GetTanks;
-
-            if (this.IsHashIntervalTick(5))
+            if (this.IsHashIntervalTick(15))
             {
                 if (Empty)
-                {
+                {   
                     corpseInitialMass = 0;
                     Running = false;
                 }
                 else
                 {
+                    List<Building_ReplimatFeedTank> tanks = GetTanks;
+
                     float massDecrementStepSize = Mathf.Min(defaultMassDecrementStepSize, corpseRemainingMass);
                     float feedstockVolume = ReplimatUtility.ConvertMassToFeedstockVolume(massDecrementStepSize);
                     float freeSpaceInTanks = tanks.Sum(x => x.AmountCanAccept);
@@ -190,8 +166,6 @@ namespace Replimat
                     if (powerComp.PowerOn && freeSpaceInTanks >= feedstockVolume)
                     {
                         Running = true;
-
-                        powerComp.PowerOutput = -Math.Max(stateDependentPowerComp.ActiveModePowerConsumption, powerComp.Props.basePowerConsumption);
 
                         float buffer = feedstockVolume;
 
@@ -205,19 +179,12 @@ namespace Replimat
                                 corpseRemainingMass -= Mathf.Min(defaultMassDecrementStepSize, corpseRemainingMass);
                             }
                         }
-
-                        dematerializingCycleInt++;
-                        if (dematerializingCycleInt > 3)
-                        {
-                            dematerializingCycleInt = 0;
-                        }
                     }
                     else
                     {
                         Running = false;
                     }
                 }
-                Map.mapDrawer.MapMeshDirty(Position, MapMeshFlagDefOf.Things | MapMeshFlagDefOf.Buildings);
             }
 
             if (Running)
@@ -230,7 +197,45 @@ namespace Replimat
                 {
                     wickSustainer.Maintain();
                 }
+
+                if (this.IsHashIntervalTick(5))
+                {
+                    dematerializingCycleInt++;
+                    if (dematerializingCycleInt > 3)
+                    {
+                        dematerializingCycleInt = 0;
+                    }
+                    if (Empty)
+                    {
+                        RefreshBuildingGraphic();
+                    }
+                }
             }
+        }
+        
+        public override string GetInspectString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(base.GetInspectString());
+            if (ParentHolder == null || ParentHolder is Map)
+            {
+                if (!ReplimatUtility.CanFindComputer(this, PowerComp.PowerNet))
+                {
+                    stringBuilder.AppendLineIfNotEmpty().Append("NotConnectedToComputer".Translate());
+                }
+                else 
+                {
+                    if (Empty)
+                    {
+                        stringBuilder.AppendLineIfNotEmpty().Append("CorpseRecyclerEmpty".Translate());
+                    }
+                    else
+                    {
+                        stringBuilder.AppendLineIfNotEmpty().Append("CorpseRecyclerMassRemaining".Translate(corpseRemainingMass.ToString("0.00"), corpseInitialMass.ToString("0.00")));
+                    }
+                }
+            }
+            return stringBuilder.ToString();
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -251,6 +256,7 @@ namespace Replimat
                     action = delegate
                     {
                         corpseRemainingMass = 0;
+                        RefreshBuildingGraphic();
                     }
                 };
                 yield return new Command_Action
@@ -259,6 +265,7 @@ namespace Replimat
                     action = delegate
                     {
                         corpseRemainingMass = (corpseRemainingMass > 10) ? (corpseRemainingMass - 10) : 0;
+                        RefreshBuildingGraphic();
                     }
                 };
                 yield return new Command_Action
@@ -267,6 +274,7 @@ namespace Replimat
                     action = delegate
                     {
                         corpseRemainingMass = (corpseRemainingMass > 1) ? (corpseRemainingMass - 1) : 0;
+                        RefreshBuildingGraphic();
                     }
                 };
                 yield return new Command_Action
@@ -280,6 +288,7 @@ namespace Replimat
                         }
 
                         corpseRemainingMass = (corpseInitialMass - corpseRemainingMass > 1) ? (corpseRemainingMass + 1) : corpseInitialMass;
+                        RefreshBuildingGraphic();
                     }
                 };
                 yield return new Command_Action
@@ -293,6 +302,7 @@ namespace Replimat
                         }
 
                         corpseRemainingMass = (corpseInitialMass - corpseRemainingMass > 10) ? (corpseRemainingMass + 10) : corpseInitialMass;
+                        RefreshBuildingGraphic();
                     }
                 };
                 yield return new Command_Action
@@ -302,6 +312,7 @@ namespace Replimat
                     {
                         corpseInitialMass = ThingDefOf.Human.BaseMass;
                         corpseRemainingMass = corpseInitialMass;
+                        RefreshBuildingGraphic();
                     }
                 };
             }
