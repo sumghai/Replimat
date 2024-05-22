@@ -5,7 +5,7 @@ namespace Replimat
 {
     internal class CompSecondLayer : ThingComp
     {
-        private Graphic graphicInt;
+        public Graphic graphicInt;
 
         public CompProperties_SecondLayer Props
         {

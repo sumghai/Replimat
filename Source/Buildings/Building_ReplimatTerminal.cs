@@ -148,7 +148,7 @@ namespace Replimat
             if (ReplicatingTicks > 0)
             {
                 ReplicatingTicks--;
-                powerComp.PowerOutput = -Math.Max(stateDependentPowerComp.ActiveModePowerConsumption, powerComp.Props.basePowerConsumption);
+                powerComp.PowerOutput = -Math.Max(stateDependentPowerComp.Props.activeModePowerConsumption, powerComp.Props.basePowerConsumption);
             }
         }
 

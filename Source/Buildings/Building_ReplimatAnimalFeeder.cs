@@ -133,7 +133,7 @@ namespace Replimat
                 return;
             }
 
-            powerComp.PowerOutput = (ReplicatingTicks > 0) ? -Math.Max(stateDependentPowerComp.ActiveModePowerConsumption, powerComp.Props.basePowerConsumption) : -powerComp.Props.basePowerConsumption;
+            powerComp.PowerOutput = (ReplicatingTicks > 0) ? -Math.Max(stateDependentPowerComp.Props.activeModePowerConsumption, powerComp.Props.basePowerConsumption) : -powerComp.Props.basePowerConsumption;
 
             if (this.IsHashIntervalTick(60))
             {
