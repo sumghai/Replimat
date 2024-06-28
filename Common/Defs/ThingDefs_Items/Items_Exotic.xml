@@ -16,7 +16,7 @@
 		<soundDrop>Standard_Drop</soundDrop>
 		<stackLimit>1</stackLimit>
 		<statBases>
-			<MarketValue>18000</MarketValue>
+			<MarketValue>6000</MarketValue>
 			<MaxHitPoints>100</MaxHitPoints>
 			<Mass>0.5</Mass>
 		</statBases>
@@ -24,6 +24,9 @@
 		<thingCategories>
 			<li>Manufactured</li>
 		</thingCategories>
+		<tradeTags>
+			<li>Lethe_IsolinearModule</li>
+		</tradeTags>
 		<drawGUIOverlay>false</drawGUIOverlay>
 		<thingSetMakerTags>
 			<li>RewardStandardLowFreq</li>
