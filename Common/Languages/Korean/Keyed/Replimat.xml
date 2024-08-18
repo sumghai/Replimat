@@ -102,6 +102,12 @@
 
 	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord -->
 	<Replimat_Settings_EnableIncidentKibble_Desc>단말기가 낮은 확률로 오작동하여 대량의 동물 사료를 제멋대로 생산하도록 허용</Replimat_Settings_EnableIncidentKibble_Desc>
+	
+	<!-- EN: Enable Smokeleaf Malfunctions -->
+	<Replimat_Settings_EnableIncidentSmokeleaf_Title>연초 오작동 활성화</Replimat_Settings_EnableIncidentSmokeleaf_Title>
+	
+	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Smokeleaf joints on its own accord. -->
+	<Replimat_Settings_EnableIncidentSmokeleaf_Desc>단말기가 낮은 확률로 오작동하여 대량의 연초 제멋대로 생산하도록 허용</Replimat_Settings_EnableIncidentSmokeleaf_Desc>
 
 	<!-- EN: Power consumption (Active) -->
 	<Replimat_Stat_ActiveModePowerConsumption_Label>전력 소비량(활성)</Replimat_Stat_ActiveModePowerConsumption_Label>

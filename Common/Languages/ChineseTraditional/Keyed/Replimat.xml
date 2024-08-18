@@ -103,6 +103,12 @@
 	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. -->
 	<Replimat_Settings_EnableIncidentKibble_Desc>讓任何食品合成器有發生故障後複製大量飼料的機會。</Replimat_Settings_EnableIncidentKibble_Desc>
 	
+	<!-- EN: Enable Smokeleaf Malfunctions -->
+	<Replimat_Settings_EnableIncidentSmokeleaf_Title>啟用捲菸故障事件</Replimat_Settings_EnableIncidentSmokeleaf_Title>
+	
+	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Smokeleaf joints on its own accord. -->
+	<Replimat_Settings_EnableIncidentSmokeleaf_Desc>讓任何食品合成器有發生故障後複製大量捲菸的機會。</Replimat_Settings_EnableIncidentSmokeleaf_Desc>
+	
 	<!-- EN: Power consumption (Active) -->
 	<Replimat_Stat_ActiveModePowerConsumption_Label>耗電量 (運行中)</Replimat_Stat_ActiveModePowerConsumption_Label>
 	

@@ -7,16 +7,25 @@
 	<!-- EN: Replimat Spill -->
 	<ReplimatSpill.letterLabel>Derramamento Replimat</ReplimatSpill.letterLabel>
 	
-	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
-	<ReplimatSpill.letterText>Um Terminal Replimat tem um mau funcionamento, derramando matéria-prima nutriente em todos os lugares.</ReplimatSpill.letterText>
+	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<ReplimatSpill.letterText>Um {0} tem um mau funcionamento, derramando matéria-prima nutriente em todos os lugares.</ReplimatSpill.letterText>
 	
-	<!-- EN: Replimat Malfunction -->
-	<ReplimatMalfunctionKibble.label>Mau funcionamento do Replimat</ReplimatMalfunctionKibble.label>
+	<!-- EN: Replimat Malfunction (Kibble) -->
+	<ReplimatMalfunctionKibble.label>Mau funcionamento do Replimat (ração)</ReplimatMalfunctionKibble.label>
 	
-	<!-- EN: Replimat Malfunction -->
-	<ReplimatMalfunctionKibble.letterLabel>Mau funcionamento do Replimat</ReplimatMalfunctionKibble.letterLabel>
+	<!-- EN: Replimat Malfunction (Kibble) -->
+	<ReplimatMalfunctionKibble.letterLabel>Mau funcionamento do Replimat\n(ração)</ReplimatMalfunctionKibble.letterLabel>
 	
-	<!-- EN: A Replimat Terminal has malfunctioned, producing large quantities of animal feed. -->
-	<ReplimatMalfunctionKibble.letterText>Um Terminal Replimat tem um mau funcionamento, produzindo grandes quantidades de ração animal. </ReplimatMalfunctionKibble.letterText>
+	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
+	<ReplimatMalfunctionKibble.letterText>Um {0} tem um mau funcionamento, produzindo grandes quantidades de ração animal. </ReplimatMalfunctionKibble.letterText>
+	
+	<!-- EN: Replimat Malfunction (Smokeleaf) -->
+	<ReplimatMalfunctionSmokeleaf.label>Mau funcionamento do Replimat (folha de fumo)</ReplimatMalfunctionSmokeleaf.label>
+	
+	<!-- EN: Replimat Malfunction (Smokeleaf) -->
+	<ReplimatMalfunctionSmokeleaf.letterLabel>Mau funcionamento do Replimat\n(folha de fumo)</ReplimatMalfunctionSmokeleaf.letterLabel>
+	
+	<!-- EN: A {0} has malfunctioned, producing 500 Smokeleaf joints.\n\nUpon seeing the joints, one of your colonists commented that they felt "as if they have been standing their entire life and they just sat down." -->
+	<ReplimatMalfunctionSmokeleaf.letterText>Um {0} tem um mau funcionamento, produzindo 500 baseado de folha de fumo.\n\nAo ver as baseado de folha de fumo, um de seus colonos comentou que eles se sentiam “como se tivessem ficado em pé a vida inteira e acabaram de se sentar”.</ReplimatMalfunctionSmokeleaf.letterText>
 	
 </LanguageData>

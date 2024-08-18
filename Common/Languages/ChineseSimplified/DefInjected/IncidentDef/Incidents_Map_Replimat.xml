@@ -1,20 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+
 	<!-- EN: Replimat Spill -->
 	<ReplimatSpill.label>食品合成器原料泄漏</ReplimatSpill.label>
 	
 	<!-- EN: Replimat Spill -->
 	<ReplimatSpill.letterLabel>食品合成器原料泄漏</ReplimatSpill.letterLabel>
 	
-	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
 	<ReplimatSpill.letterText>你的一台{0}发生故障，并泄漏了营养原料。</ReplimatSpill.letterText>
 	
-	<!-- EN: Replimat Spill -->
-	<ReplimatMalfunctionKibble.label>食品合成器故障</ReplimatMalfunctionKibble.label>
+	<!-- EN: Replimat Malfunction (Kibble) -->
+	<ReplimatMalfunctionKibble.label>食品合成器故障(饲料)</ReplimatMalfunctionKibble.label>
 	
-	<!-- EN: Replimat Spill -->
-	<ReplimatMalfunctionKibble.letterLabel>食品合成器故障(饲料)</ReplimatMalfunctionKibble.letterLabel>
+	<!-- EN: Replimat Malfunction\n(Kibble) -->
+	<ReplimatMalfunctionKibble.letterLabel>食品合成器故障\n(饲料)</ReplimatMalfunctionKibble.letterLabel>
 	
-	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
 	<ReplimatMalfunctionKibble.letterText>你的一台{0}发生故障，并复制了大量的饲料。</ReplimatMalfunctionKibble.letterText>
+	
+	<!-- EN: Replimat Malfunction (Smokeleaf) -->
+	<ReplimatMalfunctionSmokeleaf.label>食品合成器故障(大麻烟)</ReplimatMalfunctionSmokeleaf.label>
+	
+	<!-- EN: Replimat Malfunction\n(Smokeleaf) -->
+	<ReplimatMalfunctionSmokeleaf.letterLabel>食品合成器故障\n(大麻烟)</ReplimatMalfunctionSmokeleaf.letterLabel>
+	
+	<!-- EN: A {0} has malfunctioned, producing 500 Smokeleaf joints.\n\nUpon seeing the joints, one of your colonists commented that they felt "as if they have been standing their entire life and they just sat down." -->
+	<ReplimatMalfunctionSmokeleaf.letterText>你的一台{0}发生故障，并复制了500支大麻烟。\n\n看到大麻烟之后，有一位殖民者表示他觉得好像「站了一辈子，现在终于坐下来了」。</ReplimatMalfunctionSmokeleaf.letterText>
+	
 </LanguageData>

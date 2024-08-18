@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Verse;
 
 namespace Replimat
@@ -9,6 +8,7 @@ namespace Replimat
         public bool PrioritizeFoodQuality = true;
         public bool EnableIncidentSpill = true;
         public bool EnableIncidentKibble = true;
+        public bool EnableIncidentSmokeleaf = true;
         public override void ExposeData()
         {
             base.ExposeData();
@@ -16,6 +16,7 @@ namespace Replimat
             Scribe_Values.Look(ref PrioritizeFoodQuality, "PrioritizeFoodQuality", true, true);
             Scribe_Values.Look(ref EnableIncidentSpill, "EnableIncidentSpill", true, true);
             Scribe_Values.Look(ref EnableIncidentKibble, "EnableIncidentKibble", true, true);
+            Scribe_Values.Look(ref EnableIncidentSmokeleaf, "EnableIncidentSmokeleaf", true, true);
         }
 
         public void Draw(Rect canvas)
@@ -40,6 +41,7 @@ namespace Replimat
             listingStandard.Header("Replimat_Settings_HeaderIncidents".Translate());
             listingStandard.CheckboxLabeled("Replimat_Settings_EnableIncidentSpill_Title".Translate(), ref EnableIncidentSpill, "Replimat_Settings_EnableIncidentSpill_Desc".Translate());
             listingStandard.CheckboxLabeled("Replimat_Settings_EnableIncidentKibble_Title".Translate(), ref EnableIncidentKibble, "Replimat_Settings_EnableIncidentKibble_Desc".Translate());
+            listingStandard.CheckboxLabeled("Replimat_Settings_EnableIncidentSmokeleaf_Title".Translate(), ref EnableIncidentKibble, "Replimat_Settings_EnableIncidentSmokeleaf_Desc".Translate());
 
             listingStandard.End();
         }

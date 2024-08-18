@@ -102,6 +102,12 @@
 
 	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. -->
 	<Replimat_Settings_EnableIncidentKibble_Desc>Erlaubt jedem Replikator-Terminal die geringe Chance der Fehlfunktion, selbstständig eine größere Menge Tierfutter zu replizieren</Replimat_Settings_EnableIncidentKibble_Desc>
+	
+	<!-- EN: Enable Smokeleaf Malfunctions -->
+	<Replimat_Settings_EnableIncidentSmokeleaf_Title>Rauchblatt-Fehlfunktion zulassen</Replimat_Settings_EnableIncidentSmokeleaf_Title>
+	
+	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Smokeleaf joints on its own accord. -->
+	<Replimat_Settings_EnableIncidentSmokeleaf_Desc>Erlaubt jedem Replikator-Terminal die geringe Chance der Fehlfunktion, selbstständig eine größere Menge Rauchblatt-Joint zu replizieren</Replimat_Settings_EnableIncidentSmokeleaf_Desc>
 
 	<!-- EN: Power consumption (Active) -->
 	<Replimat_Stat_ActiveModePowerConsumption_Label>Energiebedarf （aktiv)</Replimat_Stat_ActiveModePowerConsumption_Label>

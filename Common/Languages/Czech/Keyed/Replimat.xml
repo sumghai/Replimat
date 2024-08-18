@@ -102,6 +102,12 @@
 
 	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. -->
 	<Replimat_Settings_EnableIncidentKibble_Desc>Umožní, aby se terminály mohly obèas porouchat a vyrobit velké množství krmiva pro zvíøata.</Replimat_Settings_EnableIncidentKibble_Desc>
+	
+	<!-- EN: Enable Smokeleaf Malfunctions -->
+	<Replimat_Settings_EnableIncidentSmokeleaf_Title>Povolit dýmovník poruchy</Replimat_Settings_EnableIncidentSmokeleaf_Title>
+	
+	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Smokeleaf joints on its own accord. -->
+	<Replimat_Settings_EnableIncidentSmokeleaf_Desc>Umožní, aby se terminály mohly obèas porouchat a vyrobit velké množství joint z dýmovníku.</Replimat_Settings_EnableIncidentSmokeleaf_Desc>
 
 	<!-- EN: Power consumption (Active) -->
 	<Replimat_Stat_ActiveModePowerConsumption_Label>Spotøeba elektøiny (Aktivní)</Replimat_Stat_ActiveModePowerConsumption_Label>

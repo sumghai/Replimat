@@ -1,20 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+
 	<!-- EN: Replimat Spill -->
 	<ReplimatSpill.label>Vyteklý Replimat</ReplimatSpill.label>
 
 	<!-- EN: Replimat Spill -->
 	<ReplimatSpill.letterLabel>Vyteklý Replimat</ReplimatSpill.letterLabel>
 
-	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
 	<ReplimatSpill.letterText>Přístroj {0} se porouchal a všude rozlil roztok živin.</ReplimatSpill.letterText>
 
-	<!-- EN: Replimat Spill -->
-	<ReplimatMalfunctionKibble.label>Porucha replimatu</ReplimatMalfunctionKibble.label>
+	<!-- EN: Replimat Malfunction (Kibble) -->
+	<ReplimatMalfunctionKibble.label>Porucha replimatu (Kibble)</ReplimatMalfunctionKibble.label>
 	
-	<!-- EN: Replimat Spill -->
+	<!-- EN: Replimat Malfunction\n(Kibble) -->
 	<ReplimatMalfunctionKibble.letterLabel>Porucha replimatu\n(Kibble)</ReplimatMalfunctionKibble.letterLabel>
 	
-	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
 	<ReplimatMalfunctionKibble.letterText>Přístroj {0} se porouchal a vytvořil velké množství krmiva pro zvířata.</ReplimatMalfunctionKibble.letterText>
+	
+	<!-- EN: Replimat Malfunction (Smokeleaf) -->
+	<ReplimatMalfunctionSmokeleaf.label>Porucha replimatu (Dýmovník)</ReplimatMalfunctionSmokeleaf.label>
+	
+	<!-- EN: Replimat Malfunction \n(Smokeleaf) -->
+	<ReplimatMalfunctionSmokeleaf.letterLabel>Porucha replimatu\n(Dýmovník)</ReplimatMalfunctionSmokeleaf.letterLabel>
+	
+	<!-- EN: A {0} has malfunctioned, producing 500 Smokeleaf joints.\n\nUpon seeing the joints, one of your colonists commented that they felt "as if they have been standing their entire life and they just sat down." -->
+	<ReplimatMalfunctionSmokeleaf.letterText>Přístroj {0} se porouchal a vytvořil velké množství joint z dýmovníku.\n\nPři pohledu na dýmovník jeden z vašich kolonistů poznamenal, že se cítí, „jako by celý život stáli a teď si sedli“.</ReplimatMalfunctionSmokeleaf.letterText>
+	
 </LanguageData>

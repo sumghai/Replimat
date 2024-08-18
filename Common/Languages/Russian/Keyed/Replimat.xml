@@ -103,6 +103,12 @@
 	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. -->
 	<Replimat_Settings_EnableIncidentKibble_Desc>Позволяет любому терминалу иметь небольшую вероятность сбоя и репликации большого количества дробления по собственному желанию.</Replimat_Settings_EnableIncidentKibble_Desc>
 	
+	<!-- EN: Enable Smokeleaf Malfunctions -->
+	<Replimat_Settings_EnableIncidentSmokeleaf_Title>Разрешить неисправности дымолист</Replimat_Settings_EnableIncidentSmokeleaf_Title>
+	
+	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Smokeleaf joints on its own accord. -->
+	<Replimat_Settings_EnableIncidentSmokeleaf_Desc>Позволяет любому терминалу иметь небольшую вероятность сбоя и репликации большого количества косяк дымолиста по собственному желанию.</Replimat_Settings_EnableIncidentSmokeleaf_Desc>
+	
 	<!-- EN: Power consumption (Active) -->
 	<Replimat_Stat_ActiveModePowerConsumption_Label>Энергопотребление (активная)</Replimat_Stat_ActiveModePowerConsumption_Label>
 	

@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+
 	<!-- EN: Replimat Spill -->
 	<ReplimatSpill.label>Replikator leckt</ReplimatSpill.label>
 	
 	<!-- EN: Replimat Spill -->
 	<ReplimatSpill.letterLabel>Replikator leckt</ReplimatSpill.letterLabel>
 	
-	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
-	<ReplimatSpill.letterText>Ein Replikator-Terminal hat eine Fehlfunktion, Rohnahrung wurde überall verschüttet.</ReplimatSpill.letterText>
+	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<ReplimatSpill.letterText>Ein {0} hat eine Fehlfunktion, Rohnahrung wurde überall verschüttet.</ReplimatSpill.letterText>
 	
-	<!-- EN: Replimat Spill -->
-	<ReplimatMalfunctionKibble.label>Replikator leckt</ReplimatMalfunctionKibble.label>
+	<!-- EN: Replimat Malfunction (Kibble) -->
+	<ReplimatMalfunctionKibble.label>Replikator Fehlfunktion (Tierfutter)</ReplimatMalfunctionKibble.label>
 	
-	<!-- EN: Replimat Spill -->
-	<ReplimatMalfunctionKibble.letterLabel>Replikator leckt</ReplimatMalfunctionKibble.letterLabel>
+	<!-- EN: Replimat Malfunction\n(Kibble) -->
+	<ReplimatMalfunctionKibble.letterLabel>Replikator Fehlfunktion\n(Tierfutter)</ReplimatMalfunctionKibble.letterLabel>
 	
-	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
-	<ReplimatMalfunctionKibble.letterText>Ein Replikator-Terminal hat eine Fehlfunktion, Rohnahrung wurde überall verschüttet.</ReplimatMalfunctionKibble.letterText>
+	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
+	<ReplimatMalfunctionKibble.letterText>Ein {0} hat eine Fehlfunktion, große Mengen an Tierfutter zu produzieren.</ReplimatMalfunctionKibble.letterText>
+	
+	<!-- EN: Replimat Malfunction (Smokeleaf) -->
+	<ReplimatMalfunctionSmokeleaf.label>Replikator Fehlfunktion (Rauchblatt)</ReplimatMalfunctionSmokeleaf.label>
+	
+	<!-- EN: Replimat Malfunction\n(Smokeleaf) -->
+	<ReplimatMalfunctionSmokeleaf.letterLabel>Replikator Fehlfunktion\n(Rauchblatt)</ReplimatMalfunctionSmokeleaf.letterLabel>
+	
+	<!-- EN: A {0} has malfunctioned, producing 500 Smokeleaf joints.\n\nUpon seeing the joints, one of your colonists commented that they felt "as if they have been standing their entire life and they just sat down." -->
+	<ReplimatMalfunctionSmokeleaf.letterText>Ein {0} hat eine Fehlfunktion, und produziert 500 Rauchblatt-Joint.\n\nAls er die Rauchblatt-Joint sah, sagte einer Ihrer Kolonisten, dass sie sich fühlten, „als ob sie ihr ganzes Leben lang gestanden hätten und sich jetzt einfach hingesetzt hätten“.</ReplimatMalfunctionSmokeleaf.letterText>
+	
 </LanguageData>

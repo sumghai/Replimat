@@ -1,30 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<IncidentDef>
-		<defName>ReplimatSpill</defName>
-		<label>Replimat Spill</label>
-		<workerClass>Replimat.IncidentWorker_ReplimatSpill</workerClass>
+	<IncidentDef Name="ReplimatIncidentBase" Abstract="true">
 		<category>Misc</category>
 		<targetTags>
 			<li>Map_PlayerHome</li>
 		</targetTags>
 		<baseChance>2.5</baseChance>
+	</IncidentDef>
+	
+	<IncidentDef ParentName="ReplimatIncidentBase">
+		<defName>ReplimatSpill</defName>
+		<label>Replimat Spill</label>
+		<workerClass>Replimat.IncidentWorker_ReplimatSpill</workerClass>
 		<letterLabel>Replimat Spill</letterLabel>
 		<letterText>A {0} has malfunctioned, spilling nutrient feedstock everywhere.</letterText>
 	</IncidentDef>
 
-	<IncidentDef>
+	<IncidentDef ParentName="ReplimatIncidentBase">
 		<defName>ReplimatMalfunctionKibble</defName>
-		<label>Replimat Malfunction</label>
+		<label>Replimat Malfunction (Kibble)</label>
 		<workerClass>Replimat.IncidentWorker_ReplimatMalfunctionKibble</workerClass>
-		<category>Misc</category>
-		<targetTags>
-			<li>Map_PlayerHome</li>
-		</targetTags>
-		<baseChance>2.5</baseChance>
 		<letterLabel>Replimat Malfunction\n(Kibble)</letterLabel>
 		<letterText>A {0} has malfunctioned, producing large quantities of animal feed.</letterText>
+	</IncidentDef>
+	
+	<IncidentDef ParentName="ReplimatIncidentBase">
+		<defName>ReplimatMalfunctionSmokeleaf</defName>
+		<label>Replimat Malfunction (Smokeleaf)</label>
+		<workerClass>Replimat.IncidentWorker_ReplimatMalfunctionSmokeleaf</workerClass>
+		<letterLabel>Replimat Malfunction\n(Smokeleaf)</letterLabel>
+		<letterText>A {0} has malfunctioned, producing 500 Smokeleaf joints.\n\nUpon seeing the joints, one of your colonists commented that they felt "as if they have been standing their entire life and they just sat down."</letterText>
 	</IncidentDef>
 
 </Defs>

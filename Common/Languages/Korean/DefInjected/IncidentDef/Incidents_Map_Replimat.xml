@@ -1,20 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+
 	<!-- EN: Replimat Spill -->
 	<ReplimatSpill.label>레플리매트 누출</ReplimatSpill.label>
 
 	<!-- EN: Replimat Spill -->
 	<ReplimatSpill.letterLabel>레플리매트 누출</ReplimatSpill.letterLabel>
 
-	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere -->
+	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere -->
 	<ReplimatSpill.letterText>{0}이 고장나 영양 원료를 여기저기 누출하고 있습니다.</ReplimatSpill.letterText>
 
-	<!-- EN: Replimat Spill -->
-	<ReplimatMalfunctionKibble.label>레플리매트 오작동</ReplimatMalfunctionKibble.label>
+	<!-- EN: Replimat Malfunction (Kibble) -->
+	<ReplimatMalfunctionKibble.label>레플리매트 오작동 (사료)</ReplimatMalfunctionKibble.label>
 
-	<!-- EN: Replimat Spill -->
-	<ReplimatMalfunctionKibble.letterLabel>레플리매트 오작동</ReplimatMalfunctionKibble.letterLabel>
+	<!-- EN: Replimat Malfunction (Kibble) -->
+	<ReplimatMalfunctionKibble.letterLabel>레플리매트 오작동\n(사료)</ReplimatMalfunctionKibble.letterLabel>
 
-	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere -->
+	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
 	<ReplimatMalfunctionKibble.letterText>{0}이 오작동해 대량의 동물 먹이를 생산하고 있습니다.</ReplimatMalfunctionKibble.letterText>
+	
+	<!-- EN: Replimat Malfunction (Smokeleaf) -->
+	<ReplimatMalfunctionSmokeleaf.label>레플리매트 오작동 (연초)</ReplimatMalfunctionSmokeleaf.label>
+	
+	<!-- EN: Replimat Malfunction (Smokeleaf) -->
+	<ReplimatMalfunctionSmokeleaf.letterLabel>레플리매트 오작동\n(연초)</ReplimatMalfunctionSmokeleaf.letterLabel>
+	
+	<!-- EN: A {0} has malfunctioned, producing 500 Smokeleaf joints.\n\nUpon seeing the joints, one of your colonists commented that they felt "as if they have been standing their entire life and they just sat down." -->
+	<ReplimatMalfunctionSmokeleaf.letterText>{0}이 오작동해 500연초를 생산했습니다.\n\n연초를 본 한 식민지 주민은 “평생 서 있다가 방금 앉은 것 같다”는 소감을 남겼습니다.</ReplimatMalfunctionSmokeleaf.letterText>
+	
 </LanguageData>

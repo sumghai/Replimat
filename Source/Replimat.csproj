@@ -54,6 +54,7 @@
     <Compile Include="Comps\CompSecondLayer.cs" />
     <Compile Include="Comps\CompStateDependentPowerUse.cs" />
     <Compile Include="GraphicsLoader.cs" />
+    <Compile Include="Incidents\IncidentWorker_ReplimatMalfunctionSmokeleaf.cs" />
     <Compile Include="Patches\Harmony_CompPowerTrader_PostSpawnSetup.cs" />
     <Compile Include="Patches\Harmony_FoodUtility_AddFoodPoisoningHediff.cs" />
     <Compile Include="Patches\Harmony_FoodUtility_BestFoodSourceOnMap.cs" />

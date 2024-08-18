@@ -103,6 +103,12 @@
 	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Kibble on its own accord. -->
 	<Replimat_Settings_EnableIncidentKibble_Desc>Дозволяє будь-якому терміналу мати низьку ймовірність виходу з ладу і тиражувати велику кількість корму для домашніх тварин за бажанням.</Replimat_Settings_EnableIncidentKibble_Desc>
 	
+	<!-- EN: Enable Smokeleaf Malfunctions -->
+	<Replimat_Settings_EnableIncidentSmokeleaf_Title>включити несправність димолист тварин</Replimat_Settings_EnableIncidentSmokeleaf_Title>
+	
+	<!-- EN: Allows any Terminal to have a small chance of malfunctioning and replicating large amounts of Smokeleaf joints on its own accord. -->
+	<Replimat_Settings_EnableIncidentSmokeleaf_Desc>Дозволяє будь-якому терміналу мати низьку ймовірність виходу з ладу і тиражувати велику кількість косяк димолисту за бажанням.</Replimat_Settings_EnableIncidentSmokeleaf_Desc>
+	
 	<!-- EN: Power consumption (Active) -->
 	<Replimat_Stat_ActiveModePowerConsumption_Label>енергоспоживання (активне)</Replimat_Stat_ActiveModePowerConsumption_Label>
 	

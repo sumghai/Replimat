@@ -1,20 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+
 	<!-- EN: Replimat Spill -->
 	<ReplimatSpill.label>レプリマット漏出</ReplimatSpill.label>
 	
 	<!-- EN: Replimat Spill -->
 	<ReplimatSpill.letterLabel>レプリマット漏出</ReplimatSpill.letterLabel>
 	
-	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
 	<ReplimatSpill.letterText>{0}が故障し,いたるところに貯蔵されていた栄養が漏れ出しています.</ReplimatSpill.letterText>
 	
-	<!-- EN: Replimat Spill -->
-	<ReplimatMalfunctionKibble.label>レプリマット誤動作</ReplimatMalfunctionKibble.label>
+	<!-- EN: Replimat Malfunction (Kibble) -->
+	<ReplimatMalfunctionKibble.label>レプリマット誤動作 (ペットフード)</ReplimatMalfunctionKibble.label>
 	
-	<!-- EN: Replimat Spill -->
-	<ReplimatMalfunctionKibble.letterLabel>レプリマット誤動作</ReplimatMalfunctionKibble.letterLabel>
+	<!-- EN: Replimat Malfunction (Kibble) -->
+	<ReplimatMalfunctionKibble.letterLabel>レプリマット誤動作\n(ペットフード)</ReplimatMalfunctionKibble.letterLabel>
 	
-	<!-- EN: A Replimat Terminal has malfunctioned, spilling nutrient feedstock everywhere. -->
+	<!-- A {0} has malfunctioned, producing large quantities of animal feed. -->
 	<ReplimatMalfunctionKibble.letterText>{0}が故障し,大量のペットフードが作成されました.</ReplimatMalfunctionKibble.letterText>
+	
+	<!-- EN: Replimat Malfunction (Smokeleaf) -->
+	<ReplimatMalfunctionSmokeleaf.label>レプリマット誤動作 (スモークリーフ)</ReplimatMalfunctionSmokeleaf.label>
+	
+	<!-- EN: Replimat Malfunction (Smokeleaf) -->
+	<ReplimatMalfunctionSmokeleaf.letterLabel>レプリマット誤動作\n(スモークリーフ)</ReplimatMalfunctionSmokeleaf.letterLabel>
+	
+	<!-- EN: A {0} has malfunctioned, producing 500 Smokeleaf joints.\n\nUpon seeing the joints, one of your colonists commented that they felt "as if they have been standing their entire life and they just sat down." -->
+	<ReplimatMalfunctionSmokeleaf.letterText>{0}が故障し,500本のジョイントが作成されました.\n\nジョイントを見た入植者の一人は、「まるでずっと立っていたのに、座ってしまったようだ 」と感想を述べた.</ReplimatMalfunctionSmokeleaf.letterText>
+	
 </LanguageData>
