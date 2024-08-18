@@ -13,18 +13,6 @@
 	<!-- EN: Total feedstock stored {0} / {1} L -->
 	<TotalFeedstockStored>Total de matéria-prima armazenada {0} / {1} L</TotalFeedstockStored>
 
-	<!-- EN: Replimat Spill -->
-	<LetterLabelReplimatSpill>Derramamento de Replimat</LetterLabelReplimatSpill>
-
-	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
-	<LetterTextReplimatSpill>Um {0} tem um mau funcionamento, derramando matéria-prima nutriente em todos os lugares.</LetterTextReplimatSpill>
-
-	<!-- EN: Replimat Malfunction -->
-	<LetterLabelReplimatMalfunctionKibble>Mau funcionamento do Replimat</LetterLabelReplimatMalfunctionKibble>
-
-	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
-	<LetterTextReplimatMalfunctionKibble>Um {0} tem um mau funcionamento, produzindo grandes quantidades de ração animal. </LetterTextReplimatMalfunctionKibble>
-
 	<!-- EN: Requires connection to Replimat Computer -->	
 	<NotConnectedToComputer>Requer conexão com o Computador Replimat</NotConnectedToComputer>
 

@@ -20,7 +20,7 @@ namespace Replimat
 
             if (!list.Any())
             {
-                // If there are no Terminals or Animal Feeders, break out of execution early
+                // If there are no Terminals, break out of execution early
                 return false;
             }
 

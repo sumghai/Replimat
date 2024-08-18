@@ -20,7 +20,7 @@ namespace Replimat
 
             if (!list.Any())
             {
-                // If there are no Terminals or Animal Feeders, break out of execution early
+                // If there are no Terminals, break out of execution early
                 return false;
             }
 
@@ -38,12 +38,8 @@ namespace Replimat
                 t.stackCount = unitsOfKibble;
                 GenPlace.TryPlaceThing(t, building_ReplimatTerminal.InteractionCell, map, ThingPlaceMode.Near);
 
-                string letterLabel = "LetterLabelReplimatMalfunctionKibble".Translate();
-
-                string letterText = "LetterTextReplimatMalfunctionKibble".Translate(new object[]
-                {
-                        currentTerminal.def.label
-                });
+                TaggedString letterLabel = def.letterLabel;
+                TaggedString letterText = def.letterText.Formatted(currentTerminal.def.label).Resolve();
 
                 Find.LetterStack.ReceiveLetter(letterLabel, letterText, LetterDefOf.NegativeEvent, new TargetInfo(building_ReplimatTerminal.Position, map, false), null);
                 return true;

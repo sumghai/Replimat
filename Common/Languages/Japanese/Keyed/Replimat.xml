@@ -13,18 +13,6 @@
 	<!-- EN: Total feedstock stored {0} / {1} L -->
 	<TotalFeedstockStored>原料総量 {0} / {1} L</TotalFeedstockStored>
 	
-	<!-- EN: Replimat Spill -->
-	<LetterLabelReplimatSpill>レプリマット漏出</LetterLabelReplimatSpill>
-	
-	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
-	<LetterTextReplimatSpill>{0}が故障し,栄養原料がいたるところに漏出しています.</LetterTextReplimatSpill>
-	
-	<!-- EN: Replimat Malfunction -->
-	<LetterLabelReplimatMalfunctionKibble>レプリマット故障</LetterLabelReplimatMalfunctionKibble>
-	
-	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
-	<LetterTextReplimatMalfunctionKibble>{0}が故障し,大量のペットフードを合成しています.</LetterTextReplimatMalfunctionKibble>
-	
 	<!-- EN: Requires connection to Replimat Computer -->	
 	<NotConnectedToComputer>レプリマットコンピューターとの接続が必要です.</NotConnectedToComputer>
 	

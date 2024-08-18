@@ -13,18 +13,6 @@
 	<!-- EN: Total feedstock stored {0} / {1} L -->
 	<TotalFeedstockStored>Всего сырья хранится {0} / {1} L</TotalFeedstockStored>
 
-	<!-- EN: Replimat Spill -->
-	<LetterLabelReplimatSpill>Поток сырья</LetterLabelReplimatSpill>
-
-	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
-	<LetterTextReplimatSpill>A {0} неисправен, разливая питательное сырье повсюду.</LetterTextReplimatSpill>
-
-	<!-- EN: Replimat Malfunction -->
-	<LetterLabelReplimatMalfunctionKibble>Неисправность создания</LetterLabelReplimatMalfunctionKibble>
-
-	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
-	<LetterTextReplimatMalfunctionKibble>Произошел сбой {0}, что привело к образованию большого количества корма для животных.</LetterTextReplimatMalfunctionKibble>
-
 	<!-- EN: Requires connection to Replimat Computer -->	
 	<NotConnectedToComputer>Требуется подключение к компьютеру Реплимат</NotConnectedToComputer>
 

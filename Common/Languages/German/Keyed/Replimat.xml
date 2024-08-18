@@ -13,18 +13,6 @@
 	<!-- EN: Total feedstock stored {0} / {1} L -->
 	<TotalFeedstockStored>Gesamte gespeicherte Rohnahrung {0} / {1} L</TotalFeedstockStored>
 
-	<!-- EN: Replimat Spill -->
-	<LetterLabelReplimatSpill>Replikator leckt</LetterLabelReplimatSpill>
-
-	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
-	<LetterTextReplimatSpill>Ein {0} hat eine Fehlfunktion, Rohnahrung wurde überall verschüttet</LetterTextReplimatSpill>
-
-	<!-- EN: Replimat Malfunction -->
-	<LetterLabelReplimatMalfunctionKibble>Replikator Fehlfunktion</LetterLabelReplimatMalfunctionKibble>
-
-	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
-	<LetterTextReplimatMalfunctionKibble>Ein  {0} hat eine Fehlfunktion, große Mengen Tierfutter wurden produziert</LetterTextReplimatMalfunctionKibble>
-
 	<!-- EN: Requires connection to Replimat Computer -->	
 	<NotConnectedToComputer>Benötigt eine Verbindung zum Replikator-Computer</NotConnectedToComputer>
 

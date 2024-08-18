@@ -13,18 +13,6 @@
 	<!-- EN: Total feedstock stored {0} / {1} L -->
 	<TotalFeedstockStored>Celková uskladnìná smìs živin {0} / {1} L</TotalFeedstockStored>
 
-	<!-- EN: Replimat Spill -->
-	<LetterLabelReplimatSpill>Nehoda v Replimatu</LetterLabelReplimatSpill>
-
-	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere. -->
-	<LetterTextReplimatSpill>Pøístroj {0} se porouchal a všude rozlil smìs živin.</LetterTextReplimatSpill>
-
-	<!-- EN: Replimat Malfunction -->
-	<LetterLabelReplimatMalfunctionKibble>Porucha Replimatu</LetterLabelReplimatMalfunctionKibble>
-
-	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed. -->
-	<LetterTextReplimatMalfunctionKibble>{0} se porouchal a vyrobil velké množství krmiva pro zvíøata.</LetterTextReplimatMalfunctionKibble>
-
 	<!-- EN: Requires connection to Replimat Computer -->
 	<NotConnectedToComputer>Vyžaduje pøipojení k poèítaèi Replimatu.</NotConnectedToComputer>
 

@@ -13,18 +13,6 @@
 	<!-- EN: Total feedstock stored {0} / {1} L -->
 	<TotalFeedstockStored>저장한 원료 총량 {0} / {1} L</TotalFeedstockStored>
 
-	<!-- EN: Replimat Spill -->
-	<LetterLabelReplimatSpill>레플리매트 누출</LetterLabelReplimatSpill>
-
-	<!-- EN: A {0} has malfunctioned, spilling nutrient feedstock everywhere -->
-	<LetterTextReplimatSpill>{0}이 오작동해 영양 원료를 여기저기 누출하고 있습니다.</LetterTextReplimatSpill>
-
-	<!-- EN: Replimat Malfunction -->
-	<LetterLabelReplimatMalfunctionKibble>레플리매트 오작동</LetterLabelReplimatMalfunctionKibble>
-
-	<!-- EN: A {0} has malfunctioned, producing large quantities of animal feed -->
-	<LetterTextReplimatMalfunctionKibble>{0}이 오작동해 대량의 동물 먹이를 생산하고 있습니다.</LetterTextReplimatMalfunctionKibble>
-
 	<!-- EN: Requires connection to Replimat Computer -->
 	<NotConnectedToComputer>레플리매트 컴퓨터와 연결 필요</NotConnectedToComputer>
 
