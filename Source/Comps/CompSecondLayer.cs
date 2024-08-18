@@ -7,13 +7,7 @@ namespace Replimat
     {
         public Graphic graphicInt;
 
-        public CompProperties_SecondLayer Props
-        {
-            get
-            {
-                return (CompProperties_SecondLayer)props;
-            }
-        }
+        public CompProperties_SecondLayer Props => (CompProperties_SecondLayer)props;
 
         public virtual Graphic Graphic
         {
