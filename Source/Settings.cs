@@ -41,7 +41,7 @@ namespace Replimat
             listingStandard.Header("Replimat_Settings_HeaderIncidents".Translate());
             listingStandard.CheckboxLabeled("Replimat_Settings_EnableIncidentSpill_Title".Translate(), ref EnableIncidentSpill, "Replimat_Settings_EnableIncidentSpill_Desc".Translate());
             listingStandard.CheckboxLabeled("Replimat_Settings_EnableIncidentKibble_Title".Translate(), ref EnableIncidentKibble, "Replimat_Settings_EnableIncidentKibble_Desc".Translate());
-            listingStandard.CheckboxLabeled("Replimat_Settings_EnableIncidentSmokeleaf_Title".Translate(), ref EnableIncidentKibble, "Replimat_Settings_EnableIncidentSmokeleaf_Desc".Translate());
+            listingStandard.CheckboxLabeled("Replimat_Settings_EnableIncidentSmokeleaf_Title".Translate(), ref EnableIncidentSmokeleaf, "Replimat_Settings_EnableIncidentSmokeleaf_Desc".Translate());
 
             listingStandard.End();
         }
