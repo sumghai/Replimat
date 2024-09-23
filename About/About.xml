@@ -4,7 +4,8 @@
 	<name>Replimat</name>
 	<author>sumghai, Dubwise</author>
 	<packageId>sumghai.Replimat</packageId>
-	<description>Adds Star Trek-style food replicator terminals and supporting hardware, for efficient and on-demand feeding of colonists.\n\nv1.5.6</description>
+	<modVersion IgnoreIfNoMatchingField="True">1.5.6</modVersion>
+	<description>Adds Star Trek-style food replicator terminals and supporting hardware, for efficient and on-demand feeding of colonists.</description>
 	<url>https://github.com/sumghai/Replimat</url>
 	<supportedVersions>
 		<li>1.4</li>
