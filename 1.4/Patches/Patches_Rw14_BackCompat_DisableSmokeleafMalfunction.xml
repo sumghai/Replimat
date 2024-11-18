@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+
+			<!-- RW 1.4 Back Compatibility: Remove Smokeleaf Malfunction incident type -->
+			
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/IncidentDef[defName="ReplimatMalfunctionSmokeleaf"]</xpath>
+			</li>
+
+		</operations>
+	</Operation>
+</Patch>
