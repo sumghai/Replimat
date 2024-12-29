@@ -3,11 +3,11 @@
 	<v1.4>
 		<li>Common</li>
 		<li>1.4</li>
-		<li IfModActive="Dubwise.DubsBadHygiene">Compatibility/DubsBadHygiene</li>
+		<li IfModActive="Dubwise.DubsBadHygiene,Dubwise.DubsBadHygiene_steam">Compatibility/DubsBadHygiene</li>
 	</v1.4>
 	<v1.5>
 		<li>Common</li>
 		<li>1.5</li>
-		<li IfModActive="Dubwise.DubsBadHygiene">Compatibility/DubsBadHygiene</li>
+		<li IfModActive="Dubwise.DubsBadHygiene,Dubwise.DubsBadHygiene_steam">Compatibility/DubsBadHygiene</li>
 	</v1.5>
 </loadFolders>
