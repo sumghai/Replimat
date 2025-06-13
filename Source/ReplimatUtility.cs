@@ -28,7 +28,7 @@ namespace Replimat
 
         public static List<Building_ReplimatFeedTank> GetTanks(this PowerNet net)
         {
-            return net.Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).OfType<Building_ReplimatFeedTank>().Where(x => x.GetPowerComp.PowerNet == net && CanFindComputer(x, net)).ToList();
+            return net.Map.listerThings.GetThingsOfType<Building_ReplimatFeedTank>().Where(x => x.GetPowerComp.PowerNet == net && CanFindComputer(x, net)).ToList();
         }
 
         public static bool RepMatWillEat(Pawn p, ThingDef food, Pawn getter = null)

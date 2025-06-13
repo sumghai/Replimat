@@ -19,6 +19,12 @@
 	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
 	<ReplimatFeedTank.description>レプリマット端末で使用するための有機微粒子懸濁液を保管しています.原料はレプリマットホッパーから搬入します.</ReplimatFeedTank.description>
 	
+	<!-- EN: Replimat Large Feedstock Tank -->
+	<ReplimatFeedTankLarge.label>レプリマット大型原料タンク</ReplimatFeedTankLarge.label>
+
+	<!-- EN: A larger version of the standard feedstock tank, which stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<ReplimatFeedTankLarge.description>標準的な原料タンクを大型化したもので,レプリマット端末で使用するための有機微粒子懸濁液を保管しています.原料はレプリマットホッパーから搬入します.</ReplimatFeedTankLarge.description>
+	
 	<!-- EN: Replimat Hopper -->
 	<ReplimatHopper.label>レプリマットホッパー</ReplimatHopper.label>
 	

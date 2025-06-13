@@ -16,7 +16,6 @@ namespace Replimat
         public static ThingDef ReplimatComputer;
         public static ThingDef ReplimatTerminal;
         public static ThingDef ReplimatAnimalFeeder;
-        public static ThingDef ReplimatFeedTank;
         public static ThingDef ReplimatHopper;
         public static ThingDef ReplimatCorpseRecycler;
         public static ThingDef RawFungus;

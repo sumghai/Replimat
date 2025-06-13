@@ -3,10 +3,18 @@
 	<Operation Class="PatchOperationSequence">
 		<operations>
 
-			<!-- RW 1.4 Back Compatibility: Remove Smokeleaf Malfunction incident type -->
+			<!-- 
+			RW 1.4 Back Compatibility: 
+			- Remove Smokeleaf Malfunction incident type
+			- Remove Replimat Large Feedstock Tank
+			-->
 			
 			<li Class="PatchOperationRemove">
 				<xpath>Defs/IncidentDef[defName="ReplimatMalfunctionSmokeleaf"]</xpath>
+			</li>
+			
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/ThingDef[defName="ReplimatFeedTankLarge"]</xpath>
 			</li>
 
 		</operations>

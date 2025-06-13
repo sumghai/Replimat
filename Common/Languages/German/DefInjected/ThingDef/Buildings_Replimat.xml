@@ -19,6 +19,12 @@
 	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
 	<ReplimatFeedTank.description>Lagert aufgelöste organische Partikel für Replikator-Terminals. Wird versorgt durch Replikator-Trichter.</ReplimatFeedTank.description>
 	
+	<!-- EN: Replimat Large Feedstock Tank -->
+	<ReplimatFeedTankLarge.label>Große Rohnahrungs-Tank</ReplimatFeedTankLarge.label>
+
+	<!-- EN: A larger version of the standard feedstock tank, which stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<ReplimatFeedTankLarge.description>Eine größere Version des standard Rohnahrungs-Tank, in dem lagert aufgelöste organische Partikel für Replikator-Terminals. Wird versorgt durch Replikator-Trichter.</ReplimatFeedTankLarge.description>
+	
 	<!-- EN: Replimat Hopper -->
 	<ReplimatHopper.label>Replikator-Trichter</ReplimatHopper.label>
 	

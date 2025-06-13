@@ -22,8 +22,8 @@ namespace Replimat
             }
         }
 
-        public virtual float StoredFeedstockMax => 250f; // 250L capacity for an *insulated* 0.5m diameter and 1.5m high liquid tank
-                                                         // Originally 8000L capacity for a 2m diameter and 2m high liquid tank
+        // Default 250L capacity for an *insulated* 0.5m diameter and 1.5m high liquid tank
+        public virtual float StoredFeedstockMax => def.GetModExtension<FeedstockTankExtension>()?.feedstockCapacity ?? 250f;
 
         public float storedFeedstock;
 

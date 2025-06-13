@@ -19,6 +19,12 @@
 	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
 	<ReplimatFeedTank.description>Armazena uma suspensão de particulados orgânicos para uso pelos Terminais Replimat. Fornecido por Funil de Replimat.</ReplimatFeedTank.description>
 	
+	<!-- EN: Replimat Large Feedstock Tank -->
+	<ReplimatFeedTankLarge.label>Grande Tanque Replimat Feedstock</ReplimatFeedTankLarge.label>
+
+	<!-- EN: A larger version of the standard feedstock tank, which stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<ReplimatFeedTankLarge.description>Uma versão maior do tanque de Feedstock padrão, que armazena uma suspensão de particulados orgânicos para uso pelos Terminais Replimat. Fornecido por Funil de Replimat</ReplimatFeedTankLarge.description>
+	
 	<!-- EN: Replimat Hopper -->
 	<ReplimatHopper.label>Funil de Replimat</ReplimatHopper.label>
 	

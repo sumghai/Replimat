@@ -19,6 +19,12 @@
 	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
 	<ReplimatFeedTank.description>Хранит суспензию органических частиц для использования Терминалами Реплимат. Поставляется Бункером Реплимат.</ReplimatFeedTank.description>
 	
+	<!-- EN: Replimat Large Feedstock Tank -->
+	<ReplimatFeedTankLarge.label>Большой xранилище сырья Реплимат</ReplimatFeedTankLarge.label>
+
+	<!-- EN: A larger version of the standard feedstock tank, which stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<ReplimatFeedTankLarge.description>Увеличенная версия стандартного хранилища сырья, в котором хранится суспензия органических частиц для использования Терминалами Реплимат. Поставляется Бункером Реплимат.</ReplimatFeedTankLarge.description>
+	
 	<!-- EN: Replimat Hopper -->
 	<ReplimatHopper.label>Бункер Реплимат</ReplimatHopper.label>
 	

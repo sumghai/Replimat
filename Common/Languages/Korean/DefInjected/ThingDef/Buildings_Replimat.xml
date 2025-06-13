@@ -19,6 +19,12 @@
 	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
 	<ReplimatFeedTank.description>레플리매트 단말기에서 사용하는 유기 미립자 현탁액을 보관합니다. 레플리매트 호퍼로 공급합니다.</ReplimatFeedTank.description>
 	
+	<!-- EN: Replimat Large Feedstock Tank -->
+	<ReplimatFeedTankLarge.label>레플리매트 대형 원료 탱크</ReplimatFeedTankLarge.label>
+
+	<!-- EN: A larger version of the standard feedstock tank, which stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<ReplimatFeedTankLarge.description>레플리매트 터미널에서 사용하는 유기 미립자 현탁액을 담는 표준 원료 탱크의 대형 버전입니다. 레플리매트 호퍼로 공급합니다.</ReplimatFeedTankLarge.description>
+	
 	<!-- EN: Replimat Hopper -->
 	<ReplimatHopper.label>레플리매트 호퍼</ReplimatHopper.label>
 	

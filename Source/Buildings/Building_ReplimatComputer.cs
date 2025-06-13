@@ -35,7 +35,7 @@ namespace Replimat
 
         public static readonly Material BatteryBarNoPowerMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.5f, 0.5f, 0.5f));
 
-        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.ThingsOfDef(ReplimatDef.ReplimatFeedTank).OfType<Building_ReplimatFeedTank>().Where(x => x.GetPowerComp.PowerNet == PowerComp.PowerNet).ToList();
+        public List<Building_ReplimatFeedTank> GetTanks => Map.listerThings.GetThingsOfType<Building_ReplimatFeedTank>().Where(x => x.GetPowerComp.PowerNet == PowerComp.PowerNet).ToList();
 
         public float GetFeedstockPercent()
         {

@@ -167,7 +167,7 @@
 		</comps>
 	</ThingDef>
 
-	<!--====================== Replimat Feedstock Tank ======================-->
+	<!--====================== Replimat Feedstock Tanks ======================-->
 
 	<ThingDef ParentName="ReplimatBase">
 		<defName>ReplimatFeedTank</defName>
@@ -213,6 +213,57 @@
 				<basePowerConsumption>500</basePowerConsumption>
 			</li>
 		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="ReplimatBase">
+		<defName>ReplimatFeedTankLarge</defName>
+		<label>Replimat Large Feedstock Tank</label>
+		<description>A larger version of the standard feedstock tank, which stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers.</description>
+		<thingClass>Replimat.Building_ReplimatFeedTank</thingClass>
+		<graphicData>
+			<texPath>Things/Building/replimatFeedTankLarge</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<shadowData>
+				<volume>(1.875, 1, 1.2)</volume>
+			</shadowData>
+			<damageData>
+				<rect>(0,0,2,2.47)</rect>
+			</damageData>
+		</graphicData>
+		<uiIconPath>UI/replimatFeedTankLarge</uiIconPath>
+		<costList>
+			<Steel>50</Steel>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+			<Plasteel>150</Plasteel>
+		</costList>
+		<fillPercent>0.99</fillPercent>
+		<statBases>
+			<MarketValue>8000</MarketValue>
+			<!-- Ensures market value is reflected in colony wealth calculations -->
+			<MarketValueIgnoreHp>8000</MarketValueIgnoreHp>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>10000</WorkToBuild>
+			<Flammability>0.3</Flammability>
+			<Beauty>-3</Beauty>
+			<Mass>400</Mass>
+		</statBases>
+		<size>(2,2)</size>
+		<rotatable>false</rotatable>
+		<pathCost>200</pathCost>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>1000</basePowerConsumption>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="Replimat.FeedstockTankExtension">
+				<feedstockCapacity>4000</feedstockCapacity> <!-- 2 m diameter by 1.5 m high, minus insulation -->
+			</li>
+		</modExtensions>
 	</ThingDef>
 
 	<!--====================== Replimat Hopper ======================-->

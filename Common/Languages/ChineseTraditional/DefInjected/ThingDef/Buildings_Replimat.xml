@@ -18,6 +18,12 @@
 
 	<!-- EN: Stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
 	<ReplimatFeedTank.description>儲存食品合成器需要用的液體形式營養原料。原料來源以儲料槽供應。</ReplimatFeedTank.description>
+	
+	<!-- EN: Replimat Large Feedstock Tank -->
+	<ReplimatFeedTankLarge.label>食品合成系統大型原料儲存桶</ReplimatFeedTankLarge.label>
+
+	<!-- EN: A larger version of the standard feedstock tank, which stores an organic particulate suspension for use by Replimat Terminals. Supplied by Replimat Hoppers. -->
+	<ReplimatFeedTankLarge.description>大型的原料儲存桶，儲存食品合成器需要用的液體形式營養原料。原料來源以儲料槽供應。</ReplimatFeedTankLarge.description>
 
 	<!-- EN: Replimat Hopper -->
 	<ReplimatHopper.label>食品合成系統儲料槽</ReplimatHopper.label>

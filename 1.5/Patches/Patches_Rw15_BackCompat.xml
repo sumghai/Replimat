@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+
+			<!-- 
+			RW 1.5 Back Compatibility: 
+			- Remove Replimat Large Feedstock Tank
+			-->
+			
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/ThingDef[defName="ReplimatFeedTankLarge"]</xpath>
+			</li>
+
+		</operations>
+	</Operation>
+</Patch>
