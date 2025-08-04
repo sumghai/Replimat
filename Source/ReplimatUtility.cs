@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
+using Verse.AI;
 
 namespace Replimat
 {
@@ -28,6 +29,27 @@ namespace Replimat
         public static List<Building_ReplimatFeedTank> GetTanks(this PowerNet net)
         {
             return net.Map.listerThings.GetThingsOfType<Building_ReplimatFeedTank>().Where(x => x.GetPowerComp.PowerNet == net && CanFindComputer(x, net)).ToList();
+        }
+
+        public static bool CanUseTerminal(Building_ReplimatTerminal terminal)
+        {
+            if (
+                !ReplimatMod.allowDispenserFull
+                || !(ReplimatMod.getter.RaceProps.ToolUser && ReplimatMod.getter.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
+                || terminal.Faction != ReplimatMod.getter.Faction && terminal.Faction != ReplimatMod.getter.HostFaction
+                || !ReplimatMod.allowForbidden && terminal.IsForbidden(ReplimatMod.getter)
+                || !terminal.powerComp.PowerOn
+                || !terminal.InteractionCell.Standable(terminal.Map)
+                || !FoodUtility.IsFoodSourceOnMapSociallyProper(terminal, ReplimatMod.getter, ReplimatMod.eater, ReplimatMod.allowSociallyImproper)
+                || ReplimatMod.getter.IsWildMan()
+                || PickMeal(ReplimatMod.eater, ReplimatMod.getter) == null
+                || !terminal.HasStockFor(PickMeal(ReplimatMod.eater, ReplimatMod.getter))
+                || !ReplimatMod.getter.Map.reachability.CanReachNonLocal(ReplimatMod.getter.Position, new TargetInfo(terminal.InteractionCell, terminal.Map),
+                    PathEndMode.OnCell, TraverseParms.For(ReplimatMod.getter, Danger.Some)))
+            {
+                return false;
+            }
+            return true;
         }
 
         public static bool RepMatWillEat(Pawn p, ThingDef food, Pawn getter = null)
