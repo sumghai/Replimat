@@ -90,7 +90,7 @@
 	<!--====================== Replimat Wall Terminal ======================--> 
 	
 	<ThingDef ParentName="ReplimatBase">
-		<defName>ReplimatWallTerminal</defName>
+		<defName>ReplimatTerminalWall</defName>
 		<label>Replimat Wall Terminal</label>
 		<description>Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.\n\nThis version of the Terminal is designed to be built into any existing walls.</description>
 		<thingClass>Replimat.Building_ReplimatTerminal</thingClass>
