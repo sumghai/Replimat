@@ -9,7 +9,10 @@
 			-->
 			
 			<li Class="PatchOperationRemove">
-				<xpath>Defs/ThingDef[defName="ReplimatFeedTankLarge"]</xpath>
+				<xpath>Defs/ThingDef[
+					defName="ReplimatFeedTankLarge" or
+					defName="ReplimatTerminalWall"
+				]</xpath>
 			</li>
 
 		</operations>
