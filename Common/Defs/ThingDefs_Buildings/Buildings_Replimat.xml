@@ -129,14 +129,14 @@
 		<altitudeLayer>BuildingOnTop</altitudeLayer>
 		<fillPercent>0.99</fillPercent>
 		<statBases>
-			<MarketValue>40000</MarketValue>
+			<MarketValue>60000</MarketValue>
 			<!-- Ensures market value is reflected in colony wealth calculations -->
-			<MarketValueIgnoreHp>40000</MarketValueIgnoreHp>
-			<MaxHitPoints>200</MaxHitPoints>
+			<MarketValueIgnoreHp>60000</MarketValueIgnoreHp>
+			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>12500</WorkToBuild>
 			<Flammability>0.3</Flammability>
-			<Beauty>5</Beauty>
-			<Mass>50</Mass>
+			<Beauty>4</Beauty>
+			<Mass>30</Mass>
 		</statBases>
 		<size>(1,1)</size>
 		<passability>Standable</passability>
