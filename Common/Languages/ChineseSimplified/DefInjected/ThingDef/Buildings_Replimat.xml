@@ -7,6 +7,12 @@
 	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
 	<ReplimatTerminal.description>采用分子营养素重测序技术来复制各样的食品。需要通过电缆线连接上原料储存桶和主计算机。</ReplimatTerminal.description>
 	
+	<!-- EN: Replimat Wall Terminal -->
+	<ReplimatTerminalWall.label>挂墙食品合成器</ReplimatTerminalWall.label>
+
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.\n\nThis version of the Terminal is designed to be built into any existing walls. -->
+	<ReplimatTerminalWall.description>采用分子营养素重测序技术来复制各样的食品。需要通过电缆线连接上原料储存桶和主计算机。\n\n此版本的食品合成器可建于任何现有的墙壁内。</ReplimatTerminalWall.description>
+	
 	<!-- EN: Replimat Animal Feeder -->
 	<ReplimatAnimalFeeder.label>饲料合成器</ReplimatAnimalFeeder.label>
 	

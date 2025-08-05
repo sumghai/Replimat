@@ -7,6 +7,12 @@
 	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
 	<ReplimatTerminal.description>Синтезує їжу та напої шляхом молекулярної перебудови. Потрібне підключення до Сховище сировини Реплімат і Комп'ютера Реплімат через кабелі.</ReplimatTerminal.description>
 	
+	<!-- EN: Replimat Wall Terminal -->
+	<ReplimatTerminalWall.label>Реплімат настінний термінал</ReplimatTerminalWall.label>
+
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.\n\nThis version of the Terminal is designed to be built into any existing walls. -->
+	<ReplimatTerminalWall.description>Синтезує їжу та напої шляхом молекулярної перебудови. Потрібне підключення до Сховище сировини Реплімат і Комп'ютера Реплімат через кабелі.\n\nЦя версія терміналу призначена для вбудовування в будь-які існуючі стіни.</ReplimatTerminalWall.description>
+	
 	<!-- EN: Replimat Animal Feeder -->
 	<ReplimatAnimalFeeder.label>Годівниця Реплімат</ReplimatAnimalFeeder.label>
 	

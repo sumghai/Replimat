@@ -7,6 +7,12 @@
 	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
 	<ReplimatTerminal.description>Pomocí molekulárního resekvenování syntetizuje pokrmy a nápoje. Vyžaduje připojení k nádrži na živný roztok a řídícímu systému replimatu přes elektrické kabely.</ReplimatTerminal.description>
 	
+	<!-- EN: Replimat Wall Terminal -->
+	<ReplimatTerminalWall.label>Nástěnný terminál Replimatu</ReplimatTerminalWall.label>
+
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.\n\nThis version of the Terminal is designed to be built into any existing walls. -->
+	<ReplimatTerminalWall.description>Pomocí molekulárního resekvenování syntetizuje pokrmy a nápoje. Vyžaduje připojení k nádrži na živný roztok a řídícímu systému replimatu přes elektrické kabely.\n\nTato verze terminálu je navržena tak, aby mohla být zabudována do jakékoli stávající stěny.</ReplimatTerminalWall.description>
+	
 	<!-- EN: Replimat Animal Feeder -->
 	<ReplimatAnimalFeeder.label>Krmítko pro zvířata Replimat</ReplimatAnimalFeeder.label>
 	

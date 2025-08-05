@@ -7,6 +7,12 @@
 	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
 	<ReplimatTerminal.description>Sythentisiert Mahlzeiten und Getränke durch molekulare Resequenzierung. Benötigt eine Verbindung zu einem Rohnahrungs-Tank und einem Replikator-Computer über ein gemeinsames Stromnetz.</ReplimatTerminal.description>
 	
+	<!-- EN: Replimat Wall Terminal -->
+	<ReplimatTerminalWall.label>Replikator-Wandterminal</ReplimatTerminalWall.label>
+
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.\n\nThis version of the Terminal is designed to be built into any existing walls. -->
+	<ReplimatTerminalWall.description>Sythentisiert Mahlzeiten und Getränke durch molekulare Resequenzierung. Benötigt eine Verbindung zu einem Rohnahrungs-Tank und einem Replikator-Computer über ein gemeinsames Stromnetz.\n\nDiese Version des Terminals ist für den Einbau in bestehende Wände konzipiert.</ReplimatTerminalWall.description>
+	
 	<!-- EN: Replimat Animal Feeder -->
 	<ReplimatAnimalFeeder.label>Replikator-Futtertrog</ReplimatAnimalFeeder.label>
 	

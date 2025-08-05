@@ -7,6 +7,12 @@
 	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
 	<ReplimatTerminal.description>분자 재구성으로 식사와 음료를 합성합니다. 레플리매트 원료 탱크 및 레플리매트 컴퓨터에 전력선으로 연결해야 합니다.</ReplimatTerminal.description>
 	
+	<!-- EN: Replimat Wall Terminal -->
+	<ReplimatTerminalWall.label>레플리매트 벽면 단말기</ReplimatTerminalWall.label>
+
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.\n\nThis version of the Terminal is designed to be built into any existing walls. -->
+	<ReplimatTerminalWall.description>분자 재구성으로 식사와 음료를 합성합니다. 레플리매트 원료 탱크 및 레플리매트 컴퓨터에 전력선으로 연결해야 합니다.\n\n이 터미널 버전은 기존 벽면에 내장되도록 설계되었습니다.</ReplimatTerminalWall.description>
+	
 	<!-- EN: Replimat Animal Feeder -->
 	<ReplimatAnimalFeeder.label>레플리매트 동물 급양기</ReplimatAnimalFeeder.label>
 	

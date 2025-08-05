@@ -7,6 +7,12 @@
 	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits. -->
 	<ReplimatTerminal.description>分子再構成によって食事と飲料を合成します.レプリマット原料タンクとレプリマットコンピューターを電力線で接続する必要があります.</ReplimatTerminal.description>
 	
+	<!-- EN: Replimat Wall Terminal -->
+	<ReplimatTerminalWall.label>レプリマット壁掛け型端末</ReplimatTerminalWall.label>
+
+	<!-- EN: Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.\n\nThis version of the Terminal is designed to be built into any existing walls. -->
+	<ReplimatTerminalWall.description>分子再構成によって食事と飲料を合成します.レプリマット原料タンクとレプリマットコンピューターを電力線で接続する必要があります.\n\nこの端末のバージョンは、既存の壁に組み込むように設計されています.</ReplimatTerminalWall.description>
+	
 	<!-- EN: Replimat Animal Feeder -->
 	<ReplimatAnimalFeeder.label>レプリマット給餌器</ReplimatAnimalFeeder.label>
 	
