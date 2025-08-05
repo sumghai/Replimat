@@ -86,6 +86,91 @@
 			</li>
 		</comps>
 	</ThingDef>
+	
+	<!--====================== Replimat Wall Terminal ======================--> 
+	
+	<ThingDef ParentName="ReplimatBase">
+		<defName>ReplimatWallTerminal</defName>
+		<label>Replimat Wall Terminal</label>
+		<description>Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.\n\nThis version of the Terminal is designed to be built into any existing walls.</description>
+		<thingClass>Replimat.Building_ReplimatTerminal</thingClass>
+		<graphicData>
+			<!--<texPath>Things/Building/replimatTerminal</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(3,3)</drawSize>
+			<shadowData>
+				<volume>(1,1,0.5)</volume>
+				<offset>(0,0,0.25)</offset>
+			</shadowData>
+			<damageData>
+				<rectN>(0,0.17,1,1.25)</rectN>
+				<rectS>(0,-0.1,1,0.67)</rectS>
+				<rectE>(0.5,0,0.5,1.375)</rectE>
+				<rectW>(0,0,0.5,1.375)</rectW>
+			</damageData>-->
+			<texPath>Things/Building/Misc/WallTorch/WallTorch</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawOffsetNorth>(0,0,0.9)</drawOffsetNorth>
+			<drawOffsetSouth>(0,0,-0.9)</drawOffsetSouth>
+			<drawOffsetWest>(-0.9,0,0)</drawOffsetWest>
+			<drawOffsetEast>(0.9,0,0)</drawOffsetEast>
+			<damageData>
+				<enabled>false</enabled>
+			</damageData>
+		</graphicData>
+		<!--<uiIconPath>UI/replimatTerminal</uiIconPath>-->
+		<uiIconPath>Things/Building/Misc/WallTorch/WallTorch_MenuIcon</uiIconPath>
+		<costList>
+			<Steel>40</Steel>
+			<ComponentSpacer>5</ComponentSpacer>
+			<Plasteel>15</Plasteel>
+		</costList>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<fillPercent>0.99</fillPercent>
+		<statBases>
+			<MarketValue>40000</MarketValue>
+			<!-- Ensures market value is reflected in colony wealth calculations -->
+			<MarketValueIgnoreHp>40000</MarketValueIgnoreHp>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>12500</WorkToBuild>
+			<Flammability>0.3</Flammability>
+			<Beauty>5</Beauty>
+			<Mass>50</Mass>
+		</statBases>
+		<size>(1,1)</size>
+		<passability>Standable</passability>
+		<terrainAffordanceNeeded IsNull="True" />
+		<pathCost>0</pathCost>
+		<hasInteractionCell>True</hasInteractionCell>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<building>
+			<isEdifice>false</isEdifice>
+			<isAttachment>true</isAttachment>
+			<isMealSource>true</isMealSource>
+			<soundDispense>Replicate</soundDispense>
+			<wantsHopperAdjacent>false</wantsHopperAdjacent>
+			<nutritionCostPerDispense>0.3</nutritionCostPerDispense>
+			<buildingTags>
+				<li>VNPE_NoExtractGizmos</li>
+			</buildingTags>
+		</building>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>2000</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Forbiddable"/>
+			<li Class="Replimat.CompProperties_StateDependentPowerUse">
+				<activeModePowerConsumption>10000</activeModePowerConsumption>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>Placeworker_AttachedToWall</li>
+		</placeWorkers>
+	</ThingDef>
 
 	<!--====================== Replimat Animal Feeder ======================--> 
 
