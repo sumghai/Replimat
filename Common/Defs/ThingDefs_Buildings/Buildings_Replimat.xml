@@ -95,32 +95,16 @@
 		<description>Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.\n\nThis version of the Terminal is designed to be built into any existing walls.</description>
 		<thingClass>Replimat.Building_ReplimatTerminal</thingClass>
 		<graphicData>
-			<!--<texPath>Things/Building/replimatTerminal</texPath>
+			<!--<shaderType>CutoutComplex</shaderType>-->
+			<texPath>Things/Building/replimatTerminalWall</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 			<drawSize>(3,3)</drawSize>
-			<shadowData>
-				<volume>(1,1,0.5)</volume>
-				<offset>(0,0,0.25)</offset>
-			</shadowData>
-			<damageData>
-				<rectN>(0,0.17,1,1.25)</rectN>
-				<rectS>(0,-0.1,1,0.67)</rectS>
-				<rectE>(0.5,0,0.5,1.375)</rectE>
-				<rectW>(0,0,0.5,1.375)</rectW>
-			</damageData>-->
-			<texPath>Things/Building/Misc/WallTorch/WallTorch</texPath>
-			<graphicClass>Graphic_Multi</graphicClass>
-			<drawOffsetNorth>(0,0,0.9)</drawOffsetNorth>
-			<drawOffsetSouth>(0,0,-0.9)</drawOffsetSouth>
-			<drawOffsetWest>(-0.9,0,0)</drawOffsetWest>
-			<drawOffsetEast>(0.9,0,0)</drawOffsetEast>
+			<drawOffsetSouth>(0,-1,0)</drawOffsetSouth>
 			<damageData>
 				<enabled>false</enabled>
 			</damageData>
 		</graphicData>
-		<!--<uiIconPath>UI/replimatTerminal</uiIconPath>-->
-		<uiIconPath>Things/Building/Misc/WallTorch/WallTorch_MenuIcon</uiIconPath>
+		<uiIconPath>UI/replimatTerminalWall</uiIconPath>
 		<costList>
 			<Steel>40</Steel>
 			<ComponentSpacer>5</ComponentSpacer>
