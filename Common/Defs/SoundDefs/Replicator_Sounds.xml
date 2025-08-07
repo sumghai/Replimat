@@ -12,7 +12,7 @@
 						<clipPath>Replimat/TerminalDispense</clipPath>
 					</li>
 				</grains>
-				<volumeRange>5</volumeRange>
+				<volumeRange>15~20.43478</volumeRange> 
 				<distRange>0~40</distRange>
 			</li>
 		</subSounds>
@@ -33,7 +33,7 @@
 						<clipPath>Replimat/HopperDematerialize</clipPath>
 					</li>
 				</grains>
-				<volumeRange>5</volumeRange>
+				<volumeRange>15~20.43478</volumeRange> 
 				<distRange>0~40</distRange>
 			</li>
 		</subSounds>
