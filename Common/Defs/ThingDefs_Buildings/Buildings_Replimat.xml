@@ -97,6 +97,7 @@
 		<graphicData>
 			<texPath>Things/Building/replimatTerminalWall</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
 			<drawSize>(3,3)</drawSize>
 			<drawOffsetSouth>(0,-1,0)</drawOffsetSouth>
 			<damageData>
