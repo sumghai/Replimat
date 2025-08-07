@@ -95,7 +95,6 @@
 		<description>Synthesizes meals and beverages through molecular resequencing. Requires a connection to a Replimat Feedstock Tank and Replimat Computer via conduits.\n\nThis version of the Terminal is designed to be built into any existing walls.</description>
 		<thingClass>Replimat.Building_ReplimatTerminal</thingClass>
 		<graphicData>
-			<!--<shaderType>CutoutComplex</shaderType>-->
 			<texPath>Things/Building/replimatTerminalWall</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>

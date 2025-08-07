@@ -112,7 +112,10 @@ namespace Replimat
                 Vector3 replimatTerminalScreenGlowDrawPos = drawLoc;
                 replimatTerminalScreenGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
-                Graphics.DrawMesh(GraphicsLoader.replimatTerminalScreenGlow.MeshAt(Rotation), replimatTerminalScreenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatTerminalScreenGlow.MatAt(Rotation, null), 1), 0);
+                // Hacky workaround for different terminal options using Dubwise-style legacy graphics loading
+                Graphic screenGlow = (def == ReplimatDef.ReplimatTerminal) ? GraphicsLoader.replimatTerminalScreenGlow : GraphicsLoader.replimatTerminalWallScreenGlow;
+
+                Graphics.DrawMesh(screenGlow.MeshAt(Rotation), replimatTerminalScreenGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(screenGlow.MatAt(Rotation, null), 1), 0);
             }
 
             if (ReplicatingTicks > 0)
@@ -133,9 +136,12 @@ namespace Replimat
                 }
 
                 Vector3 replimatTerminalGlowDrawPos = drawLoc;
-                replimatTerminalGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
+                replimatTerminalGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + def.graphicData.DrawOffsetForRot(Rotation).y + 0.03f;
 
-                Graphics.DrawMesh(GraphicsLoader.replimatTerminalGlow.MeshAt(Rotation), replimatTerminalGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(GraphicsLoader.replimatTerminalGlow.MatAt(Rotation, null), alpha), 0);
+                // Hacky workaround for different terminal options using Dubwise-style legacy graphics loading
+                Graphic runningGlow = (def == ReplimatDef.ReplimatTerminal) ? GraphicsLoader.replimatTerminalGlow : GraphicsLoader.replimatTerminalWallGlow;
+
+                Graphics.DrawMesh(runningGlow.MeshAt(Rotation), replimatTerminalGlowDrawPos, Quaternion.identity, FadedMaterialPool.FadedVersionOf(runningGlow.MatAt(Rotation, null), alpha), 0);
             }
         }
 

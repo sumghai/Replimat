@@ -6,9 +6,16 @@ namespace Replimat
     [StaticConstructorOnStartup]
     public static class GraphicsLoader
     {
+        // This mod uses Dubwise-style legacy hardcoded graphics loading, for historical reasons
+        // Future mods will use more robust XML-accessible methods
+        
         public static readonly Graphic replimatTerminalGlow = GraphicDatabase.Get<Graphic_Multi>("FX/replimatTerminalGlow", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
 
+        public static readonly Graphic replimatTerminalWallGlow = GraphicDatabase.Get<Graphic_Multi>("FX/replimatTerminalWallGlow", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
+
         public static readonly Graphic replimatTerminalScreenGlow = GraphicDatabase.Get<Graphic_Single>("FX/replimatTerminalScreenGlow_north", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
+
+        public static readonly Graphic replimatTerminalWallScreenGlow = GraphicDatabase.Get<Graphic_Single>("FX/replimatTerminalWallScreenGlow_north", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
 
         public static readonly Graphic replimatAnimalFeederGlow = GraphicDatabase.Get<Graphic_Single>("FX/replimatAnimalFeederGlow", ShaderDatabase.MoteGlow, new Vector2(3f, 3f), Color.white);
 
