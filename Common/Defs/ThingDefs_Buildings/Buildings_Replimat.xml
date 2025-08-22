@@ -99,7 +99,10 @@
 			<graphicClass>Graphic_Multi</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
 			<drawSize>(3,3)</drawSize>
-			<drawOffsetSouth>(0,-1,0)</drawOffsetSouth>
+			<drawOffsetNorth>(0,0,1)</drawOffsetNorth>
+			<drawOffsetSouth>(0,-1,-1)</drawOffsetSouth>
+			<drawOffsetWest>(-1,0,0)</drawOffsetWest>
+			<drawOffsetEast>(1,0,0)</drawOffsetEast>
 			<damageData>
 				<enabled>false</enabled>
 			</damageData>
@@ -129,6 +132,7 @@
 		<hasInteractionCell>True</hasInteractionCell>
 		<socialPropernessMatters>true</socialPropernessMatters>
 		<building>
+			<isInert>true</isInert>
 			<isEdifice>false</isEdifice>
 			<isAttachment>true</isAttachment>
 			<isMealSource>true</isMealSource>

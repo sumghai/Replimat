@@ -109,7 +109,7 @@ namespace Replimat
 
             if (powerComp.PowerOn && (Rotation == Rot4.North))
             {
-                Vector3 replimatTerminalScreenGlowDrawPos = drawLoc;
+                Vector3 replimatTerminalScreenGlowDrawPos = drawLoc + Graphic.DrawOffset(Rotation);
                 replimatTerminalScreenGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
                 // Hacky workaround for different terminal options using Dubwise-style legacy graphics loading
@@ -135,7 +135,7 @@ namespace Replimat
                     alpha = 1f;
                 }
 
-                Vector3 replimatTerminalGlowDrawPos = drawLoc;
+                Vector3 replimatTerminalGlowDrawPos = drawLoc + Graphic.DrawOffset(Rotation);
                 replimatTerminalGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + def.graphicData.DrawOffsetForRot(Rotation).y + 0.03f;
 
                 // Hacky workaround for different terminal options using Dubwise-style legacy graphics loading
