@@ -4,9 +4,9 @@ namespace Replimat
 {
     internal class CompProperties_SecondLayer : CompProperties
     {
-        public GraphicData graphicData;
+        public GraphicData graphicData = null;
 
-        public AltitudeLayer altitudeLayer;
+        public AltitudeLayer altitudeLayer = AltitudeLayer.Building;
 
         public float Altitude => Altitudes.AltitudeFor(altitudeLayer);
 

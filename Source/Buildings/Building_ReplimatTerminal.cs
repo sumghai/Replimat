@@ -14,7 +14,7 @@ namespace Replimat
     {
         public CompStateDependentPowerUse stateDependentPowerComp;
 
-        public static int CollectDuration = GenTicks.SecondsToTicks(2f);
+        public static new int CollectDuration = GenTicks.SecondsToTicks(2f);
 
         public FoodPreferability MaxPreferability = FoodPreferability.MealLavish;
 
