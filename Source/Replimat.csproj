@@ -1,128 +1,128 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5CE8E23A-3A11-4A15-B8DA-A80FF8CAD154}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Replimat</RootNamespace>
-    <AssemblyName>Replimat</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>false</DebugSymbols>
-    <DebugType>none</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>..\1.6\Assemblies\</OutputPath>
-    <DefineConstants>TRACE;DEBUG</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <LangVersion>12</LangVersion>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\1.6\Assemblies\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <LangVersion>12</LangVersion>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="AlienRace">
-      <HintPath>..\..\AlienRaces\1.6\Assemblies\AlienRace.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="BadHygiene">
-      <HintPath>..\..\Dubs-Bad-Hygiene\1.6\Assemblies\BadHygiene.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Buildings\Building_ReplimatAnimalFeeder.cs" />
-    <Compile Include="Buildings\Building_ReplimatCorpseRecycler.cs" />
-    <Compile Include="Buildings\Building_ReplimatFeedTank.cs" />
-    <Compile Include="Buildings\Building_ReplimatComputer.cs" />
-    <Compile Include="Buildings\Building_ReplimatHopper.cs" />
-    <Compile Include="Buildings\Building_ReplimatSewageRecycler.cs" />
-    <Compile Include="Buildings\Building_ReplimatTerminal.cs" />
-    <Compile Include="Compatibility\AlienRacesCompatibility.cs" />
-    <Compile Include="Compatibility\DbhCompatibility.cs" />
-    <Compile Include="Comps\CompProperties_ReplimatRestrictions.cs" />
-    <Compile Include="Comps\CompReplimatRestrictions.cs" />
-    <Compile Include="Dialog_BatchMakeSurvivalMeals.cs" />
-    <Compile Include="Compatibility\ModCompatibility.cs" />
-    <Compile Include="Comps\CompProperties_SecondLayer.cs" />
-    <Compile Include="Comps\CompProperties_StateDependentPowerUse.cs" />
-    <Compile Include="Comps\CompSecondLayer.cs" />
-    <Compile Include="Comps\CompStateDependentPowerUse.cs" />
-    <Compile Include="FeedstockTankExtension.cs" />
-    <Compile Include="GraphicsLoader.cs" />
-    <Compile Include="Incidents\IncidentWorker_ReplimatMalfunctionSmokeleaf.cs" />
-    <Compile Include="Patches\Harmony_CompPowerTrader_PostSpawnSetup.cs" />
-    <Compile Include="Patches\Harmony_FoodUtility_AddFoodPoisoningHediff.cs" />
-    <Compile Include="Patches\Harmony_FoodUtility_BestFoodSourceOnMap.cs" />
-    <Compile Include="Patches\Harmony_FoodUtility_FoodOptimality.cs" />
-    <Compile Include="Patches\Harmony_FoodUtility_GetFinalIngestibleDef.cs" />
-    <Compile Include="Patches\Harmony_FoodUtility_SpawnedFoodSearchInnerScan.cs" />
-    <Compile Include="Patches\Harmony_FoodUtility_ThoughtsFromIngesting.cs" />
-    <Compile Include="Patches\Harmony_GameComponentUtility_GameComponentTick.cs" />
-    <Compile Include="Patches\Harmony_Game_FlushCacheOnNewOrExistingGames.cs" />
-    <Compile Include="Patches\Harmony_GenTemperature_GetTemperatureForCell.cs" />
-    <Compile Include="Patches\Harmony_JobDriver_BottleFeedBaby_MakeNewToils.cs" />
-    <Compile Include="Patches\Harmony_JobDriver_FoodDeliver_GetReport.cs" />
-    <Compile Include="Patches\Harmony_JobDriver_FoodFeedPatient_GetReport.cs" />
-    <Compile Include="Patches\Harmony_JobDriver_GetReport.cs" />
-    <Compile Include="Patches\Harmony_JobDriver_Ingest_GetReport.cs" />
-    <Compile Include="Patches\Harmony_JobGiver_EatInGatheringArea.cs" />
-    <Compile Include="Patches\Harmony_Map_ConstructComponents.cs" />
-    <Compile Include="Patches\Harmony_StorageGroupUtility_SetStorageGroup.cs" />
-    <Compile Include="Patches\Harmony_ThingDef_IsFoodDispenser.cs" />
-    <Compile Include="Patches\Harmony_ThingListGroupHelper_Includes.cs" />
-    <Compile Include="Patches\Harmony_ThingWithComps_DeSpawn.cs" />
-    <Compile Include="Patches\Harmony_Thing_GetInspectString.cs" />
-    <Compile Include="Patches\Harmony_Toils_Ingest_TakeMealFromDispenser.cs" />
-    <Compile Include="Patches\Harmony_Trait_TipString.cs" />
-    <Compile Include="Settings.cs" />
-    <Compile Include="Incidents\IncidentWorker_ReplimatMalfunctionKibble.cs" />
-    <Compile Include="Incidents\IncidentWorker_ReplimatSpill.cs" />
-    <Compile Include="ITab_CorpseFilters.cs" />
-    <Compile Include="Jobs\JobDriver_LoadReplimatCorpseRecycler.cs" />
-    <Compile Include="Compatibility\Multiplayer.cs" />
-    <Compile Include="ReplimatMod.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReplimatDef.cs" />
-    <Compile Include="ReplimatUtility.cs" />
-    <Compile Include="SymbolResolver_LoadCorpseIntoReplimatCorpseRecycler.cs" />
-    <Compile Include="ReplimatWidgets.cs" />
-    <Compile Include="Jobs\WorkGiver_LoadReplimatCorpseRecycler.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Krafs.Publicizer">
-      <Version>2.3.0</Version>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Krafs.Rimworld.Ref">
-      <Version>1.6.4633</Version>
-    </PackageReference>
-    <PackageReference Include="Lib.Harmony">
-      <Version>2.4.2</Version>
-      <PrivateAssets>all</PrivateAssets>
-      <ExcludeAssets>runtime</ExcludeAssets>
-      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-        <ItemGroup>
-        <Publicize Include="Assembly-CSharp;0Harmony;" />
-    </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProjectGuid>{5CE8E23A-3A11-4A15-B8DA-A80FF8CAD154}</ProjectGuid>
+		<OutputType>Library</OutputType>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<RootNamespace>Replimat</RootNamespace>
+		<AssemblyName>Replimat</AssemblyName>
+		<TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+		<FileAlignment>512</FileAlignment>
+		<Deterministic>true</Deterministic>
+		<TargetFrameworkProfile/>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>false</DebugSymbols>
+		<DebugType>none</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>..\1.6\Assemblies\</OutputPath>
+		<DefineConstants>TRACE;DEBUG</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<LangVersion>12</LangVersion>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>none</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>..\1.6\Assemblies\</OutputPath>
+		<DefineConstants>TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<LangVersion>12</LangVersion>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="AlienRace">
+			<HintPath>..\..\AlienRaces\1.6\Assemblies\AlienRace.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="BadHygiene">
+			<HintPath>..\..\Dubs-Bad-Hygiene\1.6\Assemblies\BadHygiene.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="Buildings\Building_ReplimatAnimalFeeder.cs"/>
+		<Compile Include="Buildings\Building_ReplimatCorpseRecycler.cs"/>
+		<Compile Include="Buildings\Building_ReplimatFeedTank.cs"/>
+		<Compile Include="Buildings\Building_ReplimatComputer.cs"/>
+		<Compile Include="Buildings\Building_ReplimatHopper.cs"/>
+		<Compile Include="Buildings\Building_ReplimatSewageRecycler.cs"/>
+		<Compile Include="Buildings\Building_ReplimatTerminal.cs"/>
+		<Compile Include="Compatibility\AlienRacesCompatibility.cs"/>
+		<Compile Include="Compatibility\DbhCompatibility.cs"/>
+		<Compile Include="Comps\CompProperties_ReplimatRestrictions.cs"/>
+		<Compile Include="Comps\CompReplimatRestrictions.cs"/>
+		<Compile Include="Dialog_BatchMakeSurvivalMeals.cs"/>
+		<Compile Include="Compatibility\ModCompatibility.cs"/>
+		<Compile Include="Comps\CompProperties_SecondLayer.cs"/>
+		<Compile Include="Comps\CompProperties_StateDependentPowerUse.cs"/>
+		<Compile Include="Comps\CompSecondLayer.cs"/>
+		<Compile Include="Comps\CompStateDependentPowerUse.cs"/>
+		<Compile Include="FeedstockTankExtension.cs"/>
+		<Compile Include="GraphicsLoader.cs"/>
+		<Compile Include="Incidents\IncidentWorker_ReplimatMalfunctionSmokeleaf.cs"/>
+		<Compile Include="Patches\Harmony_CompPowerTrader_PostSpawnSetup.cs"/>
+		<Compile Include="Patches\Harmony_FoodUtility_AddFoodPoisoningHediff.cs"/>
+		<Compile Include="Patches\Harmony_FoodUtility_BestFoodSourceOnMap.cs"/>
+		<Compile Include="Patches\Harmony_FoodUtility_FoodOptimality.cs"/>
+		<Compile Include="Patches\Harmony_FoodUtility_GetFinalIngestibleDef.cs"/>
+		<Compile Include="Patches\Harmony_FoodUtility_SpawnedFoodSearchInnerScan.cs"/>
+		<Compile Include="Patches\Harmony_FoodUtility_ThoughtsFromIngesting.cs"/>
+		<Compile Include="Patches\Harmony_GameComponentUtility_GameComponentTick.cs"/>
+		<Compile Include="Patches\Harmony_Game_FlushCacheOnNewOrExistingGames.cs"/>
+		<Compile Include="Patches\Harmony_GenTemperature_GetTemperatureForCell.cs"/>
+		<Compile Include="Patches\Harmony_JobDriver_BottleFeedBaby_MakeNewToils.cs"/>
+		<Compile Include="Patches\Harmony_JobDriver_FoodDeliver_GetReport.cs"/>
+		<Compile Include="Patches\Harmony_JobDriver_FoodFeedPatient_GetReport.cs"/>
+		<Compile Include="Patches\Harmony_JobDriver_GetReport.cs"/>
+		<Compile Include="Patches\Harmony_JobDriver_Ingest_GetReport.cs"/>
+		<Compile Include="Patches\Harmony_JobGiver_EatInGatheringArea.cs"/>
+		<Compile Include="Patches\Harmony_Map_ConstructComponents.cs"/>
+		<Compile Include="Patches\Harmony_StorageGroupUtility_SetStorageGroup.cs"/>
+		<Compile Include="Patches\Harmony_ThingDef_IsFoodDispenser.cs"/>
+		<Compile Include="Patches\Harmony_ThingListGroupHelper_Includes.cs"/>
+		<Compile Include="Patches\Harmony_ThingWithComps_DeSpawn.cs"/>
+		<Compile Include="Patches\Harmony_Thing_GetInspectString.cs"/>
+		<Compile Include="Patches\Harmony_Toils_Ingest_TakeMealFromDispenser.cs"/>
+		<Compile Include="Patches\Harmony_Trait_TipString.cs"/>
+		<Compile Include="Settings.cs"/>
+		<Compile Include="Incidents\IncidentWorker_ReplimatMalfunctionKibble.cs"/>
+		<Compile Include="Incidents\IncidentWorker_ReplimatSpill.cs"/>
+		<Compile Include="ITab_CorpseFilters.cs"/>
+		<Compile Include="Jobs\JobDriver_LoadReplimatCorpseRecycler.cs"/>
+		<Compile Include="Compatibility\Multiplayer.cs"/>
+		<Compile Include="ReplimatMod.cs"/>
+		<Compile Include="Properties\AssemblyInfo.cs"/>
+		<Compile Include="ReplimatDef.cs"/>
+		<Compile Include="ReplimatUtility.cs"/>
+		<Compile Include="SymbolResolver_LoadCorpseIntoReplimatCorpseRecycler.cs"/>
+		<Compile Include="ReplimatWidgets.cs"/>
+		<Compile Include="Jobs\WorkGiver_LoadReplimatCorpseRecycler.cs"/>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Krafs.Publicizer">
+			<Version>2.3.0</Version>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Krafs.Rimworld.Ref">
+			<Version>1.6.4633</Version>
+		</PackageReference>
+		<PackageReference Include="Lib.Harmony">
+			<Version>2.4.2</Version>
+			<PrivateAssets>all</PrivateAssets>
+			<ExcludeAssets>runtime</ExcludeAssets>
+			<IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<Publicize Include="Assembly-CSharp;"/>
+	</ItemGroup>
+	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
 </Project>
