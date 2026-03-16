@@ -32,6 +32,8 @@ namespace Replimat
         public static TraitDef Cannibal;
 
         [MayRequireIdeology]
+        public static PreceptDef Cannibalism_Acceptable;
+        [MayRequireIdeology]
         public static PreceptDef InsectMeatEating_Loved;
         [MayRequireIdeology]
         public static PreceptDef FungusEating_Preferred;
