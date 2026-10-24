@@ -15,4 +15,9 @@
 		<li>1.6</li>
 		<li IfModActive="Dubwise.DubsBadHygiene,Dubwise.DubsBadHygiene_steam">Compatibility/DubsBadHygiene</li>
 	</v1.6>
+	<v1.7>
+		<li>Common</li>
+		<li>1.7</li>
+		<li IfModActive="Dubwise.DubsBadHygiene,Dubwise.DubsBadHygiene_steam">Compatibility/DubsBadHygiene</li>
+	</v1.7>
 </loadFolders>
