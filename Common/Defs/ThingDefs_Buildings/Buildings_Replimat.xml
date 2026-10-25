@@ -224,6 +224,7 @@
 					</thingDefs>
 				</filter>
 			</defaultStorageSettings>
+			<blueprintClass>Blueprint_Storage</blueprintClass>
 			<soundDispense>Replicate</soundDispense>
 		</building>
 		<comps>
@@ -412,6 +413,7 @@
 					</disallowedCategories>
 				</filter>
 			</defaultStorageSettings>
+			<blueprintClass>Blueprint_Storage</blueprintClass>
 			<soundDispense>HopperDematerialize</soundDispense>
 		</building>
 		<inspectorTabs>
